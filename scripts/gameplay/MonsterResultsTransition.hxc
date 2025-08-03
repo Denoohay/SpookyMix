@@ -1,37 +1,17 @@
+import flixel.FlxG;
+import flixel.util.FlxTimer;
+import funkin.save.Save;
+import funkin.util.TouchUtil;
+import funkin.PlayerSettings;
+import funkin.util.ReflectUtil;
 import funkin.play.ResultState;
 import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
-import funkin.data.song.SongRegistry;
 import funkin.ui.transition.LoadingState;
-import flixel.FlxCamera;
-import flixel.math.FlxMath;
-import flixel.FlxSprite;
-import flixel.math.FlxAngle;
-import flixel.math.FlxPoint;
-import flixel.text.FlxText;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
-import flixel.util.FlxSpriteUtil;
-import flixel.util.FlxTimer;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
-import funkin.graphics.FunkinSprite;
-import funkin.ui.freeplay.charselect.PlayableCharacter;
-import funkin.ui.MusicBeatSubState;
-import funkin.graphics.shaders.AdjustColorShader;
-import flixel.addons.display.FlxTiledSprite;
-import flixel.addons.display.FlxBackdrop;
-import funkin.PlayerSettings;
+import funkin.ui.freeplay.FreeplayState;
 import funkin.modding.module.Module;
-import funkin.modding.events.ScriptEvent;
-import funkin.modding.base.ScriptedMusicBeatSubState;
-import funkin.modding.base.ScriptedFlxRuntimeShader;
-import funkin.modding.base.ScriptedMusicBeatState;
-import funkin.util.ReflectUtil;
-import flixel.FlxG;
 import funkin.audio.FunkinSound;
-import funkin.util.Constants;
-import StringTools;
-import funkin.save.Save;
+import funkin.data.song.SongRegistry;
 
 class MonsterResultsTransition extends Module
 {
@@ -73,9 +53,11 @@ class MonsterResultsTransition extends Module
             switchToMonsterSong = 'winter-horrorland';
         }
 
-        if (PlayerSettings.player1.controls.PAUSE && switchToMonsterSong != "")
+        if ((PlayerSettings.player1.controls.PAUSE || (FlxG.onMobile && TouchUtil.justPressed)) && switchToMonsterSong != "" && accepted != true)
         {
             enteredSong = false;
+
+            FlxG.mouse.visible = false;
 
             if (FlxG.state.subState.introMusicAudio != null)
             {
@@ -107,6 +89,8 @@ class MonsterResultsTransition extends Module
                 hasStoredVolume = true;
                 FlxG.sound.volume = 0;
             }
+            
+            FlxG.mouse.visible = false;
 
             FlxG.switchState(new funkin.ui.freeplay.FreeplayState());
         }
@@ -126,12 +110,13 @@ class MonsterResultsTransition extends Module
                 FlxG.sound.volume = 0;
             }
 
+            FlxG.mouse.visible = false;
+
             FlxG.state.funnyCam.alpha = 0;
             FlxG.state.rankCamera.alpha = 0;
 
             if (enteredSong == false)
             {
-                FlxG.state.busy = true;
                 FlxG.state.letterSort.inputEnabled = false;
                 
                 PlayStatePlaylist.isStoryMode = false;
@@ -157,14 +142,7 @@ class MonsterResultsTransition extends Module
                     }
                     else if (switchToMonsterSong == 'winter-horrorland')
                     {
-                        if (Save.instance.hasBeatenSong('south', null, 'spookymod'))
-                        {
-                            FlxG.state.curSelected = 14;
-                        }
-                        else
-                        {
-                            FlxG.state.curSelected = 13;
-                        }
+                        FlxG.state.curSelected = 16;
                     }
                     FlxG.state.changeSelection();
                     switchToMonsterSong = "";

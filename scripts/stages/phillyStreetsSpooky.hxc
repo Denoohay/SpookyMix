@@ -1,33 +1,20 @@
+import StringTools;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
+import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import flixel.util.FlxTimer;
-import funkin.audio.FunkinSound;
-import funkin.audio.FunkinSound;
-import funkin.Conductor;
-import funkin.graphics.framebuffer.BitmapDataUtil;
-import funkin.graphics.framebuffer.FixedBitmapData;
-import funkin.graphics.shaders.OverlayBlend;
-import funkin.graphics.shaders.RuntimeRainShader;
-import funkin.modding.base.ScriptedFlxRuntimeShader;
-import funkin.play.PlayState;
-import funkin.play.stage.Stage;
-import openfl.filters.BlurFilter;
-import openfl.filters.ShaderFilter;
-import funkin.util.FlxTweenUtil;
 import flixel.addons.display.FlxTiledSprite;
 import flixel.addons.display.FlxBackdrop;
+import funkin.util.FlxTweenUtil;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+import funkin.graphics.framebuffer.FixedBitmapData;
 import funkin.graphics.shaders.AdjustColorShader;
-import funkin.graphics.shaders.RuntimeCustomBlendShader;
-import StringTools;
 
 class PhillyStreetsSpookyStage extends Stage
 {
-	// var carSndAmbience:FunkinSound;
-
 	var lightsStop:Bool = false; // state of the traffic lights
 	var lastChange:Int = 0;
 	var changeInterval:Int = 8; // make sure it doesnt change until AT LEAST this many beats
@@ -108,7 +95,6 @@ class PhillyStreetsSpookyStage extends Stage
 
 	override function onCountdownEnd(event:ScriptEvent) {
 		super.onCountdownEnd(event);
-		// carSndAmbience.volume = 0.1;
 	}
 
 	override function onCreate(event:ScriptEvent):Void
@@ -266,9 +252,6 @@ class PhillyStreetsSpookyStage extends Stage
 		if (cars != null) FlxTween.cancelTweensOf(cars);
 		var cars2 = getNamedProp('phillyCars2');
 		if (cars2 != null) FlxTween.cancelTweensOf(cars2);
-
-		// Fully stop ambiance.
-		// if (carSndAmbience != null) carSndAmbience.stop();
 	}
 
 	/**
@@ -586,20 +569,12 @@ class PhillyStreetsSpookyStage extends Stage
 		super.onPause(event);
 
 		pauseCars();
-
-		// Temporarily stop ambiance.
-		// if (carSndAmbience != null) {
-		// 	carSndAmbience.pause();
-		// }
 	}
 
 	public override function onResume(event:ScriptEvent) {
 		super.onResume(event);
 
 		resumeCars();
-
-		// Temporarily stop ambiance.
-		// if (carSndAmbience != null) carSndAmbience.resume();
 	}
 
 	function pauseCars():Void {

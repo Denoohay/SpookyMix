@@ -1,0 +1,219 @@
+import funkin.ui.freeplay.backcards.BackingCard;
+import flixel.math.FlxMath;
+import flixel.FlxSprite;
+import funkin.ui.freeplay.FreeplayState;
+import funkin.util.BitmapUtil;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxTimer;
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import flixel.addons.display.FlxBackdrop;
+import funkin.ui.FullScreenScaleMode;
+import funkin.Conductor;
+import funkin.Preferences;
+
+class SpookyCard extends BackingCard
+{
+  var backLines:FlxSprite;
+  var topCandyRow:FlxBackdrop;
+  var lowCandyRow:FlxBackdrop;
+
+  var glow:FlxSprite;
+
+  var confirmAtlas:FlxAtlasSprite;
+  var candyAtlas:FlxAtlasSprite;
+
+  public function new()
+  {
+    super("spookymod");
+  }
+
+  public override function enterCharSel():Void
+  {
+    FlxTween.tween(backLines.velocity, {x: 0}, 0.8, {ease: FlxEase.sineIn});
+    FlxTween.tween(topCandyRow.velocity, {x: 0}, 0.8, {ease: FlxEase.sineIn});
+    FlxTween.tween(lowCandyRow.velocity, {x: 0}, 0.8, {ease: FlxEase.sineIn});
+    FlxTween.tween(glow.velocity, {x: 0}, 0.8, {ease: FlxEase.sineIn});
+  }
+
+  public override function applyExitMovers(?exitMovers:FreeplayState.ExitMoverData, ?exitMoversCharSel:FreeplayState.ExitMoverData):Void
+  {
+    super.applyExitMovers(exitMovers, exitMoversCharSel);
+    if (exitMovers == null || exitMoversCharSel == null) return;
+
+    exitMoversCharSel.set([backLines],
+      {
+        y: -50,
+        speed: 0.8,
+        wait: 0.1
+      });
+
+    exitMoversCharSel.set([topCandyRow],
+      {
+        y: -50,
+        speed: 0.8,
+        wait: 0.1
+      });
+
+    exitMoversCharSel.set([lowCandyRow],
+      {
+        y: -50,
+        speed: 0.8,
+        wait: 0.1
+      });
+
+    exitMoversCharSel.set([glow],
+      {
+        y: -50,
+        speed: 0.8,
+        wait: 0.1
+      });
+  }
+
+  public override function onCreate(event:ScriptEvent):Void
+  {
+    FlxTween.tween(pinkBack, {x: 0}, 0.6, {ease: FlxEase.quartOut});
+    add(pinkBack);
+
+    confirmTextGlow.blend = 0;
+    confirmTextGlow.visible = false;
+
+    confirmGlow.blend = 0;
+
+    confirmGlow.visible = false;
+    confirmGlow2.visible = false;
+
+    backLines = new FlxSprite(0, 193).loadGraphic(Paths.image('freeplay/backingCards/spookymod/freeplayLines'));
+    backLines.scale.x = backLines.scale.x * 1.5;
+    add(backLines);
+
+    if (!Preferences.naughtyness)
+        topCandyRow = new FlxBackdrop(Paths.image('freeplay/backingCards/spookymod/candyRow1 no naughty'), 0x01, 20);
+    else
+        topCandyRow = new FlxBackdrop(Paths.image('freeplay/backingCards/spookymod/candyRow1'), 0x01, 20);
+    topCandyRow.setPosition(0, 165);
+    topCandyRow.velocity.x = -200;
+    add(topCandyRow);
+        
+    if (!Preferences.naughtyness)
+        lowCandyRow = new FlxBackdrop(Paths.image('freeplay/backingCards/spookymod/candyRow2 no naughty'), 0x01, 15);
+    else
+        lowCandyRow = new FlxBackdrop(Paths.image('freeplay/backingCards/spookymod/candyRow2'), 0x01, 15);
+    lowCandyRow.setPosition(0, 340);
+    lowCandyRow.velocity.x = 200;
+    add(lowCandyRow);
+
+    glow = new FlxSprite((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) -280, 400).loadGraphic(Paths.image('freeplay/backingCards/spookymod/spookyGlow'));
+    glow.blend = 9;
+    add(glow);
+
+    backLines.visible = false;
+    topCandyRow.visible = false;
+    lowCandyRow.visible = false;
+    glow.visible = false;
+
+    confirmAtlas = new FlxAtlasSprite(0, 55, Paths.animateAtlas("freeplay/backingCards/spookymod/spooky-confirm"));
+    confirmAtlas.visible = false;
+    if (FullScreenScaleMode.wideScale.x != 1)
+        confirmAtlas.scale.x *= 1.44;
+    else
+        confirmAtlas.scale.x *= 1.05;
+    add(confirmAtlas);
+
+    candyAtlas = new FlxAtlasSprite((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI), 0, Paths.animateAtlas("freeplay/backingCards/spookymod/spooky-candy"));
+    candyAtlas.visible = false;
+    add(candyAtlas);
+  }
+
+  override public function confirm():Void
+  {
+    confirmAtlas.visible = true;
+    confirmAtlas.anim.play("");
+
+    candyAtlas.visible = true;
+    candyAtlas.anim.play("");
+
+    FlxTween.color(instance.backingImage, 10 / 24, 0xFFFFFFFF, 0xFF8A8A8A,
+      {
+        ease: FlxEase.expoOut,
+        onUpdate: function(_) {
+          instance.angleMaskShader.extraColor = instance.backingImage.color;
+        }
+      });
+
+    new FlxTimer().start(10 / 24, function(_) {
+      // shoot
+      FlxTween.color(instance.backingImage, 3 / 24, 0xFF343036, 0xFF696366,
+        {
+          ease: FlxEase.expoOut,
+          onUpdate: function(_) {
+            instance.angleMaskShader.extraColor = instance.backingImage.color;
+          }
+        });
+    });
+
+    new FlxTimer().start(14 / 24, function(_) {
+      // shoot
+      FlxTween.color(instance.backingImage, 3 / 24, 0xFF27292D, 0xFF686A6F,
+        {
+          ease: FlxEase.expoOut,
+          onUpdate: function(_) {
+            instance.angleMaskShader.extraColor = instance.backingImage.color;
+          }
+        });
+    });
+
+    new FlxTimer().start(18 / 24, function(_) {
+      // shoot
+      FlxTween.color(instance.backingImage, 3 / 24, 0xFF2D282D, 0xFF676164,
+        {
+          ease: FlxEase.expoOut,
+          onUpdate: function(_) {
+            instance.angleMaskShader.extraColor = instance.backingImage.color;
+          }
+        });
+    });
+
+    new FlxTimer().start(21 / 24, function(_) {
+      // shoot
+      FlxTween.color(instance.backingImage, 3 / 24, 0xFF29292F, 0xFF62626B,
+        {
+          ease: FlxEase.expoOut,
+          onUpdate: function(_) {
+            instance.angleMaskShader.extraColor = instance.backingImage.color;
+          }
+        });
+    });
+
+    new FlxTimer().start(24 / 24, function(_) {
+      // shoot
+      FlxTween.color(instance.backingImage, 3 / 24, 0xFF29232C, 0xFF808080,
+        {
+          ease: FlxEase.expoOut,
+          onUpdate: function(_) {
+            instance.angleMaskShader.extraColor = instance.backingImage.color;
+          }
+        });
+    });
+  }
+
+  public override function introDone():Void
+  {
+    pinkBack.color = 0xFF6620AD; //sets it to purple
+
+    backLines.visible = true;
+    topCandyRow.visible = true;
+    lowCandyRow.visible = true;
+    glow.visible = true;
+  }
+
+  public override function disappear():Void
+  {
+    FlxTween.color(pinkBack, 0.25, 0xFF6620AD, 0xFFFFD0D5, {ease: FlxEase.quadOut});
+
+    backLines.visible = false;
+    topCandyRow.visible = false;
+    lowCandyRow.visible = false;
+    glow.visible = false;
+  }
+}

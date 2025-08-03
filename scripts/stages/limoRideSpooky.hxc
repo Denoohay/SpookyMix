@@ -1,14 +1,10 @@
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.util.FlxTimer;
-import funkin.audio.FunkinSound;
+import flixel.addons.display.FlxBackdrop;
 import funkin.play.stage.Stage;
 import funkin.play.PlayState;
-import funkin.graphics.shaders.OverlayBlend;
-import funkin.graphics.shaders.AdjustColorShader;
-import flixel.addons.display.FlxBackdrop;
-import funkin.graphics.shaders.DropShadowShader;
 import funkin.play.character.CharacterType;
+import funkin.graphics.shaders.DropShadowShader;
 import funkin.save.Save;
 
 class LimoRideSpookyStage extends Stage

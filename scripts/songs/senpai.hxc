@@ -1,7 +1,6 @@
 import flixel.tweens.FlxEase;
 import funkin.graphics.FunkinSprite;
 import flixel.tweens.FlxTween;
-import funkin.play.cutscene.dialogue.DialogueBox;
 import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
 import funkin.play.song.Song;
@@ -9,7 +8,6 @@ import flixel.FlxG;
 import funkin.save.Save;
 import flixel.FlxSprite;
 import flixel.util.FlxTimer;
-
 import funkin.effects.RetroCameraFade;
 
 class SenpaiSong extends Song {

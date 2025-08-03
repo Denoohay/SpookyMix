@@ -14,10 +14,19 @@
     {
       "name": "tankSky",
       "assetPath": "spooky/tankSky",
-      "position": [-400, -900],
-      "scale": [1, 1],
+      "position": [-500, -900],
+      "scale": [1.3, 1],
       "zIndex": 10,
       "scroll": [0, 0]
+    },
+    {
+      "name": "tankSkyUnder",
+      "assetPath": "spooky/tankSky",
+      "position": [-500, 400],
+      "scale": [1.3, 1],
+      "zIndex": 9,
+      "scroll": [0, 0],
+      "flipY": true
     },
     {
       "name": "moon",
@@ -31,7 +40,7 @@
       "name": "bottomLighting",
       "assetPath": "spooky/bottomLighting",
       "position": [-400, 300],
-      "scale": [1, 1],
+      "scale": [1.3, 1],
       "zIndex": 2000,
       "scroll": [0, 0]
     },
@@ -138,7 +147,7 @@
     {
       "name": "tankGround",
       "assetPath": "spooky/tankGround",
-      "position": [-340, 350],
+      "position": [-540, 350],
       "scroll": [1, 1],
       "scale": [1, 1],
       "zIndex": 40

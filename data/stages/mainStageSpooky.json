@@ -49,7 +49,7 @@
     {
       "danceEvery": 0,
       "zIndex": 20,
-      "position": [-603, -187],
+      "position": [-765, -247],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "bg",
@@ -101,7 +101,7 @@
     {
       "danceEvery": 0,
       "zIndex": 30,
-      "position": [-361, 205],
+      "position": [-991, 205],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "server",
@@ -114,7 +114,7 @@
     {
       "danceEvery": 0,
       "zIndex": 4000,
-      "position": [-601, -147],
+      "position": [-847, -245],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "lights",

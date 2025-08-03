@@ -38,6 +38,19 @@ body:
       placeholder: ex. 2.0.0
     validations:
       required: true
+  
+  - type: dropdown
+    attributes:
+      label: Spooky Mix Platform
+      description: Which platform did you play Spooky Mix on?
+      options:
+        - Windows
+        - MacOS
+        - Linux
+        - Android
+        - iOS/iPadOS
+    validations:
+      required: true
       
   - type: dropdown
     attributes:

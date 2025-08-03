@@ -1,23 +1,34 @@
 {
   "props": [
     {
-      "name": "solid",
-      "assetPath": "#000000",
-      "position": [-500, -1000],
-      "scale": [2400, 2000],
-      "scroll": [0, 0]
-    },
-    {
-      "danceEvery": 0,
       "zIndex": 20,
-      "position": [-200, 40],
+      "position": [-665, 40],
       "scale": [6, 6],
       "animType": "sparrow",
-      "name": "evilSchoolBG",
+      "name": "evilStreet",
       "isPixel": true,
-      "assetPath": "weeb/spooky/evilSchoolBG",
-      "scroll": [1, 1],
-      "animations": []
+      "assetPath": "weeb/spooky/evil/evilStreet",
+      "scroll": [1, 1]
+    },
+    {
+      "zIndex": 19,
+      "position": [-665, 40],
+      "scale": [6, 6],
+      "animType": "sparrow",
+      "name": "evilTrees",
+      "isPixel": true,
+      "assetPath": "weeb/spooky/evil/evilTrees",
+      "scroll": [0.9, 0.9]
+    },
+    {
+      "zIndex": 18,
+      "position": [-665, -20],
+      "scale": [6, 6],
+      "animType": "sparrow",
+      "name": "evilSchool",
+      "isPixel": true,
+      "assetPath": "weeb/spooky/evil/evilSchool",
+      "scroll": [0.7, 0.7]
     }
   ],
   "cameraZoom": 0.9,

@@ -1,25 +1,20 @@
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.addons.display.FlxRuntimeShader;
-import flixel.sound.FlxSound;
-import funkin.Conductor;
-import funkin.modding.base.ScriptedFlxRuntimeShader;
+import flixel.math.FlxPoint;
+import flixel.util.FlxTimer;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.group.FlxTypedSpriteGroup;
+import flixel.addons.display.FlxBackdrop;
+import flixel.text.FlxText;
+import flixel.text.FlxTextBorderStyle;
+import funkin.Highscore;
+import funkin.util.TouchUtil;
+import funkin.ui.FullScreenScaleMode;
+import funkin.audio.FunkinSound;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
-import funkin.modding.base.ScriptedFlxAtlasSprite;
-import flixel.group.FlxTypedSpriteGroup;
-import flixel.math.FlxPoint;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
-import flixel.addons.display.FlxBackdrop;
-import funkin.Highscore;
-import flixel.util.FlxTimer;
-import flixel.util.FlxTimerManager;
-import flixel.text.FlxText;
-import flixel.text.FlxTextBorderStyle;
-import funkin.audio.FunkinSound;
 
 class BlazinNeighborhoodStage extends Stage
 {
@@ -31,6 +26,8 @@ class BlazinNeighborhoodStage extends Stage
 	var moveStrumlineTween:FlxTween;
 
 	var playerStrumline:FlxSprite;
+
+	var centeredStrumlineX:Float;
 
 	var scrollingSky:FlxBackdrop;
 	var scrollingBuildings:FlxSprite;
@@ -46,6 +43,8 @@ class BlazinNeighborhoodStage extends Stage
 	var canSkipCutscene:Bool = false;
 
 	var dillyDally:FunkinSound;
+
+	var isMobilePauseButtonPressed:Bool = false;
 
 	function new()
 	{
@@ -82,6 +81,14 @@ class BlazinNeighborhoodStage extends Stage
 		getNamedProp('darnellWalking').shader = colorShaderWalkers;
 		getNamedProp('pumpWalking').shader = colorShaderWalkers;
 		getNamedProp('skidWalking').shader = colorShaderWalkers;
+
+		if (FlxG.onMobile) 
+		{
+			getNamedProp('strumBG').visible = false;
+			getNamedProp('darnellWalking').x = 770;
+			getNamedProp('pumpWalking').x = 115;
+			getNamedProp('skidWalking').x = 488;
+		}
 		
 		scrollingSky = new FlxBackdrop(Paths.image('blazin/spooky/walkingBG/skyBG'), 0x01);
 		scrollingSky.setPosition(0, -1439);
@@ -187,7 +194,8 @@ class BlazinNeighborhoodStage extends Stage
 
 		if (playerStrumline != null)
 		{
-			playerStrumline.x = 415; //640 - 225
+			if (!FlxG.onMobile) playerStrumline.screenCenter(0x01);
+			centeredStrumlineX = playerStrumline.x;
 		}
 
 		var opponentStrumline:FlxSprite = PlayState.instance.opponentStrumline;
@@ -233,7 +241,7 @@ class BlazinNeighborhoodStage extends Stage
 		PlayState.instance.add(coverscreen);
 		coverscreen.cameras = [PlayState.instance.camCutscene];
 
-		skipText = new FlxText(936, 650, 0, '[ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ] to Continue', 20);
+		skipText = new FlxText(FlxG.width - 344, 650 * FullScreenScaleMode.wideScale.y, 0, '[ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ] to Continue', 20);
 		skipText.setFormat(Paths.font('vcr.ttf'), 30, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
 		skipText.scrollFactor.set(0, 0);
 		skipText.borderSize = 2;
@@ -242,12 +250,20 @@ class BlazinNeighborhoodStage extends Stage
 		PlayState.instance.add(skipText);
 		skipText.cameras = [PlayState.instance.camCutscene];
 		
+		if (FlxG.onMobile)
+		{
+			skipText.text = '[Pause Button] to Continue';
+			skipText.x -= 136;
+		}
+		
 		cutscenePaper = new FlxSprite(110, -230).loadGraphic(Paths.image('blazin/spooky/Pre-BlazinCutscene', "weekend1"));
 		cutscenePaper.scrollFactor.set(0, 0);
 		cutscenePaper.scale.set(0.6, 0.6);
 		cutscenePaper.alpha = 0;
 		cutscenePaper.angle = 6;
 		cutscenePaper.zIndex = 950;
+		cutscenePaper.screenCenter(0x01);
+		cutscenePaper.x = cutscenePaper.x - 40;
 		PlayState.instance.add(cutscenePaper);
 		cutscenePaper.cameras = [PlayState.instance.camCutscene];
 
@@ -255,7 +271,7 @@ class BlazinNeighborhoodStage extends Stage
 		
 		new FlxTimer().start(0.5, _ -> {
 			FlxTween.tween(cutscenePaper, {alpha: 1}, 1, {ease: FlxEase.quadOut});
-			FlxTween.tween(cutscenePaper, {x: 150}, 1, {ease: FlxEase.quadOut});
+			FlxTween.tween(cutscenePaper, {x: cutscenePaper.x + 40}, 1, {ease: FlxEase.quadOut});
 
 			FlxTween.tween(skipText, {alpha: 1}, 1, {ease: FlxEase.quadOut});
 			new FlxTimer().start(1, _ -> {
@@ -263,12 +279,6 @@ class BlazinNeighborhoodStage extends Stage
 				trace('can skip!');
 			});
 		});
-		
-		theCutscene = new FlxAtlasSprite(0, 0, Paths.animateAtlas("spookyStages/oogasHouse/cutscene/ending"));
-		theCutscene.zIndex = 10000;
-		theCutscene.alpha = 0;
-		PlayState.instance.currentStage.add(theCutscene);
-		theCutscene.cameras = [PlayState.instance.camHUD];
 		
 		cutsceneMusic = FunkinSound.load(Paths.music("spooky/blazin/dillydally", "weekend1"), true);
 		cutsceneMusic.volume = 0.4;
@@ -280,7 +290,7 @@ class BlazinNeighborhoodStage extends Stage
 		cutsceneSkipped = true;
 		hasPlayedCutscene = true;
 		PlayState.instance.camCutscene.fade(0xFF000000, 0.5, false, null, true);
-		FlxTween.tween(cutscenePaper, {x: 200}, 1, {ease: FlxEase.quadOut});
+		FlxTween.tween(cutscenePaper, {x: cutscenePaper.x + 90}, 1, {ease: FlxEase.quadOut});
 		cutsceneMusic.fadeOut(0.5, 0);
 
 		new FlxTimer().start(0.5, _ -> {
@@ -310,8 +320,13 @@ class BlazinNeighborhoodStage extends Stage
 			scrollingGraves1.alpha = 0;
 			scrollingGraves2.alpha = 1;
 		}
+		
+		if (FlxG.onMobile)
+		{
+		  isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
+		}
 
-		if((PlayState.instance.controls.CUTSCENE_ADVANCE || PlayState.instance.controls.NOTE_LEFT || PlayState.instance.controls.NOTE_RIGHT || PlayState.instance.controls.NOTE_UP || PlayState.instance.controls.NOTE_DOWN) && cutsceneSkipped == false && canSkipCutscene == true)
+		if((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed || PlayState.instance.controls.NOTE_LEFT || PlayState.instance.controls.NOTE_RIGHT || PlayState.instance.controls.NOTE_UP || PlayState.instance.controls.NOTE_DOWN) && cutsceneSkipped == false && canSkipCutscene == true)
 		{
 			hasPlayedCutscene = true;
 			skipCutscene();
@@ -394,7 +409,7 @@ class BlazinNeighborhoodStage extends Stage
 
 		if (playerStrumline != null)
 		{
-			playerStrumline.x = 415; //640 - 225
+			playerStrumline.screenCenter(0x01);
 		}
 		
 		currentHouse = 1;
@@ -474,12 +489,12 @@ class BlazinNeighborhoodStage extends Stage
 				getDad().idleSuffix = "-errm";
 				getDad().danceEvery = 0;
 			}
-			else if (scriptEvent.eventData.value.houseEvent == 3)
+			else if (scriptEvent.eventData.value.houseEvent == 3 && !FlxG.onMobile)
 			{
-				if (playerStrumline.x == 415)
-					moveStrumlineTween = FlxTween.tween(playerStrumline, {x: 790}, 1, {ease: FlxEase.smootherStepInOut});
-				if (playerStrumline.x == 790)
-					moveStrumlineTween = FlxTween.tween(playerStrumline, {x: 415}, 1, {ease: FlxEase.smootherStepInOut});
+				if (playerStrumline.x == centeredStrumlineX)
+					moveStrumlineTween = FlxTween.tween(playerStrumline, {x: centeredStrumlineX + 374}, 1, {ease: FlxEase.smootherStepInOut});
+				if (playerStrumline.x == centeredStrumlineX + 374)
+					moveStrumlineTween = FlxTween.tween(playerStrumline, {x: centeredStrumlineX}, 1, {ease: FlxEase.smootherStepInOut});
 			}
 			else if (scriptEvent.eventData.value.houseEvent == 4)
 			{

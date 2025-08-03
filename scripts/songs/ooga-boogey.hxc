@@ -1,20 +1,5 @@
-import flixel.tweens.FlxEase;
-import funkin.graphics.FunkinSprite;
-import flixel.tweens.FlxTween;
-import funkin.play.cutscene.dialogue.DialogueBox;
-import funkin.play.PlayState;
-import funkin.play.PlayStatePlaylist;
-import funkin.play.song.Song;
-import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.util.FlxTimer;
 import funkin.save.Save;
-import funkin.effects.RetroCameraFade;
-import funkin.play.PlayStatePlaylist;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
-import funkin.modding.base.ScriptedFlxAtlasSprite;
-import flixel.sound.FlxSound;
-import funkin.audio.FunkinSound;
+import funkin.play.song.Song;
 
 class OogaBoogeySong extends Song {
 	public function new() {

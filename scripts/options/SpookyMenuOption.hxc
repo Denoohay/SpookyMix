@@ -1,25 +1,18 @@
 import funkin.PlayerSettings;
 import funkin.modding.module.Module;
 import funkin.modding.events.ScriptEvent;
-import funkin.modding.base.ScriptedMusicBeatSubState;
-import funkin.modding.base.ScriptedFlxRuntimeShader;
-import funkin.modding.base.ScriptedMusicBeatState;
 import funkin.util.ReflectUtil;
 import flixel.FlxG;
 import funkin.util.Constants;
-import StringTools;
 import funkin.save.Save;
 import funkin.ui.options.OptionsState;
-import funkin.ui.options.PreferencesMenu;
 import funkin.audio.FunkinSound;
-import funkin.ui.options.items.EnumPreferenceItem;
 import funkin.ui.freeplay.FreeplayState;
 import flixel.FlxSprite;
 import funkin.ui.title.TitleState;
 import funkin.ui.mainmenu.MainMenuState;
 import flixel.text.FlxText;
 import flixel.util.FlxTimer;
-import flixel.sound.FlxSoundGroup;
 import funkin.ui.charSelect.CharSelectSubState;
 
 class SpookyMenuOption extends Module
@@ -32,6 +25,8 @@ class SpookyMenuOption extends Module
     var titleText:FlxSprite;
 
     var addedTitleMusic:Bool = false;
+
+    var addedTitleMusicDelayed:Bool = false; //specifically so that there isn't a popup on startup with the mod menu mod installed
 
     var fadeMusicIn:Bool = false;
 
@@ -70,79 +65,46 @@ class SpookyMenuOption extends Module
             
             if (FlxG.save.data.SpookyMixMenu == 'Always On' || (FlxG.save.data.SpookyMixMenu == 'Spooky Kids Selected' && FlxG.save.data.rememberedStartupCharacter == "spookymod"))
             {
-                if (addedTitle == 0)
+                if (FlxG.state.logoBl != null && FlxG.state.gfDance != null && FlxG.state.titleText != null && FlxG.state.skippedIntro && addedTitle == 0)
                 {
-                    skidDance = new FlxSprite(26 + 34, 283);
-                    skidDance.frames = Paths.getSparrowAtlas('skidDanceTitle');
-                    //skidDance.animation.addByIndices('danceLeft', 'skidDance instance 1', [0, 1, 2, 3, 4, 5, 6, 7], "", 24, false);
-                    //skidDance.animation.addByIndices('danceRight', 'skidDance instance 1', [8, 9, 10, 11, 12, 13, 14, 15], "", 24, false);
-                    skidDance.animation.addByPrefix('dance', 'skidDance instance 1', 24, true);
-                    skidDance.animation.play('dance');
-                    skidDance.shader = FlxG.state.swagShader.shader;
-                    skidDance.visible = false;
-                    FlxG.state.add(skidDance);
-            
-                    pumpDance = new FlxSprite(900, 277);
-                    pumpDance.frames = Paths.getSparrowAtlas('pumpDanceTitle');
-                    //pumpDance.animation.addByIndices('danceLeft', 'pumpDance instance 1', [0, 1, 2, 3, 4, 5, 6, 7], "", 24, false);
-                    //pumpDance.animation.addByIndices('danceRight', 'pumpDance instance 1', [8, 9, 10, 11, 12, 13, 14, 15], "", 24, false);
-                    pumpDance.animation.addByPrefix('dance', 'pumpDance instance 1', 24, true);
-                    pumpDance.animation.play('dance');
-                    pumpDance.shader = FlxG.state.swagShader.shader;
-                    pumpDance.visible = false;
-                    FlxG.state.add(pumpDance);
-            
-                    logoSpooky = new FlxSprite(0, 9);
-                    logoSpooky.frames = Paths.getSparrowAtlas('spookyLogo');
-                    logoSpooky.screenCenter(0x01);
-                    logoSpooky.animation.addByPrefix('bump', 'logo', 24);
-                    logoSpooky.visible = false;
-                    FlxG.state.add(logoSpooky);
-                
-                    titleText = new FlxSprite(126, 605);
-                    titleText.frames = Paths.getSparrowAtlas('titleEnterSpooky');
-                    titleText.animation.addByPrefix('idle', "Press Enter to Begin", 24);
-                    titleText.animation.addByPrefix('press', "ENTER PRESSED", 24);
-                    titleText.animation.play('idle');
-                    titleText.visible = false;
-                    FlxG.state.add(titleText);
-
-                    addedTitle = 1;
-                }
-
-                if (FlxG.state.logoBl != null && FlxG.state.gfDance != null && FlxG.state.titleText != null && FlxG.state.skippedIntro && addedTitle == 1)
-                {
-                    //second massive block of the same stuff here to prevent lag when the screen flashes to reveal the title screen. would put this all in a function but it still lagged when i did that for some reason so I'm gonna have to deal with it being like this
-                    skidDance = new FlxSprite(26 + 34, 283);
-                    skidDance.frames = Paths.getSparrowAtlas('skidDanceTitle');
-                    //skidDance.animation.addByIndices('danceLeft', 'skidDance instance 1', [0, 1, 2, 3, 4, 5, 6, 7], "", 24, false);
-                    //skidDance.animation.addByIndices('danceRight', 'skidDance instance 1', [8, 9, 10, 11, 12, 13, 14, 15], "", 24, false);
-                    skidDance.animation.addByPrefix('dance', 'skidDance instance 1', 24, true);
-                    skidDance.animation.play('dance');
-                    skidDance.shader = FlxG.state.swagShader.shader;
-                    skidDance.visible = false;
-                    FlxG.state.add(skidDance);
-            
-                    pumpDance = new FlxSprite(900, 277);
-                    pumpDance.frames = Paths.getSparrowAtlas('pumpDanceTitle');
-                    //pumpDance.animation.addByIndices('danceLeft', 'pumpDance instance 1', [0, 1, 2, 3, 4, 5, 6, 7], "", 24, false);
-                    //pumpDance.animation.addByIndices('danceRight', 'pumpDance instance 1', [8, 9, 10, 11, 12, 13, 14, 15], "", 24, false);
-                    pumpDance.animation.addByPrefix('dance', 'pumpDance instance 1', 24, true);
-                    pumpDance.animation.play('dance');
-                    pumpDance.shader = FlxG.state.swagShader.shader;
-                    pumpDance.visible = false;
-                    FlxG.state.add(pumpDance);
-            
                     FlxG.state.logoBl.frames = Paths.getSparrowAtlas('spookyLogo');
                     FlxG.state.logoBl.y = 9;
                     FlxG.state.logoBl.screenCenter(0x01);
                     FlxG.state.logoBl.animation.addByPrefix('bump', 'logo', 24);
-                
-                    FlxG.state.titleText.frames = Paths.getSparrowAtlas('titleEnterSpooky');
+
+                    skidDance = new FlxSprite(FlxG.state.logoBl.x - 275, 283);
+                    skidDance.frames = Paths.getSparrowAtlas('skidDanceTitle');
+                    //skidDance.animation.addByIndices('danceLeft', 'skidDance instance 1', [0, 1, 2, 3, 4, 5, 6, 7], "", 24, false);
+                    //skidDance.animation.addByIndices('danceRight', 'skidDance instance 1', [8, 9, 10, 11, 12, 13, 14, 15], "", 24, false);
+                    skidDance.animation.addByPrefix('dance', 'skidDance instance 1', 24, true);
+                    skidDance.animation.play('dance');
+                    skidDance.shader = FlxG.state.swagShader.shader;
+                    skidDance.visible = false;
+                    FlxG.state.add(skidDance);
+            
+                    pumpDance = new FlxSprite(FlxG.state.logoBl.x + 565, 277);
+                    pumpDance.frames = Paths.getSparrowAtlas('pumpDanceTitle');
+                    //pumpDance.animation.addByIndices('danceLeft', 'pumpDance instance 1', [0, 1, 2, 3, 4, 5, 6, 7], "", 24, false);
+                    //pumpDance.animation.addByIndices('danceRight', 'pumpDance instance 1', [8, 9, 10, 11, 12, 13, 14, 15], "", 24, false);
+                    pumpDance.animation.addByPrefix('dance', 'pumpDance instance 1', 24, true);
+                    pumpDance.animation.play('dance');
+                    pumpDance.shader = FlxG.state.swagShader.shader;
+                    pumpDance.visible = false;
+                    FlxG.state.add(pumpDance);
+                    
+                    if (FlxG.onMobile)
+                    {
+                        FlxG.state.titleText.frames = Paths.getSparrowAtlas('titleEnterSpooky_mobile');
+                        FlxG.state.titleText.x = FlxG.state.logoBl.x - 280;
+                    }
+                    else
+                    {
+                        FlxG.state.titleText.frames = Paths.getSparrowAtlas('titleEnterSpooky');
+                        FlxG.state.titleText.x = FlxG.state.logoBl.x - 209;
+                    }
                     FlxG.state.titleText.animation.addByPrefix('idle', "Press Enter to Begin", 24);
                     FlxG.state.titleText.animation.addByPrefix('press', "ENTER PRESSED", 24);
                     FlxG.state.titleText.animation.play('idle');
-                    FlxG.state.titleText.x = 126;
                     FlxG.state.titleText.y = 605;
                     
 
@@ -151,7 +113,7 @@ class SpookyMenuOption extends Module
 
                     FlxG.state.gfDance.visible = false;
 
-                    addedTitle = 2;
+                    addedTitle = 1;
                 }
             }
         }
@@ -256,6 +218,11 @@ class SpookyMenuOption extends Module
 		                menuMusic.persist = true;
 		                menuMusic.fadeIn(4.0, 0.0, 1.0);
                         addedTitleMusic = true;
+                        
+                        new FlxTimer().start(1, function(tmr:FlxTimer)
+                        {
+                            addedTitleMusicDelayed = true;
+                        });
                     });
             }
         }
@@ -281,7 +248,7 @@ class SpookyMenuOption extends Module
                     dontPlayMusicYet = true;
                 }
 
-                if (fadeMusicIn == false) menuMusic.stop();
+                if (fadeMusicIn == false && addedTitleMusicDelayed == true) menuMusic.stop();
             }
             else if (ReflectUtil.getClassNameOf(FlxG.state) != "funkin.ui.options.OptionsState")
             {

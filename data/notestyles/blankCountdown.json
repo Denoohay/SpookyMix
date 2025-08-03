@@ -98,13 +98,13 @@
     },
     "countdownThree": {
       "data": {
-        "audioPath": null
+        "audioPath": "shared:silent"
       },
       "assetPath": null
     },
     "countdownTwo": {
       "data": {
-        "audioPath": null
+        "audioPath": "shared:silent"
       },
       "assetPath": null,
       "scale": 1.0,
@@ -112,7 +112,7 @@
     },
     "countdownOne": {
       "data": {
-        "audioPath": null
+        "audioPath": "shared:silent"
       },
       "assetPath": null,
       "scale": 1.0,
@@ -120,7 +120,7 @@
     },
     "countdownGo": {
       "data": {
-        "audioPath": null
+        "audioPath": "shared:silent"
       },
       "assetPath": null,
       "scale": 1.0,

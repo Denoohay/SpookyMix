@@ -1,26 +1,25 @@
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.addons.display.FlxRuntimeShader;
 import flixel.sound.FlxSound;
-import funkin.Conductor;
-import funkin.modding.base.ScriptedFlxRuntimeShader;
-import funkin.play.PlayState;
-import funkin.play.stage.Stage;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
-import funkin.modding.base.ScriptedFlxAtlasSprite;
 import flixel.util.FlxTimer;
 import flixel.util.FlxTimerManager;
-import funkin.audio.FunkinSound;
-import funkin.data.song.SongRegistry;
 import flixel.text.FlxText;
 import flixel.text.FlxTextBorderStyle;
-import funkin.input.Controls;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import funkin.graphics.shaders.AdjustColorShader;
 import flixel.addons.display.FlxBackdrop;
-import funkin.graphics.shaders.DropShadowShader;
+import flixel.addons.display.FlxRuntimeShader;
+import funkin.Conductor;
+import funkin.input.Controls;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
 import funkin.play.character.CharacterType;
+import funkin.modding.base.ScriptedFlxRuntimeShader;
+import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.audio.FunkinSound;
+import funkin.data.song.SongRegistry;
+import funkin.graphics.shaders.DropShadowShader;
 
 class PhillyTrainSpookyStage extends Stage
 {
@@ -337,8 +336,8 @@ class PhillyTrainSpookyStage extends Stage
 
 		// NOTE: You pass the constructor variables directly, not as an array.
 		lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', 1.0);
-		//trainSound = new FlxSound().loadEmbedded(Paths.sound('train_passes'));
-		//FlxG.sound.list.add(trainSound);
+		trainSound = new FlxSound().loadEmbedded(Paths.sound('carPass1', "week4"));
+		FlxG.sound.list.add(trainSound);
 		
 		if (FlxG.save.data.spookyShaders != false)
 			getNamedProp("topGradient").blend = 0;
@@ -351,6 +350,9 @@ class PhillyTrainSpookyStage extends Stage
 			light.shader = lightShader;
 			light.visible = false;
 		}
+
+		if (FlxG.random.int(1, 20) == 1)
+			getNamedProp('weird').alpha = 1;
 
 	}
 
@@ -519,7 +521,7 @@ class PhillyTrainSpookyStage extends Stage
 	function trainStart():Void
 	{
 		trainMoving = true;
-		//trainSound.play(true);
+		trainSound.play(true);
 	}
 
 	var startedMoving:Bool = false;
@@ -603,6 +605,8 @@ class PhillyTrainSpookyStage extends Stage
 		results.push(Paths.image('limo/spooky/FGbushStarbucks'));
 
 		results.push(Paths.animateAtlas("philly/spooky/limoDrive", "week3"));
+		
+		results.push(Paths.animateAtlas("carPass1", "week4"));
 
 		return results;
 	}

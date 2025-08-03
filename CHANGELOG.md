@@ -3,6 +3,48 @@ All notable changes will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.0.3] - 2025-08-02
+
+### Added
+
+- Limo in Week 3 (Spooky Mix) now plays a sound when passing by
+- New easter egg in Week 3 (Spooky Mix)
+- On mobile, you can tap on the player icon to toggle between the default and "old" version
+- If there is already text in the bottom right corner of the Main Menu (from debugging or another mod), an additional text line will be created above it displaying the Spooky Mix version
+
+### Changed
+
+- All Spooky Mix stages (except Tutorial, Week 2, and Ooga Boogey) have been edited to fit wider resolutions
+- Added extra details to Nene's design in Blazin' (Spooky Mix) to be more accurate to her original concept
+- Updated "QuasarXP" to "SillyRetto" in credits
+- Thorns (Spooky Mix) background has been broken up into separate parts to make the background feel less flat
+- Pause Button can now be used to skip cutscenes on mobile
+- Blazin' (Spooky Mix) no longer has hold notes in the chart
+- Less Tankmen will spawn in on Stress (Spooky Mix) if you have Spooky Shaders turned off
+
+### Fixed
+
+- Monster (Spooky Mix) and Winter Horrorland (Spooky Mix) can now be played without crashing at the start
+- The Spooky Kids Freeplay card has been extended to fit wider resolutions
+- Title Screen assets are no longer incorrectly placed on wider resolutions
+- The Ooga Boogey ending cutscene will now be centered on wider resolutions
+- The change DJ hint text in Freeplay no longer gets cutoff by "UNOFFICAL SOUNDTRACK"
+- A script error no longer pops up when restarting Thorns (Spooky Mix)
+- Removed the extra spacing between Weekend 1 and Ooga Booga titles in Story Mode
+- Playing Winter Horrorland (Spooky Mix) after beating Eggnog (Spooky Mix) for the first time no longer has the incorrect song selected when going back to Freeplay
+- Fixed a selling mistake in the Stress (Spooky Mix) lyrics
+- The paper in the intro to Blazin' (Spooky Mix) is now centered on wider resolutions
+- You can no longer get softlocked on the intro to Blazin' (Spooky Mix)
+- Sounds in the Stress (Spooky Mix) opening cutscene now properly get cut off when skipping it
+- Lyrics are now in the correct position on mobile
+- Number of Game Overs on the Pause Menu no longer gets pushed offscreen on mobile
+- Song scripts have been updated to match with the current song scripts in base game
+- Using the "Funkin' Mod Menu" mod no longer causes a script error to pop up
+
+### Removed
+
+- Removed extra controls in the credits menu since the menu was reworked in FNF v0.7 and the extra controls won't work anymore
+
 ## [2.0.2] - 2025-05-30
 
 ### Added

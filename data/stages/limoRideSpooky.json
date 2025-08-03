@@ -17,11 +17,23 @@
     {
       "zIndex": 10,
       "danceEvery": 0,
-      "position": [-700, -430],
+      "position": [1965, -430],
       "scale": [1.36, 1.36],
       "name": "limoSky",
       "animType": "sparrow",
       "isPixel": false,
+      "scroll": [0.1, 0.1],
+      "assetPath": "limo/spooky/limoSky",
+      "animations": []
+    },
+    {
+      "zIndex": 10,
+      "danceEvery": 0,
+      "position": [-700, -430],
+      "scale": [1.36, 1.36],
+      "name": "limoSky",
+      "animType": "sparrow",
+      "flipX": true,
       "scroll": [0.1, 0.1],
       "assetPath": "limo/spooky/limoSky",
       "animations": []
@@ -73,9 +85,18 @@
       ]
     },
     {
+      "zIndex": 150,
+      "position": [1925, 523],
+      "scale": [3, 1],
+      "name": "limoExtender",
+      "scroll": [1, 1],
+      "assetPath": "limo/spooky/limoDriveExtender",
+      "animations": []
+    },
+    {
       "zIndex": 500,
       "danceEvery": 0,
-      "position": [-300, 200],
+      "position": [2100, 200],
       "scale": [1, 1],
       "name": "bush",
       "animType": "sparrow",
@@ -87,7 +108,7 @@
     {
       "zIndex": 11,
       "danceEvery": 0,
-      "position": [-300, -50],
+      "position": [2100, -50],
       "scale": [1, 1],
       "name": "tree",
       "animType": "sparrow",

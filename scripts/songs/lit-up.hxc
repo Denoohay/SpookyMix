@@ -1,16 +1,17 @@
-import flixel.FlxG;
 import funkin.play.song.Song;
 import funkin.play.PlayState;
 import funkin.play.cutscene.VideoCutscene;
 import funkin.save.Save;
-
 import funkin.play.PlayStatePlaylist;
+import flixel.FlxG;
 
-class LitUpSong extends Song {
-	public function new() {
-		super('lit-up');
-	}
-	
+class LitUpSong extends Song
+{
+  public function new()
+  {
+    super('lit-up');
+  }
+  
 	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool
     {
 		if (FlxG.save.data.beatenLitUpUpdated != false && FlxG.save.data.beatenLitUpUpdated != true) FlxG.save.data.beatenLitUpUpdated = false;

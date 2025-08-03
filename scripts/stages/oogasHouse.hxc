@@ -1,26 +1,20 @@
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.addons.display.FlxRuntimeShader;
-import flixel.sound.FlxSound;
-import funkin.Conductor;
-import funkin.modding.base.ScriptedFlxRuntimeShader;
-import funkin.graphics.shaders.AdjustColorShader;
-import funkin.play.PlayState;
-import funkin.play.stage.Stage;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
-import funkin.modding.base.ScriptedFlxAtlasSprite;
+import flixel.math.FlxPoint;
 import flixel.util.FlxTimer;
-import flixel.util.FlxTimerManager;
-import funkin.audio.FunkinSound;
-import funkin.data.song.SongRegistry;
 import flixel.text.FlxText;
 import flixel.text.FlxTextBorderStyle;
-import funkin.input.Controls;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import flixel.math.FlxPoint;
-import flixel.sound.FlxSound;
+import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
+import funkin.play.stage.Stage;
+import funkin.input.Controls;
+import funkin.audio.FunkinSound;
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.ui.FullScreenScaleMode;
+import funkin.util.TouchUtil;
 
 class OogasHouse extends Stage
 {
@@ -28,6 +22,8 @@ class OogasHouse extends Stage
 	var lampLight:FlxAtlasSprite;
 
 	var coverscreen:FlxSprite;
+	var endingcoverleft:FlxSprite;
+	var endingcoverright:FlxSprite;
 
 	var hasPlayedInGameCutscene:Bool = false;
 	var hasPlayedCutscene:Bool = false;
@@ -39,6 +35,8 @@ class OogasHouse extends Stage
 
 	var cutsceneSound:FunkinSound;
 	var oogaBoogaVoice:FunkinSound;
+
+	var isMobilePauseButtonPressed:Bool = false;
 
 	function new()
 	{
@@ -92,10 +90,6 @@ class OogasHouse extends Stage
 	var boogaOpponent:ScriptedFlxAtlasSprite;
 	var skipText:FlxText;
 
-	var cutsceneConductor:Conductor;
-
-	var cutsceneTimerManager:FlxTimerManager;
-
 	function introboogaCutscene()
 	{
 		PlayState.instance.isInCutscene = true;
@@ -105,28 +99,37 @@ class OogasHouse extends Stage
 		PlayState.instance.add(coverscreen);
 		coverscreen.cameras = [PlayState.instance.camCutscene];
 
-		skipText = new FlxText(936, 618, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
-    skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
-    skipText.scrollFactor.set();
+		skipText = new FlxText(FlxG.width - 344, 618 * FullScreenScaleMode.wideScale.y, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
+		if (FlxG.onMobile)
+		{
+		  skipText.text = 'Skip [Pause Button]';
+		  skipText.x -= 136;
+		}
+		skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
+		skipText.scrollFactor.set();
 		skipText.borderSize = 2;
 		skipText.alpha = 0;
-    add(skipText);
+		add(skipText);
 
-    skipText.cameras = [PlayState.instance.camCutscene];
-
-		cutsceneTimerManager = new FlxTimerManager();
-
-		cutsceneConductor = new Conductor();
-		var songMusicData:Null<SongMusicData> = SongRegistry.instance.parseMusicData('cutscene');
-		if (songMusicData != null) {
-			cutsceneConductor.mapTimeChanges(songMusicData.timeChanges);
-		}
+		skipText.cameras = [PlayState.instance.camCutscene];
 		
-		theCutscene = new FlxAtlasSprite(0, 0, Paths.animateAtlas("spookyStages/oogasHouse/cutscene/ending"));
+		theCutscene = new FlxAtlasSprite((FlxG.width / 2) - 640, 0, Paths.animateAtlas("spookyStages/oogasHouse/cutscene/ending"));
 		theCutscene.zIndex = 10000;
 		theCutscene.alpha = 0;
 		PlayState.instance.currentStage.add(theCutscene);
 		theCutscene.cameras = [PlayState.instance.camHUD];
+
+		endingcoverleft = new FlxSprite(theCutscene.x - 500, 0).makeGraphic(500, 720, 0xFF000000);
+		endingcoverleft.zIndex = 100001;
+		endingcoverleft.alpha = 0;
+		PlayState.instance.currentStage.add(endingcoverleft);
+		endingcoverleft.cameras = [PlayState.instance.camHUD];
+
+		endingcoverright = new FlxSprite(theCutscene.x + 1279, 0).makeGraphic(500, 720, 0xFF000000);
+		endingcoverright.zIndex = 100001;
+		endingcoverright.alpha = 0;
+		PlayState.instance.currentStage.add(endingcoverright);
+		endingcoverright.cameras = [PlayState.instance.camHUD];
 
 		spookyPlayer = new FlxAtlasSprite(PlayState.instance.currentStage.getBoyfriend().x + 3, PlayState.instance.currentStage.getBoyfriend().y + 20, Paths.animateAtlas("spookyStages/oogasHouse/cutscene/spooky"));
 		spookyPlayer.zIndex = PlayState.instance.currentStage.getBoyfriend().zIndex - 1;
@@ -222,8 +225,6 @@ class OogasHouse extends Stage
 			PlayState.instance.justUnpaused = true;
 			PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
 
-			cutsceneTimerManager.clear();
-
 			coverscreen.visible = false;
 			oogaBoogaVoice.stop();
 			cutsceneSound.stop();
@@ -302,8 +303,13 @@ class OogasHouse extends Stage
 		super.onUpdate(event);
 
 		PlayState.instance.currentStage.getGirlfriend().visible = false;
+		
+		if (FlxG.onMobile)
+		{
+		  isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
+		}
 
-		if (PlayState.instance.controls.CUTSCENE_ADVANCE && cutsceneSkipped == false)
+		if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && cutsceneSkipped == false)
 		{
 			if(canSkipCutscene == false)
 			{
@@ -316,7 +322,7 @@ class OogasHouse extends Stage
 			}
 		}
 
-		if(PlayState.instance.controls.CUTSCENE_ADVANCE && cutsceneSkipped == false && canSkipCutscene == true)
+		if((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && cutsceneSkipped == false && canSkipCutscene == true)
 		{
 			hasPlayedCutscene = true;
 			skipCutscene();
@@ -362,6 +368,8 @@ class OogasHouse extends Stage
 		PlayState.instance.scoreText.visible = false;
 
 		theCutscene.alpha = 1;
+		endingcoverleft.alpha = 1;
+		endingcoverright.alpha = 1;
 		PlayState.instance.currentStage.refresh();
 	
 		PlayState.instance.isInCutscene = true;
@@ -370,6 +378,11 @@ class OogasHouse extends Stage
 		theCutscene.anim.play("");
 		endCutsceneSound = FunkinSound.load(Paths.sound("cutscene/ooga-boogey/oogaboogeyending"), true);
 		endCutsceneSound.play(false);
+
+ 		new FlxTimer().start(4.588, _ -> {
+			endCutsceneSound = FunkinSound.load(Paths.sound("cutscene/ooga-boogey/oogaboogeyending2"), true);
+			endCutsceneSound.play(false);
+ 		});
 
 		new FlxTimer().start(10.4, function(tmr)
 		{

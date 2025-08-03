@@ -25,6 +25,18 @@
       "animations": []
     },
     {
+      "alpha": 0,
+      "zIndex": 19,
+      "position": [827, 579],
+      "scale": [1, 1],
+      "animType": "sparrow",
+      "name": "weird",
+      "isPixel": false,
+      "assetPath": "philly/spooky/weird",
+      "scroll": [0.6, 0.6],
+      "animations": []
+    },
+    {
       "danceEvery": 0,
       "zIndex": 30,
       "position": [1280, 380],
@@ -63,7 +75,7 @@
     {
       "danceEvery": 0,
       "zIndex": 50,
-      "position": [187, 1087],
+      "position": [-313, 1087],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "road",
@@ -75,7 +87,7 @@
     {
       "danceEvery": 0,
       "zIndex": 60,
-      "position": [193, 668],
+      "position": [-307, 668],
       "scale": [1, 1],
       "animType": "sparrow",
       "name": "ground",
@@ -178,8 +190,8 @@
     {
       "danceEvery": 0,
       "zIndex": 440,
-      "position": [350.6, 233.6],
-      "scale": [1, 1],
+      "position": [0, 233.6],
+      "scale": [1.5, 1],
       "animType": "sparrow",
       "name": "topGradient",
       "isPixel": false,

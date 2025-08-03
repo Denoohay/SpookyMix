@@ -2,9 +2,25 @@
   "cameraZoom": 0.9,
   "props": [
     {
+      "name": "leftBar",
+      "assetPath": "#000000",
+      "position": [-500, -100],
+      "scale": [500, 2000],
+      "scroll": [1, 1],
+      "zIndex": 19
+    },
+    {
+      "name": "rightBar",
+      "assetPath": "#000000",
+      "position": [1484, -100],
+      "scale": [500, 2000],
+      "scroll": [1, 1],
+      "zIndex": 19
+    },
+    {
       "name": "vignette",
       "assetPath": "blazin/spooky/houseOverlay",
-      "zIndex": 500,
+      "zIndex": 19,
       "position": [0, 0],
       "scale": [1, 1],
       "scroll": [1, 1]
@@ -61,9 +77,9 @@
     {
       "name": "lowTaper",
       "assetPath": "blazin/spooky/walkingBG/lowTaper",
-      "position": [0, -688],
+      "position": [-500, -688],
       "scroll": [1, 1],
-      "scale": [1, 1],
+      "scale": [1.5, 1],
       "zIndex": 20
     },
     {
@@ -78,17 +94,17 @@
   "version": "1.0.0",
   "characters": {
     "bf": {
-      "zIndex": 400,
+      "zIndex": 18,
       "position": [1010, 1200],
       "cameraOffsets": [0, 0]
     },
     "gf": {
-      "zIndex": 300,
+      "zIndex": 16,
       "position": [840, 1205],
       "cameraOffsets": [0, 0]
     },
     "dad": {
-      "zIndex": 350,
+      "zIndex": 17,
       "position": [480, 1240],
       "cameraOffsets": [0, 0]
     }

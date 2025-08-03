@@ -1,26 +1,21 @@
 import flixel.FlxG;
 import flixel.math.FlxAngle;
+import flixel.util.FlxTimer;
+import flixel.text.FlxText;
+import flixel.text.FlxTextBorderStyle;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.math.FlxPoint;
+import flixel.addons.display.FlxBackdrop;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.modding.base.ScriptedFlxAtlasSprite;
-import flixel.util.FlxTimer;
-import flixel.util.FlxTimerManager;
-import funkin.audio.FunkinSound;
-import funkin.data.song.SongRegistry;
-import flixel.text.FlxText;
-import flixel.text.FlxTextBorderStyle;
 import funkin.input.Controls;
-import flixel.sound.FlxSound;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
-import flixel.math.FlxPoint;
-import flixel.sound.FlxSound;
-import funkin.play.PlayStatePlaylist;
-import flixel.addons.display.FlxTiledSprite;
-import flixel.addons.display.FlxBackdrop;
-import funkin.Conductor;
+import funkin.audio.FunkinSound;
+import funkin.util.TouchUtil;
+import funkin.ui.FullScreenScaleMode;
 
 class TankmanBattlefieldSpookyStage extends Stage
 {
@@ -52,6 +47,7 @@ class TankmanBattlefieldSpookyStage extends Stage
 	var cutsceneSkipped:Bool = false;
 	var canSkipCutscene:Bool = false;
 	var cutsceneMusic:FunkinSound;
+	var cutsceneSoundEffect:FunkinSound;
 
 	var mistBack:FlxBackdrop;
 	var mistFront:FlxBackdrop;
@@ -63,6 +59,8 @@ class TankmanBattlefieldSpookyStage extends Stage
 
 	var skittlesFallen:Bool = false;
 	var skittlesChance:Int;
+
+	var isMobilePauseButtonPressed:Bool = false;
 	
 	function new()
 	{
@@ -113,7 +111,13 @@ class TankmanBattlefieldSpookyStage extends Stage
 	{
 		PlayState.instance.isInCutscene = true;
 
-		skipText = new FlxText(936, 618, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
+		skipText = new FlxText(FlxG.width - 344, 618 * FullScreenScaleMode.wideScale.y, 0,
+		  'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
+		if (FlxG.onMobile)
+		{
+			skipText.text = 'Skip [Pause Button]';
+			skipText.x -= 136;
+		}
 		skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
 		skipText.scrollFactor.set();
 		skipText.borderSize = 2;
@@ -162,19 +166,22 @@ class TankmanBattlefieldSpookyStage extends Stage
  			new FlxTimer().start(2/24, _ -> {
 					if (cutsceneSkipped == false)
 				{
-     			 cutsceneSoundEffect = FunkinSound.load(Paths.sound('cutscene/stress/spookyCock'), 1.0, false, true, true);
+				 cutsceneSoundEffect = FunkinSound.load(Paths.sound("cutscene/stress/spookyCock"), true);
+				 cutsceneSoundEffect.play(false);
 				}
  			   });
 			new FlxTimer().start(40/24, _ -> {
 				if (cutsceneSkipped == false)
 				{
-     			 cutsceneSoundEffect = FunkinSound.load(Paths.sound('cutscene/stress/360noScope'), 1.0, false, true, true);
+				 cutsceneSoundEffect = FunkinSound.load(Paths.sound("cutscene/stress/360noScope"), true);
+				 cutsceneSoundEffect.play(false);
 				}
  			   });
 					new FlxTimer().start(178/24, _ -> {
 				if (cutsceneSkipped == false)
 				{
-     			 cutsceneSoundEffect = FunkinSound.load(Paths.sound('cutscene/stress/molochIsPISSED'), 1.0, false, true, true);
+				 cutsceneSoundEffect = FunkinSound.load(Paths.sound("cutscene/stress/molochIsPISSED"), true);
+				 cutsceneSoundEffect.play(false);
 				}
  			   });
 			   	new FlxTimer().start(180/24, _ -> {
@@ -268,6 +275,7 @@ class TankmanBattlefieldSpookyStage extends Stage
 		
 		getNamedProp('moon').shader = stageTint;
 		getNamedProp('tankSky').shader = stageTint;
+		getNamedProp('tankSkyUnder').shader = stageTint;
 		getNamedProp('bottomLighting').shader = stageTint;
 		getNamedProp('tankMountains').shader = stageTint;
 		getNamedProp('tankBuildings').shader = stageTint;
@@ -449,8 +457,13 @@ class TankmanBattlefieldSpookyStage extends Stage
 		_timer += event.elapsed;
 		mistBack.y = 100 - (Math.sin(_timer*0.35)*70);
 		mistFront.y = 500 + (Math.sin(_timer*0.3)*80);
+		
+		if (FlxG.onMobile)
+		{
+		  isMobilePauseButtonPressed = TouchUtil.overlapsComplex(PlayState.instance.pauseButton) && TouchUtil.justPressed;
+		}
 
-		if (PlayState.instance.controls.CUTSCENE_ADVANCE && cutsceneSkipped == false)
+		if ((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && cutsceneSkipped == false)
 		{
 			if(canSkipCutscene == false)
 			{
@@ -469,6 +482,7 @@ class TankmanBattlefieldSpookyStage extends Stage
 			{
 				getNamedProp('moon').shader = weirdMoonTint;
 				getNamedProp('tankSky').shader = weirdSkyTint;
+				getNamedProp('tankSkyUnder').shader = weirdSkyTint;
 
 				getNamedProp('tankMountains').shader = weirdMountainsTint;
 
@@ -488,6 +502,7 @@ class TankmanBattlefieldSpookyStage extends Stage
 			{
 				getNamedProp('moon').color = 0xFFFF0000;
 				getNamedProp('tankSky').color = 0xFFFF0000;
+				getNamedProp('tankSkyUnder').color = 0xFFFF0000;
 
 				getNamedProp('tankMountains').color = 0xFFFF0000;
 
@@ -534,7 +549,7 @@ class TankmanBattlefieldSpookyStage extends Stage
 			switchedToMonster = true;
 		}
 
-		if(PlayState.instance.controls.CUTSCENE_ADVANCE && cutsceneSkipped == false && canSkipCutscene == true)
+		if((PlayState.instance.controls.CUTSCENE_ADVANCE || isMobilePauseButtonPressed) && cutsceneSkipped == false && canSkipCutscene == true)
 		{
 			hasPlayedCutscene = true;
 			skipCutscene();
@@ -647,6 +662,7 @@ class TankmanBattlefieldSpookyStage extends Stage
 			{
 				getNamedProp('moon').shader = stageTint;
 				getNamedProp('tankSky').shader = stageTint;
+				getNamedProp('tankSkyUnder').shader = stageTint;
 
 				getNamedProp('tankMountains').shader = stageTint;
 
@@ -664,6 +680,7 @@ class TankmanBattlefieldSpookyStage extends Stage
 			{
 				getNamedProp('moon').color = 0xFFFFFFFF;
 				getNamedProp('tankSky').color = 0xFFFFFFFF;
+				getNamedProp('tankSkyUnder').color = 0xFFFFFFFF;
 
 				getNamedProp('tankMountains').color = 0xFFFFFFFF;
 

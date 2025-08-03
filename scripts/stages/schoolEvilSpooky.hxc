@@ -1,21 +1,15 @@
 import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.util.FlxTimer;
+import flixel.addons.display.FlxBackdrop;
+import flixel.tweens.FlxTween;
+import funkin.save.Save;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
+import funkin.play.character.CharacterType;
 import funkin.graphics.shaders.WiggleEffectRuntime;
 import funkin.graphics.shaders.WiggleEffectType;
-import flixel.addons.effects.FlxTrail;
-import funkin.play.Countdown;
-import flixel.util.FlxTimer;
-import flixel.util.FlxTimerManager;
-import flixel.addons.display.FlxBackdrop;
-import funkin.play.character.CharacterType;
 import funkin.graphics.shaders.DropShadowShader;
-import flixel.FlxSprite;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
-import flixel.util.FlxTimer;
-import funkin.graphics.shaders.AdjustColorShader;
-import funkin.save.Save;
 
 class SchoolEvilSpookyStage extends Stage
 {
@@ -42,11 +36,16 @@ class SchoolEvilSpookyStage extends Stage
 		
 		wiggle = new WiggleEffectRuntime(2, 30, 0.012, WiggleEffectType.DREAMY);
 
-		if (FlxG.save.data.spookyShaders != false) getNamedProp('evilSchoolBG').shader = wiggle;
+		if (FlxG.save.data.spookyShaders != false)
+		{
+			getNamedProp('evilStreet').shader = wiggle;
+			getNamedProp('evilTrees').shader = wiggle;
+			getNamedProp('evilSchool').shader = wiggle;
+		}
 		
-		scrollingSky = new FlxBackdrop(Paths.image('weeb/spooky/evilSky'), 0x10);
-		scrollingSky.setPosition(getNamedProp('evilSchoolBG').x + 774, getNamedProp('evilSchoolBG').y);
-		scrollingSky.scrollFactor.set(1, 1);
+		scrollingSky = new FlxBackdrop(Paths.image('weeb/spooky/evil/evilSky'), 0x11);
+		scrollingSky.setPosition(getNamedProp('evilSchool').x + 1239, getNamedProp('evilSchool').y);
+		scrollingSky.scrollFactor.set(0.3, 0.3);
 		scrollingSky.zIndex = 10;
 		scrollingSky.alpha = 0;
 		scrollingSky.velocity.y = 0;
@@ -67,10 +66,8 @@ class SchoolEvilSpookyStage extends Stage
 		PlayState.instance.currentStage.add(skyFlash);
 		PlayState.instance.currentStage.refresh(); // Apply z-index.
 		
-		getNamedProp('evilSchoolBG').loadGraphic(Paths.image('weeb/spooky/evilSchoolChopped'));
-
 		if (FlxG.random.int(1, 20) == 1 && Save.instance.hasBeatenSong(PlayState.instance.currentSong.id, null, 'spookymod'))
-			getNamedProp('evilSchoolBG').loadGraphic(Paths.image('weeb/spooky/evilSchoolWierd'));
+			getNamedProp('evilStreet').loadGraphic(Paths.image('weeb/spooky/evil/evilStreetWeird'));
 
 		spiritMoves = false;
 	}
@@ -149,8 +146,11 @@ class SchoolEvilSpookyStage extends Stage
 		
 		if (FlxG.save.data.spookyShaders != false)
 		{
-			if (getDad().shader.contrast == 100) getBoyfriend().shader.color = 0xFF5B5B5B;
-			if (getDad().shader.hue == 60) getBoyfriend().shader.color = 0xFF590E1E;
+			if (getDad().shader != null)
+			{
+				if (getDad().shader.contrast == 100) getBoyfriend().shader.color = 0xFF5B5B5B;
+				if (getDad().shader.hue == 60) getBoyfriend().shader.color = 0xFF590E1E;
+			}
 		}
 		else
 		{
@@ -254,8 +254,10 @@ class SchoolEvilSpookyStage extends Stage
 	{
 		var results:Array<String> = super.fetchAssetPaths();
 		
-		results.push(Paths.image('weeb/spooky/evilSchoolChopped'));
-		results.push(Paths.image('weeb/spooky/evilSchoolWierd'));
+		results.push(Paths.image('weeb/spooky/evilStreet'));
+		results.push(Paths.image('weeb/spooky/evilStreetWeird'));
+		results.push(Paths.image('weeb/spooky/evilTrees'));
+		results.push(Paths.image('weeb/spooky/evilSchool'));
 		results.push(Paths.image('weeb/spooky/evilSky'));
 
 		return results;
