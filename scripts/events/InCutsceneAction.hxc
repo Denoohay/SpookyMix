@@ -2,28 +2,24 @@ import funkin.play.PlayState;
 import funkin.modding.module.Module;
 import funkin.modding.events.ScriptEvent;
 
-class InCutsceneAction extends Module
-{
-    public function new()
-    {
-        super('InCutsceneAction');
-    }
+class InCutsceneAction extends Module {
+	public function new() {
+		super('InCutsceneAction');
+	}
 
-    public override function onSongEvent(scriptEvent:SongEventScriptEvent)
-    {
-        super.onSongEvent(scriptEvent);
+	public override function onSongEvent(scriptEvent:SongEventScriptEvent) {
+		super.onSongEvent(scriptEvent);
 
-        if (scriptEvent.eventData.eventKind == "InCutscene")
-        {
-            PlayState.instance.isInCutscene = scriptEvent.eventData.value.pressNotes;
-            PlayState.instance.mayPauseGame = !scriptEvent.eventData.value.pause;
-        }
-    }
+		if (scriptEvent.eventData.eventKind == "InCutscene") {
+			PlayState.instance.isInCutscene = scriptEvent.eventData.value.pressNotes;
+			PlayState.instance.mayPauseGame = !scriptEvent.eventData.value.pause;
+		}
+	}
 
 	override function onSongRetry(event:ScriptEvent):Void {
 		super.onSongRetry(event);
 
-        PlayState.instance.isInCutscene = false;
-        PlayState.instance.mayPauseGame = true;
+		PlayState.instance.isInCutscene = false;
+		PlayState.instance.mayPauseGame = true;
 	}
 }

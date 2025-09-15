@@ -1,23 +1,18 @@
 import funkin.play.event.SongEvent;
 
-class changeIdleSuffix extends SongEvent
-{
-	public function new()
-	{
+class changeIdleSuffix extends SongEvent {
+	public function new() {
 		super('changeIdleSuffix');
 	}
 
 	public override function handleEvent(data) {}
-	
-	public function getTitle()
-	{
+
+	public function getTitle() {
 		return "Change Idle Suffix";
 	}
 
-	public function getEventSchema()
-	{
-		return
-		[
+	public function getEventSchema() {
+		return [
 			{
 				name: "placeholder",
 				title: "Placeholder",

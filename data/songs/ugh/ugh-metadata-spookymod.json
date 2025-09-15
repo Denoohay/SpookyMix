@@ -3,39 +3,26 @@
   "songName": "Ugh (Spooky Mix)",
   "artist": "RubyyyButCool",
   "charter": "RubyyyButCool",
-  "modArt": "givemethesalt, Andrewman_19, Denoohay",
+  "timeFormat": "ms",
   "divisions": 96,
+  "offsets": {"instrumental": 0},
+  "timeChanges": [{ "t": 0, "bpm": 160, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
+  "looped": false,
   "playData": {
+    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
-      "player": "spooky-playable",
-      "girlfriend": "moloch-tankmen",
-      "opponent": "tankman-spooky",
-      "instrumental": "spookymod",
-      "altInstrumentals": ["pico-cut", ""]
+      "player": "spooky-playable","girlfriend": "moloch-tankmen","opponent": "tankman-spooky",
+      "instrumental": "spookymod","playerVocals": ["spooky"],"opponentVocals": ["tankman"], "altInstrumentals": ["pico-cut", "cut"]
     },
     "stage": "tankmanBattlefieldSpooky",
     "noteStyle": "funkin",
     "ratings": { "easy": 4, "normal": 6, "hard": 7 },
     "album": "spookymix1",
-    "previewStart": 0,
-    "previewEnd": 15000
+    "stickerPack": null
   },
-  "generatedBy": "Friday Night Funkin' - v0.4.1 (rewrite/master:47b7aa7) PROTOTYPE",
-  "timeFormat": "ms",
-  "timeChanges": [
-    {
-      "t": 0,
-      "b": 0,
-      "bpm": 160,
-      "n": 4,
-      "d": 4,
-      "bt": [
-        4,
-        4,
-        4,
-        4
-      ]
-    }
-  ]
+  "previewStart": 0,
+  "previewEnd": 15000,
+  "generatedBy": "LeGooey (By Hand)",
+  "modArt": "givemethesalt, Andrewman_19, Denoohay"
 }

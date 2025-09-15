@@ -2,24 +2,27 @@
   "version": "2.2.4",
   "songName": "Ooga Boogey",
   "artist": "LeGooey (ft. alwk)",
-  "modArt": "Denoohay, givemethesalt",
   "charter": "LimeIsHere",
   "timeFormat": "ms",
+  "divisions": 96,
+  "offsets": {"instrumental": 0},
   "timeChanges": [{ "t": 0, "bpm": 160, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
+  "looped": false,
   "playData": {
-    "ratings": { "easy": 4, "normal": 6, "hard": 7 },
+    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
-      "player": "spooky-nogreen",
-      "girlfriend": "gf",
-      "opponent": "ooga-booga"
+      "player": "spooky-nogreen","girlfriend": "gf","opponent": "ooga-booga",
+      "instrumental": "","playerVocals": ["spooky"],"opponentVocals": ["ooga-booga"], "altInstrumentals": []
     },
     "stage": "oogasHouse",
     "noteStyle": "funkin",
+    "ratings": { "easy": 4, "normal": 6, "hard": 7 },
     "album": "fool",
-    "stickerPack": "bonus-oogabooga",
-    "previewStart": 0,
-    "previewEnd": 15000
+    "stickerPack": "bonus-oogabooga"
   },
-  "generatedBy": "Denoohay (by hand)"
+  "previewStart": 0,
+  "previewEnd": 15000,
+  "generatedBy": "LeGooey (By Hand)",
+  "modArt": "Denoohay, givemethesalt"
 }

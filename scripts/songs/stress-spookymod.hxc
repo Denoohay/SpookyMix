@@ -1,0 +1,99 @@
+import funkin.play.song.Song;
+import funkin.save.Save;
+import funkin.play.PlayState;
+import funkin.play.PlayStatePlaylist;
+import funkin.modding.base.ScriptedFlxSpriteGroup;
+
+class stressSpookymodMixSong extends Song {
+	function new() {
+		super('stress', {
+			variation: 'spookymod'
+		});
+	}
+
+	var hasPlayedCutscene:Bool;
+	var tankmanGroup:TankmanSpriteGroup = null;
+
+	public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
+		var targetDifficulty:Null<SongDifficulty> = getDifficulty(difficultyId, variationId);
+
+		if (Save.instance.hasBeatenSong(this.id, null, variationId))
+			return targetDifficulty?.characters?.altInstrumentals ?? [];
+		else
+			return [];
+	}
+
+	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool {
+		return !Save.instance.hasBeatenSong(this.id, null, 'spookymod');
+	}
+
+	public override function onCountdownStart(event:CountdownScriptEvent):Void {
+		super.onCountdownStart(event);
+
+		// Skip the cutscene unless we are in Story Mode, or Pico Mix specifically.
+		if (PlayState.instance.currentVariation != 'pico' && !PlayStatePlaylist.isStoryMode)
+			hasPlayedCutscene = true;
+
+		if (!hasPlayedCutscene) {
+			trace('Pausing countdown to play a video cutscene (`stress`)');
+
+			hasPlayedCutscene = true;
+
+			if (PlayState.instance.currentVariation != 'spookymod') {
+				event.cancel(); // CANCEL THE COUNTDOWN!
+				startVideo(PlayState.instance.currentVariation == 'pico');
+			}
+		}
+
+		if (tankmanGroup != null && !tankmanGroup.scriptCall('isValid')) {
+			// Destroy the tankman group if it's not valid.
+			tankmanGroup.destroy();
+			PlayState.instance.currentStage.remove(tankmanGroup);
+			tankmanGroup = null;
+		}
+
+		if (tankmanGroup == null) {
+			// Initialize the tankman group if it's not available.
+			trace('Initializing tankman group... ' + PlayState.instance.currentVariation);
+			tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup', PlayState.instance.currentVariation != 'default');
+		}
+
+		if (tankmanGroup != null) {
+			// resets the tankmen!
+			tankmanGroup.scriptCall('reset');
+
+			tankmanGroup.zIndex = 30;
+			PlayState.instance.currentStage.add(tankmanGroup);
+			PlayState.instance.currentStage.refresh();
+		} else {
+			trace('Failed to initialize tankman group!');
+		}
+	}
+
+	function onSongRetry(event:ScriptEvent) {
+		super.onSongRetry(event);
+
+		hasPlayedCutscene = true;
+
+		// resets the tankmen!
+		if (tankmanGroup != null) {
+			tankmanGroup.scriptCall('reset');
+		}
+		if (PlayState.instance.currentStage.getGirlfriend() != null) {
+			PlayState.instance.currentStage.getGirlfriend().scriptCall('reset');
+			trace('reset pico!');
+		}
+	}
+
+	function kill():Void {
+		cleanupTankmanGroup();
+	}
+
+	function cleanupTankmanGroup():Void {
+		if (tankmanGroup != null) {
+			PlayState.instance.currentStage.remove(tankmanGroup);
+			tankmanGroup.destroy();
+			tankmanGroup = null;
+		}
+	}
+}

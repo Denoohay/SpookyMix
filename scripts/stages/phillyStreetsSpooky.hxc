@@ -13,8 +13,7 @@ import funkin.play.stage.Stage;
 import funkin.graphics.framebuffer.FixedBitmapData;
 import funkin.graphics.shaders.AdjustColorShader;
 
-class PhillyStreetsSpookyStage extends Stage
-{
+class PhillyStreetsSpookyStage extends Stage {
 	var lightsStop:Bool = false; // state of the traffic lights
 	var lastChange:Int = 0;
 	var changeInterval:Int = 8; // make sure it doesnt change until AT LEAST this many beats
@@ -33,36 +32,35 @@ class PhillyStreetsSpookyStage extends Stage
 	var molochCandleGlow:FlxSprite;
 	var DarnellPumpkinGlow:FlxSprite;
 
-	function new()
-	{
+	function new() {
 		super('phillyStreetsSpooky');
 	}
 
 	/**
-  * Changes the current state of the traffic lights.
-	* Updates the next change accordingly and will force cars to move when ready
-  */
-	function changeLights(beat:Int):Void{
-
+	   * Changes the current state of the traffic lights.
+	 * Updates the next change accordingly and will force cars to move when ready
+	 */
+	function changeLights(beat:Int):Void {
 		lastChange = beat;
 		lightsStop = !lightsStop;
 
-		if(lightsStop){
+		if (lightsStop) {
 			getNamedProp('phillyTraffic').animation.play('tored');
 			changeInterval = 20;
 		} else {
 			getNamedProp('phillyTraffic').animation.play('togreen');
 			changeInterval = 30;
 
-			if(carWaiting == true) finishCarLights(getNamedProp('phillyCars'));
+			if (carWaiting == true)
+				finishCarLights(getNamedProp('phillyCars'));
 		}
 	}
 
 	/**
-  * Resets every value of a car and hides it from view.
-  */
-	function resetCar(left:Bool, right:Bool){
-		if(left){
+	 * Resets every value of a car and hides it from view.
+	 */
+	function resetCar(left:Bool, right:Bool) {
+		if (left) {
 			carWaiting = false;
 			carInterruptable = true;
 			var cars = getNamedProp('phillyCars');
@@ -74,7 +72,7 @@ class PhillyStreetsSpookyStage extends Stage
 			}
 		}
 
-		if(right){
+		if (right) {
 			car2Interruptable = true;
 			var cars2 = getNamedProp('phillyCars2');
 			if (cars2 != null) {
@@ -93,12 +91,7 @@ class PhillyStreetsSpookyStage extends Stage
 		resetStageValues();
 	}
 
-	override function onCountdownEnd(event:ScriptEvent) {
-		super.onCountdownEnd(event);
-	}
-
-	override function onCreate(event:ScriptEvent):Void
-	{
+	override function onCreate(event:ScriptEvent):Void {
 		super.onCreate(event);
 
 		resetCar(true, true);
@@ -112,8 +105,7 @@ class PhillyStreetsSpookyStage extends Stage
 	var mist4:FlxBackdrop;
 	var mist5:FlxBackdrop;
 
-	override function buildStage()
-	{
+	override function buildStage() {
 		super.buildStage();
 
 		scrollingSky = new FlxTiledSprite(Paths.image('phillyStreets/spooky/phillySkybox'), 2922, 718, true, false);
@@ -132,8 +124,10 @@ class PhillyStreetsSpookyStage extends Stage
 		mist0.setPosition(-650, -100);
 		mist0.scrollFactor.set(1.2, 1.2);
 		mist0.zIndex = 1000;
-	if (FlxG.save.data.spookyShaders != false) mist0.blend = 0;
-	else mist0.visible = false;
+		if (FlxG.save.data.spookyShaders != false)
+			mist0.blend = 0;
+		else
+			mist0.visible = false;
 		mist0.color = 0xFF3E3341;
 		mist0.alpha = 1;
 		mist0.velocity.x = 172;
@@ -145,8 +139,10 @@ class PhillyStreetsSpookyStage extends Stage
 		mist1.setPosition(-650, -100);
 		mist1.scrollFactor.set(1.1, 1.1);
 		mist1.zIndex = 1000;
-	if (FlxG.save.data.spookyShaders != false) mist1.blend = 0;
-	else mist1.visible = false;
+		if (FlxG.save.data.spookyShaders != false)
+			mist1.blend = 0;
+		else
+			mist1.visible = false;
 		mist1.color = 0xFF3E3341;
 		mist1.alpha = 1;
 		mist1.velocity.x = 150;
@@ -158,8 +154,10 @@ class PhillyStreetsSpookyStage extends Stage
 		mist2.setPosition(-650, -100);
 		mist2.scrollFactor.set(1.2, 1.2);
 		mist2.zIndex = 1001;
-	if (FlxG.save.data.spookyShaders != false) mist2.blend = 0;
-	else mist2.visible = false;
+		if (FlxG.save.data.spookyShaders != false)
+			mist2.blend = 0;
+		else
+			mist2.visible = false;
 		mist2.color = 0xFF3E3341;
 		mist2.alpha = 1;
 		mist2.velocity.x = -80;
@@ -171,8 +169,10 @@ class PhillyStreetsSpookyStage extends Stage
 		mist3.setPosition(-650, -100);
 		mist3.scrollFactor.set(0.95, 0.95);
 		mist3.zIndex = 99;
-	if (FlxG.save.data.spookyShaders != false) mist3.blend = 0;
-	else mist3.visible = false;
+		if (FlxG.save.data.spookyShaders != false)
+			mist3.blend = 0;
+		else
+			mist3.visible = false;
 		mist3.color = 0xFF3E3341;
 		mist3.alpha = 1;
 		mist3.velocity.x = -50;
@@ -185,8 +185,10 @@ class PhillyStreetsSpookyStage extends Stage
 		mist4.setPosition(-650, -100);
 		mist4.scrollFactor.set(0.8, 0.8);
 		mist4.zIndex = 88;
-	if (FlxG.save.data.spookyShaders != false) mist4.blend = 0;
-	else mist4.visible = false;
+		if (FlxG.save.data.spookyShaders != false)
+			mist4.blend = 0;
+		else
+			mist4.visible = false;
 		mist4.color = 0xFF3E3341;
 		mist4.alpha = 1;
 		mist4.velocity.x = 40;
@@ -199,8 +201,10 @@ class PhillyStreetsSpookyStage extends Stage
 		mist5.setPosition(-650, -100);
 		mist5.scrollFactor.set(0.5, 0.5);
 		mist5.zIndex = 39;
-	if (FlxG.save.data.spookyShaders != false) mist5.blend = 0;
-	else mist5.visible = false;
+		if (FlxG.save.data.spookyShaders != false)
+			mist5.blend = 0;
+		else
+			mist5.visible = false;
 		mist5.color = 0xFF3E3341;
 		mist5.alpha = 1;
 		mist5.velocity.x = 20;
@@ -215,8 +219,9 @@ class PhillyStreetsSpookyStage extends Stage
 		molochCandleGlow.animation.play('idle');
 		molochCandleGlow.scrollFactor.set(1, 1);
 		molochCandleGlow.zIndex = 301;
-		if (FlxG.save.data.spookyShaders != false) molochCandleGlow.blend = 0;
-   		molochCandleGlow.visible = false;
+		if (FlxG.save.data.spookyShaders != false)
+			molochCandleGlow.blend = 0;
+		molochCandleGlow.visible = false;
 		PlayState.instance.currentStage.add(molochCandleGlow);
 		PlayState.instance.currentStage.refresh(); // Apply z-index.
 
@@ -230,16 +235,15 @@ class PhillyStreetsSpookyStage extends Stage
 		DarnellPumpkinGlow.animation.play('idle');
 		DarnellPumpkinGlow.scrollFactor.set(1, 1);
 		DarnellPumpkinGlow.zIndex = 351;
-   		if (FlxG.save.data.spookyShaders != false) DarnellPumpkinGlow.blend = 0;
-   		DarnellPumpkinGlow.visible = false;
+		if (FlxG.save.data.spookyShaders != false)
+			DarnellPumpkinGlow.blend = 0;
+		DarnellPumpkinGlow.visible = false;
 		PlayState.instance.currentStage.add(DarnellPumpkinGlow);
 		PlayState.instance.currentStage.refresh(); // Apply z-index.
 	}
-	
-	function onNoteHit(event:HitNoteScriptEvent)
-	{
-		if (!event.note.noteData.getMustHitNote())
-		{
+
+	function onNoteHit(event:HitNoteScriptEvent) {
+		if (!event.note.noteData.getMustHitNote()) {
 			DarnellPumpkinGlow.animation.reset();
 			DarnellPumpkinGlow.animation.play(event.note.noteData.getDirection());
 		}
@@ -249,16 +253,18 @@ class PhillyStreetsSpookyStage extends Stage
 		super.onDestroy();
 
 		var cars = getNamedProp('phillyCars');
-		if (cars != null) FlxTween.cancelTweensOf(cars);
+		if (cars != null)
+			FlxTween.cancelTweensOf(cars);
 		var cars2 = getNamedProp('phillyCars2');
-		if (cars2 != null) FlxTween.cancelTweensOf(cars2);
+		if (cars2 != null)
+			FlxTween.cancelTweensOf(cars2);
 	}
 
 	/**
-  * Drive the car away from the lights to the end of the road.
-	* Used when the lights turn green and the car is waiting in position.
-  */
-	function finishCarLights(sprite:FlxSprite):Void{
+	   * Drive the car away from the lights to the end of the road.
+	 * Used when the lights turn green and the car is waiting in position.
+	 */
+	function finishCarLights(sprite:FlxSprite):Void {
 		carWaiting = false;
 		var duration:Float = FlxG.random.float(1.8, 3);
 		var rotations:Array<Int> = [-5, 18];
@@ -271,30 +277,29 @@ class PhillyStreetsSpookyStage extends Stage
 			FlxPoint.get(3102 - offset[0], 1127 - offset[1] + 40)
 		];
 
-		FlxTween.angle(sprite, rotations[0], rotations[1], duration, {ease: FlxEase.sineIn, startDelay: startdelay} );
-		FlxTween.quadPath(sprite, path, duration, true,
-    {
-      ease: FlxEase.sineIn,
+		FlxTween.angle(sprite, rotations[0], rotations[1], duration, {ease: FlxEase.sineIn, startDelay: startdelay});
+		FlxTween.quadPath(sprite, path, duration, true, {
+			ease: FlxEase.sineIn,
 			startDelay: startdelay,
 			onComplete: function(_) {
-            carInterruptable = true;
-      }
-    });
+				carInterruptable = true;
+			}
+		});
 	}
 
 	/**
-  * Drives a car towards the lights and stops.
-	* Used when a car tries to drive while the lights are red.
-  */
-	function driveCarLights(sprite:FlxSprite):Void{
+	   * Drives a car towards the lights and stops.
+	 * Used when a car tries to drive while the lights are red.
+	 */
+	function driveCarLights(sprite:FlxSprite):Void {
 		carInterruptable = false;
 		FlxTween.cancelTweensOf(sprite);
-		var variant:Int = FlxG.random.int(1,4);
+		var variant:Int = FlxG.random.int(1, 4);
 		sprite.animation.play('car' + variant);
 		var extraOffset = [0, 0];
 		var duration:Float = 2;
 
-		switch(variant){
+		switch (variant) {
 			case 1:
 				duration = FlxG.random.float(1, 1.7);
 			case 2:
@@ -319,34 +324,34 @@ class PhillyStreetsSpookyStage extends Stage
 		// debug shit!!! keeping it here just in case
 		// for(point in path){
 		// 	var debug:FlxSprite = new FlxSprite(point.x - 5, point.y - 5).makeGraphic(10, 10, 0xFFFF0000);
-    // 	add(debug);
+		// 	add(debug);
 		// }
-		FlxTween.angle(sprite, rotations[0], rotations[1], duration, {ease: FlxEase.cubeOut} );
-		FlxTween.quadPath(sprite, path, duration, true,
-    {
-      ease: FlxEase.cubeOut,
+		FlxTween.angle(sprite, rotations[0], rotations[1], duration, {ease: FlxEase.cubeOut});
+		FlxTween.quadPath(sprite, path, duration, true, {
+			ease: FlxEase.cubeOut,
 			onComplete: function(_) {
-            carWaiting = true;
-						if(lightsStop == false) finishCarLights(getNamedProp('phillyCars'));
-      }
-    });
+				carWaiting = true;
+				if (lightsStop == false)
+					finishCarLights(getNamedProp('phillyCars'));
+			}
+		});
 	}
 
 	/**
-  * Drives a car across the screen without stopping.
-	* Used when the lights are green.
-  */
-	function driveCar(sprite:FlxSprite):Void{
+	   * Drives a car across the screen without stopping.
+	 * Used when the lights are green.
+	 */
+	function driveCar(sprite:FlxSprite):Void {
 		carInterruptable = false;
 		FlxTween.cancelTweensOf(sprite);
-		var variant:Int = FlxG.random.int(1,4);
+		var variant:Int = FlxG.random.int(1, 4);
 		sprite.animation.play('car' + variant);
 		// setting an offset here because the current implementation of stage prop offsets was not working at all for me
 		// if possible id love to not have to do this but im keeping this for now
 		var extraOffset = [0, 0];
 		var duration:Float = 2;
 		// set different values of speed for the car types (and the offset)
-		switch(variant){
+		switch (variant) {
 			case 1:
 				duration = FlxG.random.float(1, 1.7);
 			case 2:
@@ -367,32 +372,31 @@ class PhillyStreetsSpookyStage extends Stage
 		var rotations:Array<Int> = [-8, 18];
 		// the path to move the car on
 		var path:Array<FlxPoint> = [
-				FlxPoint.get(1570 - offset[0], 1049 - offset[1] - 30),
-				FlxPoint.get(2400 - offset[0], 980 - offset[1] - 50),
-				FlxPoint.get(3102 - offset[0], 1127 - offset[1] + 40)
+			FlxPoint.get(1570 - offset[0], 1049 - offset[1] - 30),
+			FlxPoint.get(2400 - offset[0], 980 - offset[1] - 50),
+			FlxPoint.get(3102 - offset[0], 1127 - offset[1] + 40)
 		];
 
-		FlxTween.angle(sprite, rotations[0], rotations[1], duration, null );
-		FlxTween.quadPath(sprite, path, duration, true,
-      {
-        ease: null,
-				onComplete: function(_) {
-      	  carInterruptable = true;
-      	}
-    });
+		FlxTween.angle(sprite, rotations[0], rotations[1], duration, null);
+		FlxTween.quadPath(sprite, path, duration, true, {
+			ease: null,
+			onComplete: function(_) {
+				carInterruptable = true;
+			}
+		});
 	}
 
-	function driveCarBack(sprite:FlxSprite):Void{
+	function driveCarBack(sprite:FlxSprite):Void {
 		car2Interruptable = false;
 		FlxTween.cancelTweensOf(sprite);
-		var variant:Int = FlxG.random.int(1,4);
+		var variant:Int = FlxG.random.int(1, 4);
 		sprite.animation.play('car' + variant);
 		// setting an offset here because the current implementation of stage prop offsets was not working at all for me
 		// if possible id love to not have to do this but im keeping this for now
 		var extraOffset = [0, 0];
 		var duration:Float = 2;
 		// set different values of speed for the car types (and the offset)
-		switch(variant){
+		switch (variant) {
 			case 1:
 				duration = FlxG.random.float(1, 1.7);
 			case 2:
@@ -413,26 +417,25 @@ class PhillyStreetsSpookyStage extends Stage
 		var rotations:Array<Int> = [18, -8];
 		// the path to move the car on
 		var path:Array<FlxPoint> = [
-				FlxPoint.get(3102 - offset[0], 1127 - offset[1] + 60),
-				FlxPoint.get(2400 - offset[0], 980 - offset[1] - 30),
-				FlxPoint.get(1570 - offset[0], 1049 - offset[1] - 10)
+			FlxPoint.get(3102 - offset[0], 1127 - offset[1] + 60),
+			FlxPoint.get(2400 - offset[0], 980 - offset[1] - 30),
+			FlxPoint.get(1570 - offset[0], 1049 - offset[1] - 10)
 
 		];
 
-		FlxTween.angle(sprite, rotations[0], rotations[1], duration, null );
-		FlxTween.quadPath(sprite, path, duration, true,
-      {
-        ease: null,
-				onComplete: function(_) {
-      	  car2Interruptable = true;
-      	}
-    });
+		FlxTween.angle(sprite, rotations[0], rotations[1], duration, null);
+		FlxTween.quadPath(sprite, path, duration, true, {
+			ease: null,
+			onComplete: function(_) {
+				car2Interruptable = true;
+			}
+		});
 	}
 
 	/**
-  * Resets the values tied to the lights that need to be accounted for on a restart.
-  */
-	function resetStageValues():Void{
+	 * Resets the values tied to the lights that need to be accounted for on a restart.
+	 */
+	function resetStageValues():Void {
 		lastChange = 0;
 		changeInterval = 8;
 		var traffic = getNamedProp('phillyTraffic');
@@ -444,12 +447,12 @@ class PhillyStreetsSpookyStage extends Stage
 
 	var _timer:Float = 0;
 
-	override function onUpdate(event:UpdateScriptEvent)
-	{
+	override function onUpdate(event:UpdateScriptEvent) {
 		super.onUpdate(event);
 
-		if (molochCandleGlow.visible == false && PlayState.instance.currentStage.getGirlfriend().characterId == "moloch" && FlxG.save.data.spookyShaders != false)
-		{
+		if (molochCandleGlow.visible == false
+			&& PlayState.instance.currentStage.getGirlfriend().characterId == "moloch"
+			&& FlxG.save.data.spookyShaders != false) {
 			molochCandleGlow.x = PlayState.instance.currentStage.getGirlfriend().x + 115;
 			molochCandleGlow.y = PlayState.instance.currentStage.getGirlfriend().y + 350;
 			molochCandleGlow.zIndex = PlayState.instance.currentStage.getGirlfriend().zIndex + 1;
@@ -457,8 +460,7 @@ class PhillyStreetsSpookyStage extends Stage
 			molochCandleGlow.visible = true;
 		}
 
-		if (DarnellPumpkinGlow.visible == false && PlayState.instance.currentStage.getDad().characterId == "darnell-spooky")
-		{
+		if (DarnellPumpkinGlow.visible == false && PlayState.instance.currentStage.getDad().characterId == "darnell-spooky") {
 			DarnellPumpkinGlow.x = PlayState.instance.currentStage.getDad().x;
 			DarnellPumpkinGlow.y = PlayState.instance.currentStage.getDad().y;
 			DarnellPumpkinGlow.zIndex = PlayState.instance.currentStage.getDad().zIndex + 1;
@@ -467,65 +469,57 @@ class PhillyStreetsSpookyStage extends Stage
 		}
 
 		_timer += event.elapsed;
-		mist0.y = 660 + (Math.sin(_timer*0.35)*70);
-		mist1.y = 500 + (Math.sin(_timer*0.3)*80);
-		mist2.y = 540 + (Math.sin(_timer*0.4)*60);
-		mist3.y = 230 + (Math.sin(_timer*0.3)*70);
-		mist4.y = 170 + (Math.sin(_timer*0.35)*50);
-		mist5.y = -80 + (Math.sin(_timer*0.08)*100);
+		mist0.y = 660 + (Math.sin(_timer * 0.35) * 70);
+		mist1.y = 500 + (Math.sin(_timer * 0.3) * 80);
+		mist2.y = 540 + (Math.sin(_timer * 0.4) * 60);
+		mist3.y = 230 + (Math.sin(_timer * 0.3) * 70);
+		mist4.y = 170 + (Math.sin(_timer * 0.35) * 50);
+		mist5.y = -80 + (Math.sin(_timer * 0.08) * 100);
 		// mist3.y = -20 + (Math.sin(_timer*0.5)*200);
 		// mist4.y = -180 + (Math.sin(_timer*0.4)*300);
 		// mist5.y = -450 + (Math.sin(_timer*0.2)*1xxx50);
-		//trace(mist1.y);
+		// trace(mist1.y);
 
-		if(scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 22;
+		if (scrollingSky != null)
+			scrollingSky.scrollX -= FlxG.elapsed * 22;
 
-		if(getBoyfriend() != null && getBoyfriend().shader == null)
-		{
-			if (FlxG.save.data.spookyShaders != false)
-			{
-				if(getBoyfriend() != null && getBoyfriend().shader == null)
-				{
+		if (getBoyfriend() != null && getBoyfriend().shader == null) {
+			if (FlxG.save.data.spookyShaders != false) {
+				if (getBoyfriend() != null && getBoyfriend().shader == null) {
 					getBoyfriend().shader = colorShader;
 					getGirlfriend().shader = colorShader;
 					getDad().shader = colorShaderDarnell;
 				}
-			}
-			else
-			{
-				if(getBoyfriend() != null)
-				{
+			} else {
+				if (getBoyfriend() != null) {
 					getBoyfriend().color = 0x8E7A93;
 					getGirlfriend().color = 0x8E7A93;
 					getDad().color = 0x8E7A93;
 				}
 			}
-		  
-			if (FlxG.save.data.spookyShaders != false)
-			{
-			  colorShader.brightness = -39;
-			  colorShader.contrast = -7;
-			  colorShader.saturation = -59;
-			  colorShader.hue = -19;
-		  
-			  colorShaderDarnell.brightness = -39;
-			  colorShaderDarnell.contrast = -7;
-			  colorShaderDarnell.saturation = -68;
-			  colorShaderDarnell.hue = 0;
+
+			if (FlxG.save.data.spookyShaders != false) {
+				colorShader.brightness = -39;
+				colorShader.contrast = -7;
+				colorShader.saturation = -59;
+				colorShader.hue = -19;
+
+				colorShaderDarnell.brightness = -39;
+				colorShaderDarnell.contrast = -7;
+				colorShaderDarnell.saturation = -68;
+				colorShaderDarnell.hue = 0;
 			}
 		}
 	}
 
-	function onBeatHit(event:SongTimeScriptEvent)
-	{
+	function onBeatHit(event:SongTimeScriptEvent) {
 		super.onBeatHit(event);
 
 		// Try driving a car when its possible
-		if (FlxG.random.bool(10) && event.beat != (lastChange + changeInterval) && carInterruptable == true)
-		{
-			if(lightsStop == false){
+		if (FlxG.random.bool(10) && event.beat != (lastChange + changeInterval) && carInterruptable == true) {
+			if (lightsStop == false) {
 				driveCar(getNamedProp('phillyCars'));
-			}else{
+			} else {
 				driveCarLights(getNamedProp('phillyCars'));
 			}
 		}
@@ -545,25 +539,20 @@ class PhillyStreetsSpookyStage extends Stage
 		// }
 
 		// try driving one on the right too. in this case theres no red light logic, it just can only spawn on green lights
-		if(FlxG.random.bool(10) && event.beat != (lastChange + changeInterval) && car2Interruptable == true && lightsStop == false) driveCarBack(getNamedProp('phillyCars2'));
+		if (FlxG.random.bool(10) && event.beat != (lastChange + changeInterval) && car2Interruptable == true && lightsStop == false)
+			driveCarBack(getNamedProp('phillyCars2'));
 
 		// After the interval has been hit, change the light state.
-		if (event.beat == (lastChange + changeInterval)) changeLights(event.beat);
+		if (event.beat == (lastChange + changeInterval))
+			changeLights(event.beat);
 	}
 
-	override function setupFrameBuffers()
-	{
-		//frameBufferMan.createFrameBuffer("mask", 0xFF000000);
-		//frameBufferMan.createFrameBuffer("lightmap", 0xFF000000);
+	override function setupFrameBuffers() {
+		// frameBufferMan.createFrameBuffer("mask", 0xFF000000);
+		// frameBufferMan.createFrameBuffer("lightmap", 0xFF000000);
 	}
 
 	var screen:FixedBitmapData;
-	override function draw()
-	{
-		super.draw();
-
-		//screen = grabScreen(false);
-	}
 
 	public override function onPause(event:PauseScriptEvent) {
 		super.onPause(event);
@@ -603,7 +592,7 @@ class PhillyStreetsSpookyStage extends Stage
 
 	override function onGameOver(event:ScriptEvent):Void {
 		super.onGameOver(event);
-		
+
 		if (FlxG.save.data.spookyShaders != false)
 			getBoyfriend().shader = null;
 		else
@@ -615,7 +604,7 @@ class PhillyStreetsSpookyStage extends Stage
 
 		resetCar(true, true);
 		resetStageValues();
-		
+
 		DarnellPumpkinGlow.animation.play("idle");
 		if (FlxG.save.data.spookyShaders != false)
 			getBoyfriend().shader = colorShader;
@@ -623,28 +612,22 @@ class PhillyStreetsSpookyStage extends Stage
 			getBoyfriend().color = 0x8E7A93;
 	}
 
-	override function addProp(prop:StageProp, ?name:String = null)
-	{
+	override function addProp(prop:StageProp, ?name:String = null) {
 		super.addProp(prop, name);
-		if (StringTools.endsWith(name, "_lightmap"))
-		{
-			if (FlxG.save.data.spookyShaders != false) prop.blend = 0; // 0 means ADD (see openfl.display.BlendMode)
+		if (StringTools.endsWith(name, "_lightmap")) {
+			if (FlxG.save.data.spookyShaders != false)
+				prop.blend = 0; // 0 means ADD (see openfl.display.BlendMode)
 			prop.alpha = 0.6;
-			//frameBufferMan.moveSpriteTo("lightmap", prop);
-		}
-		else if (name == "grey1")
-		{
-			//prop.blendMode = 5;
-			//frameBufferMan.copySpriteTo("mask", prop, 0xFFFFFF);
-		}
-		else
-		{
-			//frameBufferMan.copySpriteTo("mask", prop, 0x000000);
+			// frameBufferMan.moveSpriteTo("lightmap", prop);
+		} else if (name == "grey1") {
+			// prop.blendMode = 5;
+			// frameBufferMan.copySpriteTo("mask", prop, 0xFFFFFF);
+		} else {
+			// frameBufferMan.copySpriteTo("mask", prop, 0x000000);
 		}
 	}
 
-  override function addCharacter(character:BaseCharacter, charType:CharacterType)
-	{
+	override function addCharacter(character:BaseCharacter, charType:CharacterType) {
 		super.addCharacter(character, charType);
 		// add to the mask so that characters hide puddles
 		// frameBufferMan.copySpriteTo("mask", character, 0x000000);

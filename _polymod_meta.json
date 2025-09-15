@@ -24,12 +24,12 @@
     },
     {
       "name": "LeGooey",
-	  "role": "Artist, Composer, Charter",
+	  "role": "Artist, Composer, Charter, Coder, VA",
 	  "url": "https://twitter.com/LeGooey"
     },
     {
       "name": "swagsalt",
-	  "role": "Artist, Composer, Charter",
+	  "role": "Artist, Composer, Charter, VA",
 	  "url": "https://twitter.com/swagsalt"
     },
     {
@@ -39,12 +39,12 @@
     },
     {
       "name": "Andrewman_19",
-	  "role": "Artist, Composer",
+	  "role": "Artist, Composer, VA",
 	  "url": "https://twitter.com/andrewman_19"
     },
     {
       "name": "Clarky_Dev",
-	  "role": "Composer, Charter",
+	  "role": "Composer, Charter, VA",
 	  "url": "https://twitter.com/Clarky_Dev"
     },
     {
@@ -129,6 +129,6 @@
     }
   ],
   "api_version": "0.6.3",
-  "mod_version": "2.0.3",
+  "mod_version": "2.0.4",
   "license": "Apache-2.0"
 }

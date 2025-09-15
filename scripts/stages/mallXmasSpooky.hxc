@@ -4,10 +4,8 @@ import funkin.play.stage.Stage;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.save.Save;
 
-class MallXmasSpookyStage extends Stage
-{
-	function new()
-	{
+class MallXmasSpookyStage extends Stage {
+	function new() {
 		super('mallXmasSpooky');
 	}
 
@@ -15,18 +13,12 @@ class MallXmasSpookyStage extends Stage
 
 	var isMokey:Bool = false;
 
-	public override function onCountdownStart(event:CountdownScriptEvent):Void {
-		super.onCountdownStart(event);
-	}
-
-	function buildStage()
-	{
+	function buildStage() {
 		super.buildStage();
 
 		colorShader = new AdjustColorShader();
-		
-		if (FlxG.save.data.spookyShaders != false)
-		{
+
+		if (FlxG.save.data.spookyShaders != false) {
 			colorShader.brightness = 3;
 			colorShader.contrast = 9;
 			colorShader.saturation = -15;
@@ -35,8 +27,7 @@ class MallXmasSpookyStage extends Stage
 			getNamedProp('christmasGlow').blend = 0;
 		}
 
-		if (Save.instance.hasBeatenSong(PlayState.instance.currentSong.id, null, 'spookymod') && FlxG.random.int(1, 50) == 1)
-		{
+		if (Save.instance.hasBeatenSong(PlayState.instance.currentSong.id, null, 'spookymod') && FlxG.random.int(1, 50) == 1) {
 			getNamedProp('upperBoppers').frames = Paths.getSparrowAtlas('christmas/spooky/mokey');
 			getNamedProp('upperBoppers').animation.addByPrefix('idle-mokey', 'KRIMAAAAAAAAAAAAA', 12, false);
 			getNamedProp('upperBoppers').animation.play('idle-mokey');
@@ -45,12 +36,10 @@ class MallXmasSpookyStage extends Stage
 		}
 	}
 
-	function onUpdate(event:UpdateScriptEvent):Void
-	{
+	function onUpdate(event:UpdateScriptEvent):Void {
 		super.onUpdate(event);
 
-		if(PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null)
-		{
+		if (PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null) {
 			PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
 			PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
 			PlayState.instance.currentStage.getDad().shader = colorShader;
@@ -58,8 +47,9 @@ class MallXmasSpookyStage extends Stage
 			getNamedProp('bottomBoppers').shader = colorShader;
 		}
 
-		if (PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentVariation == 'spookymod' && PlayState.instance.currentSong.id == 'eggnog')
-		{
+		if (PlayState.instance.currentStage.getBoyfriend() != null
+			&& PlayState.instance.currentVariation == 'spookymod'
+			&& PlayState.instance.currentSong.id == 'eggnog') {
 			PlayState.instance.currentStage.getBoyfriend().danceEvery = 2;
 			PlayState.instance.currentStage.getDad().danceEvery = 2;
 			PlayState.instance.currentStage.getGirlfriend().danceEvery = 2;
@@ -67,40 +57,32 @@ class MallXmasSpookyStage extends Stage
 			getNamedProp('upperBoppers').danceEvery = 2;
 			getNamedProp('santa').danceEvery = 2;
 		}
-
 	}
 
 	override function onGameOver(event:ScriptEvent):Void {
 		super.onGameOver(event);
-		
+
 		PlayState.instance.currentStage.getBoyfriend().shader = null;
 	}
 
 	override function onSongRetry(event:ScriptEvent):Void {
 		super.onSongRetry(event);
-		
+
 		PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
 	}
 
-	function onBeatHit(event:SongTimeScriptEvent):Void
-	{
+	function onBeatHit(event:SongTimeScriptEvent):Void {
 		super.onBeatHit(event);
 
 		if (isMokey == true)
 			getNamedProp('upperBoppers').animation.play('idle-mokey');
 	}
 
-  function onStepHit(event:SongTimeScriptEvent):Void
-	{
-		super.onStepHit(event);
-	}
-
 	/**
 	 * If your stage uses additional assets not specified in the JSON,
 	 * make sure to specify them like this, or they won't get cached in the loading screen.
 	 */
-	function fetchAssetPaths():Array<String>
-	{
+	function fetchAssetPaths():Array<String> {
 		var results:Array<String> = super.fetchAssetPaths();
 
 		results.push(Paths.image('christmas/spooky/mokey', "week5"));

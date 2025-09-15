@@ -1,0 +1,1846 @@
+{
+    "ANIMATION": {
+        "name": "spooky freeplay UI",
+        "SYMBOL_name": "spooky Confirm",
+        "TIMELINE": {
+            "LAYERS": [
+                {
+                    "Layer_name": "Layer_1",
+                    "Frames": [
+                        {
+                            "index": 0,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "pink back",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 255.35,
+                                            "y": 370.0
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -644.8,
+                                            "m31": -372.0,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -644.8,
+                                                "y": -372.0,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 1,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "pink back",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 255.35,
+                                            "y": 370.0
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -644.8,
+                                            "m31": -372.0,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -644.8,
+                                                "y": -372.0,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Advanced",
+                                            "RedMultiplier": 1.0,
+                                            "greenMultiplier": 1.0,
+                                            "blueMultiplier": 1.0,
+                                            "alphaMultiplier": 0.578125,
+                                            "redOffset": 0.0,
+                                            "greenOffset": 0.0,
+                                            "blueOffset": 0.0,
+                                            "AlphaOffset": 0.0
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 2,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "pink back",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 255.35,
+                                            "y": 370.0
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -644.8,
+                                            "m31": -372.0,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -644.8,
+                                                "y": -372.0,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Advanced",
+                                            "RedMultiplier": 1.0,
+                                            "greenMultiplier": 1.0,
+                                            "blueMultiplier": 1.0,
+                                            "alphaMultiplier": 0.28125,
+                                            "redOffset": 0.0,
+                                            "greenOffset": 0.0,
+                                            "blueOffset": 0.0,
+                                            "AlphaOffset": 0.0
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 3,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "pink back",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 255.35,
+                                            "y": 370.0
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -644.8,
+                                            "m31": -372.0,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -644.8,
+                                                "y": -372.0,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Advanced",
+                                            "RedMultiplier": 1.0,
+                                            "greenMultiplier": 1.0,
+                                            "blueMultiplier": 1.0,
+                                            "alphaMultiplier": 0.09765625,
+                                            "redOffset": 0.0,
+                                            "greenOffset": 0.0,
+                                            "blueOffset": 0.0,
+                                            "AlphaOffset": 0.0
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 4,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "pink back",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 255.35,
+                                            "y": 370.0
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -644.8,
+                                            "m31": -372.0,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -644.8,
+                                                "y": -372.0,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Alpha",
+                                            "alphaMultiplier": 0.0390625
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 5,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "pink back",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 255.35,
+                                            "y": 370.0
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -644.8,
+                                            "m31": -372.0,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -644.8,
+                                                "y": -372.0,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Alpha",
+                                            "alphaMultiplier": 0.0
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 6,
+                            "duration": 2,
+                            "elements": []
+                        },
+                        {
+                            "index": 8,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Alpha",
+                                            "alphaMultiplier": 0.37890625
+                                        },
+                                        "filters": {
+                                            "BlurFilter": {
+                                                "blurX": 63.0,
+                                                "blurY": 63.0,
+                                                "quality": 3
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 9,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Advanced",
+                                            "RedMultiplier": 1.0,
+                                            "greenMultiplier": 1.0,
+                                            "blueMultiplier": 1.0,
+                                            "alphaMultiplier": 0.265625,
+                                            "redOffset": 0.0,
+                                            "greenOffset": 0.0,
+                                            "blueOffset": 0.0,
+                                            "AlphaOffset": 0.0
+                                        },
+                                        "filters": {
+                                            "BlurFilter": {
+                                                "blurX": 91.45586395263672,
+                                                "blurY": 91.45586395263672,
+                                                "quality": 3
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 10,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Advanced",
+                                            "RedMultiplier": 1.0,
+                                            "greenMultiplier": 1.0,
+                                            "blueMultiplier": 1.0,
+                                            "alphaMultiplier": 0.1953125,
+                                            "redOffset": 0.0,
+                                            "greenOffset": 0.0,
+                                            "blueOffset": 0.0,
+                                            "AlphaOffset": 0.0
+                                        },
+                                        "filters": {
+                                            "BlurFilter": {
+                                                "blurX": 108.53031921386719,
+                                                "blurY": 108.53031921386719,
+                                                "quality": 3
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 11,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Alpha",
+                                            "alphaMultiplier": 0.171875
+                                        },
+                                        "filters": {
+                                            "BlurFilter": {
+                                                "blurX": 114.2218017578125,
+                                                "blurY": 114.2218017578125,
+                                                "quality": 3
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 12,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Advanced",
+                                            "RedMultiplier": 1.0,
+                                            "greenMultiplier": 1.0,
+                                            "blueMultiplier": 1.0,
+                                            "alphaMultiplier": 0.14453125,
+                                            "redOffset": 0.0,
+                                            "greenOffset": 0.0,
+                                            "blueOffset": 0.0,
+                                            "AlphaOffset": 0.0
+                                        },
+                                        "filters": {
+                                            "BlurFilter": {
+                                                "blurX": 116.51824188232422,
+                                                "blurY": 116.51824188232422,
+                                                "quality": 3
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 13,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Advanced",
+                                            "RedMultiplier": 1.0,
+                                            "greenMultiplier": 1.0,
+                                            "blueMultiplier": 1.0,
+                                            "alphaMultiplier": 0.11328125,
+                                            "redOffset": 0.0,
+                                            "greenOffset": 0.0,
+                                            "blueOffset": 0.0,
+                                            "AlphaOffset": 0.0
+                                        },
+                                        "filters": {
+                                            "BlurFilter": {
+                                                "blurX": 118.81446838378906,
+                                                "blurY": 118.81446838378906,
+                                                "quality": 3
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 14,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Advanced",
+                                            "RedMultiplier": 1.0,
+                                            "greenMultiplier": 1.0,
+                                            "blueMultiplier": 1.0,
+                                            "alphaMultiplier": 0.0859375,
+                                            "redOffset": 0.0,
+                                            "greenOffset": 0.0,
+                                            "blueOffset": 0.0,
+                                            "AlphaOffset": 0.0
+                                        },
+                                        "filters": {
+                                            "BlurFilter": {
+                                                "blurX": 121.11090087890625,
+                                                "blurY": 121.11090087890625,
+                                                "quality": 3
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 15,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Advanced",
+                                            "RedMultiplier": 1.0,
+                                            "greenMultiplier": 1.0,
+                                            "blueMultiplier": 1.0,
+                                            "alphaMultiplier": 0.05859375,
+                                            "redOffset": 0.0,
+                                            "greenOffset": 0.0,
+                                            "blueOffset": 0.0,
+                                            "AlphaOffset": 0.0
+                                        },
+                                        "filters": {
+                                            "BlurFilter": {
+                                                "blurX": 123.40733337402344,
+                                                "blurY": 123.40733337402344,
+                                                "quality": 3
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 16,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Advanced",
+                                            "RedMultiplier": 1.0,
+                                            "greenMultiplier": 1.0,
+                                            "blueMultiplier": 1.0,
+                                            "alphaMultiplier": 0.02734375,
+                                            "redOffset": 0.0,
+                                            "greenOffset": 0.0,
+                                            "blueOffset": 0.0,
+                                            "AlphaOffset": 0.0
+                                        },
+                                        "filters": {
+                                            "BlurFilter": {
+                                                "blurX": 125.70356750488281,
+                                                "blurY": 125.70356750488281,
+                                                "quality": 3
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 17,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Alpha",
+                                            "alphaMultiplier": 0.0
+                                        },
+                                        "filters": {
+                                            "BlurFilter": {
+                                                "blurX": 128.0,
+                                                "blurY": 128.0,
+                                                "quality": 3
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 18,
+                            "duration": 12,
+                            "elements": []
+                        }
+                    ]
+                },
+                {
+                    "Layer_name": "Layer_2",
+                    "Frames": [
+                        {
+                            "index": 0,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Alpha",
+                                            "alphaMultiplier": 0.109375
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 1,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Advanced",
+                                            "RedMultiplier": 1.0,
+                                            "greenMultiplier": 1.0,
+                                            "blueMultiplier": 1.0,
+                                            "alphaMultiplier": 0.1171875,
+                                            "redOffset": 0.0,
+                                            "greenOffset": 0.0,
+                                            "blueOffset": 0.0,
+                                            "AlphaOffset": 0.0
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 2,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Advanced",
+                                            "RedMultiplier": 1.0,
+                                            "greenMultiplier": 1.0,
+                                            "blueMultiplier": 1.0,
+                                            "alphaMultiplier": 0.125,
+                                            "redOffset": 0.0,
+                                            "greenOffset": 0.0,
+                                            "blueOffset": 0.0,
+                                            "AlphaOffset": 0.0
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 3,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Advanced",
+                                            "RedMultiplier": 1.0,
+                                            "greenMultiplier": 1.0,
+                                            "blueMultiplier": 1.0,
+                                            "alphaMultiplier": 0.1328125,
+                                            "redOffset": 0.0,
+                                            "greenOffset": 0.0,
+                                            "blueOffset": 0.0,
+                                            "AlphaOffset": 0.0
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 4,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Advanced",
+                                            "RedMultiplier": 1.0,
+                                            "greenMultiplier": 1.0,
+                                            "blueMultiplier": 1.0,
+                                            "alphaMultiplier": 0.13671875,
+                                            "redOffset": 0.0,
+                                            "greenOffset": 0.0,
+                                            "blueOffset": 0.0,
+                                            "AlphaOffset": 0.0
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 5,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Advanced",
+                                            "RedMultiplier": 1.0,
+                                            "greenMultiplier": 1.0,
+                                            "blueMultiplier": 1.0,
+                                            "alphaMultiplier": 0.14453125,
+                                            "redOffset": 0.0,
+                                            "greenOffset": 0.0,
+                                            "blueOffset": 0.0,
+                                            "AlphaOffset": 0.0
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 6,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Advanced",
+                                            "RedMultiplier": 1.0,
+                                            "greenMultiplier": 1.0,
+                                            "blueMultiplier": 1.0,
+                                            "alphaMultiplier": 0.15234375,
+                                            "redOffset": 0.0,
+                                            "greenOffset": 0.0,
+                                            "blueOffset": 0.0,
+                                            "AlphaOffset": 0.0
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 7,
+                            "duration": 1,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Alpha",
+                                            "alphaMultiplier": 0.16015625
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "index": 8,
+                            "duration": 22,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "blue bacl",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 154.8,
+                                            "y": 128.9
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -582.0,
+                                            "m31": -13.4,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -582.0,
+                                                "y": -13.4,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        },
+                                        "color": {
+                                            "mode": "Alpha",
+                                            "alphaMultiplier": 0.3515625
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Layer_name": "Layer_5",
+                    "Frames": [
+                        {
+                            "index": 0,
+                            "duration": 30,
+                            "elements": [
+                                {
+                                    "SYMBOL_Instance": {
+                                        "SYMBOL_name": "backplate flat blue",
+                                        "Instance_Name": "",
+                                        "symbolType": "movieclip",
+                                        "transformationPoint": {
+                                            "x": 255.35,
+                                            "y": 370.0
+                                        },
+                                        "Matrix3D": {
+                                            "m00": 1.0,
+                                            "m01": 0.0,
+                                            "m02": 0.0,
+                                            "m03": 0.0,
+                                            "m10": 0.0,
+                                            "m11": 1.0,
+                                            "m12": 0.0,
+                                            "m13": 0.0,
+                                            "m20": 0.0,
+                                            "m21": 0.0,
+                                            "m22": 1.0,
+                                            "m23": 0.0,
+                                            "m30": -644.8,
+                                            "m31": -372.0,
+                                            "m32": 0.0,
+                                            "m33": 1.0
+                                        },
+                                        "DecomposedMatrix": {
+                                            "Position": {
+                                                "x": -644.8,
+                                                "y": -372.0,
+                                                "z": 0.0
+                                            },
+                                            "Rotation": {
+                                                "x": 0.0,
+                                                "y": -0.0,
+                                                "z": 0.0
+                                            },
+                                            "Scaling": {
+                                                "x": 1.0,
+                                                "y": 1.0,
+                                                "z": 1.0
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "SYMBOL_DICTIONARY": {
+        "Symbols": [
+            {
+                "SYMBOL_name": "pink back",
+                "TIMELINE": {
+                    "LAYERS": [
+                        {
+                            "Layer_name": "Layer_2",
+                            "Frames": [
+                                {
+                                    "index": 0,
+                                    "duration": 1,
+                                    "elements": [
+                                        {
+                                            "ATLAS_SPRITE_instance": {
+                                                "name": "0001",
+                                                "Matrix3D": {
+                                                    "m00": 1.0,
+                                                    "m01": 0.0,
+                                                    "m02": 0.0,
+                                                    "m03": 0.0,
+                                                    "m10": 0.0,
+                                                    "m11": 1.0,
+                                                    "m12": 0.0,
+                                                    "m13": 0.0,
+                                                    "m20": 0.0,
+                                                    "m21": 0.0,
+                                                    "m22": 1.0,
+                                                    "m23": 0.0,
+                                                    "m30": 0.0,
+                                                    "m31": 0.0,
+                                                    "m32": 0.0,
+                                                    "m33": 1.0
+                                                },
+                                                "DecomposedMatrix": {
+                                                    "Position": {
+                                                        "x": 0.0,
+                                                        "y": 0.0,
+                                                        "z": 0.0
+                                                    },
+                                                    "Rotation": {
+                                                        "x": 0.0,
+                                                        "y": -0.0,
+                                                        "z": 0.0
+                                                    },
+                                                    "Scaling": {
+                                                        "x": 1.0,
+                                                        "y": 1.0,
+                                                        "z": 1.0
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "SYMBOL_name": "blue bacl",
+                "TIMELINE": {
+                    "LAYERS": [
+                        {
+                            "Layer_name": "Layer_2",
+                            "Frames": [
+                                {
+                                    "index": 0,
+                                    "duration": 1,
+                                    "elements": [
+                                        {
+                                            "ATLAS_SPRITE_instance": {
+                                                "name": "0002",
+                                                "Matrix3D": {
+                                                    "m00": 1.0,
+                                                    "m01": 0.0,
+                                                    "m02": 0.0,
+                                                    "m03": 0.0,
+                                                    "m10": 0.0,
+                                                    "m11": 1.0,
+                                                    "m12": 0.0,
+                                                    "m13": 0.0,
+                                                    "m20": 0.0,
+                                                    "m21": 0.0,
+                                                    "m22": 1.0,
+                                                    "m23": 0.0,
+                                                    "m30": -91.05,
+                                                    "m31": -113.55,
+                                                    "m32": 0.0,
+                                                    "m33": 1.0
+                                                },
+                                                "DecomposedMatrix": {
+                                                    "Position": {
+                                                        "x": -91.05,
+                                                        "y": -113.55,
+                                                        "z": 0.0
+                                                    },
+                                                    "Rotation": {
+                                                        "x": 0.0,
+                                                        "y": -0.0,
+                                                        "z": 0.0
+                                                    },
+                                                    "Scaling": {
+                                                        "x": 1.0,
+                                                        "y": 1.0,
+                                                        "z": 1.0
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "SYMBOL_name": "backplate flat blue",
+                "TIMELINE": {
+                    "LAYERS": [
+                        {
+                            "Layer_name": "Layer_2",
+                            "Frames": [
+                                {
+                                    "index": 0,
+                                    "duration": 1,
+                                    "elements": [
+                                        {
+                                            "ATLAS_SPRITE_instance": {
+                                                "name": "0003",
+                                                "Matrix3D": {
+                                                    "m00": 1.0,
+                                                    "m01": 0.0,
+                                                    "m02": 0.0,
+                                                    "m03": 0.0,
+                                                    "m10": 0.0,
+                                                    "m11": 1.0,
+                                                    "m12": 0.0,
+                                                    "m13": 0.0,
+                                                    "m20": 0.0,
+                                                    "m21": 0.0,
+                                                    "m22": 1.0,
+                                                    "m23": 0.0,
+                                                    "m30": 0.0,
+                                                    "m31": 0.0,
+                                                    "m32": 0.0,
+                                                    "m33": 1.0
+                                                },
+                                                "DecomposedMatrix": {
+                                                    "Position": {
+                                                        "x": 0.0,
+                                                        "y": 0.0,
+                                                        "z": 0.0
+                                                    },
+                                                    "Rotation": {
+                                                        "x": 0.0,
+                                                        "y": -0.0,
+                                                        "z": 0.0
+                                                    },
+                                                    "Scaling": {
+                                                        "x": 1.0,
+                                                        "y": 1.0,
+                                                        "z": 1.0
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "metadata": {
+        "framerate": 24.0
+    }
+}

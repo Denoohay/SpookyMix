@@ -1,0 +1,33 @@
+import flixel.FlxG;
+import funkin.play.song.Song;
+import funkin.save.Save;
+
+class LitUpSpookymodMixSong extends Song {
+	function new() {
+		super('lit-up', {
+			variation: 'spookymod'
+		});
+	}
+
+	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool {
+		if (FlxG.save.data.beatenLitUpUpdated != false && FlxG.save.data.beatenLitUpUpdated != true)
+			FlxG.save.data.beatenLitUpUpdated = false;
+
+		return !FlxG.save.data.beatenLitUpUpdated;
+	}
+
+	public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
+		var targetDifficulty:Null<SongDifficulty> = getDifficulty(difficultyId, variationId);
+		
+		if (FlxG.save.data.beatenLitUpUpdated == true)
+			return targetDifficulty?.characters?.altInstrumentals ?? [];
+		else
+			return [];
+	}
+
+	public override function onSongEnd(event:CountdownScriptEvent):Void {
+		super.onSongEnd(event);
+
+		FlxG.save.data.beatenLitUpUpdated = true;
+	}
+}

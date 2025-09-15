@@ -1,39 +1,24 @@
 import funkin.play.character.MultiSparrowCharacter;
-import flixel.FlxG;
-import flixel.util.FlxTimer;
-import funkin.play.PlayState;
 import funkin.play.PauseSubState;
-import funkin.graphics.FunkinSprite;
-import funkin.play.character.SparrowCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.GameOverSubState;
-import StringTools;
+import funkin.audio.FunkinSound;
 
-class SpookyPixelCharacter extends MultiSparrowCharacter
-{
-	function new()
-	{
+class SpookyPixelCharacter extends MultiSparrowCharacter {
+	function new() {
 		super('spooky-pixel');
 	}
 
-	function onCreate(event:ScriptEvent)
-	{
+	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
-		
 		GameOverSubState.musicSuffix = '-spooky-pixel';
 		GameOverSubState.blueBallSuffix = '-spooky-pixel';
-
 		PauseSubState.musicSuffix = '-spooky-pixel';
 	}
 
-	function onNoteHit(event:HitNoteScriptEvent)
-	{
-		// Override the hit note animation.
-
-		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF)
-		{
-			switch (event.note.kind)
-			{
+	function onNoteHit(event:HitNoteScriptEvent) {
+		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
+			switch (event.note.kind) {
 				case "Cheer":
 					holdTimer = 0;
 					this.playAnimation('cheer', false);
@@ -47,25 +32,11 @@ class SpookyPixelCharacter extends MultiSparrowCharacter
 		}
 	}
 
-	function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
-		super.playAnimation(name, restart, ignoreOther);
-	}
-
-	override function onGameOver(event:ScriptEvent):Void {
-		super.onGameOver(event);
-	}
-
 	override function onSongRetry(event:ScriptEvent):Void {
 		super.onSongRetry(event);
-
-		// Don't let these pile up.
-
-		// Reset to standard death animation.
 		GameOverSubState.musicSuffix = '-spooky-pixel';
 		GameOverSubState.blueBallSuffix = '-spooky-pixel';
-
 		PauseSubState.musicSuffix = '-spooky-pixel';
-
 		this.visible = true;
 	}
 }

@@ -3,24 +3,26 @@
   "songName": "DadBattle (Spooky Mix)",
   "artist": "Vaderlings & SillyRetto",
   "charter": "LimeIsHere",
-  "modArt": "Denoohay, givemethesalt",
   "timeFormat": "ms",
+  "divisions": 96,
+  "offsets": {"instrumental": 0},
   "timeChanges": [{ "t": 0, "bpm": 180, "n": 4, "d": 4, "bt": [4, 4, 4, 4] }],
+  "looped": false,
   "playData": {
+    "songVariations": [],
     "difficulties": ["easy", "normal", "hard"],
-    "ratings": { "easy": 5, "normal": 6, "hard": 7 },
     "characters": {
-      "player": "spooky-playable",
-      "girlfriend": "moloch",
-      "opponent": "dad-spooky",
-      "instrumental": "spookymod",
-      "altInstrumentals": ["pico", ""]
+      "player": "spooky-playable","girlfriend": "moloch","opponent": "dad-spooky",
+      "instrumental": "spookymod","playerVocals": ["spooky"],"opponentVocals": ["dad"], "altInstrumentals": ["pico", ""]
     },
     "stage": "mainStageSpooky",
     "noteStyle": "funkin",
+    "ratings": { "easy": 5, "normal": 6, "hard": 7 },
     "album": "spookymix1",
-    "previewStart": 0,
-    "previewEnd": 15000
+    "stickerPack": null
   },
-  "generatedBy": "Denoohay (by hand)"
+  "previewStart": 0,
+  "previewEnd": 15000,
+  "generatedBy": "LeGooey (By Hand)",
+  "modArt": "Denoohay, givemethesalt"
 }

@@ -4,33 +4,26 @@ import funkin.util.ReflectUtil;
 import funkin.save.Save;
 import flixel.FlxG;
 
-class SpookyStoryModeMenu extends Module
-{
-  public function new()
-  {
-    super('SpookyStoryModeMenu');
-  }
+class SpookyStoryModeMenu extends Module {
+	public function new() {
+		super('SpookyStoryModeMenu', 1, {
+			state: StoryMenuState
+		});
+	}
 
-  override function onUpdate(event:UpdateScriptEvent)
-  {
-	super.onUpdate(event);
+	override function onUpdate(event:UpdateScriptEvent) {
+		super.onUpdate(event);
 
-    if (ReflectUtil.getClassNameOf(FlxG.state) == "funkin.ui.story.StoryMenuState")
-    {   
-        if (FlxG.state.levelProps != null)
-        {
-            if (FlxG.state.currentLevelId == 'fool')
-            {
-                if (Save.instance.hasBeatenSong('ooga-boogey', ['easy'], '') || Save.instance.hasBeatenSong('ooga-boogey', ['normal'], '') || Save.instance.hasBeatenSong('ooga-boogey', ['hard'], ''))
-                {
-                    FlxG.state.levelProps.members[0].visible = true;
-                }
-                else
-                {
-                    FlxG.state.levelProps.members[0].visible = false;
-                }
-            }
-        }
-    }
-  }
+		if (FlxG.state.levelProps != null) {
+			if (FlxG.state.currentLevelId == 'fool') {
+				if (Save.instance.hasBeatenSong('ooga-boogey', ['easy'], '')
+					|| Save.instance.hasBeatenSong('ooga-boogey', ['normal'], '')
+					|| Save.instance.hasBeatenSong('ooga-boogey', ['hard'], '')) {
+					FlxG.state.levelProps.members[0].visible = true;
+				} else {
+					FlxG.state.levelProps.members[0].visible = false;
+				}
+			}
+		}
+	}
 }

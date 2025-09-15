@@ -21,10 +21,8 @@ import funkin.audio.FunkinSound;
 import funkin.data.song.SongRegistry;
 import funkin.graphics.shaders.DropShadowShader;
 
-class PhillyTrainSpookyStage extends Stage
-{
-	function new()
-	{
+class PhillyTrainSpookyStage extends Stage {
+	function new() {
 		super('phillyTrainSpooky');
 		hasPlayedInGameCutscene = false;
 	}
@@ -48,35 +46,34 @@ class PhillyTrainSpookyStage extends Stage
 	var makeGhostsAppear:Bool = false;
 
 	/**
-   * Replay the cutscene after leaving the song.
-   */
-  function onCreate(event:ScriptEvent):Void
-  {
-    super.onCreate(event);
+	 * Replay the cutscene after leaving the song.
+	 */
+	function onCreate(event:ScriptEvent):Void {
+		super.onCreate(event);
 
-    hasPlayedInGameCutscene = false;
+		hasPlayedInGameCutscene = false;
 		cutsceneSkipped = false;
-	  canSkipCutscene = false;
+		canSkipCutscene = false;
 		playerShoots = false;
 		explode = true;
-  }
+	}
 
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
-    if(!hasPlayedInGameCutscene && PlayState.instance.currentStage.getBoyfriend().characterId == 'pico-playable'){
-      trace('Pausing countdown to play in game cutscene');
+		if (!hasPlayedInGameCutscene && PlayState.instance.currentStage.getBoyfriend().characterId == 'pico-playable') {
+			trace('Pausing countdown to play in game cutscene');
 
-      hasPlayedInGameCutscene = true;
+			hasPlayedInGameCutscene = true;
 
-      event.cancel(); // CANCEL THE COUNTDOWN!
+			event.cancel(); // CANCEL THE COUNTDOWN!
 
-      PlayState.instance.camHUD.visible = false;
-      doppleGangerCutscene();
-    }else{
+			PlayState.instance.camHUD.visible = false;
+			doppleGangerCutscene();
+		} else {
 			hasPlayedInGameCutscene = true;
 			cutsceneSkipped = true;
-	 	 	canSkipCutscene = true;
+			canSkipCutscene = true;
 		}
 	}
 
@@ -93,16 +90,15 @@ class PhillyTrainSpookyStage extends Stage
 
 	var cutsceneTimerManager:FlxTimerManager;
 
-	function doppleGangerCutscene(){
-
+	function doppleGangerCutscene() {
 		skipText = new FlxText(936, 618, 0, 'Skip [ ' + PlayState.instance.controls.getDialogueNameFromToken("CUTSCENE_ADVANCE", true) + ' ]', 20);
-    skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
-    skipText.scrollFactor.set();
+		skipText.setFormat(Paths.font('vcr.ttf'), 40, 0xFFFFFFFF, "right", FlxTextBorderStyle.OUTLINE, 0xFF000000);
+		skipText.scrollFactor.set();
 		skipText.borderSize = 2;
 		skipText.alpha = 0;
-    add(skipText);
+		add(skipText);
 
-    skipText.cameras = [PlayState.instance.camCutscene];
+		skipText.cameras = [PlayState.instance.camCutscene];
 
 		cutsceneTimerManager = new FlxTimerManager();
 
@@ -114,12 +110,12 @@ class PhillyTrainSpookyStage extends Stage
 		cutsceneConductor.onBeatHit.add(onCutsceneBeatHit);
 
 		// 50/50 chance for who shoots
-		if(FlxG.random.bool(50)){
+		if (FlxG.random.bool(50)) {
 			playerShoots = true;
 		} else {
 			playerShoots = false;
 		}
-		if(FlxG.random.bool(8)){
+		if (FlxG.random.bool(8)) {
 			// trace('Doppelganger will explode!');
 			explode = true;
 		} else {
@@ -140,7 +136,7 @@ class PhillyTrainSpookyStage extends Stage
 
 		picoPlayer.zIndex = PlayState.instance.currentStage.getBoyfriend().zIndex + 1;
 
-		if(playerShoots == true){
+		if (playerShoots == true) {
 			picoOpponent.zIndex = picoPlayer.zIndex - 1;
 			bloodPool.zIndex = picoOpponent.zIndex - 1;
 			cigarette.zIndex = PlayState.instance.currentStage.getBoyfriend().zIndex - 2;
@@ -149,9 +145,15 @@ class PhillyTrainSpookyStage extends Stage
 			cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 143.5, PlayState.instance.currentStage.getBoyfriend().y + 210);
 			bloodPool.setPosition(PlayState.instance.currentStage.getDad().x - 1487, PlayState.instance.currentStage.getDad().y - 173);
 
-			shooterPos = [PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
-			cigarettePos = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
-		}else{
+			shooterPos = [
+				PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
+				PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y
+			];
+			cigarettePos = [
+				PlayState.instance.currentStage.getDad().cameraFocusPoint.x,
+				PlayState.instance.currentStage.getDad().cameraFocusPoint.y
+			];
+		} else {
 			picoOpponent.zIndex = picoPlayer.zIndex + 1;
 			bloodPool.zIndex = picoPlayer.zIndex - 1;
 			cigarette.zIndex = PlayState.instance.currentStage.getDad().zIndex - 2;
@@ -159,27 +161,33 @@ class PhillyTrainSpookyStage extends Stage
 			bloodPool.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 788.5, PlayState.instance.currentStage.getBoyfriend().y - 173);
 			cigarette.setPosition(PlayState.instance.currentStage.getBoyfriend().x - 478.5, PlayState.instance.currentStage.getBoyfriend().y + 205);
 
-			cigarettePos = [PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y];
-			shooterPos = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
+			cigarettePos = [
+				PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.x,
+				PlayState.instance.currentStage.getBoyfriend().cameraFocusPoint.y
+			];
+			shooterPos = [
+				PlayState.instance.currentStage.getDad().cameraFocusPoint.x,
+				PlayState.instance.currentStage.getDad().cameraFocusPoint.y
+			];
 		}
-		var midPoint:Array<Float> = [(shooterPos[0] + cigarettePos[0])/2, (shooterPos[1] + cigarettePos[1])/2];
+		var midPoint:Array<Float> = [(shooterPos[0] + cigarettePos[0]) / 2, (shooterPos[1] + cigarettePos[1]) / 2];
 
 		cigarette.frames = Paths.getSparrowAtlas('philly/erect/cigarette');
-    cigarette.animation.addByPrefix('cigarette spit', 'cigarette spit', 24, false);
+		cigarette.animation.addByPrefix('cigarette spit', 'cigarette spit', 24, false);
 		cigarette.visible = false;
 
 		PlayState.instance.currentStage.add(cigarette);
 		PlayState.instance.currentStage.add(picoPlayer);
-    PlayState.instance.currentStage.add(picoOpponent);
+		PlayState.instance.currentStage.add(picoOpponent);
 		PlayState.instance.currentStage.add(bloodPool);
 		PlayState.instance.currentStage.refresh();
 
 		PlayState.instance.currentStage.getBoyfriend().visible = false;
 		PlayState.instance.currentStage.getDad().visible = false;
 
-		if(explode == false){
+		if (explode == false) {
 			cutsceneMusic = FunkinSound.load(Paths.music("cutscene/cutscene", "week3"), true);
-		}else{
+		} else {
 			cutsceneMusic = FunkinSound.load(Paths.music("cutscene/cutscene2", "week3"), true);
 		}
 		cutsceneMusic.volume = 1;
@@ -191,10 +199,9 @@ class PhillyTrainSpookyStage extends Stage
 		FunkinSound.playOnce(Paths.sound('cutscene/picoGasp'), 1);
 
 		PlayState.instance.resetCamera(false, true);
-    PlayState.instance.cameraFollowPoint.setPosition(midPoint[0], midPoint[1]);
+		PlayState.instance.cameraFollowPoint.setPosition(midPoint[0], midPoint[1]);
 
 		new FlxTimer(cutsceneTimerManager).start(4, _ -> {
-
 			PlayState.instance.cameraFollowPoint.setPosition(cigarettePos[0], cigarettePos[1]);
 		});
 
@@ -205,52 +212,51 @@ class PhillyTrainSpookyStage extends Stage
 		new FlxTimer(cutsceneTimerManager).start(8.75, _ -> {
 			cutsceneSkipped = true;
 			canSkipCutscene = false;
-			FlxTween.tween(skipText, {alpha: 0}, 0.5, {ease: FlxEase.quadIn, onComplete: _ -> {skipText.visible = false;}});
+			FlxTween.tween(skipText, {alpha: 0}, 0.5, {ease: FlxEase.quadIn, onComplete: _ -> {
+				skipText.visible = false;
+			}});
 			// cutting off skipping here. really dont think its needed after this point and it saves problems from happening
 			PlayState.instance.cameraFollowPoint.setPosition(cigarettePos[0], cigarettePos[1]);
-			if(explode == true)
+			if (explode == true)
 				PlayState.instance.currentStage.getGirlfriend().playAnimation('drop70', true);
 		});
 
 		new FlxTimer(cutsceneTimerManager).start(11.2, _ -> {
-			if(explode == true)
+			if (explode == true)
 				bloodPool.scriptCall('doAnim');
 		});
 
 		new FlxTimer(cutsceneTimerManager).start(11.5, _ -> {
-			if(explode == false){
+			if (explode == false) {
 				cigarette.visible = true;
 				cigarette.animation.play('cigarette spit');
 			}
 		});
 
 		new FlxTimer(cutsceneTimerManager).start(13, _ -> {
-
-			if(explode == false || playerShoots == true){
+			if (explode == false || playerShoots == true) {
 				PlayState.instance.startCountdown();
 			}
 
-			if(explode == true){
-				if(playerShoots == true){
+			if (explode == true) {
+				if (playerShoots == true) {
 					picoPlayer.visible = false;
 					PlayState.instance.currentStage.getBoyfriend().visible = true;
-				}else{
+				} else {
 					picoOpponent.visible = false;
 					PlayState.instance.disableKeys = true;
 					PlayState.instance.currentStage.getDad().visible = true;
 
-					new FlxTimer().start(1, function(tmr)
-					{
+					new FlxTimer().start(1, function(tmr) {
 						PlayState.instance.camCutscene.fade(0xFF000000, 1, false, null, true);
 					});
 
-					new FlxTimer().start(2, function(tmr)
-					{
+					new FlxTimer().start(2, function(tmr) {
 						PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
 						PlayState.instance.endSong(true);
 					});
 				}
-			}else{
+			} else {
 				picoPlayer.visible = false;
 				PlayState.instance.currentStage.getBoyfriend().visible = true;
 				picoOpponent.visible = false;
@@ -262,7 +268,7 @@ class PhillyTrainSpookyStage extends Stage
 		});
 	}
 
-	function skipCutscene(){
+	function skipCutscene() {
 		cutsceneSkipped = true;
 		explode = false;
 		hasPlayedCutscene = true;
@@ -286,7 +292,6 @@ class PhillyTrainSpookyStage extends Stage
 			PlayState.instance.currentStage.getBoyfriend().visible = true;
 			PlayState.instance.currentStage.getDad().visible = true;
 		});
-
 	}
 
 	function onCutsceneBeatHit() {
@@ -295,26 +300,25 @@ class PhillyTrainSpookyStage extends Stage
 		}
 	}
 
-	function onNoteHit(event:HitNoteScriptEvent)
-	{
+	function onNoteHit(event:HitNoteScriptEvent) {
 		super.onNoteHit(event);
-    if (PlayState.instance.currentStage == null) return;
+		if (PlayState.instance.currentStage == null)
+			return;
 		if (!event.note.noteData.getMustHitNote() && explode == true && playerShoots == true) {
 			event.cancelEvent();
 			PlayState.instance.vocals.opponentVolume = 0;
 		}
-
 	}
 
-	function buildStage()
-	{
+	function buildStage() {
 		super.buildStage();
 
 		bottomSmokeAdd = new FlxBackdrop(Paths.image('philly/spooky/bottomSmokeAdd'), 0x01);
 		bottomSmokeAdd.setPosition(0, 1007);
 		bottomSmokeAdd.scrollFactor.set(1.2, 1);
 		bottomSmokeAdd.zIndex = 410;
-		if (FlxG.save.data.spookyShaders != false) bottomSmokeAdd.blend = 0;
+		if (FlxG.save.data.spookyShaders != false)
+			bottomSmokeAdd.blend = 0;
 		bottomSmokeAdd.velocity.x = 200;
 
 		PlayState.instance.currentStage.add(bottomSmokeAdd);
@@ -338,14 +342,13 @@ class PhillyTrainSpookyStage extends Stage
 		lightShader = ScriptedFlxRuntimeShader.init('BuildingEffectShader', 1.0);
 		trainSound = new FlxSound().loadEmbedded(Paths.sound('carPass1', "week4"));
 		FlxG.sound.list.add(trainSound);
-		
+
 		if (FlxG.save.data.spookyShaders != false)
 			getNamedProp("topGradient").blend = 0;
 		else
 			getNamedProp("topGradient").visible = false;
 
-		for (i in 0...LIGHT_COUNT)
-		{
+		for (i in 0...LIGHT_COUNT) {
 			var light:FlxSprite = getNamedProp('mansionWindow');
 			light.shader = lightShader;
 			light.visible = false;
@@ -353,7 +356,6 @@ class PhillyTrainSpookyStage extends Stage
 
 		if (FlxG.random.int(1, 20) == 1)
 			getNamedProp('weird').alpha = 1;
-
 	}
 
 	var trainMoving:Bool = false;
@@ -361,22 +363,19 @@ class PhillyTrainSpookyStage extends Stage
 	var trainFinishing:Bool = false;
 	var trainCooldown:Int = 0;
 
-	function onUpdate(event:UpdateScriptEvent):Void
-	{
+	function onUpdate(event:UpdateScriptEvent):Void {
 		super.onUpdate(event);
-		
-		if (FlxG.save.data.spookyShaders != false){}
-		else
-		{
-			if(getBoyfriend() != null)
-			{
+
+		if (FlxG.save.data.spookyShaders != false) {} else {
+			if (getBoyfriend() != null) {
 				getBoyfriend().color = 0xA6B3BC;
 				getGirlfriend().color = 0xA6B3BC;
 				getDad().color = 0xA6B3BC;
 			}
 		}
 
-		if(cutsceneTimerManager != null) cutsceneTimerManager.update(event.elapsed);
+		if (cutsceneTimerManager != null)
+			cutsceneTimerManager.update(event.elapsed);
 		// Update beat lights
 		var shaderInput:Float = (Conductor.instance.beatLengthMs / 1000) * event.elapsed * 1.5;
 		lightShader.scriptCall('update', [shaderInput]);
@@ -384,20 +383,17 @@ class PhillyTrainSpookyStage extends Stage
 		var amount:Int = 1;
 
 		// Update train
-		if (trainMoving)
-		{
+		if (trainMoving) {
 			trainFrameTiming += event.elapsed;
 
-			if (trainFrameTiming >= 1 / 24)
-			{
+			if (trainFrameTiming >= 1 / 24) {
 				updateTrainPos();
 				trainFrameTiming = 0;
 			}
 		}
 
-		if (PlayState.instance.controls.CUTSCENE_ADVANCE && cutsceneSkipped == false)
-    {
-			if(canSkipCutscene == false){
+		if (PlayState.instance.controls.CUTSCENE_ADVANCE && cutsceneSkipped == false) {
+			if (canSkipCutscene == false) {
 				trace('cant skip yet!');
 				FlxTween.tween(skipText, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
 				new FlxTimer().start(0.5, _ -> {
@@ -405,12 +401,11 @@ class PhillyTrainSpookyStage extends Stage
 					trace('can skip!');
 				});
 			}
-    }
-		if(PlayState.instance.controls.CUTSCENE_ADVANCE && cutsceneSkipped == false && canSkipCutscene == true){
+		}
+		if (PlayState.instance.controls.CUTSCENE_ADVANCE && cutsceneSkipped == false && canSkipCutscene == true) {
 			skipCutscene();
 			trace('skipped');
 		}
-
 
 		if (cutsceneConductor != null && cutsceneMusic != null) {
 			cutsceneConductor.update(cutsceneMusic.time);
@@ -420,47 +415,41 @@ class PhillyTrainSpookyStage extends Stage
 	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
 		// Apply the shader automatically to each character as it gets added.
 		super.addCharacter(character, charType);
-		if (FlxG.save.data.spookyShaders != false)
-		{
+		if (FlxG.save.data.spookyShaders != false) {
 			trace('Applied stage shader to ' + character.characterName);
-		
+
 			var rim = new DropShadowShader();
 			character.shader = rim;
 			rim.color = 0xFF1C2628;
 			rim.attachedSprite = character;
-			rim.setAdjustColor(-20, -30, -45, -20); //b, h, c, s
+			rim.setAdjustColor(-20, -30, -45, -20); // b, h, c, s
 			rim.angle = 120;
 
-			switch(charType){
+			switch (charType) {
 				case CharacterType.BF:
 					character.animation.onFrameChange.add(function() {
-						if (getBoyfriend() != null)
-						{
-      						rim.updateFrameInfo(getBoyfriend().frame);
+						if (getBoyfriend() != null) {
+							rim.updateFrameInfo(getBoyfriend().frame);
 						}
-    				});
+					});
 
 				case CharacterType.DAD:
 					character.animation.onFrameChange.add(function() {
-						if (getDad() != null)
-						{
-      						rim.updateFrameInfo(getDad().frame);
+						if (getDad() != null) {
+							rim.updateFrameInfo(getDad().frame);
 						}
-    				});
+					});
 
 				case CharacterType.GF:
 					character.animation.onFrameChange.add(function() {
-						if (getGirlfriend() != null)
-						{
-      						rim.updateFrameInfo(getGirlfriend().frame);
+						if (getGirlfriend() != null) {
+							rim.updateFrameInfo(getGirlfriend().frame);
 						}
-    				});
+					});
 
 				default:
-
 			}
 		}
-
 	}
 
 	override function onGameOver(event:ScriptEvent):Void {
@@ -469,48 +458,45 @@ class PhillyTrainSpookyStage extends Stage
 			getBoyfriend().shader = null;
 		else
 			getBoyfriend().color = 0xFFFFFF;
-			
+
 		getNamedProp('ghostLeft').alpha = 0;
 		getNamedProp('ghostRight').alpha = 0;
 
-		//getNamedProp('ghostLeft').animation.play('spawnOut');
-		//getNamedProp('ghostRight').animation.play('spawnOut');
+		// getNamedProp('ghostLeft').animation.play('spawnOut');
+		// getNamedProp('ghostRight').animation.play('spawnOut');
 
 		makeGhostsAppear = false;
 	}
 
 	override function onSongRetry(event:ScriptEvent):Void {
 		super.onSongRetry(event);
-		if (FlxG.save.data.spookyShaders != false){}
-		else{
-			getBoyfriend().color = 0xA6B3BC;}
-			
+		if (FlxG.save.data.spookyShaders != false) {} else {
+			getBoyfriend().color = 0xA6B3BC;
+		}
+
 		getNamedProp('ghostLeft').alpha = 0;
 		getNamedProp('ghostRight').alpha = 0;
 
-		//getNamedProp('ghostLeft').animation.play('spawnOut');
-		//getNamedProp('ghostRight').animation.play('spawnOut');
+		// getNamedProp('ghostLeft').animation.play('spawnOut');
+		// getNamedProp('ghostRight').animation.play('spawnOut');
 
 		makeGhostsAppear = false;
 	}
 
-	function onBeatHit(event:SongTimeScriptEvent):Void
-	{
+	function onBeatHit(event:SongTimeScriptEvent):Void {
 		super.onBeatHit(event);
 		// Update train cooldown
 		if (!trainMoving)
 			trainCooldown += 1;
 
 		// Start train
-		if (event.beat % 8 == 1 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
-		{
+		if (event.beat % 8 == 1 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8) {
 			trainCooldown = FlxG.random.int(-4, 0);
 			trainStart();
 		}
 
 		// Update lights
-		if (event.beat % 4 == 0)
-		{
+		if (event.beat % 4 == 0) {
 			// Reset opacity
 			lightShader.scriptCall('reset');
 
@@ -518,71 +504,59 @@ class PhillyTrainSpookyStage extends Stage
 		}
 	}
 
-	function trainStart():Void
-	{
+	function trainStart():Void {
 		trainMoving = true;
 		trainSound.play(true);
 	}
 
 	var startedMoving:Bool = false;
 
-	function updateTrainPos():Void
-	{
+	function updateTrainPos():Void {
 		startedMoving = true;
 
-		if (startedMoving)
-		{
+		if (startedMoving) {
 			limo.anim.play("");
 			limo.anim.onComplete.add(function() {
 				limo.anim.stop();
-			  trainReset();
+				trainReset();
 			});
 		}
 	}
 
-	function trainReset():Void
-	{
+	function trainReset():Void {
 		trainMoving = false;
 		trainFinishing = false;
 		startedMoving = false;
 	}
 
-    public override function onSongEvent(scriptEvent:SongEventScriptEvent)
-    {
-        super.onSongEvent(scriptEvent);
+	public override function onSongEvent(scriptEvent:SongEventScriptEvent) {
+		super.onSongEvent(scriptEvent);
 
-        if (scriptEvent.eventData.eventKind == "PicoGhosts") //ghost appear animation time 0.625, ghost dissapear is 1.25
-        {
+		if (scriptEvent.eventData.eventKind == "PicoGhosts") // ghost appear animation time 0.625, ghost dissapear is 1.25
+		{
 			makeGhostsAppear = true;
 
-            if (scriptEvent.eventData.value.ghostsFade == 0)
-			{
+			if (scriptEvent.eventData.value.ghostsFade == 0) {
 				getNamedProp('ghostLeft').animation.play('spawnOut');
 				getNamedProp('ghostRight').animation.play('spawnOut');
 
-				new FlxTimer().start(1.25, function(tmr)
-				{
-					if (makeGhostsAppear == true)
-					{
+				new FlxTimer().start(1.25, function(tmr) {
+					if (makeGhostsAppear == true) {
 						getNamedProp('ghostLeft').alpha = 0;
 						getNamedProp('ghostRight').alpha = 0;
 
 						makeGhostsAppear = false;
 					}
 				});
-			}
-			else if (scriptEvent.eventData.value.ghostsFade == 1)
-			{
+			} else if (scriptEvent.eventData.value.ghostsFade == 1) {
 				getNamedProp('ghostLeft').animation.play('spawnIn');
 				getNamedProp('ghostRight').animation.play('spawnIn');
 
 				getNamedProp('ghostLeft').alpha = 1;
 				getNamedProp('ghostRight').alpha = 1;
 
-				new FlxTimer().start(0.625, function(tmr)
-				{
-					if (makeGhostsAppear == true)
-					{
+				new FlxTimer().start(0.625, function(tmr) {
+					if (makeGhostsAppear == true) {
 						getNamedProp('ghostLeft').animation.play('idle');
 						getNamedProp('ghostRight').animation.play('idle');
 
@@ -590,31 +564,30 @@ class PhillyTrainSpookyStage extends Stage
 					}
 				});
 			}
-        }
-    }
+		}
+	}
 
 	/**
 	 * If your stage uses additional assets not specified in the JSON,
 	 * make sure to specify them like this, or they won't get cached in the loading screen.
 	 */
-	function fetchAssetPaths():Array<String>
-	{
+	function fetchAssetPaths():Array<String> {
 		var results:Array<String> = super.fetchAssetPaths();
-		
+
 		results.push(Paths.image('limo/spooky/FGbushDorothy'));
 		results.push(Paths.image('limo/spooky/FGbushStarbucks'));
 
 		results.push(Paths.animateAtlas("philly/spooky/limoDrive", "week3"));
-		
+
 		results.push(Paths.animateAtlas("carPass1", "week4"));
 
 		return results;
 	}
 
-	function kill()
-	{
+	function kill() {
 		super.kill();
-		if(cutsceneTimerManager != null) cutsceneTimerManager.destroy();
+		if (cutsceneTimerManager != null)
+			cutsceneTimerManager.destroy();
 		lightShader = null;
 	}
 }

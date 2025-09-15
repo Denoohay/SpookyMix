@@ -3,6 +3,50 @@ All notable changes will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.0.4] - 2025-09-14
+
+### Added
+
+- The Spooky Kids now have 2 new Freeplay animations
+	- AFK easter egg animation
+	- Unlocked new character animation (as in a Spooky Kids version of the animation where BF looks at a golden glow behind the turntable)
+
+### Changed
+
+- Reworked the Alt Instrumental cross-mod compatibility system to better detect if an instrumental is compatible
+- Changed all the Spooky Mixes to use variation-specific song scripts
+- Optimized and reformatted all the scripts in the mod
+- Remastered the camera events for Tutorial (Spooky Mix)
+- Changed the Freeplay OST text to "UNOFFICIAL UST"
+- Resized the strum background on Blazin' (Spooky Mix)'s walking segment to align better with the notes on wider resolutions
+- Expanded the scale of the Spooky Tutorial stage slightly to stop the camera from going off stage
+- Extra details have been added on the further edges of Week 1 (Spooky Mix)'s background
+- "Blue Balls" text in the Pause Menu now only changes to "Game Overs" when playing as the Spooky Kids (instead of changing for any character except Boyfriend)
+- Reorganized all the metadata files to match with https://github.com/FunkinCrew/funkin.assets/pull/247
+- Renamed some song files for organization
+
+### Fixed
+
+- Punkman now plays his "Heh. Pretty good!" animation in Stress (Spooky Mix) on easy and normal
+- Darnell (Spooky Mix) on easy and normal no longer has too many cheer animation notes
+- Moloch now uses the correct sprites in M.I.L.F. (Spooky Mix) and Satin Panties (Spooky Mix)
+- The Spooky Kids retry sound now plays on mobile
+- The Spooky Kids' Freeplay turntable lights now glow properly
+- The Freeplay DJ background no longer shifts around after selecting a song on wider resolutions
+- The Freeplay DJ background transitions in and out again
+- Fixed the song file and chart for Tutorial (Spooky Mix) to not have the blank space at the start and sync the chart better
+- The preview for Tutorial (Spooky Mix) no longer plays on other songs in Freeplay
+- Fixed a charting issue in section 51 of Tutorial (Spooky Mix)
+- Fixed a charting issue in section 14 of Roses (Spooky Mix) ([thanks to GabyStarStudiosOfficial for the issue report](https://github.com/Denoohay/SpookyMix/issues/7))
+- Main Menu music no longer plays over the music in the Lag Adjustment menu
+- There will no longer be 2 menu tracks playing at the same time if another mod replaces "freakyMenu.ogg" in the files
+- The Freeplay OST text no longer gets replaced for other modded characters
+
+### Removed
+
+- Removed even more unused imports for optimization
+- Removed some duplicate Freeplay pixel icons
+
 ## [2.0.3] - 2025-08-02
 
 ### Added
@@ -32,7 +76,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - A script error no longer pops up when restarting Thorns (Spooky Mix)
 - Removed the extra spacing between Weekend 1 and Ooga Booga titles in Story Mode
 - Playing Winter Horrorland (Spooky Mix) after beating Eggnog (Spooky Mix) for the first time no longer has the incorrect song selected when going back to Freeplay
-- Fixed a selling mistake in the Stress (Spooky Mix) lyrics
+- Fixed a spelling mistake in the Stress (Spooky Mix) lyrics
 - The paper in the intro to Blazin' (Spooky Mix) is now centered on wider resolutions
 - You can no longer get softlocked on the intro to Blazin' (Spooky Mix)
 - Sounds in the Stress (Spooky Mix) opening cutscene now properly get cut off when skipping it
@@ -44,6 +88,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Removed
 
 - Removed extra controls in the credits menu since the menu was reworked in FNF v0.7 and the extra controls won't work anymore
+- Removed a bunch of unused imports for optimization
 
 ## [2.0.2] - 2025-05-30
 
@@ -284,16 +329,16 @@ Spooky Mix Mod Pack release
 - Skid now has correct proportions in week 2
 - Pump's cheer animation in week 2 is slightly larger
 - Adjustments to loss results animation
-- Adjustments to freeplay idle animation
-- Unlocking a hidden song should land you back on the correct selection after you exit to freeplay no matter what freeplay filter you selected the song from
+- Adjustments to Freeplay idle animation
+- Unlocking a hidden song should land you back on the correct selection after you exit to Freeplay no matter what Freeplay filter you selected the song from
 - "IT'S THE SPOOKY BEFORE CHRISTMAS" line is no longer charted in Cocoa as it was catching people off guard. Instead, the screen fades to black and shows subtitles
 - Hidden songs are now displayed as "???" in the pause menu until the screen is fully revealed
 - You can no longer press notes or hit reset on the opening of a hidden song
 - Scroll speed has been adjusted for Ugh
 - Scroll speed has been adjusted for High
 - Added in normal difficulty chart for High as it was using the hard chart before
-- Tweaked difficulty values for certain songs in freeplay
-- Changing song selection in freeplay immediately after reciving a new rank will play the correct song preview instead of a preview of the song you just got a rank for
+- Tweaked difficulty values for certain songs in Freeplay
+- Changing song selection in Freeplay immediately after reciving a new rank will play the correct song preview instead of a preview of the song you just got a rank for
 
 ### Fixed
 

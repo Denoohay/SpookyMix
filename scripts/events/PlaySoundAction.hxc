@@ -2,20 +2,16 @@ import funkin.modding.module.Module;
 import funkin.modding.events.ScriptEvent;
 import funkin.audio.FunkinSound;
 
-class PlaySoundAction extends Module
-{
-    public function new()
-    {
-        super('PlaySoundAction');
-    }
+class PlaySoundAction extends Module {
+	public function new() {
+		super('PlaySoundAction');
+	}
 
-    public override function onSongEvent(scriptEvent:SongEventScriptEvent)
-    {
-        super.onSongEvent(scriptEvent);
+	public override function onSongEvent(scriptEvent:SongEventScriptEvent) {
+		super.onSongEvent(scriptEvent);
 
-        if (scriptEvent.eventData.eventKind == "playSound")
-        {
-            FunkinSound.playOnce(Paths.sound(scriptEvent.eventData.value.fileName), scriptEvent.eventData.value.volume);
-        }
-    }
+		if (scriptEvent.eventData.eventKind == "playSound") {
+			FunkinSound.playOnce(Paths.sound(scriptEvent.eventData.value.fileName), scriptEvent.eventData.value.volume);
+		}
+	}
 }

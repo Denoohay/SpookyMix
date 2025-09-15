@@ -3,19 +3,15 @@ import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.save.Save;
 
-class SchoolSpookyStage extends Stage
-{
-	function new()
-	{
+class SchoolSpookyStage extends Stage {
+	function new() {
 		super('schoolSpooky');
 	}
 
-	function buildStage()
-	{
+	function buildStage() {
 		super.buildStage();
 
-		if (PlayState.instance.currentSong.id.toLowerCase() == "roses")
-		{
+		if (PlayState.instance.currentSong.id.toLowerCase() == "roses") {
 			getNamedProp('freaks').idleSuffix = '-scared';
 		} else {
 			getNamedProp('freaks').idleSuffix = '';
@@ -40,10 +36,9 @@ class SchoolSpookyStage extends Stage
 	 * If your stage uses additional assets not specified in the JSON,
 	 * make sure to specify them like this, or they won't get cached in the loading screen.
 	 */
-	function fetchAssetPaths():Array<String>
-	{
+	function fetchAssetPaths():Array<String> {
 		var results:Array<String> = super.fetchAssetPaths();
-		
+
 		results.push(Paths.image('weeb/spooky/weirdPumpkins'));
 
 		return results;

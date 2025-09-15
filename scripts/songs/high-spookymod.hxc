@@ -1,0 +1,33 @@
+import flixel.FlxG;
+import funkin.play.song.Song;
+import funkin.save.Save;
+
+class HighSpookymodMixSong extends Song {
+	function new() {
+		super('high', {
+			variation: 'spookymod'
+		});
+	}
+
+	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool {
+		if (FlxG.save.data.beatenNewHighUpdated != false && FlxG.save.data.beatenNewHighUpdated != true)
+			FlxG.save.data.beatenNewHighUpdated = false;
+
+		return !FlxG.save.data.beatenNewHighUpdated;
+	}
+
+	public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
+		var targetDifficulty:Null<SongDifficulty> = getDifficulty(difficultyId, variationId);
+
+		if (FlxG.save.data.beatenNewHighUpdated == true)
+			return targetDifficulty?.characters?.altInstrumentals ?? [];
+		else
+			return [];
+	}
+
+	public override function onSongEnd(event:CountdownScriptEvent):Void {
+		super.onSongEnd(event);
+
+		FlxG.save.data.beatenNewHighUpdated = true;
+	}
+}

@@ -1,29 +1,29 @@
 import funkin.play.event.SongEvent;
 
-class SongVolumeSongEvent extends SongEvent
-{
-	public function new()
-	{
+class SongVolumeSongEvent extends SongEvent {
+	public function new() {
 		super('songVolume');
 	}
 
 	public override function handleEvent(data) {}
-	
-	public function getTitle()
-	{
+
+	public function getTitle() {
 		return "Set Song Volume";
 	}
 
-	public function getEventSchema()
-	{
-		return
-		[
+	public function getEventSchema() {
+		return [
 			{
 				name: "track",
 				title: "Track",
 				defaultValue: 0,
 				type: "enum",
-				keys: ["Player Voice" => 0, "Opponent Voice" => 1, "Instrumental" => 2, "All Tracks" => 3]
+				keys: [
+					"Player Voice" => 0,
+					"Opponent Voice" => 1,
+					"Instrumental" => 2,
+					"All Tracks" => 3
+				]
 			},
 			{
 				name: 'volume',

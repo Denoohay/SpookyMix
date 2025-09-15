@@ -3,57 +3,46 @@ import funkin.modding.module.Module;
 import funkin.modding.events.ScriptEvent;
 import flixel.FlxG;
 
-class SongVolumeAction extends Module
-{
-    public function new()
-    {
-        super('SongVolumeAction');
-    }
-
-    function onSongRetry(event:ScriptEvent)
-    {
-		super.onSongRetry(event);
-        
-        PlayState.instance.vocals.playerVolume = 1;
-        PlayState.instance.vocals.opponentVolume = 1;
-        if (FlxG.sound.music != null)
-        {
-            FlxG.sound.music.volume = 1;
-        }
-    }
-
-    function onGameOver(event:ScriptEvent):Void
-    {
-		super.onGameOver(event);
-        
-        PlayState.instance.vocals.playerVolume = 1;
-        PlayState.instance.vocals.opponentVolume = 1;
-        if (FlxG.sound.music != null)
-        {
-            FlxG.sound.music.volume = 1;
-        }
+class SongVolumeAction extends Module {
+	public function new() {
+		super('SongVolumeAction');
 	}
 
-    public override function onSongEvent(scriptEvent:SongEventScriptEvent)
-    {
-        super.onSongEvent(scriptEvent);
+	function onSongRetry(event:ScriptEvent) {
+		super.onSongRetry(event);
 
-        if (scriptEvent.eventData.eventKind == "songVolume")
-        {
-            if (scriptEvent.eventData.value.track == 0 || scriptEvent.eventData.value.track == 3)
-            {
-                PlayState.instance.vocals.playerVolume = scriptEvent.eventData.value.volume;
-            }
+		PlayState.instance.vocals.playerVolume = 1;
+		PlayState.instance.vocals.opponentVolume = 1;
+		if (FlxG.sound.music != null) {
+			FlxG.sound.music.volume = 1;
+		}
+	}
 
-            if (scriptEvent.eventData.value.track == 1 || scriptEvent.eventData.value.track == 3)
-            {
-                PlayState.instance.vocals.opponentVolume = scriptEvent.eventData.value.volume;
-            }
+	function onGameOver(event:ScriptEvent):Void {
+		super.onGameOver(event);
 
-            if (scriptEvent.eventData.value.track == 2 || scriptEvent.eventData.value.track == 3)
-            {
-                FlxG.sound.music.volume = scriptEvent.eventData.value.volume;
-            }
-        }
-    }
+		PlayState.instance.vocals.playerVolume = 1;
+		PlayState.instance.vocals.opponentVolume = 1;
+		if (FlxG.sound.music != null) {
+			FlxG.sound.music.volume = 1;
+		}
+	}
+
+	public override function onSongEvent(scriptEvent:SongEventScriptEvent) {
+		super.onSongEvent(scriptEvent);
+
+		if (scriptEvent.eventData.eventKind == "songVolume") {
+			if (scriptEvent.eventData.value.track == 0 || scriptEvent.eventData.value.track == 3) {
+				PlayState.instance.vocals.playerVolume = scriptEvent.eventData.value.volume;
+			}
+
+			if (scriptEvent.eventData.value.track == 1 || scriptEvent.eventData.value.track == 3) {
+				PlayState.instance.vocals.opponentVolume = scriptEvent.eventData.value.volume;
+			}
+
+			if (scriptEvent.eventData.value.track == 2 || scriptEvent.eventData.value.track == 3) {
+				FlxG.sound.music.volume = scriptEvent.eventData.value.volume;
+			}
+		}
+	}
 }

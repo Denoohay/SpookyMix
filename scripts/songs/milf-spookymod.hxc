@@ -1,0 +1,33 @@
+import flixel.FlxG;
+import funkin.play.song.Song;
+import funkin.save.Save;
+
+class MilfSpookymodMixSong extends Song {
+	function new() {
+		super('milf', {
+			variation: 'spookymod'
+		});
+	}
+
+	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool {
+		if (FlxG.save.data.beatenMilfUpdated != false && FlxG.save.data.beatenMilfUpdated != true)
+			FlxG.save.data.beatenMilfUpdated = false;
+
+		return !FlxG.save.data.beatenMilfUpdated;
+	}
+
+	public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
+		var targetDifficulty:Null<SongDifficulty> = getDifficulty(difficultyId, variationId);
+
+		if (FlxG.save.data.beatenMilfUpdated == true)
+			return targetDifficulty?.characters?.altInstrumentals ?? [];
+		else
+			return [];
+	}
+
+	public override function onSongEnd(event:CountdownScriptEvent):Void {
+		super.onSongEnd(event);
+
+		FlxG.save.data.beatenMilfUpdated = true;
+	}
+}

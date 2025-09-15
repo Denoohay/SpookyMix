@@ -3,18 +3,12 @@ import funkin.play.stage.Stage;
 import funkin.graphics.shaders.DropShadowShader;
 import funkin.play.character.CharacterType;
 
-class SkidsAtticTutorialStage extends Stage
-{
-	function new()
-	{
+class SkidsAtticTutorialStage extends Stage {
+	function new() {
 		super('skidsAtticTutorial');
 	}
 
 	var endCameraStop:Bool = false;
-
-	function onCreate(event:ScriptEvent):Void {
-		super.onCreate(event);
-	}
 
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
@@ -22,76 +16,61 @@ class SkidsAtticTutorialStage extends Stage
 		endCameraStop = false;
 	}
 
-	function buildStage()
-	{
+	function buildStage() {
 		super.buildStage();
-		
+
 		if (FlxG.save.data.spookyShaders != false)
 			getNamedProp('glow').blend = 1;
-
 	}
 
 	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
 		// Apply the shader automatically to each character as it gets added.
 		super.addCharacter(character, charType);
-		if (FlxG.save.data.spookyShaders != false)
-		{
+		if (FlxG.save.data.spookyShaders != false) {
 			trace('Applied stage shader to ' + character.characterName);
 
 			var rim = new DropShadowShader();
 			character.shader = rim;
 			rim.attachedSprite = character;
 
-			switch(charType){
+			switch (charType) {
 				case CharacterType.BF:
-			
-					rim.setAdjustColor(-100, -46, -10, -45); //b, h, c, s
+					rim.setAdjustColor(-100, -46, -10, -45); // b, h, c, s
 					rim.angle = 135;
 					rim.color = 0xFF252E72;
-					//rim.distance = 0;
+					// rim.distance = 0;
 
 					character.animation.onFrameChange.add(function() {
-						if (getBoyfriend() != null)
-						{
-      						rim.updateFrameInfo(getBoyfriend().frame);
+						if (getBoyfriend() != null) {
+							rim.updateFrameInfo(getBoyfriend().frame);
 						}
-    				});
+					});
 
 				case CharacterType.DAD:
-				
-				
-					rim.setAdjustColor(-53, -16, -14, 0); //b, h, c, s
+					rim.setAdjustColor(-53, -16, -14, 0); // b, h, c, s
 					rim.angle = 135;
 					rim.color = 0xFF747DCE;
 
 					character.animation.onFrameChange.add(function() {
-						if (getDad() != null)
-						{
-      						rim.updateFrameInfo(getDad().frame);
+						if (getDad() != null) {
+							rim.updateFrameInfo(getDad().frame);
 						}
-    				});
+					});
 
 				default:
-
 			}
 		}
-
 	}
 
-	function onUpdate(event:UpdateScriptEvent):Void
-	{
+	function onUpdate(event:UpdateScriptEvent):Void {
 		super.onUpdate(event);
 
-		if (endCameraStop == true)
-		{
+		if (endCameraStop == true) {
 			FlxG.camera.target = null;
 		}
-		
-		if (FlxG.save.data.spookyShaders != false){}
-		else
-		{
-			if(getBoyfriend() != null)
-			{
+
+		if (FlxG.save.data.spookyShaders != false) {} else {
+			if (getBoyfriend() != null) {
 				getBoyfriend().color = 0x969CBA;
 				getDad().color = 0x969CBA;
 			}
@@ -100,7 +79,7 @@ class SkidsAtticTutorialStage extends Stage
 
 	override function onGameOver(event:ScriptEvent):Void {
 		super.onGameOver(event);
-		
+
 		if (FlxG.save.data.spookyShaders != false)
 			getBoyfriend().shader = null;
 		else
@@ -109,25 +88,15 @@ class SkidsAtticTutorialStage extends Stage
 
 	override function onSongRetry(event:ScriptEvent):Void {
 		super.onSongRetry(event);
-		
-		if (FlxG.save.data.spookyShaders != false){}
-		else{
-			getBoyfriend().color = 0x969CBA;}
+
+		if (FlxG.save.data.spookyShaders != false) {} else {
+			getBoyfriend().color = 0x969CBA;
+		}
 	}
 
 	public override function onSongEnd(event:CountdownScriptEvent):Void {
 		super.onSongEnd(event);
 
 		endCameraStop = true;
-	}
-
-	function onBeatHit(event:SongTimeScriptEvent):Void
-	{
-		super.onBeatHit(event);
-	}
-
-  function onStepHit(event:SongTimeScriptEvent):Void
-	{
-		super.onStepHit(event);
 	}
 }

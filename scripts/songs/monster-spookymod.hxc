@@ -1,0 +1,38 @@
+import funkin.play.PlayState;
+import funkin.play.song.Song;
+import funkin.play.Countdown;
+import funkin.save.Save;
+
+class MonsterSpookymodMixSong extends Song {
+	function new() {
+		super('monster', {
+			variation: 'spookymod'
+		});
+	}
+
+	public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
+		var targetDifficulty:Null<SongDifficulty> = getDifficulty(difficultyId, variationId);
+
+		if (Save.instance.hasBeatenSong(this.id, null, variationId))
+			return targetDifficulty?.characters?.altInstrumentals ?? [];
+		else
+			return [];
+	}
+
+	override function onSongLoaded(event:SongLoadScriptEvent):Void {
+		super.onSongLoaded(event);
+
+		if (PlayState.instance.currentVariation == 'spookymod') {
+			skippedCountdown = false;
+		}
+	}
+
+	override function onUpdate(event:UpdateScriptEvent) {
+		super.onUpdate(event);
+
+		if (PlayState.instance.currentVariation == 'spookymod' && skippedCountdown == false) {
+			skippedCountdown = true;
+			Countdown.skipCountdown();
+		}
+	}
+}

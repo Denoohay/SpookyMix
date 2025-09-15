@@ -3,29 +3,21 @@ import funkin.play.stage.Stage;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.ui.FullScreenScaleMode;
 
-class MallEvilSpookyStage extends Stage
-{
-	function new()
-	{
+class MallEvilSpookyStage extends Stage {
+	function new() {
 		super('mallEvilSpooky');
 	}
 
-  var colorShaderBf:AdjustColorShader;
-  var colorShaderDad:AdjustColorShader;
+	var colorShaderBf:AdjustColorShader;
+	var colorShaderDad:AdjustColorShader;
 
-	public override function onCountdownStart(event:CountdownScriptEvent):Void {
-		super.onCountdownStart(event);
-	}
-
-	function buildStage()
-	{
+	function buildStage() {
 		super.buildStage();
 
 		colorShaderBf = new AdjustColorShader();
 		colorShaderDad = new AdjustColorShader();
-	
-		if (FlxG.save.data.spookyShaders != false)
-		{
+
+		if (FlxG.save.data.spookyShaders != false) {
 			colorShaderBf.brightness = -48;
 			colorShaderBf.contrast = 28;
 			colorShaderBf.saturation = -18;
@@ -38,41 +30,32 @@ class MallEvilSpookyStage extends Stage
 
 			getNamedProp('topGlow').blend = 0;
 		}
-		
-		if (FullScreenScaleMode.wideScale.x != 1)
-		{
+
+		if (FullScreenScaleMode.wideScale.x != 1) {
 			getNamedProp('bg').x += 90;
 			getNamedProp('evilTree').x += 90;
 		}
-
 	}
 
-	function onUpdate(event:UpdateScriptEvent):Void
-	{
+	function onUpdate(event:UpdateScriptEvent):Void {
 		super.onUpdate(event);
 
-		if (FlxG.save.data.spookyShaders != false)
-		{
-			if(getBoyfriend() != null && getBoyfriend().shader == null)
-			{
+		if (FlxG.save.data.spookyShaders != false) {
+			if (getBoyfriend() != null && getBoyfriend().shader == null) {
 				getBoyfriend().shader = colorShaderBf;
 				getDad().shader = colorShaderDad;
 			}
-		}
-		else
-		{
-			if(getBoyfriend() != null)
-			{
+		} else {
+			if (getBoyfriend() != null) {
 				getBoyfriend().color = 0xFFA8B3;
 				getDad().color = 0xFFA8B3;
 			}
 		}
-
 	}
 
 	override function onGameOver(event:ScriptEvent):Void {
 		super.onGameOver(event);
-		
+
 		if (FlxG.save.data.spookyShaders != false)
 			getBoyfriend().shader = null;
 		else
@@ -81,20 +64,10 @@ class MallEvilSpookyStage extends Stage
 
 	override function onSongRetry(event:ScriptEvent):Void {
 		super.onSongRetry(event);
-		
+
 		if (FlxG.save.data.spookyShaders != false)
 			getBoyfriend().shader = colorShaderBf;
 		else
 			getBoyfriend().color = 0xFFA8B3;
-	}
-
-	function onBeatHit(event:SongTimeScriptEvent):Void
-	{
-		super.onBeatHit(event);
-	}
-
-  function onStepHit(event:SongTimeScriptEvent):Void
-	{
-		super.onStepHit(event);
 	}
 }

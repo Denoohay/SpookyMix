@@ -1,46 +1,33 @@
 import funkin.play.character.MultiSparrowCharacter;
 import flixel.FlxG;
-import flixel.util.FlxTimer;
 import funkin.play.PlayState;
 import funkin.play.PauseSubState;
-import funkin.graphics.FunkinSprite;
-import funkin.play.character.SparrowCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.character.CharacterDataParser;
 import funkin.play.GameOverSubState;
-import StringTools;
 import funkin.graphics.shaders.AdjustColorShader;
+import funkin.audio.FunkinSound;
 
-class SkidPlayableDarkCharacter extends MultiSparrowCharacter
-{
-	function new()
-	{
+class SkidPlayableDarkCharacter extends MultiSparrowCharacter {
+	function new() {
 		super('skid-playable-dark');
 	}
 
 	var normalChar:BaseCharacter;
-	
 	var colorShaderNormal:AdjustColorShader;
 
-	override function set_alpha(val:Float):Float
-	{
+	override function set_alpha(val:Float):Float {
 		super.set_alpha(val);
-		if(val != 1)
+		if (val != 1)
 			normalChar.alpha = 1;
 		else
 			normalChar.alpha = 0;
-
-    return val;
+		return val;
 	}
 
-	function onNoteHit(event:HitNoteScriptEvent)
-	{
-		// Override the hit note animation.
-
-		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF)
-		{
-			switch (event.note.kind)
-			{
+	function onNoteHit(event:HitNoteScriptEvent) {
+		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
+			switch (event.note.kind) {
 				case "Cheer":
 					holdTimer = 0;
 					this.playAnimation('cheer', false);
@@ -55,57 +42,45 @@ class SkidPlayableDarkCharacter extends MultiSparrowCharacter
 	}
 
 	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
-			super.playAnimation(name, restart, ignoreOther);
-      if(normalChar != null){
-        normalChar.playAnimation(name, restart, ignoreOther);
-        normalChar.setPosition(this.x, this.y);
-      }
-	}
+		super.playAnimation(name, restart, ignoreOther);
+		if (normalChar != null) {
+			normalChar.playAnimation(name, restart, ignoreOther);
+			normalChar.setPosition(this.x, this.y);
+		}
 
-	override function onGameOver(event:ScriptEvent):Void {
-		super.onGameOver(event);
+		if (name == "deathConfirm") {
+			spookyRetry = FunkinSound.load(Paths.music('gameplay/gameover/gameOverEnd-spookymod'), true);
+			spookyRetry.volume = 1;
+			spookyRetry.play(false);
+		}
 	}
 
 	override function onSongRetry(event:ScriptEvent):Void {
 		super.onSongRetry(event);
-
-		// Don't let these pile up.
-
-		// Reset to standard death animation.
 		GameOverSubState.musicSuffix = '-spooky';
 		GameOverSubState.blueBallSuffix = '-spooky';
-
 		PauseSubState.musicSuffix = '-spooky';
-
 		this.visible = true;
 	}
 
-	function onCreate(event:ScriptEvent)
-	{
+	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
-		
 		colorShaderNormal = new AdjustColorShader();
-		
-		if (FlxG.save.data.spookyShaders != false)
-		{
+		if (FlxG.save.data.spookyShaders != false) {
 			colorShaderNormal.brightness = -93;
 			colorShaderNormal.contrast = 55;
 			colorShaderNormal.saturation = -46;
 		}
-		
+
 		normalChar = CharacterDataParser.fetchCharacter('skid-playable');
 		normalChar.zIndex = 199;
 		normalChar.alpha = 0;
 		normalChar.flipX = false;
-
 		PlayState.instance.currentStage.add(normalChar);
-		PlayState.instance.currentStage.refresh(); // Apply z-index.
-		
+		PlayState.instance.currentStage.refresh();
 		normalChar.shader = colorShaderNormal;
-
 		GameOverSubState.musicSuffix = '-spooky';
 		GameOverSubState.blueBallSuffix = '-spooky';
-
 		PauseSubState.musicSuffix = '-spooky';
 	}
 }

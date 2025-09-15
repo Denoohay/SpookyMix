@@ -1,0 +1,33 @@
+import flixel.FlxG;
+import funkin.play.song.Song;
+import funkin.save.Save;
+
+class TwoHOTSpookymodMixSong extends Song {
+	function new() {
+		super('2hot', {
+			variation: 'spookymod'
+		});
+	}
+
+	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool {
+		if (FlxG.save.data.beatenTwoHotUpdated != false && FlxG.save.data.beatenTwoHotUpdated != true)
+			FlxG.save.data.beatenTwoHotUpdated = false;
+
+		return !FlxG.save.data.beatenTwoHotUpdated;
+	}
+
+	public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
+		var targetDifficulty:Null<SongDifficulty> = getDifficulty(difficultyId, variationId);
+		
+		if (FlxG.save.data.beatenTwoHotUpdated == true)
+			return targetDifficulty?.characters?.altInstrumentals ?? [];
+		else
+			return [];
+	}
+
+	public override function onSongEnd(event:CountdownScriptEvent):Void {
+		super.onSongEnd(event);
+
+		FlxG.save.data.beatenTwoHotUpdated = true;
+	}
+}
