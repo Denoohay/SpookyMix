@@ -9,7 +9,7 @@
     },
     {
       "name": "givemethesalt",
-	  "role": "Artist",
+	  "role": "Artist, Composer",
 	  "url": "https://twitter.com/7saltybro"
     },
     {
@@ -31,11 +31,6 @@
       "name": "swagsalt",
 	  "role": "Artist, Composer, Charter, VA",
 	  "url": "https://twitter.com/swagsalt"
-    },
-    {
-      "name": "SacredSky",
-	  "role": "Artist, Composer, Charter",
-	  "url": "https://twitter.com/sacred_sky_"
     },
     {
       "name": "Andrewman_19",
@@ -129,6 +124,6 @@
     }
   ],
   "api_version": "0.6.3",
-  "mod_version": "2.0.4",
+  "mod_version": "2.0.5",
   "license": "Apache-2.0"
 }

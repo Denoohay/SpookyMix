@@ -3,6 +3,14 @@ All notable changes will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.0.5] - 2025-09-18
+
+### Fixed
+
+- Selecting "Random" in Freeplay no longer causes an error to pop up on FNF v0.7.5
+- Week 6 (Spooky Mix) dialogue is now correctly positioned on FNF v0.7.5
+- Changing the default player in Options before opening Freeplay will now once again update the menu music to match with the background
+
 ## [2.0.4] - 2025-09-14
 
 ### Added

@@ -25,7 +25,7 @@ class AltInstsModCompatibility extends Module {
 		super.onUpdate(event);
 
 		if (FlxG.state.subState.capsuleOptionsMenu != null) {
-			if (addedInsts == false) {
+			if (addedInsts == false && FlxG.state.subState.curSelected != 0) {
 				var curFilteredSongs:Array<String>;
 				var songList:Array<String> = [];
 

@@ -21,7 +21,7 @@ class SpookyCharSelectScreen extends Module {
 			}
 		}
 
-		if (!Save.instance.data.unlocks.charactersSeen.contains(FlxG.state.curChar))
+		if (!Save.instance.data.unlocks.charactersSeen.contains(FlxG.state.curChar) && FlxG.state.curChar != "locked")
 			Save.instance.data.unlocks.charactersSeen.push(FlxG.state.curChar);
 	}
 }

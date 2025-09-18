@@ -24,8 +24,6 @@ class SpookyMenuOption extends Module {
 		return FlxG.onMobile ? 100 : 150;
 	}
 
-	var optionNumber:Int = 0;
-
 	var menuTheme(default, set):String = "freakyMenu";
 	var oldTheme:String;
 
@@ -112,7 +110,7 @@ class SpookyMenuOption extends Module {
 			}
 		}
 
-		if (ReflectUtil.getClassNameOf(FlxG.state) == "funkin.ui.options.OptionsState") {
+		if (ReflectUtil.getClassNameOf(FlxG.state) == "funkin.ui.options.OptionsState") { 
 			if (FlxG.state.members[0] != null) {
 				if (FlxG.save.data.SpookyMixMenu == 'Always On'
 					|| (FlxG.save.data.SpookyMixMenu == 'Spooky Kids Selected'
@@ -126,6 +124,19 @@ class SpookyMenuOption extends Module {
 					}
 				}
 			}
+
+			if (oldTheme != getMusicId()) {
+				FlxG.sound.music.stop();
+				menuTheme = getMusicId();
+				FunkinSound.playMusic('freakyMenu', {
+					startingVolume: 1.0,
+					overrideExisting: true,
+					restartTrack: false,
+					// Continue playing this music between states, until a different music track gets played.
+					persist: true
+				});
+			}
+			oldTheme = getMusicId();
 		}
 
 		if (ReflectUtil.getClassNameOf(FlxG.state.subState) == "funkin.ui.debug.DebugMenuSubState") {
@@ -154,15 +165,6 @@ class SpookyMenuOption extends Module {
 					if (FlxG.state.menuBG.graphic.assetPath == 'assets/images/SpookyMenuDesat.png') {
 						FlxG.state.menuBG.loadGraphic(Paths.image('menuDesat'));
 					}
-				}
-			}
-		}
-
-		if (ReflectUtil.getClassNameOf(FlxG.state) == "funkin.ui.options.OptionsState") {
-			if (optionNumber == 0) {
-				for (i in 0...FlxG.state.members[1].members[1].members[0].members.length) {
-					if (FlxG.state.members[1].members[1].members[0].members[i].label.text == "Default Player")
-						optionNumber = i;
 				}
 			}
 		}
