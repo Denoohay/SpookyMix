@@ -37,13 +37,6 @@
     },
     {
       "t": 94.3396226415094,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
-      "t": 94.3396226415094,
       "e": "ZoomCamera",
       "v": {
 	"ease": "INSTANT",
@@ -133,52 +126,10 @@
 }
     },
     {
-      "t": 21415.0943396226,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Your skin is freezing"
-}
-    },
-    {
-      "t": 24433.9622641509,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Why don't you help me thaw it out?"
-}
-    },
-    {
-      "t": 27547.1698113208,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
       "t": 27547.1698113208,
       "e": "FocusCamera",
       "v": {
 	"char": 0
-}
-    },
-    {
-      "t": 29339.6226415094,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "with hellfire..."
-}
-    },
-    {
-      "t": 32452.8301886792,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
-      "t": 33113.2075471698,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Trick or treat again"
 }
     },
     {
@@ -189,59 +140,10 @@
 }
     },
     {
-      "t": 35188.679245283,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "oh the fun will never end"
-}
-    },
-    {
-      "t": 36509.4339622641,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "on an endless halloween"
-}
-    },
-    {
-      "t": 38207.5471698113,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "la"
-}
-    },
-    {
-      "t": 38396.2264150943,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "la la"
-}
-    },
-    {
-      "t": 38584.9056603774,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "la la la"
-}
-    },
-    {
-      "t": 38773.5849056604,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "la la la la~"
-}
-    },
-    {
       "t": 39245.2830188679,
       "e": "FocusCamera",
       "v": {
 	"char": 0
-}
-    },
-    {
-      "t": 39245.2830188679,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -274,20 +176,6 @@
 }
     },
     {
-      "t": 45377.358490566,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "So come to me, and do my bidding"
-}
-    },
-    {
-      "t": 48396.2264150943,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "I'll make it worth your time"
-}
-    },
-    {
       "t": 49716.9811320755,
       "e": "SetCameraBop",
       "v": {
@@ -296,25 +184,11 @@
 }
     },
     {
-      "t": 50377.358490566,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
       "t": 51226.4150943396,
       "e": "SetCameraBop",
       "v": {
 	"rate": 2,
 	"intensity": 1
-}
-    },
-    {
-      "t": 51320.7547169811,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Bells all scream the doomsday chime"
 }
     },
     {
@@ -337,25 +211,11 @@
 }
     },
     {
-      "t": 56415.0943396226,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
       "t": 57264.1509433962,
       "e": "SetCameraBop",
       "v": {
 	"rate": 1,
 	"intensity": 1
-}
-    },
-    {
-      "t": 57264.1509433962,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "We'll bring christmas to an end!"
 }
     },
     {
@@ -376,66 +236,10 @@
 }
     },
     {
-      "t": 59622.641509434,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
-      "t": 60283.0188679245,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Summon demons you can't"
-}
-    },
-    {
-      "t": 61981.1320754717,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Summon demons you can't, com"
-}
-    },
-    {
-      "t": 62169.8113207547,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Summon demons you can't, compre"
-}
-    },
-    {
-      "t": 62358.4905660377,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Summon demons you can't, comprehend!"
-}
-    },
-    {
       "t": 63396.2264150943,
       "e": "FocusCamera",
       "v": {
 	"char": 0
-}
-    },
-    {
-      "t": 63396.2264150943,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
-      "t": 65188.679245283,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "(oh how sublime)"
-}
-    },
-    {
-      "t": 67924.5283018868,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -447,13 +251,6 @@
 }
     },
     {
-      "t": 69339.6226415094,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Oh don't be scared,"
-}
-    },
-    {
       "t": 69433.9622641509,
       "e": "FocusCamera",
       "v": {
@@ -461,31 +258,10 @@
 }
     },
     {
-      "t": 70283.0188679245,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "you know that you can trust a friend like me  "
-}
-    },
-    {
       "t": 72452.8301886792,
       "e": "FocusCamera",
       "v": {
 	"char": 0
-}
-    },
-    {
-      "t": 72452.8301886792,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
-      "t": 75377.358490566,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Steal all the candy!"
 }
     },
     {
@@ -500,20 +276,6 @@
       "e": "FocusCamera",
       "v": {
 	"char": 0
-}
-    },
-    {
-      "t": 77735.8490566038,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
-      "t": 78207.5471698113,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Give everyone a fright!"
 }
     },
     {
@@ -546,13 +308,6 @@
 }
     },
     {
-      "t": 81132.0754716981,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
       "t": 81415.0943396227,
       "e": "SetCameraBop",
       "v": {
@@ -578,88 +333,11 @@
 }
     },
     {
-      "t": 81698.1132075472,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Split the earth straight through the core"
-}
-    },
-    {
-      "t": 83207.5471698113,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "and bring a darkness that will"
-}
-    },
-    {
-      "t": 84528.3018867925,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "send"
-}
-    },
-    {
-      "t": 84905.6603773585,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "send you"
-}
-    },
-    {
-      "t": 85283.0188679245,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "send you all"
-}
-    },
-    {
-      "t": 85660.3773584906,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "send you all in"
-}
-    },
-    {
-      "t": 85849.0566037736,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "send you all insane"
-}
-    },
-    {
       "t": 85943.3962264151,
       "e": "SetCameraBop",
       "v": {
 	"rate": 8,
 	"intensity": 1
-}
-    },
-    {
-      "t": 86603.7735849057,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "la"
-}
-    },
-    {
-      "t": 86792.4528301887,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "la la"
-}
-    },
-    {
-      "t": 86981.1320754717,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "la la la"
-}
-    },
-    {
-      "t": 87169.8113207547,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "la la la la~"
 }
     },
     {
@@ -678,25 +356,11 @@
 }
     },
     {
-      "t": 87735.8490566038,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
       "t": 91981.1320754717,
       "e": "SetCameraBop",
       "v": {
 	"rate": 8,
 	"intensity": 1
-}
-    },
-    {
-      "t": 93490.5660377359,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Better hurry time is ticking"
 }
     },
     {
@@ -740,20 +404,6 @@
 }
     },
     {
-      "t": 95094.3396226415,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
-      "t": 96509.4339622642,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "trust that it's a treat, not tricking"
-}
-    },
-    {
       "t": 96603.7735849057,
       "e": "FocusCamera",
       "v": {
@@ -773,20 +423,6 @@
 	"y": 0,
 	"char": 0,
 	"ease": "INSTANT"
-}
-    },
-    {
-      "t": 98113.2075471698,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
-      "t": 99528.3018867925,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "see your world as it's engulfed in flame"
 }
     },
     {
@@ -816,13 +452,6 @@
       "v": {
 	"rate": 4,
 	"intensity": 1
-}
-    },
-    {
-      "t": 102547.169811321,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "All part of my game!"
 }
     },
     {
@@ -875,20 +504,6 @@
 }
     },
     {
-      "t": 105754.716981132,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Gonna take a piece of my world and"
-}
-    },
-    {
-      "t": 108773.58490566,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "I'll bring it into yours"
-}
-    },
-    {
       "t": 110094.339622642,
       "e": "SetCameraBop",
       "v": {
@@ -897,39 +512,11 @@
 }
     },
     {
-      "t": 110754.716981132,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
       "t": 111603.773584906,
       "e": "SetCameraBop",
       "v": {
 	"rate": 4,
 	"intensity": 1
-}
-    },
-    {
-      "t": 111792.452830189,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "For just the price of your mind"
-}
-    },
-    {
-      "t": 114811.320754717,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "to open countless doors"
-}
-    },
-    {
-      "t": 116792.452830189,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -951,13 +538,6 @@
 }
     },
     {
-      "t": 117641.509433962,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Oh don't be scared,"
-}
-    },
-    {
       "t": 117735.849056604,
       "e": "FocusCamera",
       "v": {
@@ -965,31 +545,10 @@
 }
     },
     {
-      "t": 118584.905660377,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "you know that you can trust a friend like me"
-}
-    },
-    {
-      "t": 120754.716981132,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
       "t": 120754.830188679,
       "e": "FocusCamera",
       "v": {
 	"char": 0
-}
-    },
-    {
-      "t": 123679.245283019,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Steal all the candy!"
 }
     },
     {
@@ -1004,20 +563,6 @@
       "e": "FocusCamera",
       "v": {
 	"char": 0
-}
-    },
-    {
-      "t": 126037.735849057,
-      "e": "Lyrics",
-      "v": {
-	"lyric": " "
-}
-    },
-    {
-      "t": 126509.433962264,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Give everyone a fright!"
 }
     },
     {
@@ -1050,13 +595,6 @@
 }
     },
     {
-      "t": 129433.962264151,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
       "t": 129716.981132075,
       "e": "SetCameraBop",
       "v": {
@@ -1086,13 +624,6 @@
 }
     },
     {
-      "t": 129905.660377358,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Come with me if you want never ending fear!"
-}
-    },
-    {
       "t": 132830.188679245,
       "e": "FocusCamera",
       "v": {
@@ -1101,20 +632,6 @@
 	"y": 0,
 	"ease": "CLASSIC",
 	"char": 0
-}
-    },
-    {
-      "t": 134716.981132075,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
-      "t": 135849.056603774,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Follow me children..."
 }
     },
     {
@@ -1136,55 +653,6 @@
 	"duration": 8,
 	"mode": "stage",
 	"zoom": 0.8
-}
-    },
-    {
-      "t": 138113.20754717,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
-      "t": 138867.924528302,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Help"
-}
-    },
-    {
-      "t": 139056.603773585,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Help me"
-}
-    },
-    {
-      "t": 139433.962264151,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Help me bring"
-}
-    },
-    {
-      "t": 139811.320754717,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Help me bring the"
-}
-    },
-    {
-      "t": 140188.679245283,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Help me bring the end!"
-}
-    },
-    {
-      "t": 141132.075471698,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {

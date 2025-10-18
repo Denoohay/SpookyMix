@@ -26,13 +26,6 @@
     },
     {
       "t": 0,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
-      "t": 0,
       "e": "FocusCamera",
       "v": {
 	"x": 300,
@@ -154,27 +147,6 @@
 }
     },
     {
-      "t": 30947.3684210526,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Guess it's time"
-}
-    },
-    {
-      "t": 32210.5263157895,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "you better plug in all your nightlights"
-}
-    },
-    {
-      "t": 35368.4210526316,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
       "t": 35368.4210526316,
       "e": "FocusCamera",
       "v": {
@@ -189,24 +161,10 @@
 }
     },
     {
-      "t": 40894.7368421053,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "What's out there through the attic floor?"
-}
-    },
-    {
       "t": 45473.6842105263,
       "e": "FocusCamera",
       "v": {
 	"char": 0
-}
-    },
-    {
-      "t": 46007.4285714286,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -220,24 +178,10 @@
 }
     },
     {
-      "t": 50436,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Just some laughs, some fun"
-}
-    },
-    {
       "t": 50526.3157894737,
       "e": "FocusCamera",
       "v": {
 	"char": 1
-}
-    },
-    {
-      "t": 52721.7142857143,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "It's spooky galore!"
 }
     },
     {
@@ -254,13 +198,6 @@
       "v": {
 	"rate": 2,
 	"intensity": 1
-}
-    },
-    {
-      "t": 54893.1428571429,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -315,13 +252,6 @@
 }
     },
     {
-      "t": 61864.5714285714,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Why don't you both follow my guidance?"
-}
-    },
-    {
       "t": 63911.2781954887,
       "e": "SetCameraBop",
       "v": {
@@ -335,13 +265,6 @@
       "v": {
 	"rate": 2,
 	"intensity": 1
-}
-    },
-    {
-      "t": 66321.7142857143,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -375,53 +298,11 @@
 }
     },
     {
-      "t": 71121.7142857143,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "To ensure this month never ends"
-}
-    },
-    {
       "t": 73054.1353383459,
       "e": "SetCameraBop",
       "v": {
 	"rate": 1,
 	"intensity": 1
-}
-    },
-    {
-      "t": 74321.7142857143,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "La"
-}
-    },
-    {
-      "t": 74483.619047619,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "La la"
-}
-    },
-    {
-      "t": 74626.4761904762,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "La la la ~"
-}
-    },
-    {
-      "t": 75055.0476190476,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "La"
-}
-    },
-    {
-      "t": 75197.9047619048,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "La la ~"
 }
     },
     {
@@ -437,13 +318,6 @@
       "e": "FocusCamera",
       "v": {
 	"char": 0
-}
-    },
-    {
-      "t": 75769.3333333333,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -470,27 +344,6 @@
 }
     },
     {
-      "t": 80055.0476190476,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Come with me"
-}
-    },
-    {
-      "t": 80626.4761904762,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "You will be"
-}
-    },
-    {
-      "t": 81197.9047619047,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Ever thankful for my crimes"
-}
-    },
-    {
       "t": 82196.992481203,
       "e": "SetCameraBop",
       "v": {
@@ -499,25 +352,11 @@
 }
     },
     {
-      "t": 82639.2315789474,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Against your kind"
-}
-    },
-    {
       "t": 84482.7067669173,
       "e": "SetCameraBop",
       "v": {
 	"rate": 2,
 	"intensity": 1
-}
-    },
-    {
-      "t": 84586.6,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -544,13 +383,6 @@
 }
     },
     {
-      "t": 89165.547368421,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Find the"
-}
-    },
-    {
       "t": 89196.3157894737,
       "e": "FocusCamera",
       "v": {
@@ -566,25 +398,11 @@
 }
     },
     {
-      "t": 91481.3368421053,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "hands of all the devils you have brought drag you down"
-}
-    },
-    {
       "t": 93625.5639097745,
       "e": "SetCameraBop",
       "v": {
 	"rate": 2,
 	"intensity": 1
-}
-    },
-    {
-      "t": 93744.4947368421,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -626,13 +444,6 @@
 }
     },
     {
-      "t": 99797.1263157895,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Bring all your friends"
-}
-    },
-    {
       "t": 100556.223893066,
       "e": "SetCameraBop",
       "v": {
@@ -646,13 +457,6 @@
       "v": {
 	"rate": 1,
 	"intensity": 1
-}
-    },
-    {
-      "t": 101955.021052632,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -679,13 +483,6 @@
 }
     },
     {
-      "t": 104165.547368421,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "To witness genesis"
-}
-    },
-    {
       "t": 104187.065998329,
       "e": "FocusCamera",
       "v": {
@@ -698,13 +495,6 @@
       "v": {
 	"rate": 2,
 	"intensity": 1
-}
-    },
-    {
-      "t": 106060.284210526,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -739,24 +529,10 @@
 }
     },
     {
-      "t": 108270.810526316,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Call till your throat bleeds"
-}
-    },
-    {
       "t": 108293.065998329,
       "e": "FocusCamera",
       "v": {
 	"char": 1
-}
-    },
-    {
-      "t": 109849.757894737,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -767,24 +543,10 @@
 }
     },
     {
-      "t": 111744.494736842,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Lead them to me"
-}
-    },
-    {
       "t": 111766.065998329,
       "e": "FocusCamera",
       "v": {
 	"char": 1
-}
-    },
-    {
-      "t": 113323.442105263,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -802,13 +564,6 @@
 }
     },
     {
-      "t": 114902.389473684,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Dance all the night away"
-}
-    },
-    {
       "t": 115714.118629908,
       "e": "SetCameraBop",
       "v": {
@@ -822,13 +577,6 @@
       "v": {
 	"rate": 1,
 	"intensity": 1
-}
-    },
-    {
-      "t": 117112.915789474,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -862,25 +610,11 @@
 }
     },
     {
-      "t": 119039.681818182,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Because it'll be your last"
-}
-    },
-    {
       "t": 120135.171261487,
       "e": "SetCameraBop",
       "v": {
 	"rate": 2,
 	"intensity": 1
-}
-    },
-    {
-      "t": 121236.651515152,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -922,24 +656,10 @@
 }
     },
     {
-      "t": 123471.5,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Give up your soul just for me"
-}
-    },
-    {
       "t": 126608.855472013,
       "e": "FocusCamera",
       "v": {
 	"char": 0
-}
-    },
-    {
-      "t": 126615.439393939,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -1109,34 +829,6 @@
 }
     },
     {
-      "t": 135022.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "You're not a means to an end"
-}
-    },
-    {
-      "t": 137147.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
-      "t": 138230.383333333,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "No, you are my playthings"
-}
-    },
-    {
-      "t": 141647.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
-}
-    },
-    {
       "t": 142092.855472013,
       "e": "FocusCamera",
       "v": {
@@ -1188,27 +880,6 @@
 }
     },
     {
-      "t": 151647.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "The screams"
-}
-    },
-    {
-      "t": 152147.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "The gore"
-}
-    },
-    {
-      "t": 152647.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "And all the chaos"
-}
-    },
-    {
       "t": 153256.643055947,
       "e": "SetCameraBop",
       "v": {
@@ -1229,13 +900,6 @@
       "e": "FocusCamera",
       "v": {
 	"char": 0
-}
-    },
-    {
-      "t": 155397.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -1262,53 +926,11 @@
 }
     },
     {
-      "t": 159647.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "It's all like music to my ears"
-}
-    },
-    {
       "t": 161256.643055947,
       "e": "SetCameraBop",
       "v": {
 	"rate": 1,
 	"intensity": 1
-}
-    },
-    {
-      "t": 162397.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "La"
-}
-    },
-    {
-      "t": 162522.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "La la"
-}
-    },
-    {
-      "t": 162647.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "La la la ~"
-}
-    },
-    {
-      "t": 163022.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "La"
-}
-    },
-    {
-      "t": 163147.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "La la ~"
 }
     },
     {
@@ -1324,13 +946,6 @@
       "e": "FocusCamera",
       "v": {
 	"char": 0
-}
-    },
-    {
-      "t": 163647.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -1357,39 +972,11 @@
 }
     },
     {
-      "t": 167397.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "See my eyes"
-}
-    },
-    {
-      "t": 167897.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "In the skies"
-}
-    },
-    {
-      "t": 168397.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Omnipresent, everywhere"
-}
-    },
-    {
       "t": 169256.643055947,
       "e": "SetCameraBop",
       "v": {
 	"rate": 1,
 	"intensity": 1
-}
-    },
-    {
-      "t": 169647.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "You can not hide."
 }
     },
     {
@@ -1405,13 +992,6 @@
       "e": "FocusCamera",
       "v": {
 	"char": 0
-}
-    },
-    {
-      "t": 171397.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
@@ -1438,53 +1018,11 @@
 }
     },
     {
-      "t": 175397.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Children..."
-}
-    },
-    {
       "t": 177256.643055947,
       "e": "SetCameraBop",
       "v": {
 	"rate": 1,
 	"intensity": 1
-}
-    },
-    {
-      "t": 177397.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "Don't you want the spooky month"
-}
-    },
-    {
-      "t": 178272.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "to last"
-}
-    },
-    {
-      "t": 178647.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "to last for"
-}
-    },
-    {
-      "t": 178897.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "to last forev"
-}
-    },
-    {
-      "t": 179147.05,
-      "e": "Lyrics",
-      "v": {
-	"lyric": "to last forever?"
 }
     },
     {
@@ -1500,13 +1038,6 @@
       "e": "FocusCamera",
       "v": {
 	"char": 0
-}
-    },
-    {
-      "t": 179381.643055947,
-      "e": "Lyrics",
-      "v": {
-	"lyric": ""
 }
     },
     {
