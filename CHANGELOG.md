@@ -3,6 +3,16 @@ All notable changes will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.0.6] - 2025-10-21
+
+### Changed
+
+- Ooga Boogey no longer has the "NEW" label in Freeplay
+
+### Removed
+
+- Temporarily removed the transition from the Results Screen to Monster's songs since it was causing script errors and other issues
+
 ## [2.0.5] - 2025-09-18
 
 ### Fixed

@@ -6,10 +6,6 @@ class OogaBoogeySong extends Song {
 		super('ooga-boogey');
 	}
 
-	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool {
-		return !Save.instance.hasBeatenSong(this.id, null, '');
-	}
-
 	public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String> {
 		if (showLocked || Save.instance.hasBeatenLevel('fool')) {
 			return super.listDifficulties(variationId, variationIds);
