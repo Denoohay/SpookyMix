@@ -14,7 +14,7 @@ import funkin.modding.module.Module;
 class SpookyMainMenu extends Module {
 	var openingLink:Bool = false;
 
-	var spookyMixVersion:String = "2.0.5";
+	var spookyMixVersion:String = "2.0.6";
 
 	var spookyMixText:FlxText;
 
