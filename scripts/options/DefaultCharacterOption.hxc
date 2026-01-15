@@ -58,6 +58,7 @@ class DefaultCharacterOption extends Module {
 		if (ReflectUtil.getClassNameOf(FlxG.state.subState) == "funkin.ui.freeplay.FreeplayState") {
 			openedFreeplay = true;
 			FlxG.save.data.rememberedStartupCharacter = FreeplayState.rememberedCharacterId;
+			madeCharacterList = false;
 		}
 
 		if (FlxG.keys.justPressed.F5) {
@@ -90,7 +91,7 @@ class DefaultCharacterOption extends Module {
 			}
 		}
 		// list unlockable base game characters here in the reverse order you want them to be listed in
-		if (Save.instance.charactersSeen.contains('pico'))
+		if (Save.instance.charactersSeen.value.contains('pico'))
 			playableCharacters["Pico"] = "pico";
 		madeCharacterList = true;
 	}

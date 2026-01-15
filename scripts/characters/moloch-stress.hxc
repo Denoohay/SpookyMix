@@ -49,7 +49,7 @@ class MolochStressCharacter extends SparrowCharacter {
 
 	override function onUpdate(event:UpdateScriptEvent):Void {
 		super.onUpdate(event);
-		if (shootTimes.length > 0 && shootTimes[0] <= Conductor.instance.songPosition) {
+		while (shootTimes.length > 0 && shootTimes[0] <= Conductor.instance.songPosition) {
 			var nextTime:Float = shootTimes.shift();
 			var nextDir:Int = shootDirs.shift();
 			playPicoAnimation(nextDir);

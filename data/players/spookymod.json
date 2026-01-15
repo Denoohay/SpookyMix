@@ -44,42 +44,42 @@
       {
         "name": "intro",
         "prefix": "Spooky dj intro",
-        "offsets": [631.7, 362.6]
+        "offsets": [-145, -200]
       },
       {
         "name": "idle",
         "prefix": "Spooky DJ",
-        "offsets": [625, 360]
+        "offsets": [-145, -200]
       },
       {
         "name": "confirm",
         "prefix": "Spooky DJ confirm",
-        "offsets": [625, 360]
+        "offsets": [-145, -200]
       },
       {
         "name": "fistPump",
         "prefix": "Spooky DJ fist pump",
-        "offsets": [625, 360]
+        "offsets": [-145, -200]
       },
       {
         "name": "loss",
         "prefix": "Spooky DJ loss reaction 1",
-        "offsets": [625, 360]
+        "offsets": [-145, -200]
       },
       {
         "name": "charSelect",
         "prefix": "Spooky DJ to CS",
-        "offsets": [625, 360]
+        "offsets": [-145, -200]
       },
       {
         "name": "idleEasterEgg",
         "prefix": "spooky dj afk",
-        "offsets": [1274.5, 418.5]
+        "offsets": [-145, -200]
       },
       {
         "name": "newUnlock",
         "prefix": "Spooky DJ new character",
-        "offsets": [625, 360]
+        "offsets": [-145, -200]
       }
     ]
   },
@@ -107,7 +107,8 @@
         "zIndex": 501,
         "scale": 1,
         "offsets": [795.3, 141.75],
-        "loopFrame": 133
+        "loopFrame": 133,
+        "applyStageMatrix": true
       },
       {
         "renderType": "animateatlas",
@@ -115,7 +116,8 @@
         "zIndex": 500,
         "scale": 1,
         "offsets": [683.95, 295.65],
-        "loopFrame": 301
+        "loopFrame": 301,
+        "applyStageMatrix": true
       }
     ],
     "perfect": [
@@ -125,7 +127,8 @@
         "zIndex": 501,
         "scale": 1,
         "offsets": [795.3, 141.75],
-        "loopFrame": 133
+        "loopFrame": 133,
+        "applyStageMatrix": true
       },
       {
         "renderType": "animateatlas",
@@ -133,7 +136,8 @@
         "zIndex": 500,
         "scale": 1,
         "offsets": [683.95, 295.65],
-        "loopFrame": 301
+        "loopFrame": 301,
+        "applyStageMatrix": true
       }
     ],
     "excellent": [
@@ -143,7 +147,8 @@
         "zIndex": 500,
         "scale": 1,
         "offsets": [537.3, 139.7],
-        "loopFrame": 160
+        "loopFrame": 160,
+        "applyStageMatrix": true
       },
       {
         "renderType": "animateatlas",
@@ -151,7 +156,8 @@
         "zIndex": 501,
         "scale": 1,
         "offsets": [537.3, 139.7],
-        "loopFrame": 80
+        "loopFrame": 80,
+        "applyStageMatrix": true
       }
     ],
     "great": [
@@ -161,7 +167,8 @@
         "zIndex": 500,
         "scale": 1,
         "offsets": [520.8, 402.15],
-        "loopFrame": 67
+        "loopFrame": 67,
+        "applyStageMatrix": true
       },
       {
         "renderType": "animateatlas",
@@ -169,7 +176,8 @@
         "zIndex": 503,
         "scale": 1,
         "offsets": [520.8, 402.15],
-        "loopFrame": 73
+        "loopFrame": 73,
+        "applyStageMatrix": true
       },
       {
         "renderType": "animateatlas",
@@ -177,7 +185,8 @@
         "zIndex": 502,
         "scale": 1,
         "offsets": [677.35, 411.65],
-        "loopFrame": 77
+        "loopFrame": 77,
+        "applyStageMatrix": true
       },
       {
         "renderType": "animateatlas",
@@ -185,7 +194,8 @@
         "zIndex": 501,
         "scale": 1,
         "offsets": [520.8, 402.15],
-        "loopFrame": 75
+        "loopFrame": 75,
+        "applyStageMatrix": true
       },
       {
         "renderType": "animateatlas",
@@ -193,7 +203,8 @@
         "zIndex": 499,
         "scale": 1,
         "offsets": [494.9, 72.3],
-        "loopFrame": 113
+        "loopFrame": 113,
+        "applyStageMatrix": true
       }
     ],
     "good": [
@@ -203,7 +214,8 @@
         "zIndex": 500,
         "scale": 1,
         "offsets": [520.8, 402.15],
-        "loopFrame": 71
+        "loopFrame": 71,
+        "applyStageMatrix": true
       },
       {
         "renderType": "animateatlas",
@@ -211,7 +223,8 @@
         "zIndex": 502,
         "scale": 1,
         "offsets": [520.8, 402.15],
-        "loopFrame": 64
+        "loopFrame": 64,
+        "applyStageMatrix": true
       },
       {
         "renderType": "animateatlas",
@@ -219,7 +232,8 @@
         "zIndex": 501,
         "scale": 1,
         "offsets": [520.8, 402.15],
-        "loopFrame": 64
+        "loopFrame": 64,
+        "applyStageMatrix": true
       }
     ],
     "loss": [
@@ -230,7 +244,8 @@
         "zIndex": 500,
         "offsets": [1097.6, 328],
 
-        "loopFrame": 16
+        "loopFrame": 16,
+        "applyStageMatrix": true
       },
       {
         "renderType": "animateatlas",
@@ -240,7 +255,8 @@
         "zIndex": 500,
         "offsets": [1097.6, 328],
 
-        "loopFrame": 18
+        "loopFrame": 18,
+        "applyStageMatrix": true
       },
       {
         "renderType": "animateatlas",
@@ -250,7 +266,8 @@
         "zIndex": 500,
         "offsets": [1097.6, 328],
 
-        "loopFrame": 28
+        "loopFrame": 28,
+        "applyStageMatrix": true
       }
     ]
   }

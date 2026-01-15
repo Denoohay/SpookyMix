@@ -8,7 +8,7 @@ class LyricsSongEvent extends SongEvent {
 	public override function handleEvent(data) {}
 
 	public function getTitle() {
-		return "Lyrics";
+		return "Custom Text";
 	}
 
 	public function getEventSchema() {

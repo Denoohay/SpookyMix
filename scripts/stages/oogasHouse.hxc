@@ -11,15 +11,12 @@ import funkin.play.PlayStatePlaylist;
 import funkin.play.stage.Stage;
 import funkin.input.Controls;
 import funkin.audio.FunkinSound;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
-import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.base.ScriptedFunkinSprite;
 import funkin.ui.FullScreenScaleMode;
 import funkin.util.TouchUtil;
 
 class OogasHouse extends Stage {
-	var lamp:FlxAtlasSprite;
-	var lampLight:FlxAtlasSprite;
-
 	var coverscreen:FlxSprite;
 	var endingcoverleft:FlxSprite;
 	var endingcoverright:FlxSprite;
@@ -84,8 +81,8 @@ class OogasHouse extends Stage {
 		}
 	}
 
-	var spookyPlayer:ScriptedFlxAtlasSprite;
-	var boogaOpponent:ScriptedFlxAtlasSprite;
+	var spookyPlayer:ScriptedFunkinSprite;
+	var boogaOpponent:ScriptedFunkinSprite;
 	var skipText:FlxText;
 
 	function introboogaCutscene() {
@@ -113,11 +110,12 @@ class OogasHouse extends Stage {
 
 		skipText.cameras = [PlayState.instance.camCutscene];
 
-		theCutscene = new FlxAtlasSprite((FlxG.width / 2) - 640, 0, Paths.animateAtlas("spookyStages/oogasHouse/cutscene/ending"));
+		theCutscene = FunkinSprite.createTextureAtlas((FlxG.width / 2) - 640, 0, "spookyStages/oogasHouse/cutscene/ending");
 		theCutscene.zIndex = 10000;
 		theCutscene.alpha = 0;
 		PlayState.instance.currentStage.add(theCutscene);
 		theCutscene.cameras = [PlayState.instance.camHUD];
+		theCutscene.applyStageMatrix = true;
 
 		endingcoverleft = new FlxSprite(theCutscene.x - 500, 0).makeGraphic(500, 720, 0xFF000000);
 		endingcoverleft.zIndex = 100001;
@@ -131,15 +129,17 @@ class OogasHouse extends Stage {
 		PlayState.instance.currentStage.add(endingcoverright);
 		endingcoverright.cameras = [PlayState.instance.camHUD];
 
-		spookyPlayer = new FlxAtlasSprite(PlayState.instance.currentStage.getBoyfriend().x + 3, PlayState.instance.currentStage.getBoyfriend().y + 20,
-			Paths.animateAtlas("spookyStages/oogasHouse/cutscene/spooky"));
+
+		spookyPlayer = FunkinSprite.createTextureAtlas(PlayState.instance.currentStage.getBoyfriend().x + 3, PlayState.instance.currentStage.getBoyfriend().y + 20, "spookyStages/oogasHouse/cutscene/spooky");
 		spookyPlayer.zIndex = PlayState.instance.currentStage.getBoyfriend().zIndex - 1;
 		PlayState.instance.currentStage.add(spookyPlayer);
+		spookyPlayer.applyStageMatrix = true;
 
-		boogaOpponent = new FlxAtlasSprite(PlayState.instance.currentStage.getDad().x - 640, PlayState.instance.currentStage.getDad().y - 166,
-			Paths.animateAtlas("spookyStages/oogasHouse/cutscene/booga"));
+		boogaOpponent = FunkinSprite.createTextureAtlas(PlayState.instance.currentStage.getDad().x - 640, PlayState.instance.currentStage.getDad().y - 166, "spookyStages/oogasHouse/cutscene/booga");
 		boogaOpponent.zIndex = PlayState.instance.currentStage.getDad().zIndex - 1;
 		PlayState.instance.currentStage.add(boogaOpponent);
+		boogaOpponent.applyStageMatrix = true;
+		boogaOpponent.alpha = 0;
 
 		PlayState.instance.currentStage.refresh();
 
@@ -179,9 +179,12 @@ class OogasHouse extends Stage {
 							PlayState.instance.tweenCameraZoom(2.2, 6, false, FlxEase.quadIn);
 						}
 
+						
+
 						new FlxTimer().start(5, _ -> {
 							if (hasPlayedCutscene != true) {
 								boogaOpponent.anim.play("");
+								boogaOpponent.alpha = 1;
 								oogaBoogaVoice.play(false);
 							}
 
@@ -246,27 +249,33 @@ class OogasHouse extends Stage {
 		});
 	}
 
+	var lamp:FunkinSprite;
+	var lampLight:FunkinSprite;
+
+
 	function buildStage() {
 		super.buildStage();
 
-		lamp = new FlxAtlasSprite(570, -400, Paths.animateAtlas("spookyStages/oogasHouse/lamp"));
+		lamp = FunkinSprite.createTextureAtlas(570, -400, "spookyStages/oogasHouse/lamp");
 		lamp.anim.play("");
-		lamp.anim.onComplete.add(function() {
-			lamp.anim.play("");
-		});
 		lamp.scrollFactor.set(1.3, 1.3);
 		lamp.zIndex = 400;
-		PlayState.instance.currentStage.add(lamp);
+		lamp.applyStageMatrix = true;
+		PlayState.instance.add(lamp);
 
-		lampLight = new FlxAtlasSprite(lamp.x, lamp.y, Paths.animateAtlas("spookyStages/oogasHouse/lampLight"));
+		lampLight = FunkinSprite.createTextureAtlas(lamp.x, lamp.y, "spookyStages/oogasHouse/lampLight");
 		lampLight.anim.play("");
-		lampLight.anim.onComplete.add(function() {
-			lampLight.anim.play("");
-		});
 		lampLight.scrollFactor.set(1.3, 1.3);
 		lampLight.zIndex = lamp.zIndex - 1;
 		lampLight.alpha = 0.3;
-		PlayState.instance.currentStage.add(lampLight);
+		lampLight.applyStageMatrix = true;
+		PlayState.instance.add(lampLight);
+
+
+		lamp.animation.onFinish.add(function() {
+			lamp.anim.play("");
+			lampLight.anim.play("");
+		});
 
 		PlayState.instance.currentStage.refresh(); // Apply z-index.
 
@@ -342,7 +351,7 @@ class OogasHouse extends Stage {
 		}
 	}
 
-	var theCutscene:ScriptedFlxAtlasSprite;
+	var theCutscene:ScriptedFunkinSprite;
 
 	function startEndingCutscene() {
 		PlayState.instance.isInCutscene = true;

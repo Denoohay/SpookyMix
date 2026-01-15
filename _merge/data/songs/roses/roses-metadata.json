@@ -1,5 +1,6 @@
 [
-  { "op": "add", "path": "/playData/characters/altInstrumentals/-", "value": "spookymod-defaultcut" },
-  { "op": "add", "path": "/playData/characters/altInstrumentals/-", "value": "pico-defaultcut" },
-  { "op": "add", "path": "/playData/songVariations/-", "value": "spookymod" }
+  { "op": "add", "path": "/playData/characters/altInstrumentals/-", "value": "spookymod" },
+  { "op": "add", "path": "/playData/characters/altInstrumentals/-", "value": "pico" },
+  { "op": "add", "path": "/playData/songVariations/-", "value": "spookymod" },
+  { "op": "add", "path": "/playData/songVariations/-", "value": "spookymodalt" }
 ]

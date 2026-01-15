@@ -31,7 +31,7 @@ class MallEvilSpookyStage extends Stage {
 			getNamedProp('topGlow').blend = 0;
 		}
 
-		if (FullScreenScaleMode.wideScale.x != 1) {
+		if (FlxG.onMobile) {
 			getNamedProp('bg').x += 90;
 			getNamedProp('evilTree').x += 90;
 		}

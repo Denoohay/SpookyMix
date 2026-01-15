@@ -412,8 +412,6 @@ class BlazinNeighborhoodStage extends Stage {
 		getBoyfriend().idleSuffix = "";
 		getBoyfriend().danceEvery = 1;
 
-		getBoyfriend().x = 1010;
-
 		getDad().idleSuffix = "";
 		getDad().danceEvery = 1;
 

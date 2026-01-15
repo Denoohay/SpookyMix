@@ -1,11 +1,26 @@
 import funkin.play.song.Song;
 import funkin.save.Save;
+import funkin.play.PlayState;
+import Date;
+import flixel.FlxG;
 
 class DadbattleSpookymodMixSong extends Song {
 	function new() {
 		super('dadbattle', {
 			variation: 'spookymod'
 		});
+	}
+	function onCreate(event:ScriptEvent):Void {
+		super.onCreate(event);
+		if (!FlxG.onMobile) {
+			PlayState.instance.discordRPCAlbum = "https://raw.githubusercontent.com/LeGooeyy/GooeyMixDiscordIcons/refs/heads/main/assets/album-covers/"
+				+ PlayState.instance.currentChart.album
+				+ ".png?raw=true";
+			PlayState.instance.discordRPCIcon = "https://raw.githubusercontent.com/LeGooeyy/GooeyMixDiscordIcons/refs/heads/main/assets/icons/"
+				+ PlayState.instance.currentChart.characters.opponent
+				+ ".png?raw=true?t="
+				+ Date.now().getTime();
+		}
 	}
 
 	public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {

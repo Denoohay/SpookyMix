@@ -3,6 +3,8 @@ import funkin.save.Save;
 import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
 import funkin.modding.base.ScriptedFlxSpriteGroup;
+import Date;
+import flixel.FlxG;
 
 class stressSpookymodMixSong extends Song {
 	function new() {
@@ -12,7 +14,34 @@ class stressSpookymodMixSong extends Song {
 	}
 
 	var hasPlayedCutscene:Bool;
-	var tankmanGroup:TankmanSpriteGroup = null;
+	var tankmanGroup:SpookyTankmanSpriteGroup = null;
+
+	override function onSongLoaded(event) {
+		super.onSongLoaded(event);
+		if (PlayState.instance.currentInstrumental != "spookymod" && PlayState.instance.currentInstrumental != "truespookymod") {
+			PlayState.instance.currentVariation = "spookymodalt";
+			PlayState.currentChart = PlayState.instance.currentSong.getDifficulty(PlayState.instance.currentDifficulty + "-spookymodalt", "spookymodalt");
+			PlayState.instance.vocals = PlayState.instance.currentChart.buildVocals("spookymodalt");
+			event.notes = PlayState.instance.currentChart.notes.copy();
+			event.events = PlayState.instance.currentChart.getEvents();
+		}
+		if (PlayState.instance.currentInstrumental == "spookymod" || PlayState.instance.currentInstrumental == "truespookymod") {
+			PlayState.instance.currentInstrumental = "truespookymod";
+		}
+	}
+
+	function onCreate(event:ScriptEvent):Void {
+		super.onCreate(event);
+		if (!FlxG.onMobile) {
+			PlayState.instance.discordRPCAlbum = "https://raw.githubusercontent.com/LeGooeyy/GooeyMixDiscordIcons/refs/heads/main/assets/album-covers/"
+				+ PlayState.instance.currentChart.album
+				+ ".png?raw=true";
+			PlayState.instance.discordRPCIcon = "https://raw.githubusercontent.com/LeGooeyy/GooeyMixDiscordIcons/refs/heads/main/assets/icons/"
+				+ PlayState.instance.currentChart.characters.opponent
+				+ ".png?raw=true?t="
+				+ Date.now().getTime();
+		}
+	}
 
 	public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
 		var targetDifficulty:Null<SongDifficulty> = getDifficulty(difficultyId, variationId);
@@ -30,20 +59,6 @@ class stressSpookymodMixSong extends Song {
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
-		// Skip the cutscene unless we are in Story Mode, or Pico Mix specifically.
-		if (PlayState.instance.currentVariation != 'pico' && !PlayStatePlaylist.isStoryMode)
-			hasPlayedCutscene = true;
-
-		if (!hasPlayedCutscene) {
-			trace('Pausing countdown to play a video cutscene (`stress`)');
-
-			hasPlayedCutscene = true;
-
-			if (PlayState.instance.currentVariation != 'spookymod') {
-				event.cancel(); // CANCEL THE COUNTDOWN!
-				startVideo(PlayState.instance.currentVariation == 'pico');
-			}
-		}
 
 		if (tankmanGroup != null && !tankmanGroup.scriptCall('isValid')) {
 			// Destroy the tankman group if it's not valid.
@@ -55,7 +70,7 @@ class stressSpookymodMixSong extends Song {
 		if (tankmanGroup == null) {
 			// Initialize the tankman group if it's not available.
 			trace('Initializing tankman group... ' + PlayState.instance.currentVariation);
-			tankmanGroup = ScriptedFlxSpriteGroup.init('TankmanSpriteGroup', PlayState.instance.currentVariation != 'default');
+			tankmanGroup = ScriptedFlxSpriteGroup.init('SpookyTankmanSpriteGroup', PlayState.instance.currentVariation != 'default');
 		}
 
 		if (tankmanGroup != null) {
@@ -81,7 +96,7 @@ class stressSpookymodMixSong extends Song {
 		}
 		if (PlayState.instance.currentStage.getGirlfriend() != null) {
 			PlayState.instance.currentStage.getGirlfriend().scriptCall('reset');
-			trace('reset pico!');
+			trace('reset moloch!');
 		}
 	}
 

@@ -7,7 +7,6 @@ import funkin.play.PlayState;
 import funkin.play.PauseSubState;
 import funkin.modding.module.Module;
 import funkin.modding.events.ScriptEvent;
-import funkin.ui.debug.charting.ChartEditorState;
 
 class LyricsObject extends Module {
 	// made by Denoohay for FNF: SPOOKY MIX

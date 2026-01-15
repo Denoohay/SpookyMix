@@ -12,6 +12,7 @@ import funkin.ui.FullScreenScaleMode;
 import funkin.Conductor;
 import flixel.FlxG;
 import funkin.Preferences;
+import funkin.graphics.FunkinSprite;
 
 class SpookyCard extends BackingCard {
 	var backLines:FlxSprite;
@@ -20,8 +21,8 @@ class SpookyCard extends BackingCard {
 
 	var glow:FlxSprite;
 
-	var confirmAtlas:FlxAtlasSprite;
-	var candyAtlas:FlxAtlasSprite;
+	var confirmAtlas:FunkinSprite;
+	var candyAtlas:FunkinSprite;
 
 	public function new() {
 		super("spookymod");
@@ -110,12 +111,13 @@ class SpookyCard extends BackingCard {
 		glow.visible = false;
 
 		if (FullScreenScaleMode.wideScale.x != 1) {
-			confirmAtlas = new FlxAtlasSprite(880, 360, Paths.animateAtlas("freeplay/backingCards/spookymod/spooky-confirm-wide"));
+			confirmAtlas = FunkinSprite.createTextureAtlas(880, 360, "freeplay/backingCards/spookymod/spooky-confirm-wide");
 			confirmAtlas.scale.x *= 1.5;
 		} else {
-			confirmAtlas = new FlxAtlasSprite(0, 55, Paths.animateAtlas("freeplay/backingCards/spookymod/spooky-confirm"));
+			confirmAtlas = FunkinSprite.createTextureAtlas(0, 55, "freeplay/backingCards/spookymod/spooky-confirm");
 			confirmAtlas.scale.x *= 1.05;
 		}
+		confirmAtlas.applyStageMatrix = true;
 		confirmAtlas.visible = false;
 		add(confirmAtlas);
 
@@ -124,15 +126,15 @@ class SpookyCard extends BackingCard {
 		cardGlow.scale.x = cardGlow.scale.x * 1.5;
 		add(cardGlow);
 
-		candyAtlas = new FlxAtlasSprite((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI), 0,
-			Paths.animateAtlas("freeplay/backingCards/spookymod/spooky-candy"));
+		candyAtlas = FunkinSprite.createTextureAtlas((FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI+10), -100, "freeplay/backingCards/spookymod/spooky-candy");
+		candyAtlas.applyStageMatrix = true;
 		candyAtlas.visible = false;
 		add(candyAtlas);
 	}
 
 	override public function confirm():Void {
 		if (FullScreenScaleMode.wideScale.x != 1)
-			confirmAtlas.x = FlxG.state.subState.dj.x + 190;
+			confirmAtlas.x = FlxG.state.subState.dj.x + 60;
 		confirmAtlas.visible = true;
 		confirmAtlas.anim.play("");
 

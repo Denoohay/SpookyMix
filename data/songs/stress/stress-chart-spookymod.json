@@ -869,78 +869,6 @@
 }
     },
     {
-      "t": 132131.900341964,
-      "e": "Lyrics",
-      "v": {
-	"customY": 0,
-	"fontSize": 32,
-	"position": 0,
-	"layering": 0,
-	"opacity": 100,
-	"alignment": 0,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"font": "vcr",
-	"lyric": "You've come so far my children",
-	"customX": 0
-}
-    },
-    {
-      "t": 133957.987298486,
-      "e": "Lyrics",
-      "v": {
-	"customY": 0,
-	"fontSize": 32,
-	"position": 0,
-	"layering": 0,
-	"opacity": 100,
-	"alignment": 0,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"font": "vcr",
-	"lyric": "But you'll know I'll take you further",
-	"customX": 0
-}
-    },
-    {
-      "t": 136305.813385442,
-      "e": "Lyrics",
-      "v": {
-	"customY": 0,
-	"fontSize": 32,
-	"position": 0,
-	"layering": 0,
-	"opacity": 100,
-	"alignment": 0,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"font": "vcr",
-	"lyric": "Just shake my hand and you'll truly be",
-	"customX": 0
-}
-    },
-    {
-      "t": 138653.639472399,
-      "e": "Lyrics",
-      "v": {
-	"customY": 0,
-	"fontSize": 32,
-	"position": 0,
-	"layering": 0,
-	"opacity": 100,
-	"alignment": 0,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"font": "vcr",
-	"lyric": "Rid of all your burdens!",
-	"customX": 0
-}
-    },
-    {
       "t": 138653.639472399,
       "e": "FocusCamera",
       "v": {
@@ -959,24 +887,6 @@
 	"duration": 25,
 	"mode": "stage",
 	"zoom": 1.1
-}
-    },
-    {
-      "t": 140479.726428921,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "I know that deep inside yourself",
-	"font": "vcr"
 }
     },
     {
@@ -1001,42 +911,6 @@
 }
     },
     {
-      "t": 142566.68295066,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "You want this month to last.",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 144653.639472399,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "So",
-	"font": "vcr"
-}
-    },
-    {
       "t": 144914.509037616,
       "e": "ZoomCamera",
       "v": {
@@ -1047,96 +921,6 @@
 }
     },
     {
-      "t": 144914.509037616,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "So rid",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 145175.378602834,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "So rid your",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 145436.248168051,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "So rid your souls",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 145697.117733268,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "I'll",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 145957.987298486,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "I'll take",
-	"font": "vcr"
-}
-    },
-    {
       "t": 145957.987298486,
       "e": "ZoomCamera",
       "v": {
@@ -1144,78 +928,6 @@
 	"ease": "expoOut",
 	"mode": "stage",
 	"zoom": 1.2
-}
-    },
-    {
-      "t": 146218.856863703,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "I'll take con",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 146479.726428921,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "I'll take control",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 146740.595994138,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "I'll",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 147001.465559355,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "I'll make",
-	"font": "vcr"
 }
     },
     {
@@ -1237,114 +949,6 @@
 	"ease": "smoothStepInOut",
 	"mode": "stage",
 	"zoom": 1
-}
-    },
-    {
-      "t": 147262.335124573,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "I'll make the ",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 147523.20468979,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "I'll make the hor",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 147784.074255008,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "I'll make the horror",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 148044.943820225,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 12,
-	"customX": 0,
-	"lyric": "OH",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 148566.68295066,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 12,
-	"customX": 0,
-	"lyric": "OH SO",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 149088.422081095,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 12,
-	"customX": 0,
-	"lyric": "OH SO REAL",
-	"font": "vcr"
 }
     },
     {
@@ -1379,150 +983,6 @@
 }
     },
     {
-      "t": 153262.335124573,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 12,
-	"customX": 0,
-	"lyric": "",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 155349.291646312,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 12,
-	"customX": 0,
-	"lyric": "DON'T",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 155610.161211529,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 12,
-	"customX": 0,
-	"lyric": "DON'T YOU",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 155871.030776747,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 12,
-	"customX": 0,
-	"lyric": "DON'T YOU WANT",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 156131.900341964,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 12,
-	"customX": 0,
-	"lyric": "DON'T YOU WANT THIS",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 156392.769907182,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 12,
-	"customX": 0,
-	"lyric": "TO",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 156914.509037616,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 12,
-	"customX": 0,
-	"lyric": "TO BE",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 157436.248168051,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 12,
-	"customX": 0,
-	"lyric": "TO BE REAL?",
-	"font": "vcr"
-}
-    },
-    {
       "t": 157436.248168051,
       "e": "FocusCamera",
       "v": {
@@ -1551,24 +1011,6 @@
 	"duration": 4,
 	"zoom": 1.05,
 	"mode": "stage"
-}
-    },
-    {
-      "t": 161610.161211529,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 12,
-	"customX": 0,
-	"lyric": "",
-	"font": "vcr"
 }
     },
     {
@@ -1604,24 +1046,6 @@
     },
     {
       "t": 165784.074255008,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "Feel yourself succumbing",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 165784.074255008,
       "e": "FocusCamera",
       "v": {
 	"duration": 8,
@@ -1643,24 +1067,6 @@
     },
     {
       "t": 167871.030776747,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 167871.030776747,
       "e": "FocusCamera",
       "v": {
 	"x": 0,
@@ -1672,24 +1078,6 @@
     },
     {
       "t": 169957.987298486,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "There's no use in running",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 169957.987298486,
       "e": "FocusCamera",
       "v": {
 	"x": 130,
@@ -1697,24 +1085,6 @@
 	"y": -70,
 	"char": 1,
 	"ease": "expoOut"
-}
-    },
-    {
-      "t": 172044.943820225,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "",
-	"font": "vcr"
 }
     },
     {
@@ -1740,24 +1110,6 @@
 }
     },
     {
-      "t": 174131.900341964,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "Time is swiftly ticking",
-	"font": "vcr"
-}
-    },
-    {
       "t": 176218.856863703,
       "e": "FocusCamera",
       "v": {
@@ -1769,60 +1121,6 @@
 }
     },
     {
-      "t": 176218.856863703,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 177784.074255008,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "Feel",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 178044.943820225,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "Feel the",
-	"font": "vcr"
-}
-    },
-    {
       "t": 178305.813385442,
       "e": "FocusCamera",
       "v": {
@@ -1831,24 +1129,6 @@
 	"y": -70,
 	"char": 1,
 	"ease": "expoOut"
-}
-    },
-    {
-      "t": 178305.813385442,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "Warmth of your heart sinking...",
-	"font": "vcr"
 }
     },
     {
@@ -1863,24 +1143,6 @@
     },
     {
       "t": 180392.769907182,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "As",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 180392.769907182,
       "e": "FocusCamera",
       "v": {
 	"x": 0,
@@ -1890,97 +1152,7 @@
 	"ease": "expoOut"
 }
     },
-    {
-      "t": 180653.639472399,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "As your",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 180914.509037616,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "As your ov",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 181175.378602834,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "As your over",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 181436.248168051,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "As your overwhelmed",
-	"font": "vcr"
-}
-    },
-    {
-      "t": 181957.987298486,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"alignment": 0,
-	"opacity": 100,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"customX": 0,
-	"lyric": "As you're overwhelmed with",
-	"font": "vcr"
-}
-    },
-    {
+     {
       "t": 182479.726428921,
       "e": "Lyrics",
       "v": {

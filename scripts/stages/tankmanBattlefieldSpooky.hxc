@@ -10,12 +10,11 @@ import flixel.addons.display.FlxBackdrop;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.graphics.shaders.AdjustColorShader;
-import funkin.graphics.adobeanimate.FlxAtlasSprite;
-import funkin.modding.base.ScriptedFlxAtlasSprite;
 import funkin.input.Controls;
 import funkin.audio.FunkinSound;
 import funkin.util.TouchUtil;
 import funkin.ui.FullScreenScaleMode;
+import funkin.graphics.FunkinSprite;
 
 class TankmanBattlefieldSpookyStage extends Stage {
 	var boyfriendCameraPosX:Float;
@@ -38,8 +37,8 @@ class TankmanBattlefieldSpookyStage extends Stage {
 	var weirdMountainsTint:AdjustColorShader;
 	var weirdSkyTint:AdjustColorShader;
 
-	var notzardy:FlxAtlasSprite;
-	var windmill:FlxAtlasSprite;
+	var notzardy:FunkinSprite;
+	var windmill:FunkinSprite;
 
 	var hasPlayedInGameCutscene:Bool = false;
 	var hasPlayedCutscene:Bool = false;
@@ -100,7 +99,7 @@ class TankmanBattlefieldSpookyStage extends Stage {
 		}
 	}
 
-	var molochKillsThem:ScriptedFlxAtlasSprite;
+	var molochKillsThem:FunkinSprite;
 	var skipText:FlxText;
 
 	function stressCutscene() {
@@ -123,11 +122,12 @@ class TankmanBattlefieldSpookyStage extends Stage {
 
 		skipText.cameras = [PlayState.instance.camCutscene];
 
-		molochKillsThem = new FlxAtlasSprite(776, 288, Paths.animateAtlas("spooky/cutscene/MolochKillin", "week7"));
+		molochKillsThem = FunkinSprite.createTextureAtlas(776, 288, "spooky/cutscene/MolochKillin", "week7");
 		molochKillsThem.zIndex = getGirlfriend().zIndex - 1;
 		molochKillsThem.shader = stageTint;
 		molochKillsThem.color = 0xE8FFF0;
 		molochKillsThem.scale.set(0.7, 0.7);
+		molochKillsThem.applyStageMatrix = true;
 		PlayState.instance.currentStage.add(molochKillsThem);
 
 		PlayState.instance.currentStage.refresh();
@@ -149,10 +149,11 @@ class TankmanBattlefieldSpookyStage extends Stage {
 		if (hasPlayedCutscene != true) {
 			PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
 
-			new FlxTimer().start(0.5, _ -> {
+			new FlxTimer().start(0.01, _ -> { //why was there a timer here what was i thinking 
 				if (hasPlayedCutscene != true) {
 					molochKillsThem.anim.play("");
 					cutsceneMusic.play(false);
+					PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
 				}
 
 				// man what kinda bozo would add all this stuff? nerd! ...wait thats me-    -gooey
@@ -279,9 +280,11 @@ class TankmanBattlefieldSpookyStage extends Stage {
 		if (FlxG.save.data.spookyShaders != false)
 			getNamedProp('weirdGlow').blend = 0;
 
-		scarecrow = new FlxAtlasSprite(1300, 220, Paths.animateAtlas("spooky/scarecrow", "week7"));
+		scarecrow = FunkinSprite.createTextureAtlas(1300, 220, "spooky/scarecrow", "week7");
+		scarecrow.applyStageMatrix = true;
 		scarecrow.anim.play("");
-		scarecrow.anim.onComplete.add(function() {
+		
+		scarecrow.animation.onFinish.add(function() {
 			scarecrow.anim.play("");
 		});
 		scarecrow.scrollFactor.set(0.8, 0.8);
@@ -289,9 +292,10 @@ class TankmanBattlefieldSpookyStage extends Stage {
 		// scarecrow.shader = stageTint;
 		PlayState.instance.currentStage.add(scarecrow);
 
-		windmill = new FlxAtlasSprite(900, -200, Paths.animateAtlas("spooky/windmill", "week7"));
+		windmill = FunkinSprite.createTextureAtlas(900, -200, "spooky/windmill", "week7");
+		windmill.applyStageMatrix = true;
 		windmill.anim.play("");
-		windmill.anim.onComplete.add(function() {
+		windmill.animation.onFinish.add(function() {
 			windmill.anim.play("");
 		});
 		windmill.scrollFactor.set(0.1, 0.1);

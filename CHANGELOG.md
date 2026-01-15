@@ -3,6 +3,31 @@ All notable changes will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+
+## [2.0.7] - 2026-1-14
+
+### Added
+
+- Added Discord Album support
+
+### Changed
+
+- Changed the subtitles in almost every song to use the new base game subtitle system ([thanks to TechnikTil for the pull request that I manually put in lol](https://github.com/Denoohay/SpookyMix/pull/10))
+- Updated the mod API to 0.8.0
+- Changed the way alt instrumentals work for Monster, Winter Horrorland, Roses, Ugh, and Stress (Spooky Mix)
+- Ooga Boogey is once again locked in Freeplay until you beat it in Story Mode
+- Spookeez (Spooky Mix) now shows 150 BPM in Freeplay instead of 151 BPM
+- Spooky Mix lyrics event has been renamed to "Custom Text" and given a new icon in the Chart Editor
+
+### Fixed
+
+- Fixed bugs when playing on FNF v0.8.0
+- The Default Player option's list of characters now updates in-game rather than requiring you to restart the game to update the list
+- The Spooky Kids no longer shift to the right when retrying Blazin' (Spooky Mix)
+- Bopeebo Erect and Pico Mix now have "WEEK 1" as their week type in Freeplay instead of "TUTORIAL"
+
+#### NOTE: Atlas sprites currently use applyStageMatrix to correct their offsets. Be aware that this is known to break at times. This is temporary and we will be manually correcting the offsets in a future patch.
+
 ## [2.0.6] - 2025-10-21
 
 ### Changed

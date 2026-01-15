@@ -2,12 +2,27 @@ import funkin.play.PlayState;
 import funkin.play.song.Song;
 import funkin.play.Countdown;
 import funkin.save.Save;
+import Date;
+import flixel.FlxG;
 
 class MonsterSpookymodMixSong extends Song {
 	function new() {
 		super('monster', {
 			variation: 'spookymod'
 		});
+	}
+
+	function onCreate(event:ScriptEvent):Void {
+		super.onCreate(event);
+		if (!FlxG.onMobile) {
+			PlayState.instance.discordRPCAlbum = "https://raw.githubusercontent.com/LeGooeyy/GooeyMixDiscordIcons/refs/heads/main/assets/album-covers/"
+				+ PlayState.instance.currentChart.album
+				+ ".png?raw=true";
+			PlayState.instance.discordRPCIcon = "https://raw.githubusercontent.com/LeGooeyy/GooeyMixDiscordIcons/refs/heads/main/assets/icons/"
+				+ PlayState.instance.currentChart.characters.opponent
+				+ ".png?raw=true?t="
+				+ Date.now().getTime();
+		}
 	}
 
 	public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
@@ -21,6 +36,17 @@ class MonsterSpookymodMixSong extends Song {
 
 	override function onSongLoaded(event:SongLoadScriptEvent):Void {
 		super.onSongLoaded(event);
+
+		if (PlayState.instance.currentInstrumental != "spookymod" && PlayState.instance.currentInstrumental != "truespookymod") {
+			PlayState.instance.currentVariation = "spookymodalt";
+			PlayState.currentChart = PlayState.instance.currentSong.getDifficulty(PlayState.instance.currentDifficulty + "-spookymodalt", "spookymodalt");
+			PlayState.instance.vocals = PlayState.instance.currentChart.buildVocals("spookymodalt");
+			event.notes = PlayState.instance.currentChart.notes.copy();
+			event.events = PlayState.instance.currentChart.getEvents();
+		}
+		if (PlayState.instance.currentInstrumental == "spookymod" || PlayState.instance.currentInstrumental == "truespookymod") {
+			PlayState.instance.currentInstrumental = "truespookymod";
+		}
 
 		if (PlayState.instance.currentVariation == 'spookymod') {
 			skippedCountdown = false;

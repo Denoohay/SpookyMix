@@ -1,5 +1,5 @@
 [
   { "op": "add", "path": "/playData/characters/altInstrumentals/-", "value": "spookymod" },
-  { "op": "add", "path": "/playData/characters/altInstrumentals/-", "value": "bf-cut" },
+  { "op": "add", "path": "/playData/characters/altInstrumentals/-", "value": "" },
   { "op": "add", "path": "/playData/songVariations/-", "value": "spookymod" }
 ]

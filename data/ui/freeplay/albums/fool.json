@@ -1,7 +1,8 @@
 {
   "version": "1.0.0",
   "name": "April Fools",
-  "artists": ["alewito"],
+  "artists": ["LeGooey, alewito"],
   "albumArtAsset": "freeplay/albumRoll/fool",
-  "albumTitleAsset": "freeplay/albumRoll/fool-text"
+  "albumTitleAsset": "freeplay/albumRoll/fool-text",
+  "albumTitleOffsets": [-25, -5]
 }

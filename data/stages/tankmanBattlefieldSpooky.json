@@ -267,13 +267,13 @@
       "zIndex": 100,
       "scale": 0.7,
       "position": [650, 715],
-      "cameraOffsets": [-150, -70]
+      "cameraOffsets": [0, -10]
     },
     "dad": {
       "zIndex": 100,
       "scale": 0.8,
       "position": [230.5, 940],
-      "cameraOffsets": [150, -140]
+      "cameraOffsets": [210, -140]
     }
   },
   "directory": "week7"

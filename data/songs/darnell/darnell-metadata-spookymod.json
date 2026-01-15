@@ -13,7 +13,7 @@
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "spooky-playable","girlfriend": "moloch","opponent": "darnell-spooky",
-      "instrumental": "spookymod","playerVocals": ["spooky"],"opponentVocals": ["darnell"], "altInstrumentals": []
+      "instrumental": "truespookymod","playerVocals": ["spooky"],"opponentVocals": ["darnell"], "altInstrumentals": []
     },
     "stage": "phillyStreetsSpooky",
     "noteStyle": "funkin",

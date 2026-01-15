@@ -1,0 +1,131 @@
+import funkin.ui.freeplay.FreeplayState;
+import funkin.play.song.Song;
+import funkin.data.song.SongRegistry;
+import funkin.modding.module.Module;
+import funkin.save.Save;
+import flixel.FlxG;
+import haxe.Json;
+import StringTools;
+
+class AltInstsModCompatibility extends Module {
+	// Cross-mod Alternate Instrumental Compatibility System by Denoohay for Spooky Mix (allows compatible modded alt instrumentals to be avaliable for any modded character)
+	// Requires Save.instance.data.unlocks.charactersSeen code from "SpookyCharSelectScreen.hxc" to work fully
+	public function new() {
+		super('AltInstsModCompatibility', 1, {
+			state: FreeplayState
+		});
+	}
+
+	var addedInsts:Bool = false;
+
+	var unfilteredList:Array<String>;
+	var filteredList:Array<String>;
+
+	override function onUpdate(event:UpdateScriptEvent) {
+		super.onUpdate(event);
+
+		if (FlxG.state.subState.instSelectMenu != null) {
+			if (addedInsts == false && FlxG.state.subState.curSelected != 0) {
+				var curFilteredSongs:Array<String>;
+				var songList:Array<String> = [];
+
+				var itemNum:Int = 1;
+
+				curFilteredSongs = FlxG.state.subState.currentFilteredSongs;
+
+				// gets the freeplay song list in order as an array
+				for (i in 0...curFilteredSongs.length - 1) {
+					var songData:String = "" + curFilteredSongs[itemNum].data;
+					var replaceString:String = StringTools.replace(StringTools.replace(songData, "Song(", ""), ")", "");
+
+					songList.insert(i, replaceString);
+					itemNum = itemNum + 1;
+				}
+
+				var targetSongId:String = songList[FlxG.state.subState.curSelected - 1];
+				var targetSongNullable:Null<Song> = SongRegistry.instance.fetchEntry(targetSongId);
+				var targetSong:Song = targetSongNullable;
+
+				var targetDifficulty:Null<SongDifficulty>;
+
+				targetDifficulty = targetSong.getDifficulty(FlxG.state.currentDifficulty, FlxG.state.subState.currentVariation);
+
+				unfilteredList = targetDifficulty?.characters?.altInstrumentals ?? [];
+
+				var currentInstList:Array<String> = null;
+				var addingInstList:Array<String> = null;
+
+				// adds modded instrumentals to the unfiltered list
+				for (i in 0...Save.instance.data.unlocks.charactersSeen.length) {
+					if (Assets.exists("data/songs/" + songList[FlxG.state.subState.curSelected - 1] + "/" + songList[FlxG.state.subState.curSelected - 1] + "-metadata-" + Save.instance.data.unlocks.charactersSeen[i] + ".json")) {
+
+						if (FlxG.state.subState.currentVariation == "default" && Assets.exists("data/songs/" + songList[FlxG.state.subState.curSelected - 1] + "/" + songList[FlxG.state.subState.curSelected - 1] + "-metadata.json"))
+							currentInstList = Json.parse(Assets.getText("data/songs/" + songList[FlxG.state.subState.curSelected - 1] + "/" + songList[FlxG.state.subState.curSelected - 1] + "-metadata.json"));
+						else if (Assets.exists("data/songs/" + songList[FlxG.state.subState.curSelected - 1] + "/" + songList[FlxG.state.subState.curSelected - 1] + "-metadata-" + FlxG.state.subState.currentVariation + ".json"))
+							currentInstList = Json.parse(Assets.getText("data/songs/" + songList[FlxG.state.subState.curSelected - 1] + "/" + songList[FlxG.state.subState.curSelected - 1] + "-metadata-" + FlxG.state.subState.currentVariation + ".json"));
+
+						addingInstList = Json.parse(Assets.getText("data/songs/" + songList[FlxG.state.subState.curSelected - 1] + "/" + songList[FlxG.state.subState.curSelected - 1] + "-metadata-" + Save.instance.data.unlocks.charactersSeen[i] + ".json"));
+
+						// adds instrumentals to mod mixes
+						if (addingInstList != null && currentInstList != null) {
+							if (addingInstList.playData.characters.altInstrumentals != null && currentInstList.playData.characters.altInstrumentals != null) {
+								if (addingInstList.playData.characters.altInstrumentals.contains("") && currentInstList.playData.characters.altInstrumentals.contains("")) {
+									for (j in 0...addingInstList.playData.characters.altInstrumentals.length)
+										unfilteredList.push(addingInstList.playData.characters.altInstrumentals[j]);
+									unfilteredList.push(Save.instance.data.unlocks.charactersSeen[i]);
+								}
+							}
+						}
+
+						// adds instrumentals to base game mixes
+						if (addingInstList != null && (FlxG.state.subState.currentCharacterId == 'bf' || FlxG.state.subState.currentCharacterId == 'pico')) {
+							if (addingInstList.playData.characters.altInstrumentals != null) {
+								if (addingInstList.playData.characters.altInstrumentals.contains("")
+									&& FlxG.state.subState.instSelectMenu.instrumentalIds.contains("")) {
+									for (j in 0...addingInstList.playData.characters.altInstrumentals.length)
+										unfilteredList.push(addingInstList.playData.characters.altInstrumentals[j]);
+									unfilteredList.push(Save.instance.data.unlocks.charactersSeen[i]);
+								}
+							}
+						}
+					}
+				}
+
+				filteredList = [];
+
+				// adds the current variation in as the first item on the list
+				if (FlxG.state.subState.currentVariation == "default")
+					filteredList.push("");
+				else
+					filteredList.push(FlxG.state.subState.currentVariation);
+
+				// filters out duplicate items on the list
+				for (i in 0...unfilteredList.length) {
+					if (!filteredList.contains(unfilteredList[i]))
+						filteredList.push(unfilteredList[i]);
+				}
+
+				// removes all alt insts if you haven't beaten the song
+				if (FlxG.state.subState.currentVariation == "default"
+					&& !Save.instance.hasBeatenSong(songList[FlxG.state.subState.curSelected - 1], null, "")) {
+					filteredList = [];
+					filteredList.push("");
+				} else if (FlxG.state.subState.currentVariation != "default"
+					&& !Save.instance.hasBeatenSong(songList[FlxG.state.subState.curSelected - 1], null, FlxG.state.subState.currentVariation)
+					&& FlxG.state.subState.currentVariation != "spookymod") {
+					filteredList = [];
+					filteredList.push(FlxG.state.subState.currentVariation);
+				}
+
+				FlxG.state.subState.instSelectMenu.instrumentalIds = filteredList; // sets the actual alt inst list to the new filtered one
+
+				// FlxG.state.subState.ostName.text = FlxG.state.subState.instSelectMenu.instrumentalIds;
+				// FlxG.state.subState.ostName.color = 0xFF008000;
+
+				addedInsts = true;
+			}
+		} else {
+			addedInsts = false;
+		}
+	}
+}

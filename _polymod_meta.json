@@ -3,7 +3,7 @@
   "description": "Unlocks the Spooky Kids as a playable character with all new remixes.",
   "contributors": [
     {
-      "name": "Denoohay",
+    "name": "Denoohay",
 	  "role": "Director, Artist, Coder",
 	  "url": "https://twitter.com/Denoohay"
     },
@@ -13,37 +13,37 @@
 	  "url": "https://twitter.com/7saltybro"
     },
     {
-      "name": "RubyyyButCool",
+    "name": "RubyyyButCool",
 	  "role": "Composer, Charter, Voice of Monster and Moloch",
 	  "url": "https://twitter.com/Rubyyy_but_cool"
     },
     {
-      "name": "Official_NO",
+    "name": "Official_NO",
 	  "role": "Pixel Artist",
 	  "url": "https://twitter.com/official_no6"
     },
     {
-      "name": "LeGooey",
+    "name": "LeGooey",
 	  "role": "Artist, Composer, Charter, Coder, VA",
 	  "url": "https://twitter.com/LeGooey"
     },
     {
-      "name": "swagsalt",
+    "name": "swagsalt",
 	  "role": "Artist, Composer, Charter, VA",
 	  "url": "https://twitter.com/swagsalt"
     },
     {
-      "name": "Andrewman_19",
+    "name": "Andrewman_19",
 	  "role": "Artist, Composer, VA",
 	  "url": "https://twitter.com/andrewman_19"
     },
     {
-      "name": "Clarky_Dev",
+    "name": "Clarky_Dev",
 	  "role": "Composer, Charter, VA",
 	  "url": "https://twitter.com/Clarky_Dev"
     },
     {
-      "name": "LimeIsHere",
+    "name": "LimeIsHere",
 	  "role": "Composer, Charter",
 	  "url": "https://twitter.com/HereIsLime"
     },
@@ -123,7 +123,7 @@
 	  "url": "https://twitter.com/Thrick_"
     }
   ],
-  "api_version": "0.6.3",
-  "mod_version": "2.0.6",
+  "api_version": "0.8.0",
+  "mod_version": "2.0.7",
   "license": "Apache-2.0"
 }

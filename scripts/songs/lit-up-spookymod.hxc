@@ -1,12 +1,27 @@
 import flixel.FlxG;
 import funkin.play.song.Song;
 import funkin.save.Save;
+import funkin.play.PlayState;
+import Date;
 
 class LitUpSpookymodMixSong extends Song {
 	function new() {
 		super('lit-up', {
 			variation: 'spookymod'
 		});
+	}
+
+	function onCreate(event:ScriptEvent):Void {
+		super.onCreate(event);
+		if (!FlxG.onMobile) {
+			PlayState.instance.discordRPCAlbum = "https://raw.githubusercontent.com/LeGooeyy/GooeyMixDiscordIcons/refs/heads/main/assets/album-covers/"
+				+ PlayState.instance.currentChart.album
+				+ ".png?raw=true";
+			PlayState.instance.discordRPCIcon = "https://raw.githubusercontent.com/LeGooeyy/GooeyMixDiscordIcons/refs/heads/main/assets/icons/"
+				+ PlayState.instance.currentChart.characters.opponent
+				+ ".png?raw=true?t="
+				+ Date.now().getTime();
+		}
 	}
 
 	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool {
