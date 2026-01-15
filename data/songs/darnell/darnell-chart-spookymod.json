@@ -786,24 +786,6 @@
 }
     },
     {
-      "t": 137806.451612903,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"layering": 0,
-	"position": 0,
-	"opacity": 100,
-	"alignment": 0,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"lyric": "They open their gates, shaking with fright",
-	"font": "vcr",
-	"customX": 0
-}
-    },
-    {
       "t": 137806.483870968,
       "e": "ZoomCamera",
       "v": {
@@ -822,24 +804,6 @@
 	"y": 20,
 	"char": 1,
 	"ease": "expoOut"
-}
-    },
-    {
-      "t": 139354.838709677,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"opacity": 100,
-	"alignment": 0,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"lyric": "",
-	"font": "vcr",
-	"customX": 0
 }
     },
     {
@@ -865,42 +829,6 @@
 }
     },
     {
-      "t": 140903.225806452,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"opacity": 100,
-	"alignment": 0,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"lyric": "Shrieking souls at dead of night",
-	"font": "vcr",
-	"customX": 0
-}
-    },
-    {
-      "t": 142451.612903226,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"opacity": 100,
-	"alignment": 0,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"lyric": "",
-	"font": "vcr",
-	"customX": 0
-}
-    },
-    {
       "t": 142451.612903226,
       "e": "FocusCamera",
       "v": {
@@ -923,24 +851,6 @@
 }
     },
     {
-      "t": 144000,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"opacity": 100,
-	"alignment": 0,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"lyric": "This spooky month will bring em thrills",
-	"font": "vcr",
-	"customX": 0
-}
-    },
-    {
       "t": 145548.838709677,
       "e": "FocusCamera",
       "v": {
@@ -949,42 +859,6 @@
 	"y": 0,
 	"ease": "expoOut",
 	"char": 0
-}
-    },
-    {
-      "t": 145935.483870968,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"opacity": 100,
-	"alignment": 0,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"lyric": "",
-	"font": "vcr",
-	"customX": 0
-}
-    },
-    {
-      "t": 147096.774193548,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"opacity": 100,
-	"alignment": 0,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"lyric": "Door to door, we'll give em chills ",
-	"font": "vcr",
-	"customX": 0
 }
     },
     {
@@ -1007,24 +881,6 @@
 	"y": 0,
 	"ease": "expoOut",
 	"char": 0
-}
-    },
-    {
-      "t": 149032.258064516,
-      "e": "Lyrics",
-      "v": {
-	"fontSize": 32,
-	"customY": 0,
-	"position": 0,
-	"layering": 0,
-	"opacity": 100,
-	"alignment": 0,
-	"outlineWidth": 1.3,
-	"letterSpacing": 0,
-	"textColor": 0,
-	"lyric": "",
-	"font": "vcr",
-	"customX": 0
 }
     },
     {
