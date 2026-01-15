@@ -65,6 +65,14 @@
 }
     },
     {
+      "t": 3000,
+      "e": "Lyrics",
+      "v": {
+	"lyric": "",
+	"layering": 1
+}
+    },
+    {
       "t": 3750,
       "e": "ZoomCamera",
       "v": {
@@ -757,6 +765,14 @@
       "v": {
 	"volume": 1,
 	"track": 0
+}
+    },
+    {
+      "t": 108000,
+      "e": "Lyrics",
+      "v": {
+	"layering": 1,
+	"lyric": "IT'S THE SPOOKY BEFORE CHRISTMAS!!"
 }
     },
     {
