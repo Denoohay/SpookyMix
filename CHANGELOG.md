@@ -4,6 +4,22 @@ All notable changes will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 
+## [2.0.8] - 2026-1-30
+
+### Added
+
+- A week title for Ooga Boogey in freeplay
+
+### Changed
+
+- Adjusted subtitle timing so they don't overlap
+- Corrected Pump's eyes during the Freeplay AFK easter egg as they turned green in the last patch instead of staying white
+
+### Fixed
+
+- Fixed the Weekend 1 week title not displaying properly in freeplay
+- Fixed Week 6 (Pico Mix) stage not loading properly
+
 ## [2.0.7] - 2026-1-14
 
 ### Added

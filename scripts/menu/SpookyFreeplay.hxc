@@ -7,139 +7,146 @@ import flixel.FlxG;
 import StringTools;
 import funkin.audio.FunkinSound;
 import flixel.util.FlxTimer;
+import funkin.ui.freeplay.CapsuleNumber;
+import funkin.ui.freeplay.SongMenuItem;
 
 class SpookyFreeplay extends Module {
 	public function new() {
-		super('SpookyFreeplay', 1, {
-			state: FreeplayState
+		super('SpookyFreeplay');
+	}
+
+	var tutorialVariable:Array<String> = ['tutorial'];
+	var foolVariable:Array<String> = ['fool'];
+	var canPlayTutorialPreview:Bool;
+
+	var changedCapsules:Array<SongMenuItem>;
+	var updatedSongsList:Array<SongMenuItem>;
+
+	override function onSubStateOpenBegin(event) {
+        super.onSubStateOpenBegin(event);
+		if (event.targetState is FreeplayState) {
+			canPlayTutorialPreview = false;
+			if ((changedCapsules?.length ?? 1) > 0) changedCapsules = [];
+			if ((updatedSongsList?.length ?? 1) > 0) updatedSongsList = [];	
+		}
+	}
+
+	public function onFreeplayIntroDone(event:FreeplayScriptEvent):Void {
+		super.onFreeplayIntroDone(event);
+		canPlayTutorialPreview = true;
+	}
+
+	public function onDifficultySwitch(event:CapsuleScriptEvent):Void {
+		super.onDifficultySwitch(event);
+		while (changedCapsules?.length > 0) {
+			var capsule = changedCapsules.shift();
+
+			if (StringTools.contains(capsule?.weekType?.graphic?.key, 'freeplay/freeplayCapsule/spookyMixWeekTypes')) resetCapsules(capsule);
+
+		}
+		if ((changedCapsules?.length ?? 1) != 0) changedCapsules = []; // Clear the array just in case
+		var filteredCapsules:Array<SongMenuItem> = FlxG.state.subState.grpCapsules.members.filter(function(cap:SongMenuItem) {
+			var allSpookySongs = tutorialVariable.concat(foolVariable);
+			return cap != null && cap.alive && cap.freeplayData != null && allSpookySongs.contains(cap.freeplayData.levelId);
 		});
-	}
+		for (capsule in filteredCapsules){
+			if (capsule == null || !capsule.alive) continue;
 
-	var playedTutorialPreview:Bool = false;
-	var addedStuff:Bool = false;
+			changedCapsules.push(capsule); // Push these changed capsules
 
-	override function onSubStateCloseEnd(event) {
-		super.onSubStateCloseEnd(event);
-		playedTutorialPreview = false;
-		addedStuff = false;
-	}
+			if (tutorialVariable.contains(capsule?.freeplayData?.levelId)) tutorialDisplay(capsule);
+			else if (foolVariable.contains(capsule?.freeplayData?.levelId)) foolDisplay(capsule);
+		}
+		if (FlxG.state.subState.currentCharacterId == 'spookymod') {
+			while (updatedSongsList?.length > 0) {
+				var capsule = updatedSongsList.shift();
 
-	override function onStateChangeEnd(event) {
-		super.onStateChangeEnd(event);
-		playedTutorialPreview = false;
-		addedStuff = false;
-	}
-	
-
-	override function onUpdate(event:UpdateScriptEvent) {
-		super.onUpdate(event);
-
-		if (ReflectUtil.getClassNameOf(FlxG.state.subState) == "funkin.ui.freeplay.FreeplayState") {
-			if (FlxG.state.subState.currentFilteredSongs != null && FlxG.state.subState.grpCapsules != null) {
-				if (addedStuff == false) {
-					var curFilteredSongs:Array<String>;
-					var songList:Array<String> = [];
-
-					var itemNum:Int = 1;
-
-					curFilteredSongs = FlxG.state.subState.currentFilteredSongs;
-
-					for (i in 0...curFilteredSongs.length - 1) {
-						var songData:String = "" + curFilteredSongs[itemNum].data;
-						var replaceString:String = StringTools.replace(StringTools.replace(songData, "Song(", ""), ")", "");
-
-						songList.insert(i, replaceString);
-						itemNum = itemNum + 1;
-					}
-
-					// FlxG.state.subState.ostName.text = songList;
-
-					for (i in 0...FlxG.state.subState.grpCapsules.members.length - 1) {
-						if (FlxG.state.subState.currentCharacterId == 'spookymod'
-							&& (songList[i - 1] == "high" || songList[i - 1] == "milf" || songList[i - 1] == "darnell" || songList[i - 1] == "lit-up"
-								|| songList[i - 1] == "2hot")) {
-							if (FlxG.state.subState.grpCapsules.members[i].newText.visible == true
-								&& FlxG.state.subState.grpCapsules.members[i].newText.frames != Paths.getSparrowAtlas('freeplay/freeplayCapsule/updated')) {
-								FlxG.state.subState.grpCapsules.members[i].newText.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/updated');
-								FlxG.state.subState.grpCapsules.members[i].newText.animation.addByPrefix('updatedAnim', 'UPDATED notif', 24, true);
-								FlxG.state.subState.grpCapsules.members[i].newText.animation.play('updatedAnim', true);
-								FlxG.state.subState.grpCapsules.members[i].newText.x = FlxG.state.subState.grpCapsules.members[i].newText.x - 70;
-							}
-						}
-					}
-
-					addedStuff = true;
+				if (StringTools.contains(capsule?.newText?.graphic?.key, 'freeplay/freeplayCapsule/updated')) {
+					capsule.newText.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/new');
+					capsule.newText.animation.addByPrefix('newAnim', 'NEW notif', 24, true);
+					capsule.newText.animation.play('newAnim', true);
+					capsule.newText.offset.x = 0;	
 				}
 			}
-		}
+			var updatedSongs:Array<SongMenuItem> = FlxG.state.subState.grpCapsules.members.filter(function(cap:SongMenuItem) {
+				var updated = ["high", "milf", "darnell", "lit-up", "2hot"];
+				return cap != null && cap.alive && cap.freeplayData?.data != null && updated.contains(cap.freeplayData?.data.id);
+			});
+			for (capsule in updatedSongs) {
+				if (capsule == null || !capsule.alive) continue;
 
-		if (FlxG.state.subState.currentCharacterId == 'spookymod') {
-			if (FlxG.state.subState.currentCapsule?.freeplayData?.data?.id == "tutorial"
-				&& FlxG.state.subState.dj.getCurrentAnimation() != 'Spooky dj intro'
-				&& playedTutorialPreview == false) {
-				new FlxTimer().start(0.4, _ -> {
+				updatedSongsList.push(capsule);
+
+				capsule.newText.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/updated');
+				capsule.newText.animation.addByPrefix('updatedAnim', 'UPDATED notif', 24, true);
+				capsule.newText.animation.play('updatedAnim', true);
+				capsule.newText.offset.x = 70;
+			}
+		}
+	}
+
+	public function onCapsuleSelected(event:CapsuleScriptEvent):Void {
+		super.onCapsuleSelected(event);
+		if (FlxG.state.subState.currentCharacterId == 'spookymod' && event.capsule?.freeplayData?.data?.id == "tutorial" && canPlayTutorialPreview) {
+			FlxTimer.wait(0.255, () -> {
+				// trace('Replacing Song');
+				var previewVolume:Float = 0.7;
+				if (FlxG.state.subState.dj != null) previewVolume *= FlxG.state.subState.dj.getMusicPreviewMult();
+				if (FlxG.sound.music?._label == null || FlxG.sound.music?._label != Paths.music('tutorialInstPreview/tutorialInstPreview')) {
+					FlxG.sound.music?.pause();
+					FlxG.state.subState.clearPreviews();
 					FunkinSound.playMusic('tutorialInstPreview', {
 						startingVolume: 0.0,
 						overrideExisting: true,
 						restartTrack: false,
-						mapTimeChanges: false,
-						onLoad: function() {
-							FlxG.sound.music.fadeIn(2, 0, 0.8);
-							playedTutorialPreview = true;
-						}
-					});
-				});
-			} else if (FlxG.state.subState.curSelected != 1) {
-				playedTutorialPreview = false;
-			}
+						mapTimeChanges: false
+					});	
+					FlxG.sound.music.fadeIn(2, 0, previewVolume);
+				}
+			});
 		}
-
-		if (FlxG.state.subState.instSelectMenu != null) {
-            if (StringTools.startsWith(FlxG.state.subState.instSelectMenu.currentInstrumental.text, "Truespookymod") || StringTools.startsWith(FlxG.state.subState.instSelectMenu.currentInstrumental.text, "Spookymod"))
-                FlxG.state.subState.instSelectMenu.currentInstrumental.text = "Spooky";
-        }
-
-
 		if (FlxG.state.subState.curSelected == 0) {
 			FlxG.state.subState.albumRoll.alpha = 0;
 		} else {
-			FlxG.state.subState.albumRoll.alpha = 1;
+			if (FlxG.state.subState.albumRoll.alpha == 0) FlxG.state.subState.albumRoll.alpha = 1;
 		}
+	}
 
-		if (FlxG.state.subState.currentFilteredSongs != null && FlxG.state.subState.grpCapsules != null) {
-			var curFilteredSongs:Array<String>;
-			var songList:Array<String> = [];
+	function resetCapsules(cap:SongMenuItem) {
+		if (cap?.freeplayData == null)
+			return;
+		cap.weekType.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/weektypes');
+		cap.weekType.animation.addByPrefix('WEEK', 'WEEK text instance 1', 24, false);
+		cap.weekType.animation.addByPrefix('WEEKEND', 'WEEKEND text instance 1', 24, false);
+		cap.checkWeek(cap.freeplayData.data.id);
+	}
 
-			var itemNum:Int = 1;
+	function tutorialDisplay(cap:SongMenuItem) {
+		if (cap?.freeplayData == null)
+			return;
+		cap.weekType.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/spookyMixWeekTypes');
+		cap.weekType.animation.addByPrefix('TUTORIAL', 'TUTORIAL text', 24, false);
+		cap.weekType.animation.play('TUTORIAL', true);
+		cap.weekType.visible = true;
+	}
 
-			curFilteredSongs = FlxG.state.subState.currentFilteredSongs;
-			
-			// gets the freeplay song list in order as an array
-			for (i in 0...curFilteredSongs.length - 1) {
-				var songData:String = "" + curFilteredSongs[itemNum].data;
-				var replaceString:String = StringTools.replace(StringTools.replace(songData, "Song(", ""), ")", "");
+	function foolDisplay(cap:SongMenuItem) {
+		if (cap?.freeplayData == null)
+			return;
+		cap.weekType.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/spookyMixWeekTypes');
+		cap.weekType.animation.addByPrefix('FOOL', 'YOUFOOL text', 24, false);
+		cap.weekType.animation.play('FOOL', true);
+		cap.weekType.visible = true;
+	}
 
-				songList.insert(i, replaceString);
-				itemNum = itemNum + 1;
-			}
+	override function onUpdate(event:UpdateScriptEvent) {
+		super.onUpdate(event);
+		if (FlxG.state?.subState == null || !(FlxG.state.subState is FreeplayState)) return;
 
-			// FlxG.state.subState.ostName.text = songList;
-
-			for (i in 0...FlxG.state.subState.grpCapsules.members.length - 1) {
-				if (songList[i - 1] == "tutorial") {
-					FlxG.state.subState.grpCapsules.members[i].weekType.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/tutorialWeekType');
-					FlxG.state.subState.grpCapsules.members[i].weekType.animation.addByPrefix('TUTORIAL', 'TUTORIAL text instance 1', 24, false);
-					FlxG.state.subState.grpCapsules.members[i].weekType.animation.play('TUTORIAL', true);
-					FlxG.state.subState.grpCapsules.members[i].weekType.visible = true;
-				}
-				else if (FlxG.state.subState.grpCapsules.members[i].weekType.visible != false)
-				{
-					FlxG.state.subState.grpCapsules.members[i].weekType.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/weektypes');
-					FlxG.state.subState.grpCapsules.members[i].weekType.animation.addByPrefix('WEEK', 'WEEK text instance 1', 24, false);
-					FlxG.state.subState.grpCapsules.members[i].weekType.animation.play('WEEK', true);
-					FlxG.state.subState.grpCapsules.members[i].weekType.visible = true;
-				}
-			}
+		if (FlxG.state.subState?.instSelectMenu != null) {
+			if (StringTools.startsWith(FlxG.state.subState.instSelectMenu.currentInstrumental.text, "Truespookymod")
+				|| StringTools.startsWith(FlxG.state.subState.instSelectMenu.currentInstrumental.text, "Spookymod"))
+				FlxG.state.subState.instSelectMenu.currentInstrumental.text = "Spooky";
 		}
 	}
 }
