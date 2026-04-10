@@ -28,7 +28,7 @@ FNF: Spooky Mix is a playable character mod made for [Friday Night Funkin'](http
 - [LeGooey](https://twitter.com/LeGooey)
 - [swagsalt](https://twitter.com/swagsalt)
 - [Clarky_Dev](https://twitter.com/Clarky_Dev)
-- [LimeIsHere](https://twitter.com/HereIsLime)
+- [MayeIsHere](https://twitter.com/MayeIsHere)
 - [ChuckySkullHead](https://twitter.com/ChuckySkullHead)
 - [eden_essence](https://twitter.com/edxn_essence)
 - [Jotacast](https://twitter.com/castingjota)
@@ -36,7 +36,7 @@ FNF: Spooky Mix is a playable character mod made for [Friday Night Funkin'](http
 - [SBMB](https://twitter.com/That_SBMB)
 - [Vaderlings](https://twitter.com/vaderlings)
 - [Rofos](https://twitter.com/HristoRofos)
-- [QuasarXP](https://twitter.com/QuasarXP_)
+- [SillyRetto](https://twitter.com/SillyRetto)
 - [SolarDTM](https://twitter.com/SolarDTM)
 - [KrakenPower](https://twitter.com/KrakenPower1)
 - [RandoHorn](https://twitter.com/Randohorn)
@@ -57,7 +57,7 @@ FNF: Spooky Mix is a playable character mod made for [Friday Night Funkin'](http
 - [LeGooey](https://twitter.com/LeGooey)
 
 ## Song Charting
-- [LimeIsHere](https://twitter.com/HereIsLime)
+- [MayeIsHere](https://twitter.com/MayeIsHere)
 - [RubyyyButCool](https://twitter.com/Rubyyy_but_cool)
 - [LeGooey](https://twitter.com/LeGooey)
 - [ChuckySkullHead](https://twitter.com/ChuckySkullHead)

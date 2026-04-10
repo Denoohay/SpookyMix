@@ -1,92 +1,38 @@
 {
-	"version": "1.0.0",
-	"renderType": "sparrow",
-	"offsets": [
-		0,
-		0
-	],
-	"danceEvery": 1,
-	"scale": 1,
-	"name": "Pico (Spooky)",
-	"flipX": false,
-	"cameraOffsets": [
-		0,
-		0
-	],
-	"startingAnimation": "idle",
-	"isPixel": false,
-	"singTime": 8,
-	"healthIcon": {
-		"isPixel": false,
-		"offsets": [
-			0,
-			0
-		],
-		"scale": 1,
-		"id": "pico",
-		"flipX": false
-	},
-	"assetPath": "characters/zico",
-	"animations": [
-		{
-			"flipY": false,
-			"offsets": [
-				0,
-				0
-			],
-			"frameRate": 24,
-			"prefix": "zico idle",
-			"flipX": false,
-			"looped": false,
-			"name": "idle"
-		},
-		{
-			"flipY": false,
-			"offsets": [
-				-71,
-				3
-			],
-			"frameRate": 24,
-			"prefix": "zico right",
-			"flipX": false,
-			"looped": false,
-			"name": "singRIGHT"
-		},
-		{
-			"flipY": false,
-			"offsets": [
-				47,
-				-73
-			],
-			"frameRate": 24,
-			"prefix": "zico down",
-			"flipX": false,
-			"looped": false,
-			"name": "singDOWN"
-		},
-		{
-			"flipY": false,
-			"offsets": [
-				8,
-				10
-			],
-			"frameRate": 24,
-			"prefix": "zico up",
-			"flipX": false,
-			"looped": false,
-			"name": "singUP"
-		},
-		{
-			"flipY": false,
-			"offsets": [
-				22,
-				9
-			],
-			"frameRate": 24,
-			"prefix": "zico left",
-			"flipX": false,
-			"looped": false,
-			"name": "singLEFT"
-		}
-	]
+  "version": "1.0.0",
+  "name": "Zico",
+  "assetPath": "shared:characters/zico",
+  "healthIcon": {
+    "id": "pico"
+  },
+  "cameraOffsets": [0, 20],
+  "singTime": 8.0,
+  "renderType": "animateatlas",
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "zicoIdle",
+      "offsets": [10, -70]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "zicoLeft",
+      "offsets": [10, -70]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "zicoDown",
+      "offsets": [10, -70]
+    },
+    {
+      "name": "singUP",
+      "prefix": "zicoUp",
+      "offsets": [10, -70]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "zicoRight",
+      "offsets": [10, -70]
+    }
+  ]
 }

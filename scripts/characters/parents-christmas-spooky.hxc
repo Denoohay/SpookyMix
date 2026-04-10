@@ -1,7 +1,7 @@
-import funkin.play.character.SparrowCharacter;
+import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.character.CharacterType;
 
-class ParentsChristmasSpookyCharacter extends SparrowCharacter {
+class ParentsChristmasSpookyCharacter extends AnimateAtlasCharacter {
 	function new() {
 		super('parents-christmas-spooky');
 	}

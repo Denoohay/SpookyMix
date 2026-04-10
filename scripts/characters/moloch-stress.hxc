@@ -1,9 +1,9 @@
-import funkin.play.character.SparrowCharacter;
+import funkin.play.character.AnimateAtlasCharacter;
 import funkin.play.PlayState;
 import flixel.util.FlxSort;
 import funkin.Conductor;
 
-class MolochStressCharacter extends SparrowCharacter {
+class MolochStressCharacter extends AnimateAtlasCharacter {
 	var shootTimes:Array<Float> = [];
 	var shootDirs:Array<Int> = [];
 	var adjustColor:AdjustColorShader;

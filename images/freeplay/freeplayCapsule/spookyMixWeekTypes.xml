@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="spookyMixWeekTypes.png">
-	<!-- Created with Adobe Animate version 23.0.0.407 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="TUTORIAL text0000" x="10" y="10" width="133" height="28"/>
-	<SubTexture name="YOUFOOL text0000" x="10" y="48" width="133" height="28"/>
-</TextureAtlas>

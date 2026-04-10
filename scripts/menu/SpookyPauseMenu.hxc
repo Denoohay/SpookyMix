@@ -4,11 +4,9 @@ import flixel.FlxG;
 import flixel.text.FlxText;
 import funkin.modding.module.Module;
 import funkin.util.ReflectUtil;
-import funkin.audio.FunkinSound;
 import funkin.save.Save;
 import funkin.play.PauseSubState;
 import funkin.play.PlayState;
-import funkin.play.PlayStatePlaylist;
 
 class SpookyPauseMenu extends Module {
 	var addedStuff:Bool = false;
@@ -40,19 +38,6 @@ class SpookyPauseMenu extends Module {
 	override function onSubStateOpenEnd(event) {
 		if (ReflectUtil.getClassNameOf(FlxG.state.subState) == "funkin.play.PauseSubState" && refreshedGame == false) {
 			if (addedStuff == false) {
-				if (StringTools.startsWith(PlayState.instance.currentStage.getBoyfriend().characterId, "spooky")
-					|| StringTools.startsWith(PlayState.instance.currentStage.getBoyfriend().characterId, "skid")
-					|| StringTools.startsWith(PlayState.instance.currentStage.getBoyfriend().characterId, "pump")) {
-					if (PlayStatePlaylist.campaignId == "week6")
-						var pauseMusicPath:String = Paths.music('breakfast-pixel-spooky/breakfast-pixel-spooky');
-					else
-						var pauseMusicPath:String = Paths.music('breakfast-spooky/breakfast-spooky');
-					FlxG.state.subState.pauseMusic.stop();
-					FlxG.state.subState.pauseMusic = FunkinSound.load(pauseMusicPath, true, true);
-					FlxG.state.subState.pauseMusic.play(false);
-					FlxG.state.subState.pauseMusic.fadeIn(5, 0, 0.5);
-				}
-
 				if (PlayState.instance.currentVariation != 'default'
 					&& Assets.exists("data/songs/" + PlayState.instance.currentSong.id + "/" + PlayState.instance.currentSong.id + "-metadata-" + PlayState.instance.currentVariation + ".json"))
 					artwork = Json.parse(Assets.getText("data/songs/" + PlayState.instance.currentSong.id + "/" + PlayState.instance.currentSong.id + "-metadata-" + PlayState.instance.currentVariation + ".json")).modArt;

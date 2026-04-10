@@ -4,5 +4,6 @@
   "artists": [""],
   "albumArtAsset": "freeplay/albumRoll/spookymix1",
   "albumTitleAsset": "freeplay/albumRoll/spookymix1-text",
-  "albumTitleOffsets": [-30, 10]
+  "albumTitleOffsets": [-30, 10],
+  "albumOSTName": "UNOFFICIAL UST"
 }

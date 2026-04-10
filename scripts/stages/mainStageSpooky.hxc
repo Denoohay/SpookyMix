@@ -1,10 +1,12 @@
-import flixel.FlxG;
 import funkin.play.stage.Stage;
 import funkin.graphics.shaders.AdjustColorShader;
+import flixel.util.FlxSave;
 
 class MainStageSpookyStage extends Stage {
 	function new() {
 		super('mainStageSpooky');
+		save = new FlxSave();
+		save.bind("SpookyMixOptions", "FunkinCrew");
 	}
 
 	var colorShaderBf:AdjustColorShader;
@@ -18,7 +20,7 @@ class MainStageSpookyStage extends Stage {
 		colorShaderDad = new AdjustColorShader();
 		colorShaderGf = new AdjustColorShader();
 
-		if (FlxG.save.data.spookyShaders != false) {
+		if (save.data.spookyShaders != false) {
 			colorShaderBf.brightness = -31;
 			colorShaderBf.contrast = 4;
 			colorShaderBf.saturation = 0;

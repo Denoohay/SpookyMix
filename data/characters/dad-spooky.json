@@ -1,76 +1,77 @@
 {
   "version": "1.0.0",
   "name": "Daddy Dearest (Spooky)",
-  "assetPath": "characters/scarydaddy",
+  "assetPath": "shared:characters/scarydaddy",
   "healthIcon": {
     "id": "dad"
   },
   "singTime": 8.0,
+  "renderType": "animateatlas",
   "animations": [
     {
       "name": "idle",
-      "prefix": "dad idle",
-      "offsets": [0, 0]
+      "prefix": "daddyIdle",
+      "offsets": [-60, -70]
     },
     {
       "name": "idle-hold",
-      "prefix": "dad idle",
+      "prefix": "daddyIdle",
       "frameIndices": [11, 12, 13, 14],
       "looped": true,
-      "offsets": [0, 0]
+      "offsets": [-60, -70]
     },
     {
       "name": "singLEFT",
-      "prefix": "left",
-      "offsets": [120, -31]
+      "prefix": "daddyLeft",
+      "offsets": [-60, -70]
     },
     {
       "name": "singLEFT-hold",
-      "prefix": "left",
+      "prefix": "daddyLeft",
       "frameIndices": [11, 12, 13, 14],
       "looped": true,
-      "offsets": [120, -31]
+      "offsets": [-60, -70]
     },
     {
       "name": "singDOWN",
-      "prefix": "down",
-      "offsets": [185, -187]
+      "prefix": "daddyDown",
+      "offsets": [-60, -70]
     },
     {
       "name": "singDOWN-hold",
-      "prefix": "down",
+      "prefix": "daddyDown",
       "frameIndices": [12, 13, 14, 15],
       "looped": true,
-      "offsets": [185, -187]
+      "offsets": [-60, -70]
     },
     {
       "name": "singUP",
-      "prefix": "up",
-      "offsets": [58, 10]
+      "prefix": "daddyUp",
+      "offsets": [-60, -70]
     },
     {
       "name": "singUP-hold",
-      "prefix": "up",
+      "prefix": "daddyUp",
       "frameIndices": [12, 13, 14, 15],
       "looped": true,
-      "offsets": [58, 10]
+      "offsets": [-60, -70]
     },
     {
       "name": "singRIGHT",
-      "prefix": "right",
-      "offsets": [22, -73]
+      "prefix": "daddyRight",
+      "offsets": [-60, -70]
     },
     {
       "name": "singRIGHT-hold",
-      "prefix": "right",
+      "prefix": "daddyRight",
       "frameIndices": [11, 12, 13, 14],
       "looped": true,
-      "offsets": [22, -73]
+      "offsets": [-60, -70]
     },
     {
       "name": "scare",
-      "prefix": "jumpscare lol",
-      "offsets": [200, 8]
+      "prefix": "daddyDihrest",
+      "offsets": [-60, -70]
     }
   ]
 }

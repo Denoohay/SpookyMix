@@ -1,4 +1,4 @@
-import flixel.FlxG;
+import flixel.util.FlxSave;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
 import flixel.util.FlxTimer;
@@ -36,6 +36,8 @@ class OogasHouse extends Stage {
 
 	function new() {
 		super('oogasHouse');
+		save = new FlxSave();
+		save.bind("SpookyMixOptions", "FunkinCrew");
 	}
 
 	/**
@@ -135,11 +137,12 @@ class OogasHouse extends Stage {
 		PlayState.instance.currentStage.add(spookyPlayer);
 		spookyPlayer.applyStageMatrix = true;
 
-		boogaOpponent = FunkinSprite.createTextureAtlas(PlayState.instance.currentStage.getDad().x - 640, PlayState.instance.currentStage.getDad().y - 166, "spookyStages/oogasHouse/cutscene/booga");
-		boogaOpponent.zIndex = PlayState.instance.currentStage.getDad().zIndex - 1;
+		boogaOpponent = FunkinSprite.createTextureAtlas(PlayState.instance.currentStage.getDad().x - 530, PlayState.instance.currentStage.getDad().y - 105, "spookyStages/oogasHouse/cutscene/booga");
+		boogaOpponent.zIndex = PlayState.instance.currentStage.getDad().zIndex + 1;
 		PlayState.instance.currentStage.add(boogaOpponent);
 		boogaOpponent.applyStageMatrix = true;
 		boogaOpponent.alpha = 0;
+
 
 		PlayState.instance.currentStage.refresh();
 
@@ -284,7 +287,7 @@ class OogasHouse extends Stage {
 		getNamedProp('leftBlack').color = 0xFF000000;
 		getNamedProp('rightBlack').color = 0xFF000000;
 
-		if (FlxG.save.data.spookyShaders != false) {
+		if (save.data.spookyShaders != false) {
 			getNamedProp('bottomBlue').color = 0xFF485D6D;
 			getNamedProp('leftBlue').color = 0xFF485D6D;
 			getNamedProp('rightBlue').color = 0xFF485D6D;

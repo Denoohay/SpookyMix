@@ -1,23 +1,31 @@
-import funkin.play.character.MultiSparrowCharacter;
+import funkin.play.character.MultiAnimateAtlasCharacter;
 import funkin.play.character.CharacterType;
 import funkin.play.PlayState;
 
-class TankmanSpookyCharacter extends MultiSparrowCharacter {
+class TankmanSpookyCharacter extends MultiAnimateAtlasCharacter {
 	function new() {
 		super('tankman-spooky');
 	}
 
-	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
-		if (PlayState.instance.iconP2 != null) {
-			if (PlayState.instance.iconP2.characterId == 'monster') {
-				this.danceEvery = 2;
-				this.scale.set(0.8, 0.8);
-				super.playAnimation(name + '-monster', restart, ignoreOther);
-			} else {
-				this.danceEvery = 4;
-				super.playAnimation(name, restart, ignoreOther);
-			}
+	var isMonster:Bool = false;
+
+	override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false) {
+		if (isMonster) {
+			this.danceEvery = 2;
+			this.scale.set(0.8, 0.8);
+			super.playAnimation(name + '-monster', restart, ignoreOther, reversed);
+		} else {
+			this.danceEvery = 4;
+			super.playAnimation(name, restart, ignoreOther, reversed);
 		}
+
+		if (name == 'weirdAppears')
+			isMonster = true;
+	}
+
+	override function onSongRetry(event:ScriptEvent):Void {
+		super.onSongRetry(event);
+		isMonster = false;
 	}
 
 	function onNoteHit(event:HitNoteScriptEvent) {

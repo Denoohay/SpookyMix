@@ -1,51 +1,7 @@
-import funkin.play.character.MultiSparrowCharacter;
-import funkin.play.PauseSubState;
-import funkin.play.character.CharacterType;
-import funkin.play.GameOverSubState;
-import funkin.audio.FunkinSound;
+import spookymix.characters.SpookyPlayableCharacter;
 
-class SkidPlayableCharacter extends MultiSparrowCharacter {
-	function new() {
+class SkidPlayableCharacter extends SpookyPlayableCharacter {
+	public function new() {
 		super('skid-playable');
-	}
-
-	function onCreate(event:ScriptEvent) {
-		super.onCreate(event);
-		GameOverSubState.musicSuffix = '-spooky';
-		GameOverSubState.blueBallSuffix = '-spooky';
-		PauseSubState.musicSuffix = '-spooky';
-	}
-
-	function onNoteHit(event:HitNoteScriptEvent) {
-		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
-			switch (event.note.kind) {
-				case "Cheer":
-					holdTimer = 0;
-					this.playAnimation('cheer', false);
-				case "cheer":
-					holdTimer = 0;
-					this.playAnimation('cheer', false);
-				default:
-					holdTimer = 0;
-					this.playSingAnimation(event.note.noteData.getDirection(), false);
-			}
-		}
-	}
-
-	override function onSongRetry(event:ScriptEvent):Void {
-		super.onSongRetry(event);
-		GameOverSubState.musicSuffix = '-spooky';
-		GameOverSubState.blueBallSuffix = '-spooky';
-		PauseSubState.musicSuffix = '-spooky';
-		this.visible = true;
-	}
-
-	function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
-		super.playAnimation(name, restart, ignoreOther);
-		if (name == "deathConfirm") {
-			spookyRetry = FunkinSound.load(Paths.music('gameplay/gameover/gameOverEnd-spookymod'), true);
-			spookyRetry.volume = 1;
-			spookyRetry.play(false);
-		}
 	}
 }

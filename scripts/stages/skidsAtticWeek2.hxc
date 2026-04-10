@@ -1,4 +1,4 @@
-import flixel.FlxG;
+import flixel.util.FlxSave;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.play.character.BaseCharacter;
@@ -12,6 +12,8 @@ import funkin.graphics.shaders.DropShadowShader;
 class SkidsAtticWeekTwoStage extends Stage {
 	function new() {
 		super('skidsAtticWeek2');
+		save = new FlxSave();
+		save.bind("SpookyMixOptions", "FunkinCrew");
 	}
 
 	var lightningStrikeBeat:Int = 0;
@@ -37,7 +39,7 @@ class SkidsAtticWeekTwoStage extends Stage {
 	override function buildStage() {
 		super.buildStage();
 
-		if (FlxG.save.data.spookyShaders != false) {
+		if (save.data.spookyShaders != false) {
 			colorShaderBG = new AdjustColorShader();
 
 			colorShaderBG.brightness = 10;
@@ -51,7 +53,7 @@ class SkidsAtticWeekTwoStage extends Stage {
 		getNamedProp('bgDarkGlow').alpha = 1;
 		getNamedProp('bgDark').shader = colorShaderBG;
 
-		if (FlxG.save.data.spookyShaders != false) {
+		if (save.data.spookyShaders != false) {
 			getNamedProp('bgLightGlow').blend = 0;
 			getNamedProp('bgDarkGlow').blend = 0;
 		}
@@ -60,7 +62,7 @@ class SkidsAtticWeekTwoStage extends Stage {
 	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
 		// Apply the shader automatically to each character as it gets added.
 		super.addCharacter(character, charType);
-		if (FlxG.save.data.spookyShaders != false) {
+		if (save.data.spookyShaders != false) {
 			trace('Applied stage shader to ' + character.characterName);
 
 			var rim = new DropShadowShader();
@@ -158,7 +160,7 @@ class SkidsAtticWeekTwoStage extends Stage {
 			getGirlfriend().alpha = 0;
 
 			// i'm so sorry for this. the lightning flash wasn't working with the drop shadow shader so i had to make the rim light smoothly fade in after they already faded back to their dark sprites and this was the only way i could think to do it
-			if (FlxG.save.data.spookyShaders != false) {
+			if (save.data.spookyShaders != false) {
 				new FlxTimer().start(1.5, function(_) {
 					if (isDead == false) {
 						storeBfShader.color = 0xFF000000;
@@ -289,7 +291,7 @@ class SkidsAtticWeekTwoStage extends Stage {
 	function onSongRetry(event:ScriptEvent) {
 		super.onSongRetry(event);
 
-		if (FlxG.save.data.spookyShaders != false) {
+		if (save.data.spookyShaders != false) {
 			storeBfShader.color = 0xFF00443D;
 			getBoyfriend().shader = storeBfShader;
 

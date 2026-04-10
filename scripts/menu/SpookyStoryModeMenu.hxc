@@ -2,7 +2,6 @@ import funkin.ui.story.StoryMenuState;
 import funkin.modding.module.Module;
 import funkin.util.ReflectUtil;
 import funkin.save.Save;
-import flixel.FlxG;
 
 class SpookyStoryModeMenu extends Module {
 	public function new() {

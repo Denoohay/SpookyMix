@@ -1,71 +1,73 @@
 {
   "version": "1.0.0",
   "name": "Monster (Spooky)",
-  "assetPath": "characters/monster",
+  "assetPath": "shared:characters/monsterSpooky",
   "healthIcon": {
     "id": "monster"
   },
   "offsets": [-70, 60],
+  "renderType": "animateatlas",
+  "cameraOffsets": [-30, 80],
   "animations": [
     {
       "name": "idle",
-      "prefix": "monsteridle",
-      "offsets": [0, 0]
+      "prefix": "monsterIdle",
+      "offsets": [-60, -10]
     },
     {
       "name": "idle-hold",
-      "prefix": "monsteridle",
+      "prefix": "monsterIdle",
       "looped": true,
       "frameIndices": [12, 13, 14, 15, 16, 17],
-      "offsets": [0, 0]
+      "offsets": [-60, -10]
     },
     {
       "name": "singLEFT",
-      "prefix": "monsterleft",
-      "offsets": [49, -12]
+      "prefix": "monsterLeft",
+      "offsets": [-60, -10]
     },
     {
       "name": "singLEFT-hold",
-      "prefix": "monsterleft",
+      "prefix": "monsterLeft",
       "looped": true,
       "frameIndices": [12, 13, 14, 15, 16, 17],
-      "offsets": [49, -12]
+      "offsets": [-60, -10]
     },
     {
       "name": "singDOWN",
-      "prefix": "monsterdown",
-      "offsets": [4, -193]
+      "prefix": "monsterDown",
+      "offsets": [-60, -10]
     },
     {
       "name": "singDOWN-hold",
-      "prefix": "monsterdown",
+      "prefix": "monsterDown",
       "looped": true,
       "frameIndices": [12, 13, 14, 15, 16, 17],
-      "offsets": [4, -193]
+      "offsets": [-60, -10]
     },
     {
       "name": "singUP",
-      "prefix": "monsterup",
-      "offsets": [19, 136]
+      "prefix": "monsterUp",
+      "offsets": [-60, -10]
     },
     {
       "name": "singUP-hold",
-      "prefix": "monsterup",
+      "prefix": "monsterUp",
       "looped": true,
       "frameIndices": [12, 13, 14, 15, 16, 17],
-      "offsets": [19, 136]
+      "offsets": [-60, -10]
     },
     {
       "name": "singRIGHT",
-      "prefix": "monsterright",
-      "offsets": [-144, -62]
+      "prefix": "monsterRight",
+      "offsets": [-60, -10]
     },
     {
       "name": "singRIGHT-hold",
-      "prefix": "monsterright",
+      "prefix": "monsterRight",
       "looped": true,
       "frameIndices": [12, 13, 14, 15, 16, 17],
-      "offsets": [-144, -62]
+      "offsets": [-60, -10]
     }
   ]
 }

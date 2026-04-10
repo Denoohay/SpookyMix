@@ -2,7 +2,7 @@
   "version": "2.2.4",
   "songName": "Tutorial (Spooky Mix)",
   "artist": "Rareblin",
-  "charter": "LimeIsHere + LeGooey",
+  "charter": "MayeIsHere + LeGooey",
   "timeFormat": "ms",
   "divisions": 96,
   "offsets": {"instrumental": 0},
@@ -19,10 +19,10 @@
     "noteStyle": "funkin",
     "ratings": { "easy": 6, "normal": 8, "hard": 10 },
     "album": "spookymix1",
-    "stickerPack": "bonus-attic"
+    "stickerPack": "bonus-attic",
+    "previewStart": 0,
+    "previewEnd": 0.0703358537014243
   },
-  "previewStart": 0,
-  "previewEnd": 15000,
   "generatedBy": "LeGooey (By Hand)",
   "modArt": "Denoohay, givemethesalt"
 }

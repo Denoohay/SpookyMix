@@ -1,51 +1,44 @@
 {
   "version": "1.0.0",
   "name": "Ooga Booga",
-  "assetPath": "characters/OOGA BOOGA",
+  "assetPath": "shared:characters/OogaBooga",
   "offsets": [0, 10],
   "cameraOffsets": [50, -100],
   "healthIcon": {
     "id": "ooga-booga"
   },
-  "renderType": "sparrow",
+  "renderType": "animateatlas",
   "singTime": 8.0,
   "animations": [
     {
       "name": "idle",
-      "prefix": "oogaidle",
-      "offsets": [0, 0]
+      "prefix": "oogaIdle"
     },
     {
       "name": "idle-hold",
-      "prefix": "oogaidle",
+      "prefix": "oogaIdle",
       "looped": true,
-      "frameIndices": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
-      "offsets": [0, 0]
+      "frameIndices": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
     },
     {
       "name": "singLEFT",
-      "prefix": "oogaleft",
-      "offsets": [108, 13]
+      "prefix": "oogaLeft"
     },
     {
       "name": "singRIGHT",
-      "prefix": "oogaright",
-      "offsets": [-24, -24]
+      "prefix": "oogaRight"
     },
     {
       "name": "singUP",
-      "prefix": "oogaup",
-      "offsets": [76, 56]
+      "prefix": "oogaUp"
     },
     {
       "name": "singDOWN",
-      "prefix": "oogadown",
-      "offsets": [45, -79]
+      "prefix": "oogaDown"
     },
     {
       "name": "voiceLine",
-      "prefix": "oogaboogavoice",
-      "offsets": [48, -79]
+      "prefix": "oogaBooga"
     }
   ]
 }

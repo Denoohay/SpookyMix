@@ -6,17 +6,17 @@
   "normal": 2.6
  },
  "events": [
-  {
-   "t": 0,
-   "e": "FocusCamera",
-   "v": {
-	"x": 0,
+   {
+      "t": 0,
+      "e": "FocusCamera",
+      "v": {
 	"duration": 32,
+	"x": 0,
 	"y": 0,
-	"char": 1,
-	"ease": "expoOut"
+	"ease": "expoOut",
+	"char": 1
 }
-  },
+    },
   {
    "t": 4213.48314606742,
    "e": "FocusCamera",

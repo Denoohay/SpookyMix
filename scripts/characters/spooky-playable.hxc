@@ -1,12 +1,19 @@
+package spookymix.characters;
+
 import funkin.play.character.MultiSparrowCharacter;
 import funkin.play.PauseSubState;
 import funkin.play.character.CharacterType;
 import funkin.play.GameOverSubState;
 import funkin.audio.FunkinSound;
+import funkin.play.PlayState;
+import funkin.util.TouchUtil;
 
 class SpookyPlayableCharacter extends MultiSparrowCharacter {
-	function new() {
-		super('spooky-playable');
+	
+	public static var baseCharId:String = 'spooky-playable';
+
+	function new(id:String) {
+		super(id == 'UNKNOWN' ? baseCharId : id);
 	}
 
 	function onCreate(event:ScriptEvent) {
@@ -32,16 +39,54 @@ class SpookyPlayableCharacter extends MultiSparrowCharacter {
 		}
 	}
 
+
+    var oldIconChanged:Bool = false;
+
+    public function onUpdate(event:UpdateScriptEvent)
+    {
+        super.onUpdate(event);
+
+        // Replace the old icon if pressed 9.
+        var state:PlayState = PlayState.instance;
+        if (state == null) return;
+
+        var mobileTap:Bool = (FlxG.onMobile && TouchUtil.justPressed && TouchUtil.overlapsComplex(state.iconP1));
+        if ((FlxG.keys.justPressed.NINE || mobileTap) && state.iconP1 != null)
+        {
+            FlxG.signals.postUpdate.addOnce(changeOldIcon);
+        }
+    }
+
+    function changeOldIcon()
+    {
+        var state:PlayState = PlayState.instance;
+        if (state == null) return;
+
+        if (state.iconP1?.characterId == 'bf-old')
+        {
+            if (!oldIconChanged)
+            {
+                oldIconChanged = true;
+                state.iconP1.loadCharacter('spooky-old');
+            }
+        }
+        else
+        {
+            oldIconChanged = false;
+        }
+    }
+
 	override function onSongRetry(event:ScriptEvent):Void {
 		super.onSongRetry(event);
 		GameOverSubState.musicSuffix = '-spooky';
 		GameOverSubState.blueBallSuffix = '-spooky';
 		PauseSubState.musicSuffix = '-spooky';
 		this.visible = true;
+		oldIconChanged = false;
 	}
 
-	function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
-		super.playAnimation(name, restart, ignoreOther);
+	function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false) {
+		super.playAnimation(name, restart, ignoreOther, reversed);
 		if (name == "deathConfirm") {
 			spookyRetry = FunkinSound.load(Paths.music('gameplay/gameover/gameOverEnd-spookymod'), true);
 			spookyRetry.volume = 1;

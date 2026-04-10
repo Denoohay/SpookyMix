@@ -28,7 +28,7 @@ class SpookyCredits extends Module {
 			header: "Song Charting",
 			body: [
 				{
-					line: "LimeIsHere",
+					line: "MayeIsHere",
 				},
 				{
 					line: "RubyyyButCool",
@@ -106,7 +106,7 @@ class SpookyCredits extends Module {
 					line: "Clarky_Dev",
 				},
 				{
-					line: "LimeIsHere",
+					line: "MayeIsHere",
 				},
 				{
 					line: "ChuckySkullHead",

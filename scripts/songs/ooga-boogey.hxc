@@ -2,6 +2,7 @@ import funkin.save.Save;
 import funkin.play.song.Song;
 import funkin.play.PlayState;
 import Date;
+import funkin.ui.freeplay.FreeplayState;
 import flixel.FlxG;
 
 class OogaBoogeySong extends Song {
@@ -23,13 +24,12 @@ class OogaBoogeySong extends Song {
 	}
 
 	public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String> {
-		if (Save.instance.hasBeatenSong('ooga-boogey', ['easy'], '')
-			|| Save.instance.hasBeatenSong('ooga-boogey', ['normal'], '')
-			|| Save.instance.hasBeatenSong('ooga-boogey', ['hard'], '')) {
-			return super.listDifficulties(variationId, variationIds);
-		}
+        if(FlxG.state.subState is FreeplayState && !Save.instance.hasBeatenSong(this.id, null, this.variation))
+        {
+          return [];
+        }
+        return super.listDifficulties(variationId, variationIds);
+        // Hide all difficulties if the player has not beaten the week.    
+    }
 
-		// Hide all difficulties if the player has not beaten the week.
-		return [];
-	}
 }

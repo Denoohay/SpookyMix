@@ -1,5 +1,5 @@
 import funkin.play.character.MultiSparrowCharacter;
-import flixel.FlxG;
+import flixel.util.FlxSave;
 import funkin.play.PlayState;
 import funkin.play.PauseSubState;
 import funkin.play.character.CharacterType;
@@ -7,10 +7,13 @@ import funkin.play.character.CharacterDataParser;
 import funkin.play.GameOverSubState;
 import funkin.graphics.shaders.AdjustColorShader;
 import funkin.audio.FunkinSound;
+import funkin.util.TouchUtil;
 
 class PumpPlayableDarkCharacter extends MultiSparrowCharacter {
 	function new() {
 		super('pump-playable-dark');
+		save = new FlxSave();
+		save.bind("SpookyMixOptions", "FunkinCrew");
 	}
 
 	var normalChar:BaseCharacter;
@@ -41,8 +44,8 @@ class PumpPlayableDarkCharacter extends MultiSparrowCharacter {
 		}
 	}
 
-	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
-		super.playAnimation(name, restart, ignoreOther);
+	override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false) {
+		super.playAnimation(name, restart, ignoreOther, reversed);
 		if (normalChar != null) {
 			normalChar.playAnimation(name, restart, ignoreOther);
 			normalChar.setPosition(this.x, this.y);
@@ -55,18 +58,55 @@ class PumpPlayableDarkCharacter extends MultiSparrowCharacter {
 		}
 	}
 
+		public function onUpdate(event:UpdateScriptEvent)
+    {
+        super.onUpdate(event);
+
+        // Replace the old icon if pressed 9.
+        var state:PlayState = PlayState.instance;
+        if (state == null) return;
+
+        var mobileTap:Bool = (FlxG.onMobile && TouchUtil.justPressed && TouchUtil.overlapsComplex(state.iconP1));
+        if ((FlxG.keys.justPressed.NINE || mobileTap) && state.iconP1 != null)
+        {
+            FlxG.signals.postUpdate.addOnce(changeOldIcon);
+        }
+    }
+
+	    var oldIconChanged:Bool = false;
+	
+	function changeOldIcon()
+    {
+        var state:PlayState = PlayState.instance;
+        if (state == null) return;
+
+        if (state.iconP1?.characterId == 'bf-old')
+        {
+            if (!oldIconChanged)
+            {
+                oldIconChanged = true;
+                state.iconP1.loadCharacter('spooky-old');
+            }
+        }
+        else
+        {
+            oldIconChanged = false;
+        }
+    }
+
 	override function onSongRetry(event:ScriptEvent):Void {
 		super.onSongRetry(event);
 		GameOverSubState.musicSuffix = '-spooky';
 		GameOverSubState.blueBallSuffix = '-spooky';
 		PauseSubState.musicSuffix = '-spooky';
 		this.visible = true;
+		oldIconChanged = false;
 	}
 
 	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
 		colorShaderNormal = new AdjustColorShader();
-		if (FlxG.save.data.spookyShaders != false) {
+		if (save.data.spookyShaders != false) {
 			colorShaderNormal.brightness = -45;
 			colorShaderNormal.contrast = 47;
 			colorShaderNormal.saturation = -43;

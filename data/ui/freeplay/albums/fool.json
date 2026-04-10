@@ -4,5 +4,6 @@
   "artists": ["LeGooey, alewito"],
   "albumArtAsset": "freeplay/albumRoll/fool",
   "albumTitleAsset": "freeplay/albumRoll/fool-text",
-  "albumTitleOffsets": [-25, -5]
+  "albumTitleOffsets": [-25, -5],
+  "albumOSTName": "UNOFFICIAL UST"
 }

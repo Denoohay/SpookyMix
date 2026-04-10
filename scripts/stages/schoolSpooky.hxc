@@ -1,4 +1,4 @@
-import flixel.FlxG;
+import flixel.util.FlxSave;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
 import funkin.save.Save;
@@ -6,6 +6,8 @@ import funkin.save.Save;
 class SchoolSpookyStage extends Stage {
 	function new() {
 		super('schoolSpooky');
+		save = new FlxSave();
+		save.bind("SpookyMixOptions", "FunkinCrew");
 	}
 
 	function buildStage() {

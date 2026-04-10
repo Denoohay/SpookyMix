@@ -266,7 +266,7 @@
     "gf": {
       "zIndex": 100,
       "scale": 0.7,
-      "position": [650, 715],
+      "position": [700, 670],
       "cameraOffsets": [0, -10]
     },
     "dad": {

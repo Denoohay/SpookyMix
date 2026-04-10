@@ -1,42 +1,7 @@
-import funkin.play.character.MultiSparrowCharacter;
-import funkin.play.PauseSubState;
-import funkin.play.character.CharacterType;
-import funkin.play.GameOverSubState;
-import funkin.audio.FunkinSound;
+import spookymix.characters.SpookyPixelCharacter;
 
-class SpookyPixelPurpleCharacter extends MultiSparrowCharacter {
-	function new() {
+class SpookyPixelPurpleCharacter extends SpookyPixelCharacter {
+	public function new() {
 		super('spooky-pixel-purple');
-	}
-
-	function onCreate(event:ScriptEvent) {
-		super.onCreate(event);
-		GameOverSubState.musicSuffix = '-spooky-pixel';
-		GameOverSubState.blueBallSuffix = '-spooky-pixel';
-		PauseSubState.musicSuffix = '-spooky-pixel';
-	}
-
-	function onNoteHit(event:HitNoteScriptEvent) {
-		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
-			switch (event.note.kind) {
-				case "Cheer":
-					holdTimer = 0;
-					this.playAnimation('cheer', false);
-				case "cheer":
-					holdTimer = 0;
-					this.playAnimation('cheer', false);
-				default:
-					holdTimer = 0;
-					this.playSingAnimation(event.note.noteData.getDirection(), false);
-			}
-		}
-	}
-
-	override function onSongRetry(event:ScriptEvent):Void {
-		super.onSongRetry(event);
-		GameOverSubState.musicSuffix = '-spooky-pixel';
-		GameOverSubState.blueBallSuffix = '-spooky-pixel';
-		PauseSubState.musicSuffix = '-spooky-pixel';
-		this.visible = true;
 	}
 }

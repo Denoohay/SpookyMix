@@ -1,6 +1,5 @@
 import funkin.ui.freeplay.FreeplayState;
 import funkin.modding.module.Module;
-import funkin.util.ReflectUtil;
 import funkin.Conductor;
 import funkin.Preferences;
 import flixel.FlxG;
@@ -15,48 +14,19 @@ class SpookyFreeplay extends Module {
 		super('SpookyFreeplay');
 	}
 
-	var tutorialVariable:Array<String> = ['tutorial'];
-	var foolVariable:Array<String> = ['fool'];
-	var canPlayTutorialPreview:Bool;
-
-	var changedCapsules:Array<SongMenuItem>;
 	var updatedSongsList:Array<SongMenuItem>;
 
 	override function onSubStateOpenBegin(event) {
         super.onSubStateOpenBegin(event);
 		if (event.targetState is FreeplayState) {
 			canPlayTutorialPreview = false;
-			if ((changedCapsules?.length ?? 1) > 0) changedCapsules = [];
 			if ((updatedSongsList?.length ?? 1) > 0) updatedSongsList = [];	
 		}
 	}
 
-	public function onFreeplayIntroDone(event:FreeplayScriptEvent):Void {
-		super.onFreeplayIntroDone(event);
-		canPlayTutorialPreview = true;
-	}
-
 	public function onDifficultySwitch(event:CapsuleScriptEvent):Void {
 		super.onDifficultySwitch(event);
-		while (changedCapsules?.length > 0) {
-			var capsule = changedCapsules.shift();
-
-			if (StringTools.contains(capsule?.weekType?.graphic?.key, 'freeplay/freeplayCapsule/spookyMixWeekTypes')) resetCapsules(capsule);
-
-		}
-		if ((changedCapsules?.length ?? 1) != 0) changedCapsules = []; // Clear the array just in case
-		var filteredCapsules:Array<SongMenuItem> = FlxG.state.subState.grpCapsules.members.filter(function(cap:SongMenuItem) {
-			var allSpookySongs = tutorialVariable.concat(foolVariable);
-			return cap != null && cap.alive && cap.freeplayData != null && allSpookySongs.contains(cap.freeplayData.levelId);
-		});
-		for (capsule in filteredCapsules){
-			if (capsule == null || !capsule.alive) continue;
-
-			changedCapsules.push(capsule); // Push these changed capsules
-
-			if (tutorialVariable.contains(capsule?.freeplayData?.levelId)) tutorialDisplay(capsule);
-			else if (foolVariable.contains(capsule?.freeplayData?.levelId)) foolDisplay(capsule);
-		}
+		
 		if (FlxG.state.subState.currentCharacterId == 'spookymod') {
 			while (updatedSongsList?.length > 0) {
 				var capsule = updatedSongsList.shift();
@@ -83,60 +53,6 @@ class SpookyFreeplay extends Module {
 				capsule.newText.offset.x = 70;
 			}
 		}
-	}
-
-	public function onCapsuleSelected(event:CapsuleScriptEvent):Void {
-		super.onCapsuleSelected(event);
-		if (FlxG.state.subState.currentCharacterId == 'spookymod' && event.capsule?.freeplayData?.data?.id == "tutorial" && canPlayTutorialPreview) {
-			FlxTimer.wait(0.255, () -> {
-				// trace('Replacing Song');
-				var previewVolume:Float = 0.7;
-				if (FlxG.state.subState.dj != null) previewVolume *= FlxG.state.subState.dj.getMusicPreviewMult();
-				if (FlxG.sound.music?._label == null || FlxG.sound.music?._label != Paths.music('tutorialInstPreview/tutorialInstPreview')) {
-					FlxG.sound.music?.pause();
-					FlxG.state.subState.clearPreviews();
-					FunkinSound.playMusic('tutorialInstPreview', {
-						startingVolume: 0.0,
-						overrideExisting: true,
-						restartTrack: false,
-						mapTimeChanges: false
-					});	
-					FlxG.sound.music.fadeIn(2, 0, previewVolume);
-				}
-			});
-		}
-		if (FlxG.state.subState.curSelected == 0) {
-			FlxG.state.subState.albumRoll.alpha = 0;
-		} else {
-			if (FlxG.state.subState.albumRoll.alpha == 0) FlxG.state.subState.albumRoll.alpha = 1;
-		}
-	}
-
-	function resetCapsules(cap:SongMenuItem) {
-		if (cap?.freeplayData == null)
-			return;
-		cap.weekType.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/weektypes');
-		cap.weekType.animation.addByPrefix('WEEK', 'WEEK text instance 1', 24, false);
-		cap.weekType.animation.addByPrefix('WEEKEND', 'WEEKEND text instance 1', 24, false);
-		cap.checkWeek(cap.freeplayData.data.id);
-	}
-
-	function tutorialDisplay(cap:SongMenuItem) {
-		if (cap?.freeplayData == null)
-			return;
-		cap.weekType.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/spookyMixWeekTypes');
-		cap.weekType.animation.addByPrefix('TUTORIAL', 'TUTORIAL text', 24, false);
-		cap.weekType.animation.play('TUTORIAL', true);
-		cap.weekType.visible = true;
-	}
-
-	function foolDisplay(cap:SongMenuItem) {
-		if (cap?.freeplayData == null)
-			return;
-		cap.weekType.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/spookyMixWeekTypes');
-		cap.weekType.animation.addByPrefix('FOOL', 'YOUFOOL text', 24, false);
-		cap.weekType.animation.play('FOOL', true);
-		cap.weekType.visible = true;
 	}
 
 	override function onUpdate(event:UpdateScriptEvent) {

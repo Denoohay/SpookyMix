@@ -1,71 +1,73 @@
 {
   "version": "1.0.0",
-  "name": "Monster (Christmas) (Spooky)",
-  "assetPath": "characters/monster chrimmas",
-  "offsets": [-70, 12],
+  "name": "Monster (Christmas Spooky)",
+  "assetPath": "shared:characters/monsterSpooky",
   "healthIcon": {
     "id": "monster"
   },
+  "offsets": [-70, 12],
+  "renderType": "animateatlas",
+  "cameraOffsets": [-30, 80],
   "animations": [
     {
       "name": "idle",
-      "prefix": "monsteridle",
-      "offsets": [0, 0]
+      "prefix": "monsterChristmasIdle",
+      "offsets": [-60, -10]
     },
     {
       "name": "idle-hold",
-      "prefix": "monsteridle",
+      "prefix": "monsterChristmasIdle",
       "looped": true,
       "frameIndices": [12, 13, 14, 15, 16, 17],
-      "offsets": [0, 0]
+      "offsets": [-60, -10]
     },
     {
       "name": "singLEFT",
-      "prefix": "monsterleft",
-      "offsets": [59, -59]
+      "prefix": "monsterChristmasLeft",
+      "offsets": [-60, -10]
     },
     {
       "name": "singLEFT-hold",
-      "prefix": "monsterleft",
+      "prefix": "monsterChristmasLeft",
       "looped": true,
       "frameIndices": [12, 13, 14, 15, 16, 17],
-      "offsets": [59, -59]
+      "offsets": [-60, -10]
     },
     {
       "name": "singDOWN",
-      "prefix": "monsterdown",
-      "offsets": [8, -230]
+      "prefix": "monsterChristmasDown",
+      "offsets": [-60, -10]
     },
     {
       "name": "singDOWN-hold",
-      "prefix": "monsterdown",
+      "prefix": "monsterChristmasDown",
       "looped": true,
       "frameIndices": [12, 13, 14, 15, 16, 17],
-      "offsets": [8, -230]
+      "offsets": [-60, -10]
     },
     {
       "name": "singUP",
-      "prefix": "monsterup",
-      "offsets": [19, 76]
+      "prefix": "monsterChristmasUp",
+      "offsets": [-60, -10]
     },
     {
       "name": "singUP-hold",
-      "prefix": "monsterup",
+      "prefix": "monsterChristmasUp",
       "looped": true,
       "frameIndices": [12, 13, 14, 15, 16, 17],
-      "offsets": [19, 76]
+      "offsets": [-60, -10]
     },
     {
       "name": "singRIGHT",
-      "prefix": "monsterright",
-      "offsets": [-124, -62]
+      "prefix": "monsterChristmasRight",
+      "offsets": [-60, -10]
     },
     {
       "name": "singRIGHT-hold",
-      "prefix": "monsterright",
+      "prefix": "monsterChristmasRight",
       "looped": true,
       "frameIndices": [12, 13, 14, 15, 16, 17],
-      "offsets": [-124, -62]
+      "offsets": [-60, -10]
     }
   ]
 }

@@ -65,13 +65,11 @@ class SpookyCard extends BackingCard {
 		});
 	}
 
+	final X_POSITION:Float = (FreeplayState.CUTOUT_WIDTH * FreeplayState.DJ_POS_MULTI) + 610;
+
 	public override function onCreate(event:ScriptEvent):Void {
 		FlxTween.tween(pinkBack, {x: 0}, 0.6, {ease: FlxEase.quartOut});
 		add(pinkBack);
-
-		instance.ostName.text = 'UNOFFICIAL UST';
-		instance.charSelectHint.x -= 20;
-
 		confirmTextGlow.blend = 0;
 		confirmTextGlow.visible = false;
 
@@ -110,13 +108,15 @@ class SpookyCard extends BackingCard {
 		lowCandyRow.visible = false;
 		glow.visible = false;
 
-		if (FullScreenScaleMode.wideScale.x != 1) {
-			confirmAtlas = FunkinSprite.createTextureAtlas(880, 360, "freeplay/backingCards/spookymod/spooky-confirm-wide");
-			confirmAtlas.scale.x *= 1.5;
-		} else {
-			confirmAtlas = FunkinSprite.createTextureAtlas(0, 55, "freeplay/backingCards/spookymod/spooky-confirm");
-			confirmAtlas.scale.x *= 1.05;
-		}
+		
+			confirmAtlas = FunkinSprite.createTextureAtlas(X_POSITION, 355, "freeplay/backingCards/spookymod/spookyConfirm");
+
+			if (FullScreenScaleMode.wideScale.x != 1) {
+				confirmAtlas.scale.x = confirmAtlas.scale.x * 1.5;
+				confirmAtlas.x = X_POSITION * 1.5 + 160;
+			}
+			
+
 		confirmAtlas.applyStageMatrix = true;
 		confirmAtlas.visible = false;
 		add(confirmAtlas);
@@ -133,8 +133,6 @@ class SpookyCard extends BackingCard {
 	}
 
 	override public function confirm():Void {
-		if (FullScreenScaleMode.wideScale.x != 1)
-			confirmAtlas.x = FlxG.state.subState.dj.x + 60;
 		confirmAtlas.visible = true;
 		confirmAtlas.anim.play("");
 

@@ -130,7 +130,7 @@
       "scroll": [1, 1],
       "scale": [0.7, 0.7],
       "zIndex": 101,
-      "alpha": 0,
+      "alpha": 0.0001,
       "flipX": true,
       "animations": [
         {
@@ -215,7 +215,7 @@
     },
     "gf": {
       "zIndex": 100,
-      "position": [1750, 1380],
+      "position": [1800, 1380],
       "cameraOffsets": [50, 0]
     }
   },

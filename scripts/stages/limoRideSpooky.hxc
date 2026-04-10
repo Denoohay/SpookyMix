@@ -1,4 +1,4 @@
-import flixel.FlxG;
+import flixel.util.FlxSave;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxBackdrop;
 import funkin.play.stage.Stage;
@@ -10,6 +10,8 @@ import funkin.save.Save;
 class LimoRideSpookyStage extends Stage {
 	function new() {
 		super('limoRideSpooky');
+		save = new FlxSave();
+		save.bind("SpookyMixOptions", "FunkinCrew");
 	}
 
 	var momX:Float = 0;
@@ -29,14 +31,14 @@ class LimoRideSpookyStage extends Stage {
 		super.buildStage();
 
 		getNamedProp('moonlight').alpha = 0.17;
-		if (FlxG.save.data.spookyShaders != false)
+		if (save.data.spookyShaders != false)
 			getNamedProp('moonlight').blend = 0;
 
 		mist1 = new FlxBackdrop(Paths.image('limo/erect/mistMid'), 0x01);
 		mist1.setPosition(-650, -100);
 		mist1.scrollFactor.set(1.1, 1.1);
 		mist1.zIndex = 400;
-		if (FlxG.save.data.spookyShaders != false)
+		if (save.data.spookyShaders != false)
 			mist1.blend = 0;
 		else
 			mist1.visible = false;
@@ -51,7 +53,7 @@ class LimoRideSpookyStage extends Stage {
 		mist2.setPosition(-650, -100);
 		mist2.scrollFactor.set(1.2, 1.2);
 		mist2.zIndex = 401;
-		if (FlxG.save.data.spookyShaders != false)
+		if (save.data.spookyShaders != false)
 			mist2.blend = 0;
 		else
 			mist2.visible = false;
@@ -67,7 +69,7 @@ class LimoRideSpookyStage extends Stage {
 		mist3.setPosition(-650, -100);
 		mist3.scrollFactor.set(0.8, 0.8);
 		mist3.zIndex = 99;
-		if (FlxG.save.data.spookyShaders != false)
+		if (save.data.spookyShaders != false)
 			mist3.blend = 0;
 		else
 			mist3.visible = false;
@@ -83,7 +85,7 @@ class LimoRideSpookyStage extends Stage {
 		mist4.setPosition(-650, -380);
 		mist4.scrollFactor.set(0.6, 0.6);
 		mist4.zIndex = 98;
-		if (FlxG.save.data.spookyShaders != false)
+		if (save.data.spookyShaders != false)
 			mist4.blend = 0;
 		else
 			mist4.visible = false;
@@ -99,7 +101,7 @@ class LimoRideSpookyStage extends Stage {
 		mist5.setPosition(-650, -400);
 		mist5.scrollFactor.set(0.2, 0.2);
 		mist5.zIndex = 15;
-		if (FlxG.save.data.spookyShaders != false)
+		if (save.data.spookyShaders != false)
 			mist5.blend = 0;
 		else
 			mist5.visible = false;
@@ -158,7 +160,7 @@ class LimoRideSpookyStage extends Stage {
 	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
 		// Apply the shader automatically to each character as it gets added.
 		super.addCharacter(character, charType);
-		if (FlxG.save.data.spookyShaders != false) {
+		if (save.data.spookyShaders != false) {
 			trace('Applied stage shader to ' + character.characterName);
 
 			var rim = new DropShadowShader();
@@ -217,10 +219,10 @@ class LimoRideSpookyStage extends Stage {
 			&& Save.instance.hasBeatenSong(PlayState.instance.currentSong.id, null, 'spookymod')
 			&& mustHaveBeatenSong == true)
 			|| (PlayState.instance.currentSong.id.toLowerCase() == "high"
-				&& FlxG.save.data.beatenNewHighUpdated == true
+				&& save.data.beatenNewHighUpdated == true
 				&& mustHaveBeatenSong == true)
 			|| (PlayState.instance.currentSong.id.toLowerCase() == "milf"
-				&& FlxG.save.data.beatenMilfUpdated == true
+				&& save.data.beatenMilfUpdated == true
 				&& mustHaveBeatenSong == true)
 			|| (mustHaveBeatenSong == false)) {
 			var willSans:Int;
@@ -270,18 +272,19 @@ class LimoRideSpookyStage extends Stage {
 	function resetBush():Void {
 		var bush = getNamedProp('bush');
 
-		var bushNumber:Int = FlxG.random.int(1, 3);
-
-		if (bushNumber == 1)
-			bush.loadGraphic(Paths.image('limo/spooky/FGbushDorothy'));
-		if (bushNumber == 2)
-			bush.loadGraphic(Paths.image('limo/spooky/FGbushStarbucks'));
-		if (bushNumber == 3)
-			bush.loadGraphic(Paths.image('limo/spooky/FGbushThomas'));
-
 		if (bush == null)
 			return;
 
+		var bushNumber:Int = FlxG.random.int(1, 3);
+
+		switch (bushNumber) {
+				case 1:
+					bush.animation.play('dorothy');
+				case 2:
+					bush.animation.play('starbucks');
+				case 3:
+					bush.animation.play('thomas');
+		}
 		// Props are inactive by default.
 		// Set active to true so position is calculated based on velocity.
 		bush.active = true;
@@ -302,6 +305,9 @@ class LimoRideSpookyStage extends Stage {
 	function resetTree():Void {
 		var tree = getNamedProp('tree');
 
+		if (tree == null)
+			return;
+
 		var treeNumber:Int = FlxG.random.int(1, 4);
 		var weirdNumber:Int = FlxG.random.int(1, 50);
 
@@ -310,17 +316,16 @@ class LimoRideSpookyStage extends Stage {
 		else
 			weird.alpha = 0;
 
-		if (treeNumber == 1)
-			tree.loadGraphic(Paths.image('limo/spooky/BGtreeDavid'));
-		if (treeNumber == 2)
-			tree.loadGraphic(Paths.image('limo/spooky/BGtreeFrank'));
-		if (treeNumber == 3)
-			tree.loadGraphic(Paths.image('limo/spooky/BGtreeHugo'));
-		if (treeNumber == 3)
-			tree.loadGraphic(Paths.image('limo/spooky/BGtreeTimothy'));
-
-		if (tree == null)
-			return;
+		switch (treeNumber) {
+				case 1:
+					tree.animation.play('david');
+				case 2:
+					tree.animation.play('frank');
+				case 3:
+					tree.animation.play('hugo');
+				case 4:
+					tree.animation.play('timothy');
+		}
 
 		// Props are inactive by default.
 		// Set active to true so position is calculated based on velocity.
@@ -339,26 +344,6 @@ class LimoRideSpookyStage extends Stage {
 		tree.velocity.x = 5000;
 		weird.velocity.x = 5000;
 		treeCanGoBy = false;
-	}
-
-	/**
-	 * If your stage uses additional assets not specified in the JSON,
-	 * make sure to specify them like this, or they won't get cached in the loading screen.
-	 */
-	function fetchAssetPaths():Array<String> {
-		var results:Array<String> = super.fetchAssetPaths();
-
-		results.push(Paths.image('limo/spooky/FGbushDorothy'));
-		results.push(Paths.image('limo/spooky/FGbushStarbucks'));
-		results.push(Paths.image('limo/spooky/FGbushThomas'));
-
-		results.push(Paths.image('limo/spooky/BGtreeDavid'));
-		results.push(Paths.image('limo/spooky/BGtreeFrank'));
-		results.push(Paths.image('limo/spooky/BGtreeHugo'));
-		results.push(Paths.image('limo/spooky/BGtreeTimothy'));
-		results.push(Paths.image('limo/spooky/BGtreeWeird'));
-
-		return results;
 	}
 
 	/**

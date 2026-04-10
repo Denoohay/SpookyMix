@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="week4spookyBushes.png">
+<SubTexture name="dorothy0000" x="0" y="0" width="409" height="319" frameX="-588" frameY="-308" frameWidth="1580" frameHeight="929" />
+<SubTexture name="starbucks0000" x="0" y="319" width="406" height="330" frameX="-590" frameY="-302" frameWidth="1580" frameHeight="929" />
+<SubTexture name="thomas0000" x="0" y="649" width="425" height="310" frameX="-580" frameY="-312" frameWidth="1580" frameHeight="929" />
+</TextureAtlas>

@@ -1,5 +1,5 @@
 import funkin.play.character.MultiSparrowCharacter;
-import flixel.FlxG;
+import flixel.util.FlxSave;
 import funkin.play.PlayState;
 import funkin.play.character.CharacterType;
 import funkin.play.character.CharacterDataParser;
@@ -8,6 +8,8 @@ import funkin.graphics.shaders.AdjustColorShader;
 class PumpOpponentDarkCharacter extends MultiSparrowCharacter {
 	function new() {
 		super('pump-opponent-dark');
+		save = new FlxSave();
+		save.bind("SpookyMixOptions", "FunkinCrew");
 	}
 
 	var normalChar:BaseCharacter;
@@ -38,8 +40,8 @@ class PumpOpponentDarkCharacter extends MultiSparrowCharacter {
 		}
 	}
 
-	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
-		super.playAnimation(name, restart, ignoreOther);
+	override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false) {
+		super.playAnimation(name, restart, ignoreOther, reversed);
 		if (normalChar != null) {
 			normalChar.playAnimation(name, restart, ignoreOther);
 			normalChar.setPosition(this.x, this.y);
@@ -49,7 +51,7 @@ class PumpOpponentDarkCharacter extends MultiSparrowCharacter {
 	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
 		colorShaderNormal = new AdjustColorShader();
-		if (FlxG.save.data.spookyShaders != false) {
+		if (save.data.spookyShaders != false) {
 			colorShaderNormal.brightness = -45;
 			colorShaderNormal.contrast = 47;
 			colorShaderNormal.saturation = -43;

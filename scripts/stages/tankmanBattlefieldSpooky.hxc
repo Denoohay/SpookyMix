@@ -1,4 +1,4 @@
-import flixel.FlxG;
+import flixel.util.FlxSave;
 import flixel.math.FlxAngle;
 import flixel.util.FlxTimer;
 import flixel.text.FlxText;
@@ -62,6 +62,8 @@ class TankmanBattlefieldSpookyStage extends Stage {
 
 	function new() {
 		super('tankmanBattlefieldSpooky');
+		save = new FlxSave();
+		save.bind("SpookyMixOptions", "FunkinCrew");
 	}
 
 	/**
@@ -89,7 +91,7 @@ class TankmanBattlefieldSpookyStage extends Stage {
 
 			event.cancel(); // CANCEL THE COUNTDOWN!
 
-			PlayState.instance.camHUD.visible = false;
+			PlayState.instance.camHUD.alpha = 0.000001;
 			stressCutscene();
 		} else {
 			hasPlayedInGameCutscene = true;
@@ -122,17 +124,7 @@ class TankmanBattlefieldSpookyStage extends Stage {
 
 		skipText.cameras = [PlayState.instance.camCutscene];
 
-		molochKillsThem = FunkinSprite.createTextureAtlas(776, 288, "spooky/cutscene/MolochKillin", "week7");
-		molochKillsThem.zIndex = getGirlfriend().zIndex - 1;
-		molochKillsThem.shader = stageTint;
-		molochKillsThem.color = 0xE8FFF0;
-		molochKillsThem.scale.set(0.7, 0.7);
-		molochKillsThem.applyStageMatrix = true;
-		PlayState.instance.currentStage.add(molochKillsThem);
-
 		PlayState.instance.currentStage.refresh();
-
-		getGirlfriend().visible = false;
 
 		PlayState.instance.resetCamera(false, true);
 
@@ -151,9 +143,9 @@ class TankmanBattlefieldSpookyStage extends Stage {
 
 			new FlxTimer().start(0.01, _ -> { //why was there a timer here what was i thinking 
 				if (hasPlayedCutscene != true) {
-					molochKillsThem.anim.play("");
 					cutsceneMusic.play(false);
-					PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
+					getGirlfriend().canPlayOtherAnims = true;
+					getGirlfriend().playAnimation('molochStressCutscene', true, false);
 				}
 
 				// man what kinda bozo would add all this stuff? nerd! ...wait thats me-    -gooey
@@ -190,25 +182,21 @@ class TankmanBattlefieldSpookyStage extends Stage {
 				new FlxTimer().start(314 / 24, _ -> {
 					if (cutsceneSkipped == false) {
 						PlayState.instance.tweenCameraToPosition(girlfriendCameraPosX, girlfriendCameraPosY, 0.5, FlxEase.expoOut);
-						PlayState.instance.tweenCameraZoom(0.9, 3, true, FlxEase.expoOut);
+						PlayState.instance.tweenCameraZoom(0.9, 4, true, FlxEase.expoOut);
 					}
 				});
-				new FlxTimer().start(400 / 24, _ -> {
-					if (cutsceneSkipped == false) {
-						PlayState.instance.camCutscene.fade(0xFF000000, 0, false, null, true);
+				new FlxTimer().start(15, _ -> {
+					if (hasPlayedCutscene != true) {	
+						getGirlfriend().playAnimation('idle', true, false);
 					}
 				});
-
-				new FlxTimer().start(18, _ -> {
+				new FlxTimer().start(16, _ -> {
 					if (hasPlayedCutscene != true) {
-						PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
+						getGirlfriend().playAnimation('idle', true, false);	
+						FlxTween.tween(PlayState.instance.camHUD, {alpha: 1}, 1);
+						FlxTween.tween(skipText, {alpha: 0}, 0.5, {ease: FlxEase.quadOut});
 						PlayState.instance.startCountdown();
 						PlayState.instance.isInCutscene = false;
-
-						FlxTween.tween(skipText, {alpha: 0}, 0.5, {ease: FlxEase.quadOut});
-						molochKillsThem.visible = false;
-						getGirlfriend().visible = true;
-
 						hasPlayedCutscene = true;
 					}
 				});
@@ -227,6 +215,10 @@ class TankmanBattlefieldSpookyStage extends Stage {
 			PlayState.instance.justUnpaused = true;
 			PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
 
+			getGirlfriend().playAnimation('idle', true, false);	
+			FlxTween.tween(PlayState.instance.camHUD, {alpha: 1}, 1);
+			FlxTween.tween(skipText, {alpha: 0}, 0.5, {ease: FlxEase.quadOut});
+
 			cutsceneMusic.stop();
 			cutsceneSoundEffect.stop();
 
@@ -238,8 +230,6 @@ class TankmanBattlefieldSpookyStage extends Stage {
 			PlayState.instance.startCountdown();
 
 			skipText.visible = false;
-			molochKillsThem.visible = false;
-			getGirlfriend().visible = true;
 		});
 	}
 
@@ -250,7 +240,7 @@ class TankmanBattlefieldSpookyStage extends Stage {
 
 		stageTint = new AdjustColorShader();
 
-		if (FlxG.save.data.spookyShaders != false) {
+		if (save.data.spookyShaders != false) {
 			stageTint.brightness = -15;
 			stageTint.saturation = -15;
 		}
@@ -277,7 +267,7 @@ class TankmanBattlefieldSpookyStage extends Stage {
 
 		getNamedProp('weirdGlow').visible = false;
 
-		if (FlxG.save.data.spookyShaders != false)
+		if (save.data.spookyShaders != false)
 			getNamedProp('weirdGlow').blend = 0;
 
 		scarecrow = FunkinSprite.createTextureAtlas(1300, 220, "spooky/scarecrow", "week7");
@@ -313,7 +303,7 @@ class TankmanBattlefieldSpookyStage extends Stage {
 		tankAngle = FlxG.random.int(-90, 45);
 		tankSpeed = FlxG.random.float(5, 7);
 
-		if (FlxG.save.data.spookyShaders != false)
+		if (save.data.spookyShaders != false)
 			getNamedProp('bottomLighting').blend = 0;
 
 		gotCameraPos = false;
@@ -322,7 +312,7 @@ class TankmanBattlefieldSpookyStage extends Stage {
 		mistBack.setPosition(0, 100);
 		mistBack.scrollFactor.set(0.7, 0.7);
 		mistBack.zIndex = 39;
-		if (FlxG.save.data.spookyShaders != false)
+		if (save.data.spookyShaders != false)
 			mistBack.blend = 0;
 		mistBack.alpha = 0.6;
 		mistBack.velocity.x = 0;
@@ -334,7 +324,7 @@ class TankmanBattlefieldSpookyStage extends Stage {
 		mistFront.setPosition(0, 500);
 		mistFront.scrollFactor.set(1.3, 1.3);
 		mistFront.zIndex = 2999;
-		if (FlxG.save.data.spookyShaders != false)
+		if (save.data.spookyShaders != false)
 			mistFront.blend = 0;
 		mistFront.alpha = 1;
 		mistFront.flipX = true;
@@ -347,7 +337,7 @@ class TankmanBattlefieldSpookyStage extends Stage {
 		weirdPlayerTint = new AdjustColorShader();
 		weirdGuyTint = new AdjustColorShader();
 
-		if (FlxG.save.data.spookyShaders != false) {
+		if (save.data.spookyShaders != false) {
 			weirdPlayerTint.brightness = -88;
 			weirdPlayerTint.contrast = -1;
 			weirdPlayerTint.saturation = -2;
@@ -365,7 +355,7 @@ class TankmanBattlefieldSpookyStage extends Stage {
 		weirdMountainsTint = new AdjustColorShader();
 		weirdSkyTint = new AdjustColorShader();
 
-		if (FlxG.save.data.spookyShaders != false) {
+		if (save.data.spookyShaders != false) {
 			mainWeirdTint.brightness = -74;
 			mainWeirdTint.contrast = 0;
 			mainWeirdTint.saturation = 44;
@@ -461,7 +451,7 @@ class TankmanBattlefieldSpookyStage extends Stage {
 		}
 
 		if (PlayState.instance.iconP2.characterId == 'monster' && switchedToMonster == false) {
-			if (FlxG.save.data.spookyShaders != false) {
+			if (save.data.spookyShaders != false) {
 				getNamedProp('moon').shader = weirdMoonTint;
 				getNamedProp('tankSky').shader = weirdSkyTint;
 				getNamedProp('tankSkyUnder').shader = weirdSkyTint;
@@ -509,7 +499,7 @@ class TankmanBattlefieldSpookyStage extends Stage {
 			mistBack.velocity.x = -172;
 			mistFront.velocity.x = 172;
 
-			if (FlxG.save.data.spookyShaders != false) {
+			if (save.data.spookyShaders != false) {
 				getBoyfriend().shader = weirdPlayerTint;
 				getBoyfriend().color = 0xFFFFFF;
 
@@ -556,25 +546,31 @@ class TankmanBattlefieldSpookyStage extends Stage {
 			}
 
 			getBoyfriend().y = 400;
-			getDad().y = 390;
+			getDad().y = 380;
 
-			getGirlfriend().x = 350;
-			getGirlfriend().y = 120;
-			// getGirlfriend().alpha = 0;
+			boyfriendCameraPosY = 535;
+			dadCameraPosY = 515;
+			girlfriendCameraPosX = 770;
+
+			if (PlayState.instance.currentSong.id.toLowerCase() == "stress")
+				girlfriendCameraPosY = 470;
+			else
+				girlfriendCameraPosY = 510;
 
 			if (switchedToMonster == true) {
 				getBoyfriend().x = 940;
-				getDad().x = 190;
+				getDad().x = 175;
 
-				getBoyfriend().cameraFocusPoint.x = boyfriendCameraPosX - 100;
+				boyfriendCameraPosX = 1035 - 100;
 			} else {
 				getBoyfriend().x = 1100;
-				getDad().x = 50;
-
-				getBoyfriend().cameraFocusPoint.x = boyfriendCameraPosX;
+				getDad().x = 35;
+				
+				boyfriendCameraPosX = 1035;
 			}
 			getDad().cameraFocusPoint.x = dadCameraPosX;
 			getDad().cameraFocusPoint.y = dadCameraPosY;
+			getBoyfriend().cameraFocusPoint.x = boyfriendCameraPosX;
 			getBoyfriend().cameraFocusPoint.y = boyfriendCameraPosY;
 			getGirlfriend().cameraFocusPoint.x = girlfriendCameraPosX;
 			getGirlfriend().cameraFocusPoint.y = girlfriendCameraPosY;
@@ -620,7 +616,7 @@ class TankmanBattlefieldSpookyStage extends Stage {
 		if (switchedToMonster == true) {
 			getDad().scale.set(0.7, 0.7);
 
-			if (FlxG.save.data.spookyShaders != false) {
+			if (save.data.spookyShaders != false) {
 				getNamedProp('moon').shader = stageTint;
 				getNamedProp('tankSky').shader = stageTint;
 				getNamedProp('tankSkyUnder').shader = stageTint;

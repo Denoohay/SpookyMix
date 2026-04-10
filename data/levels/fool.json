@@ -2,6 +2,9 @@
   "version": "1.0.0",
   "name": "???",
   "titleAsset": "storymenu/titles/fool",
+  "capsule": {
+    "name": "YOU FOOL!"
+  },
   "props": [
     {
       "assetPath": "storymenu/props/ooga-booga",

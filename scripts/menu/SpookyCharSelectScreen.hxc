@@ -1,7 +1,6 @@
 import funkin.ui.charSelect.CharSelectSubState;
 import funkin.modding.module.Module;
 import funkin.save.Save;
-import flixel.FlxG;
 
 class SpookyCharSelectScreen extends Module {
 	public function new() {
@@ -10,9 +9,11 @@ class SpookyCharSelectScreen extends Module {
 		});
 	}
 
-	override function onUpdate(event:UpdateScriptEvent) {
-		super.onUpdate(event);
+	override function onCharacterSelected(event:UpdateScriptEvent) {
+		super.onCharacterSelected(event);
 
+		if (FlxG.state.curChar != "locked")
+			Save.instance.addCharacterSeen(FlxG.state.curChar);
 		if (FlxG.state.gfChill != null) {
 			if (FlxG.state.curChar == 'spookymod') {
 				FlxG.state.gfChill.danceEvery = 1;
@@ -20,8 +21,5 @@ class SpookyCharSelectScreen extends Module {
 				FlxG.state.gfChill.danceEvery = 2;
 			}
 		}
-
-		if (!Save.instance.data.unlocks.charactersSeen.contains(FlxG.state.curChar) && FlxG.state.curChar != "locked")
-			Save.instance.data.unlocks.charactersSeen.push(FlxG.state.curChar);
 	}
 }

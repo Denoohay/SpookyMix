@@ -1,4 +1,4 @@
-import flixel.FlxG;
+import flixel.util.FlxSave;
 import flixel.FlxSprite;
 import flixel.util.FlxTimer;
 import flixel.addons.display.FlxBackdrop;
@@ -14,6 +14,8 @@ import funkin.graphics.shaders.DropShadowShader;
 class SchoolEvilSpookyStage extends Stage {
 	function new() {
 		super('schoolEvilSpooky');
+		save = new FlxSave();
+		save.bind("SpookyMixOptions", "FunkinCrew");
 	}
 
 	var opponentX:Float = 0;
@@ -33,7 +35,7 @@ class SchoolEvilSpookyStage extends Stage {
 
 		wiggle = new WiggleEffectRuntime(2, 30, 0.012, WiggleEffectType.DREAMY);
 
-		if (FlxG.save.data.spookyShaders != false) {
+		if (save.data.spookyShaders != false) {
 			getNamedProp('evilStreet').shader = wiggle;
 			getNamedProp('evilTrees').shader = wiggle;
 			getNamedProp('evilSchool').shader = wiggle;
@@ -55,7 +57,7 @@ class SchoolEvilSpookyStage extends Stage {
 		skyFlash.scrollFactor.set(1, 1);
 		skyFlash.alpha = 0;
 		skyFlash.zIndex = 1000;
-		if (FlxG.save.data.spookyShaders != false)
+		if (save.data.spookyShaders != false)
 			skyFlash.blend = 0;
 		else
 			skyFlash.color = 0xFFFFFFFF;
@@ -71,7 +73,7 @@ class SchoolEvilSpookyStage extends Stage {
 	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
 		// Apply the shader automatically to each character as it gets added.
 		super.addCharacter(character, charType);
-		if (FlxG.save.data.spookyShaders != false) {
+		if (save.data.spookyShaders != false) {
 			trace('Applied stage shader to ' + character.characterName);
 
 			var rim = new DropShadowShader();
@@ -132,7 +134,7 @@ class SchoolEvilSpookyStage extends Stage {
 	override function onSongRetry(event:ScriptEvent):Void {
 		super.onSongRetry(event);
 
-		if (FlxG.save.data.spookyShaders != false) {
+		if (save.data.spookyShaders != false) {
 			if (getDad().shader != null) {
 				if (getDad().shader.contrast == 100)
 					getBoyfriend().shader.color = 0xFF5B5B5B;
@@ -152,7 +154,7 @@ class SchoolEvilSpookyStage extends Stage {
 	override function onGameOver(event:ScriptEvent):Void {
 		super.onGameOver(event);
 
-		if (FlxG.save.data.spookyShaders != false)
+		if (save.data.spookyShaders != false)
 			getBoyfriend().shader = null;
 		else
 			getBoyfriend().color = 0xFFFFFF;
@@ -183,7 +185,7 @@ class SchoolEvilSpookyStage extends Stage {
 			}
 		}
 
-		if (FlxG.save.data.spookyShaders != false) {} else {
+		if (save.data.spookyShaders != false) {} else {
 			if (getBoyfriend() != null) {
 				getBoyfriend().color = 0x8E6C6C;
 				getGirlfriend().color = 0x8E6C6C;

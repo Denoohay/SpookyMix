@@ -1,68 +1,72 @@
 {
   "version": "1.0.0",
   "name": "Moloch (Stress)",
-  "assetPath": "characters/moloch/moloch-stress",
-  "startingAnimation": "idle",
-  "offsets": [75, 90],
-  "cameraOffsets": [40, -100],
+  "assetPath": "shared:characters/moloch/molochStress",
+  "offsets": [50, 30],
+  "cameraOffsets": [25, 300],
   "healthIcon": {
     "id": "moloch"
   },
-  "renderType": "sparrow",
+  "renderType": "animateatlas",
   "singTime": 8.0,
-  "animations": [
+ "animations": [
     {
       "name": "idle",
-      "prefix": "moloch stress idle",
-      "offsets": [0, 0]
+      "prefix": "molochIdle",
+      "offsets": [69, -150.5]
     },
     {
       "name": "shoot1",
-      "prefix": "swipe down left",
+      "prefix": "molochLowLeft",
       "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [275, 54]
+      "offsets": [69, -150.5]
     },
     {
       "name": "shoot1-end",
-      "prefix": "swipe down left",
+      "prefix": "molochLowLeft",
       "frameIndices": [11, 12, 13, 14],
-      "offsets": [275, 54]
+      "offsets": [69, -150.5]
     },
     {
       "name": "shoot2",
-      "prefix": "slash left up",
+      "prefix": "molochHighLeft",
       "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [1, 286]
+      "offsets": [69, -150.5]
     },
     {
       "name": "shoot2-end",
-      "prefix": "slash left up",
+      "prefix": "molochHighLeft",
       "frameIndices": [11, 12, 13, 14],
-      "offsets": [1, 286]
+      "offsets": [69, -150.5]
     },
     {
       "name": "shoot3",
-      "prefix": "right up",
+      "prefix": "molochHighRight",
       "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [68, 219]
+      "offsets": [69, -150.5]
     },
     {
       "name": "shoot3-end",
-      "prefix": "right up",
+      "prefix": "molochHighRight",
       "frameIndices": [11, 12, 13, 14],
-      "offsets": [68, 219]
+      "offsets": [69, -150.5]
     },
     {
       "name": "shoot4",
-      "prefix": "right down",
+      "prefix": "molochLowRight",
       "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "offsets": [0, 83]
+      "offsets": [69, -150.5]
     },
     {
       "name": "shoot4-end",
-      "prefix": "right down",
+      "prefix": "molochLowRight",
       "frameIndices": [11, 12, 13, 14],
-      "offsets": [0, 83]
+      "offsets": [69, -150.5]
+    },
+    {
+      "name": "molochStressCutscene",
+      "prefix": "molochStressCutscene",
+      "offsets": [69, -150.5]
     }
   ]
 }

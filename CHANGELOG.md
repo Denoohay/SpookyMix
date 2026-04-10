@@ -3,6 +3,38 @@ All notable changes will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.0.9] - 2026-4-10
+
+### Added
+
+- Added new effects to the Stress (Spooky Mix) cutscene
+
+### Changed
+
+- Turned all Moloch variants, Monster, Zico, Dad, Mom, Parents Christmas, Ooga Booga, and Punkman into texture atlases for optimization
+- Ran Oxipng on every png file in the mod for optimization
+- Adjusted Moloch's position to be more similar to Nene's 
+- Changed the way json merging is implemented
+- Increased the quality of the overlay gradient in the Week 3 spooky stage
+- Changed spooky options to be in its own category in the options menu
+- Changed the Stress (Spooky Mix) cutscene to now smoothly transition into gameplay
+- Adjusted the Week 7 spooky stage's camera and character positions to be closer to how they were originally
+- Updated MayeIsHere's name in the credits
+
+### Fixed
+
+- Fixed bugs when playing on FNF v0.8.4
+- Fixed stacked notes on Lit Up (Spooky Mix)
+- Fixed charting errors on M.I.L.F (Spooky Mix)
+- Fixed lag spikes on the Week 4 spooky stage
+- Fixed a tree sprite not being rendered on the Week 4 spooky stage
+- Fixed the updated text not showing up (Due using a new method, you will have to beat the songs again for it to go away)
+- Fixed the chart editor crashing on specific songs
+
+### Removed
+
+- Removed a ton of unused menu code
+
 
 ## [2.0.8] - 2026-1-30
 

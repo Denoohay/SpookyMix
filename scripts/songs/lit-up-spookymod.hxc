@@ -1,14 +1,16 @@
-import flixel.FlxG;
 import funkin.play.song.Song;
 import funkin.save.Save;
 import funkin.play.PlayState;
 import Date;
+import flixel.util.FlxSave;
 
 class LitUpSpookymodMixSong extends Song {
 	function new() {
 		super('lit-up', {
 			variation: 'spookymod'
 		});
+		save = new FlxSave();
+		save.bind("SpookyUpdatedCheck", "FunkinCrew");
 	}
 
 	function onCreate(event:ScriptEvent):Void {
@@ -25,16 +27,17 @@ class LitUpSpookymodMixSong extends Song {
 	}
 
 	public override function isSongNew(currentDifficulty:String, currentVariation:String):Bool {
-		if (FlxG.save.data.beatenLitUpUpdated != false && FlxG.save.data.beatenLitUpUpdated != true)
-			FlxG.save.data.beatenLitUpUpdated = false;
-
-		return !FlxG.save.data.beatenLitUpUpdated;
+		if (save.data.beatenLitUpUpdated == null) {
+			save.data.beatenLitUpUpdated = false;
+			save.flush();	
+		}
+		return !save.data.beatenLitUpUpdated;
 	}
 
 	public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
 		var targetDifficulty:Null<SongDifficulty> = getDifficulty(difficultyId, variationId);
 		
-		if (FlxG.save.data.beatenLitUpUpdated == true)
+		if (save.data.beatenLitUpUpdated == true)
 			return targetDifficulty?.characters?.altInstrumentals ?? [];
 		else
 			return [];
@@ -42,7 +45,8 @@ class LitUpSpookymodMixSong extends Song {
 
 	public override function onSongEnd(event:CountdownScriptEvent):Void {
 		super.onSongEnd(event);
-
-		FlxG.save.data.beatenLitUpUpdated = true;
+		if (PlayState.instance == null || PlayState.instance.isChartingMode || PlayState.instance.isMinimalMode) return;
+		save.data.beatenLitUpUpdated = true;
+		save.flush();
 	}
 }

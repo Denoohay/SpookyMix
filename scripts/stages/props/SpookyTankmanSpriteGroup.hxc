@@ -1,4 +1,4 @@
-import flixel.FlxG;
+import flixel.util.FlxSave;
 import flixel.FlxSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.util.FlxSort;
@@ -19,8 +19,10 @@ class SpookyTankmanSpriteGroup extends FlxTypedSpriteGroup
 
 	function new(erect:Bool)
 	{
+		save = new FlxSave();
+		save.bind("SpookyMixOptions", "FunkinCrew");
 		
-		if (FlxG.save.data.spookyShaders == false) MAX_SIZE = 15;
+		if (save.data.spookyShaders == false) MAX_SIZE = 15;
 		else MAX_SIZE = 30;
 		
 
@@ -70,7 +72,7 @@ class SpookyTankmanSpriteGroup extends FlxTypedSpriteGroup
 		for (note in animNotes)
 		{
 			// Only one out of every 16 notes, on average, is a tankman.
-			if (((FlxG.random.bool(1 / 2 * 100) && FlxG.save.data.spookyShaders == false)) || (FlxG.save.data.spookyShaders == true))
+			if (((FlxG.random.bool(1 / 2 * 100) && save.data.spookyShaders == false)) || (save.data.spookyShaders == true))
 			{
 				tankmanTimes.push(note.time);
 			 	var goingRight:Bool = (note.data == 0 || note.data == 1) ? false : true;

@@ -95,27 +95,67 @@
     },
     {
       "zIndex": 500,
-      "danceEvery": 0,
       "position": [2100, 200],
-      "scale": [1, 1],
       "name": "bush",
       "animType": "sparrow",
-      "isPixel": false,
-      "scroll": [1, 1],
-      "assetPath": "limo/spooky/FGbushThomas",
-      "animations": []
+      "startingAnimation": "thomas",
+      "animations": [
+        {
+          "offsets": [0, 0],
+          "frameRate": 1,
+          "prefix": "thomas",
+          "name": "thomas"
+        },
+        {
+          "offsets": [0, 0],
+          "frameRate": 1,
+          "prefix": "starbucks",
+          "name": "starbucks"
+        },
+        {
+          "offsets": [0, 0],
+          "frameRate": 1,
+          "prefix": "dorothy",
+          "name": "dorothy"
+        }
+      ],
+      "assetPath": "limo/spooky/week4spookyBushes"
     },
     {
       "zIndex": 11,
-      "danceEvery": 0,
       "position": [2100, -50],
       "scale": [1, 1],
       "name": "tree",
       "animType": "sparrow",
-      "isPixel": false,
       "scroll": [0.3, 0.3],
-      "assetPath": "limo/spooky/BGtreeTimothy",
-      "animations": []
+       "animations": [
+        {
+          "offsets": [0, 0],
+          "frameRate": 1,
+          "prefix": "david",
+          "name": "david"
+        },
+        {
+          "offsets": [0, 0],
+          "frameRate": 1,
+          "prefix": "frank",
+          "name": "frank"
+        },
+        {
+          "offsets": [0, 0],
+          "frameRate": 1,
+          "prefix": "hugo",
+          "name": "hugo"
+        },
+        {
+          "offsets": [0, 0],
+          "frameRate": 1,
+          "prefix": "timothy",
+          "name": "timothy"
+        }
+      ],
+      "startingAnimation": "timothy",
+      "assetPath": "limo/spooky/week4spookyTrees"
     },
     {
       "zIndex": 30,

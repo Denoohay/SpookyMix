@@ -1,5 +1,5 @@
 import funkin.play.character.MultiSparrowCharacter;
-import flixel.FlxG;
+import flixel.util.FlxSave;
 import funkin.play.PlayState;
 import funkin.play.character.CharacterType;
 import funkin.play.character.CharacterDataParser;
@@ -10,6 +10,8 @@ class SkidOpponentDarkCharacter extends MultiSparrowCharacter
 	function new()
 	{
 		super('skid-opponent-dark');
+		save = new FlxSave();
+		save.bind("SpookyMixOptions", "FunkinCrew");
 	}
 
 	var normalChar:BaseCharacter;
@@ -44,9 +46,8 @@ class SkidOpponentDarkCharacter extends MultiSparrowCharacter
 		}
 	}
 
-	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) 
-	{
-		super.playAnimation(name, restart, ignoreOther);
+	override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false) {
+		super.playAnimation(name, restart, ignoreOther, reversed);
       	if(normalChar != null){
         	normalChar.playAnimation(name, restart, ignoreOther);
         	normalChar.setPosition(this.x, this.y);
@@ -57,7 +58,7 @@ class SkidOpponentDarkCharacter extends MultiSparrowCharacter
 	{
 		super.onCreate(event);
 		colorShaderNormal = new AdjustColorShader();
-		if (FlxG.save.data.spookyShaders != false)
+		if (save.data.spookyShaders != false)
 		{
 			colorShaderNormal.brightness = -93;
 			colorShaderNormal.contrast = 55;

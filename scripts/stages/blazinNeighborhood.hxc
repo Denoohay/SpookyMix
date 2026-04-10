@@ -1,4 +1,4 @@
-import flixel.FlxG;
+import flixel.util.FlxSave;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
 import flixel.util.FlxTimer;
@@ -47,6 +47,9 @@ class BlazinNeighborhoodStage extends Stage {
 
 	function new() {
 		super('blazinNeighborhood');
+
+		save = new FlxSave();
+		save.bind("SpookyMixOptions", "FunkinCrew");
 	}
 
 	/**
@@ -66,7 +69,7 @@ class BlazinNeighborhoodStage extends Stage {
 
 		colorShaderWalkers = new AdjustColorShader();
 
-		if (FlxG.save.data.spookyShaders != false) {
+		if (save.data.spookyShaders != false) {
 			colorShaderWalkers.brightness = -6;
 			colorShaderWalkers.contrast = -11;
 			colorShaderWalkers.saturation = -7;

@@ -1,119 +1,121 @@
 {
   "version": "1.0.0",
   "name": "Mommy and Daddy (Festive, Spooky Mix)",
-  "assetPath": "characters/ChristmasParentsSpooky",
+  "assetPath": "shared:characters/parentsSpookyChristmas",
   "healthIcon": {
-    "id": "parents-christmas"
+    "id": "parents"
   },
+  "renderType": "animateatlas",
   "offsets": [-30, 20],
+  "cameraOffsets": [0, 20],
   "animations": [
     {
       "name": "idle",
-      "prefix": "parents idle",
-      "offsets": [0, 0]
+      "prefix": "parentsIdle",
+      "offsets": [-30, -20]
     },
     {
       "name": "idle-hold",
-      "prefix": "parents idle",
+      "prefix": "parentsIdle",
       "looped": true,
       "frameIndices": [12, 13, 14, 15],
-      "offsets": [0, 0]
+      "offsets": [-30, -20]
     },
     {
       "name": "singLEFT",
-      "prefix": "dad left",
-      "offsets": [23, 15]
+      "prefix": "dadLeft",
+      "offsets": [-30, -20]
     },
     {
       "name": "singLEFT-hold",
-      "prefix": "dad left",
+      "prefix": "dadLeft",
       "looped": true,
       "frameIndices": [12, 13, 14, 15],
-      "offsets": [23, 15]
+      "offsets": [-30, -20]
     },
     {
       "name": "singDOWN",
-      "prefix": "dad down",
-      "offsets": [-64, -1]
+      "prefix": "dadDown",
+      "offsets": [-30, -20]
     },
     {
       "name": "singDOWN-hold",
-      "prefix": "dad down",
+      "prefix": "dadDown",
       "looped": true,
       "frameIndices": [12, 13, 14, 15],
-      "offsets": [-64, -1]
+      "offsets": [-30, -20]
     },
     {
       "name": "singUP",
-      "prefix": "dad up",
-      "offsets": [1, 5]
+      "prefix": "dadUp",
+      "offsets": [-30, -20]
     },
     {
       "name": "singUP-hold",
-      "prefix": "dad up",
+      "prefix": "dadUp",
       "looped": true,
       "frameIndices": [12, 13, 14, 15],
-      "offsets": [1, 5]
+      "offsets": [-30, -20]
     },
     {
       "name": "singRIGHT",
-      "prefix": "dad right",
-      "offsets": [-71, 0]
+      "prefix": "dadRight",
+      "offsets": [-30, -20]
     },
     {
       "name": "singRIGHT-hold",
-      "prefix": "dad right",
+      "prefix": "dadRight",
       "looped": true,
       "frameIndices": [12, 13, 14, 15],
-      "offsets": [-71, 0]
+      "offsets": [-30, -20]
     },
     {
       "name": "singLEFT-alt",
-      "prefix": "mom left",
-      "offsets": [23, 15]
+      "prefix": "momLeft",
+      "offsets": [-30, -20]
     },
     {
       "name": "singLEFT-alt-hold",
-      "prefix": "mom left",
+      "prefix": "momLeft",
       "looped": true,
       "frameIndices": [12, 13, 14, 15],
-      "offsets": [23, 15]
+      "offsets": [-30, -20]
     },
     {
       "name": "singDOWN-alt",
-      "prefix": "mom down",
-      "offsets": [-64, -1]
+      "prefix": "momDown",
+      "offsets": [-30, -20]
     },
     {
       "name": "singDOWN-alt-hold",
-      "prefix": "mom down",
+      "prefix": "momDown",
       "looped": true,
       "frameIndices": [12, 13, 14, 15],
-      "offsets": [-64, -1]
+      "offsets": [-30, -20]
     },
     {
       "name": "singUP-alt",
-      "prefix": "mom up",
-      "offsets": [1, 5]
+      "prefix": "momUp",
+      "offsets": [-30, -20]
     },
     {
       "name": "singUP-alt-hold",
-      "prefix": "mom up",
+      "prefix": "momUp",
       "looped": true,
       "frameIndices": [12, 13, 14, 15],
-      "offsets": [1, 5]
+      "offsets": [-30, -20]
     },
     {
       "name": "singRIGHT-alt",
-      "prefix": "mom right",
-      "offsets": [-71, 0]
+      "prefix": "momRight",
+      "offsets": [-30, -20]
     },
     {
       "name": "singRIGHT-alt-hold",
-      "prefix": "mom right",
+      "prefix": "momRight",
       "looped": true,
       "frameIndices": [12, 13, 14, 15],
-      "offsets": [-71, 0]
+      "offsets": [-30, -20]
     }
   ]
 }

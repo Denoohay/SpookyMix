@@ -1,41 +1,19 @@
 {
 	"version": "1.0.0",
-	"renderType": "multisparrow",
-	"offsets": [
-		0,
-		-50
-	],
+	"renderType": "multianimateatlas",
+	"offsets": [0,-50],
 	"danceEvery": 4,
 	"scale": 0.9,
 	"name": "Tankman (Spooky)",
-	"flipX": false,
-	"cameraOffsets": [
-		0,
-		-50
-	],
-	"singTime": 8,
+	"cameraOffsets": [30,20],
 	"startingAnimation": "danceRight",
-	"isPixel": false,
-	"assetPath": "characters/punkman",
+	"assetPath": "shared:characters/punkman",
 	"healthIcon": {
-		"isPixel": false,
-		"offsets": [
-			0,
-			0
-		],
-		"scale": 1,
-		"id": "tankman-spooky",
-		"flipX": false
+		"id": "tankman-spooky"
 	},
 	"animations": [
 		{
-			"offsets": [
-				0,
-				0
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "tankinman idle",
+			"prefix": "punkmanIdle",
 			"frameIndices": [
 				0,
 				1,
@@ -67,18 +45,11 @@
 				27,
 				28
 			],
-			"looped": false,
 			"name": "danceRight",
-			"flipX": false
+      "offsets": [130, 60]
 		},
 		{
-			"offsets": [
-				0,
-				0
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "tankinman idle",
+			"prefix": "punkmanIdle",
 			"frameIndices": [
 				17,
 				18,
@@ -87,16 +58,10 @@
 			],
 			"looped": true,
 			"name": "danceRight-hold",
-			"flipX": false
+      "offsets": [130, 60]
 		},
 		{
-			"offsets": [
-				0,
-				0
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "tankinman idle",
+			"prefix": "punkmanIdle",
 			"frameIndices": [
 				29,
 				30,
@@ -130,18 +95,11 @@
 				58,
 				59
 			],
-			"looped": false,
 			"name": "danceLeft",
-			"flipX": false
+      "offsets": [130, 60]
 		},
 		{
-			"offsets": [
-				0,
-				0
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "tankinman idle",
+			"prefix": "punkmanIdle",
 			"frameIndices": [
 				19,
 				20,
@@ -150,127 +108,57 @@
 			],
 			"looped": true,
 			"name": "danceLeft-hold",
-			"flipX": false
+      "offsets": [130, 60]
 		},
 		{
-			"offsets": [
-				191,
-				-2
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "left",
-			"looped": false,
+			"prefix": "punkmanLeft",
 			"name": "singLEFT",
-			"flipX": false
+      "offsets": [130, 60]
 		},
 		{
-			"offsets": [
-				191,
-				-2
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "left",
+			"prefix": "punkmanLeft",
 			"frameIndices": [4, 5, 6, 7],
 			"looped": true,
 			"name": "singLEFT-hold",
-			"flipX": false
+      "offsets": [130, 60]
 		},
 		{
-			"offsets": [
-				47,
-				-72
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "down tankinman",
-			"looped": false,
+			"prefix": "punkmanDown",
 			"name": "singDOWN",
-			"flipX": false
+      "offsets": [130, 60]
 		},
 		{
-			"offsets": [
-				47,
-				-72
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "down tankinman",
+			"prefix": "punkmanDown",
 			"frameIndices": [4, 5, 6, 7],
 			"looped": true,
 			"name": "singDOWN-hold",
-			"flipX": false
+      "offsets": [130, 60]
 		},
 		{
-			"offsets": [
-				-15,
-				50
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "up",
-			"looped": false,
+			"prefix": "punkmanUp",
 			"name": "singUP",
-			"flipX": false
+      "offsets": [130, 60]
 		},
 		{
-			"offsets": [
-				-15,
-				50
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "up",
+			"prefix": "punkmanUp",
 			"frameIndices": [4, 5, 6, 7],
 			"looped": true,
 			"name": "singUP-hold",
-			"flipX": false
+      "offsets": [130, 60]
 		},
 		{
-			"offsets": [
-				-62,
-				64
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "right",
-			"looped": false,
+			"prefix": "punkmanRight",
 			"name": "singRIGHT",
-			"flipX": false
+      "offsets": [130, 60]
 		},
 		{
-			"offsets": [
-				-62,
-				64
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "right",
+			"prefix": "punkmanRight",
 			"frameIndices": [4, 5, 6, 7],
 			"looped": true,
 			"name": "singRIGHT-hold",
-			"flipX": false
+      "offsets": [130, 60]
 		},
 		{
-			"offsets": [
-				10,
-				61
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "heh pretty good punkman",
-			"looped": false,
-			"name": "hehPrettyGood",
-			"flipX": false
-		},
-		{
-			"offsets": [
-				-15,
-				0
-			],
-			"flipY": false,
-			"frameRate": 24,
 			"frameIndices": [
 				0,
 				1,
@@ -281,125 +169,118 @@
 				6,
 				7
 			],
-			"prefix": "punkman ugh",
-			"looped": false,
+			"prefix": "punkmanUgh",
 			"name": "ugh",
-			"flipX": false
+      "offsets": [130, 60]
 		},
 		{
-			"offsets": [
-				65,
-				35
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "spooky dance punkman",
+			"prefix": "punkmanSpookyDance",
 			"frameIndices": [0, 1, 2, 3, 4, 5, 6, 7],
-			"looped": false,
 			"name": "danceRight-spooky",
-			"flipX": false
+      "offsets": [130, 60]
 		},
 		{
-			"offsets": [
-				65,
-				35
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "spooky dance punkman",
+			"prefix": "punkmanSpookyDance",
 			"frameIndices": [8, 9, 10, 11, 12, 13, 14, 15],
-			"looped": false,
 			"name": "danceLeft-spooky",
-			"flipX": false
+      "offsets": [130, 60]
 		},
 		{
-			"offsets": [
-				350,
-				250
-			],
-			"flipY": false,
+			"prefix": "punkmanPrettyGood",
+			"name": "hehPrettyGood",
+			"assetPath": "shared:characters/punkmanStress",
+      "offsets": [338, 279]
+		},
+		{
 			"frameRate": 24,
-			"prefix": "animation",
-			"assetPath": "characters/scaryGuyeEmerges",
-			"looped": false,
+			"prefix": "punkmanDies",
+			"assetPath": "shared:characters/punkmanStress",
 			"name": "weirdAppears",
-			"flipX": false
+      "offsets": [338, 279]
 		},
-		{
-		  "name": "danceRight-monster",
-		  "prefix": "monsteridle",
-		  "assetPath": "characters/monster",
-		  "offsets": [40, 75]
-		},
-		{
-		  "name": "danceLeft-monster",
-		  "prefix": "monsteridle",
-		  "assetPath": "characters/monster",
-		  "offsets": [40, 75]
-		},
-		{
-		  "name": "idle-hold-monster",
-		  "prefix": "monsteridle",
-		  "looped": true,
-		  "frameIndices": [12, 13, 14, 15, 16, 17],
-		  "assetPath": "characters/monster",
-		  "offsets": [40, 75]
-		},
-		{
-		  "name": "singLEFT-monster",
-		  "prefix": "monsterleft",
-		  "assetPath": "characters/monster",
-		  "offsets": [89, 63]
-		},
-		{
-		  "name": "singLEFT-hold-monster",
-		  "prefix": "monsterleft",
-		  "looped": true,
-		  "frameIndices": [12, 13, 14, 15, 16, 17],
-		  "assetPath": "characters/monster",
-		  "offsets": [89, 63]
-		},
-		{
-		  "name": "singDOWN-monster",
-		  "prefix": "monsterdown",
-		  "assetPath": "characters/monster",
-		  "offsets": [44, -118]
-		},
-		{
-		  "name": "singDOWN-hold-monster",
-		  "prefix": "monsterdown",
-		  "looped": true,
-		  "frameIndices": [12, 13, 14, 15, 16, 17],
-		  "assetPath": "characters/monster",
-		  "offsets": [44, -118]
-		},
-		{
-		  "name": "singUP-monster",
-		  "prefix": "monsterup",
-		  "assetPath": "characters/monster",
-		  "offsets": [59, 211]
-		},
-		{
-		  "name": "singUP-hold-monster",
-		  "prefix": "monsterup",
-		  "looped": true,
-		  "assetPath": "characters/monster",
-		  "frameIndices": [12, 13, 14, 15, 16, 17],
-		  "offsets": [59, 211]
-		},
-		{
-		  "name": "singRIGHT-monster",
-		  "prefix": "monsterright",
-		  "assetPath": "characters/monster",
-		  "offsets": [-104, 13]
-		},
-		{
-		  "name": "singRIGHT-hold-monster",
-		  "prefix": "monsterright",
-		  "looped": true,
-		  "assetPath": "characters/monster",
-		  "frameIndices": [12, 13, 14, 15, 16, 17],
-		  "offsets": [-104, 13]
-		}
+	{
+      "name": "danceLeft-monster",
+      "prefix": "monsterIdle",
+	  "assetPath": "shared:characters/monsterSpooky",
+      "offsets": [108, 167]
+    },
+    {
+      "name": "danceLeft-hold-monster",
+      "prefix": "monsterIdle",
+      "looped": true,
+      "frameIndices": [12, 13, 14, 15, 16, 17],
+	  "assetPath": "shared:characters/monsterSpooky",
+      "offsets": [108, 167]
+    },
+	{
+      "name": "danceRight-monster",
+      "prefix": "monsterIdle",
+	  "assetPath": "shared:characters/monsterSpooky",
+      "offsets": [108, 167]
+    },
+    {
+      "name": "danceRight-hold-monster",
+      "prefix": "monsterIdle",
+      "looped": true,
+      "frameIndices": [12, 13, 14, 15, 16, 17],
+	  "assetPath": "shared:characters/monsterSpooky",
+      "offsets": [108, 167]
+    },
+    {
+      "name": "singLEFT-monster",
+      "prefix": "monsterLeft",
+	  "assetPath": "shared:characters/monsterSpooky",
+      "offsets": [108, 167]
+    },
+    {
+      "name": "singLEFT-hold-monster",
+      "prefix": "monsterLeft",
+	  "assetPath": "shared:characters/monsterSpooky",
+      "looped": true,
+      "frameIndices": [12, 13, 14, 15, 16, 17],
+      "offsets": [108, 167]
+    },
+    {
+      "name": "singDOWN-monster",
+      "prefix": "monsterDown",
+	  "assetPath": "shared:characters/monsterSpooky",
+      "offsets": [108, 167]
+    },
+    {
+      "name": "singDOWN-hold-monster",
+      "prefix": "monsterDown",
+	  "assetPath": "shared:characters/monsterSpooky",
+      "looped": true,
+      "frameIndices": [12, 13, 14, 15, 16, 17],
+      "offsets": [108, 167]
+    },
+    {
+      "name": "singUP-monster",
+      "prefix": "monsterUp",
+	  "assetPath": "shared:characters/monsterSpooky",
+      "offsets": [108, 167]
+    },
+    {
+      "name": "singUP-hold-monster",
+      "prefix": "monsterUp",
+	  "assetPath": "shared:characters/monsterSpooky",
+      "looped": true,
+      "frameIndices": [12, 13, 14, 15, 16, 17],
+      "offsets": [108, 167]
+    },
+    {
+      "name": "singRIGHT-monster",
+      "prefix": "monsterRight",
+	  "assetPath": "shared:characters/monsterSpooky",
+      "offsets": [108, 167]
+    },
+    {
+      "name": "singRIGHT-hold-monster",
+      "prefix": "monsterRight",
+	  "assetPath": "shared:characters/monsterSpooky",
+      "looped": true,
+      "frameIndices": [12, 13, 14, 15, 16, 17],
+      "offsets": [108, 167]
+    }
 	]
 }
