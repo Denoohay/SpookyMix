@@ -3,6 +3,19 @@ All notable changes will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.0.10] - 2026-4-10
+
+### Changed
+- Reverted "Spooky Selected" back to saying "Spooky Kids Selected" for the Spooky Menu option
+
+### Fixed
+
+- Fixed an error message popping up when playing Thorns (Spooky Mix) causing Spirit's trail effect to not show
+- Fixed an error message popping up when opening the credits causing the incorrect music to play
+- _polymod_meta.json is no longer missing on mobile
+- Fixed error messages popping up on mobile when first opening the game
+- Freeplay icon for Spookeez (Spooky Mix) is no longer missing on mobile
+
 ## [2.0.9] - 2026-4-10
 
 ### Added

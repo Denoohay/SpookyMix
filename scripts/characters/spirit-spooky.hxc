@@ -1,4 +1,4 @@
-import flixel.FlxG;
+import flixel.util.FlxSave;
 import funkin.play.character.SparrowCharacter;
 import funkin.play.PlayState;
 import funkin.effects.FunkTrail;
@@ -10,6 +10,8 @@ class SpiritSpookyCharacter extends SparrowCharacter {
 	function new() 
 	{
 		super('spirit-spooky');
+		save = new FlxSave();
+		save.bind("SpookyMixOptions", "FunkinCrew");
 	}
 
 	var blood:AdjustColorShader;
@@ -20,7 +22,7 @@ class SpiritSpookyCharacter extends SparrowCharacter {
 		super.onCreate(event);
 		blood = new AdjustColorShader();
 		broken = new AdjustColorShader();
-		if (FlxG.save.data.spookyShaders != false)
+		if (save.data.spookyShaders != false)
 		{
 			blood.brightness = -10;
 			blood.contrast = 0;
@@ -39,7 +41,7 @@ class SpiritSpookyCharacter extends SparrowCharacter {
 		if (isWeird == 1 && Save.instance.hasBeatenSong("thorns", null, 'spookymod'))
 		{
 			isBroken = FlxG.random.int(1, 8);
-			if (FlxG.save.data.spookyShaders != false)
+			if (save.data.spookyShaders != false)
 			{
 				if (isBroken == 1)
 					this.shader = broken;
@@ -56,7 +58,7 @@ class SpiritSpookyCharacter extends SparrowCharacter {
 		}
 		else
 		{
-			var evilTrail = new FunkTrail(this.superClass, null, 4, 24, 0.3, 0.069);
+			var evilTrail = new FunkTrail(this.superClass, null, 4, 0.4, 0.3, 0.069);
 			evilTrail.zIndex = 190;
 			addToStage(evilTrail);
 		}

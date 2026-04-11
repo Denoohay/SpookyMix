@@ -21,7 +21,7 @@ class SpookyMainMenu extends Module {
 		if (ReflectUtil.getClassNameOf(FlxG.state) == "funkin.ui.mainmenu.MainMenuState") {
 			FlxG.mouse.visible = false;
 
-			FlxG.state.rightWatermarkText.text = "SPOOKY MIX v2.0.9";
+			FlxG.state.rightWatermarkText.text = "SPOOKY MIX v2.0.10";
 		}
 
 				if (PlayerSettings.player1.controls.ACCEPT && FlxG.state.menuItems.selectedIndex == 2) {

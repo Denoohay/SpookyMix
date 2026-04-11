@@ -3,12 +3,16 @@ import funkin.ui.credits.CreditsState;
 import funkin.ui.credits.CreditsDataHandler;
 import flixel.FlxG;
 import funkin.audio.FunkinSound;
-import funkin.util.ReflectUtil;
+import flixel.util.FlxSave;
 
 // ORIGINAL SCRIPT IS FROM GOOEY MIX
 class SpookyCredits extends Module {
+	var save:FlxSave;
+
 	public function new() {
 		super("SpookyCredits");
+		save = new FlxSave();
+		save.bind("SpookyMixOptions", "FunkinCrew");
 	}
 
 	public function onCreate(event:ScriptEvent) // The categories have to be reversed due to the unshift sending it to the top
@@ -209,9 +213,9 @@ class SpookyCredits extends Module {
 	}
 
 	override function onStateChangeEnd(event) {
-		if (ReflectUtil.getClassNameOf(FlxG.state) == "funkin.ui.credits.CreditsState") {
-			if (FlxG.save.data.SpookyMixMenu == 'Always On'
-				|| (FlxG.save.data.SpookyMixMenu == 'Spooky Kids Selected' && FlxG.save.data.rememberedStartupCharacter == "spookymod")) {
+		if (FlxG.state is CreditsState) {
+			if (save.data.SpookyMixMenu == 'Always On'
+			|| (save.data.SpookyMixMenu == 'Spooky Kids Selected' && save.data.rememberedStartupCharacter == "spookymod")) {
 				FunkinSound.playMusic('breakfast-spooky', {
 					startingVolume: 0.8,
 					overrideExisting: true,

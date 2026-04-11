@@ -17,7 +17,6 @@ class SpookyPreferences extends Module
 		save = new FlxSave();
 		save.bind("SpookyMixOptions", "FunkinCrew");
 		save.data.SpookyMixMenu ??= 'Always On';
-		save.data.morphoMode ??= 'Off';
 		save.data.spookyShaders ??= true;
 		if (save.data.defaultStartupCharacter != null) {
 			if (save.data.defaultStartupCharacter != 'remember' && PlayerRegistry.instance.fetchEntry(save.data.defaultStartupCharacter) == null) {
@@ -61,7 +60,7 @@ class SpookyPreferences extends Module
 		var prefs = callback.targetState.optionsCodex.pages.get("spooky");
 		if (prefs != null) {
 			prefs.createPrefItemEnum('Spooky Menu', "Switch between using Spooky Mix's or FNF's menu themes.",
-			['Always On' => 'Always On', 'Off' => 'Off', 'Spooky Selected' => 'Spooky Selected'], function(value:String, oValue:String):Void {
+			['Always On' => 'Always On', 'Off' => 'Off', 'Spooky Kids Selected' => 'Spooky Kids Selected'], function(value:String, oValue:String):Void {
 				save.data.SpookyMixMenu = value;
 				save.flush();
 			}, save.data.SpookyMixMenu);
