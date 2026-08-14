@@ -5,10 +5,7 @@ import Array;
 class SpookyMixOptions
 {
   public static var spookyMixMenu(get, set):String;
-  public static var morphoMode(get, set):String;
   public static var spookyShaders(get, set):Bool;
-  public static var floraVisualizer(get, set):Bool;
-  public static var nightcoreMode(get, set):Bool;
   public static var defaultStartupCharacter(get, set):String;
   public static var rememberedStartupCharacter(get, set):String;
 
@@ -87,10 +84,7 @@ class SpookyMixOptions
   {
     return {
       SpookyMixMenu: 'Always On',
-      morphoMode: 'Off',
       spookyShaders: true,
-      floraVisualizer: true,
-      nightcoreMode: false,
 
       defaultStartupCharacter: null,
       rememberedStartupCharacter: 'bf'
