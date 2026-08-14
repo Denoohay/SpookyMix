@@ -31,14 +31,14 @@ class LimoRideSpookyStage extends Stage {
 		super.buildStage();
 
 		getNamedProp('moonlight').alpha = 0.17;
-		if (save.data.spookyShaders != false)
+		if (SpookyMixOptions.spookyShaders)
 			getNamedProp('moonlight').blend = 0;
 
 		mist1 = new FlxBackdrop(Paths.image('limo/erect/mistMid'), 0x01);
 		mist1.setPosition(-650, -100);
 		mist1.scrollFactor.set(1.1, 1.1);
 		mist1.zIndex = 400;
-		if (save.data.spookyShaders != false)
+		if (SpookyMixOptions.spookyShaders)
 			mist1.blend = 0;
 		else
 			mist1.visible = false;
@@ -53,7 +53,7 @@ class LimoRideSpookyStage extends Stage {
 		mist2.setPosition(-650, -100);
 		mist2.scrollFactor.set(1.2, 1.2);
 		mist2.zIndex = 401;
-		if (save.data.spookyShaders != false)
+		if (SpookyMixOptions.spookyShaders)
 			mist2.blend = 0;
 		else
 			mist2.visible = false;
@@ -69,7 +69,7 @@ class LimoRideSpookyStage extends Stage {
 		mist3.setPosition(-650, -100);
 		mist3.scrollFactor.set(0.8, 0.8);
 		mist3.zIndex = 99;
-		if (save.data.spookyShaders != false)
+		if (SpookyMixOptions.spookyShaders)
 			mist3.blend = 0;
 		else
 			mist3.visible = false;
@@ -85,7 +85,7 @@ class LimoRideSpookyStage extends Stage {
 		mist4.setPosition(-650, -380);
 		mist4.scrollFactor.set(0.6, 0.6);
 		mist4.zIndex = 98;
-		if (save.data.spookyShaders != false)
+		if (SpookyMixOptions.spookyShaders)
 			mist4.blend = 0;
 		else
 			mist4.visible = false;
@@ -101,7 +101,7 @@ class LimoRideSpookyStage extends Stage {
 		mist5.setPosition(-650, -400);
 		mist5.scrollFactor.set(0.2, 0.2);
 		mist5.zIndex = 15;
-		if (save.data.spookyShaders != false)
+		if (SpookyMixOptions.spookyShaders)
 			mist5.blend = 0;
 		else
 			mist5.visible = false;
@@ -160,7 +160,7 @@ class LimoRideSpookyStage extends Stage {
 	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
 		// Apply the shader automatically to each character as it gets added.
 		super.addCharacter(character, charType);
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			trace('Applied stage shader to ' + character.characterName);
 
 			var rim = new DropShadowShader();

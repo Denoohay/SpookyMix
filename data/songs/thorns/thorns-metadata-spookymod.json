@@ -19,7 +19,8 @@
     "noteStyle": "pixel",
     "ratings": { "easy": 5, "normal": 6, "hard": 8 },
     "album": "spookymix2",
-    "stickerPack": null
+    "stickerPack": null,
+    "discordRPCImage": "https://raw.githubusercontent.com/FNF-Gooey-Mix/GooeyMixDiscordIcons/refs/heads/main/assets/icons/spirit-spooky.png"
   },
   "previewStart": 0,
   "previewEnd": 15000,

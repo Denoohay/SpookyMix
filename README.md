@@ -13,7 +13,7 @@ FNF: Spooky Mix is a playable character mod made for [Friday Night Funkin'](http
 ## Artists
 - [Denoohay](https://twitter.com/Denoohay)
 - [givemethesalt](https://twitter.com/7saltybro)
-- [Andrewman_19](https://twitter.com/andrewman_19)
+- [Andrewman_19](https://twitter.com/andrewman_art)
 - [LeGooey](https://twitter.com/LeGooey)
 - [swagsalt](https://twitter.com/swagsalt)
 
@@ -24,7 +24,7 @@ FNF: Spooky Mix is a playable character mod made for [Friday Night Funkin'](http
 
 ## Music Production
 - [RubyyyButCool](https://twitter.com/Rubyyy_but_cool)
-- [Andrewman_19](https://twitter.com/andrewman_19)
+- [Andrewman_19](https://twitter.com/andrewman_art)
 - [LeGooey](https://twitter.com/LeGooey)
 - [swagsalt](https://twitter.com/swagsalt)
 - [Clarky_Dev](https://twitter.com/Clarky_Dev)
@@ -34,9 +34,9 @@ FNF: Spooky Mix is a playable character mod made for [Friday Night Funkin'](http
 - [Jotacast](https://twitter.com/castingjota)
 - [Y_F_MUS](https://twitter.com/imjustheresoth1)
 - [SBMB](https://twitter.com/That_SBMB)
-- [Vaderlings](https://twitter.com/vaderlings)
-- [Rofos](https://twitter.com/HristoRofos)
-- [SillyRetto](https://twitter.com/SillyRetto)
+- [Vaderlings](https://twitter.com/vaderlongs)
+- [Rofos](https://twitter.com/rofoshristo)
+- [SakiProd](https://twitter.com/SakiProd)
 - [SolarDTM](https://twitter.com/SolarDTM)
 - [KrakenPower](https://twitter.com/KrakenPower1)
 - [RandoHorn](https://twitter.com/Randohorn)
@@ -47,7 +47,7 @@ FNF: Spooky Mix is a playable character mod made for [Friday Night Funkin'](http
 
 ## Voice Acting
 - [RubyyyButCool](https://twitter.com/Rubyyy_but_cool) - Voice of Moloch and Monster
-- [Andrewman_19](https://twitter.com/andrewman_19) - Voice of Leanman
+- [Andrewman_19](https://twitter.com/andrewman_art) - Voice of Leanman
 - [LeGooey](https://twitter.com/LeGooey) - Voice of Stoutman
 - [Clarky_Dev](https://twitter.com/Clarky_Dev) - Darnell (Spooky Mix) Lyrics
 - [swagsalt](https://twitter.com/swagsalt) - Blazin' (Spooky Mix) Lyrics

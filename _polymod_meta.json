@@ -36,7 +36,7 @@
     {
     "name": "Andrewman_19",
 	  "role": "Artist, Composer, VA",
-	  "url": "https://twitter.com/andrewman_19"
+	  "url": "https://twitter.com/andrewman_art"
     },
     {
     "name": "Clarky_Dev",
@@ -71,17 +71,17 @@
     {
       "name": "Vaderlings",
 	  "role": "Composer",
-	  "url": "https://twitter.com/vaderlings"
+	  "url": "https://twitter.com/vaderlongs"
     },
     {
       "name": "Rofos",
 	  "role": "Composer",
-	  "url": "https://twitter.com/HristoRofos"
+	  "url": "https://twitter.com/rofoshristo"
     },
     {
-      "name": "SillyRetto",
+      "name": "SakiProd",
 	  "role": "Composer",
-	  "url": "https://twitter.com/SillyRetto"
+	  "url": "https://twitter.com/SakiProd"
     },
     {
       "name": "Thrick",
@@ -125,6 +125,6 @@
     }
   ],
   "api_version": "0.8.0",
-  "mod_version": "2.0.10",
+  "mod_version": "2.0.11",
   "license": "Apache-2.0"
 }

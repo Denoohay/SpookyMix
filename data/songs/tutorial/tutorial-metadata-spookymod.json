@@ -21,7 +21,8 @@
     "album": "spookymix1",
     "stickerPack": "bonus-attic",
     "previewStart": 0,
-    "previewEnd": 0.0703358537014243
+    "previewEnd": 0.0703358537014243,
+    "discordRPCImage": "https://raw.githubusercontent.com/FNF-Gooey-Mix/GooeyMixDiscordIcons/refs/heads/main/assets/icons/moloch.png"
   },
   "generatedBy": "LeGooey (By Hand)",
   "modArt": "Denoohay, givemethesalt"

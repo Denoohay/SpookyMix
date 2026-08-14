@@ -5,14 +5,12 @@ import funkin.play.cutscene.dialogue.DialogueBox;
 import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
 import funkin.play.song.Song;
-import flixel.FlxG;
 import funkin.save.Save;
 import flixel.FlxSprite;
 import flixel.util.FlxTimer;
 import funkin.effects.RetroCameraFade;
 import funkin.util.Constants;
 import funkin.audio.FunkinSound;
-import Date;
 
 class ThornsSpookymodMixSong extends Song {
 	var hasPlayedCutscene:Bool;
@@ -25,18 +23,8 @@ class ThornsSpookymodMixSong extends Song {
 
 	function onCreate(event:ScriptEvent):Void {
 		super.onCreate(event);
-		if (!FlxG.onMobile) {
-			PlayState.instance.discordRPCAlbum = "https://raw.githubusercontent.com/LeGooeyy/GooeyMixDiscordIcons/refs/heads/main/assets/album-covers/"
-				+ PlayState.instance.currentChart.album
-				+ ".png?raw=true";
-			PlayState.instance.discordRPCIcon = "https://raw.githubusercontent.com/LeGooeyy/GooeyMixDiscordIcons/refs/heads/main/assets/icons/"
-				+ PlayState.instance.currentChart.characters.opponent
-				+ ".png?raw=true?t="
-				+ Date.now().getTime();
-		}
 		hasPlayedCutscene = false;
 	}
-
 
 	public override function listAltInstrumentalIds(difficultyId:String, variationId:String):Array<String> {
 		var targetDifficulty:Null<SongDifficulty> = getDifficulty(difficultyId, variationId);
@@ -80,16 +68,17 @@ class ThornsSpookymodMixSong extends Song {
 		PlayState.instance.camHUD.visible = false;
 		PlayState.instance.camCutscene.visible = true;
 
-		var red = new FunkinSprite(-20, -20).makeSolidColor(FlxG.width * 1.5, FlxG.height * 1.5, 0xFFFFFFFF);
-		red.color = 0xFF9048C2;
-		red.shader = PlayState.instance.currentStage.getDad().shader;
-		if (PlayState.instance.currentStage.getDad().color == 0xFF165B)
-			red.color = 0xFFC3355E;
-		if (PlayState.instance.currentStage.getDad().color == 0x000000)
-			red.color = 0xFFFFFFFF;
-		red.cameras = [PlayState.instance.camCutscene];
-		red.alpha = 1.0;
-		PlayState.instance.add(red);
+		var cutsceneBG = new FunkinSprite(-20, -20).makeSolidColor(FlxG.width * 1.5, FlxG.height * 1.5, 0xFFFFFFFF);
+		cutsceneBG.color = 0xFF9048C2;
+		if (PlayState.instance.currentStage.getDad().shader == PlayState.instance.currentStage.getDad().blood
+			|| PlayState.instance.currentStage.getDad().color == 0xFF165B)
+			cutsceneBG.color = 0xFFC3355E;
+		if (PlayState.instance.currentStage.getDad().shader == PlayState.instance.currentStage.getDad().broken
+			|| PlayState.instance.currentStage.getDad().color == 0x000000)
+			cutsceneBG.color = 0xFFFFFFFF;
+		cutsceneBG.cameras = [PlayState.instance.camCutscene];
+		cutsceneBG.alpha = 1.0;
+		PlayState.instance.add(cutsceneBG);
 
 		var senpaiCrazy = FunkinSprite.createSparrow(0, 0, 'weeb/senpaiSpookyCrazy');
 		senpaiCrazy.cameras = [PlayState.instance.camCutscene];
@@ -126,7 +115,7 @@ class ThornsSpookymodMixSong extends Song {
 					trace('Senpai death SFX done.');
 					// Called when the sound completes. Clean up the cutscene here.
 					// Hard cut to the cutscene.
-					PlayState.instance.remove(red);
+					PlayState.instance.remove(cutsceneBG);
 
 					RetroCameraFade.fadeBlack(PlayState.instance.camCutscene, 6, 1.4);
 					RetroCameraFade.fadeBlack(PlayState.instance.camGame, 6, 1.4);
@@ -140,7 +129,7 @@ class ThornsSpookymodMixSong extends Song {
 				new FlxTimer().start(3.2, function(deadTime:FlxTimer) {
 					RetroCameraFade.fadeWhite(PlayState.instance.camCutscene, 8, 1.4);
 					new FlxTimer().start(1.4, function(timer:FlxTimer) {
-						red.color = 0xFFFFFFFF;
+						cutsceneBG.color = 0xFFFFFFFF;
 						PlayState.instance.remove(senpaiCrazy);
 
 						PlayState.instance.camCutscene.filters = [];

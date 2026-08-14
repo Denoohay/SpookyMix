@@ -34,7 +34,7 @@ class MolochDarkCharacter extends AnimateAtlasCharacter {
 	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
 		colorShaderNormal = new AdjustColorShader();
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			colorShaderNormal.brightness = -33;
 			colorShaderNormal.contrast = 39;
 			colorShaderNormal.saturation = -25;

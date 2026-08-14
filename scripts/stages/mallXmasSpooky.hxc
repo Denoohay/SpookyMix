@@ -20,7 +20,7 @@ class MallXmasSpookyStage extends Stage {
 
 		colorShader = new AdjustColorShader();
 
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			colorShader.brightness = 3;
 			colorShader.contrast = 9;
 			colorShader.saturation = -15;

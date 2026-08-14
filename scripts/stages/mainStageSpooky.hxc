@@ -20,7 +20,7 @@ class MainStageSpookyStage extends Stage {
 		colorShaderDad = new AdjustColorShader();
 		colorShaderGf = new AdjustColorShader();
 
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			colorShaderBf.brightness = -31;
 			colorShaderBf.contrast = 4;
 			colorShaderBf.saturation = 0;

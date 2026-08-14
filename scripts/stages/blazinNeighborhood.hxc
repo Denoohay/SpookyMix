@@ -69,7 +69,7 @@ class BlazinNeighborhoodStage extends Stage {
 
 		colorShaderWalkers = new AdjustColorShader();
 
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			colorShaderWalkers.brightness = -6;
 			colorShaderWalkers.contrast = -11;
 			colorShaderWalkers.saturation = -7;

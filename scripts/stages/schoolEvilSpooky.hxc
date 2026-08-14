@@ -35,7 +35,7 @@ class SchoolEvilSpookyStage extends Stage {
 
 		wiggle = new WiggleEffectRuntime(2, 30, 0.012, WiggleEffectType.DREAMY);
 
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			getNamedProp('evilStreet').shader = wiggle;
 			getNamedProp('evilTrees').shader = wiggle;
 			getNamedProp('evilSchool').shader = wiggle;
@@ -57,7 +57,7 @@ class SchoolEvilSpookyStage extends Stage {
 		skyFlash.scrollFactor.set(1, 1);
 		skyFlash.alpha = 0;
 		skyFlash.zIndex = 1000;
-		if (save.data.spookyShaders != false)
+		if (SpookyMixOptions.spookyShaders)
 			skyFlash.blend = 0;
 		else
 			skyFlash.color = 0xFFFFFFFF;
@@ -73,18 +73,18 @@ class SchoolEvilSpookyStage extends Stage {
 	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
 		// Apply the shader automatically to each character as it gets added.
 		super.addCharacter(character, charType);
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			trace('Applied stage shader to ' + character.characterName);
 
 			var rim = new DropShadowShader();
 			rim.color = 0xFF2B0F5E;
-			rim.antialiasAmt = 0;
 			rim.distance = 5;
 
 			switch (charType) {
 				case CharacterType.BF:
 					rim.angle = 180;
 					rim.setAdjustColor(-100, -30, 10, -30); // b, h, c, s
+					rim.threshold = -1;
 					rim.attachedSprite = character;
 					character.shader = rim;
 
@@ -97,7 +97,7 @@ class SchoolEvilSpookyStage extends Stage {
 				case CharacterType.GF:
 					rim.angle = 180;
 					rim.setAdjustColor(-120, -30, 20, 0); // b, h, c, s
-					rim.threshold = 0.4;
+					rim.threshold = 0.35;
 					rim.attachedSprite = character;
 					character.shader = rim;
 
@@ -134,7 +134,7 @@ class SchoolEvilSpookyStage extends Stage {
 	override function onSongRetry(event:ScriptEvent):Void {
 		super.onSongRetry(event);
 
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			if (getDad().shader != null) {
 				if (getDad().shader.contrast == 100)
 					getBoyfriend().shader.color = 0xFF5B5B5B;
@@ -154,7 +154,7 @@ class SchoolEvilSpookyStage extends Stage {
 	override function onGameOver(event:ScriptEvent):Void {
 		super.onGameOver(event);
 
-		if (save.data.spookyShaders != false)
+		if (SpookyMixOptions.spookyShaders)
 			getBoyfriend().shader = null;
 		else
 			getBoyfriend().color = 0xFFFFFF;
@@ -185,7 +185,7 @@ class SchoolEvilSpookyStage extends Stage {
 			}
 		}
 
-		if (save.data.spookyShaders != false) {} else {
+		if (SpookyMixOptions.spookyShaders) {} else {
 			if (getBoyfriend() != null) {
 				getBoyfriend().color = 0x8E6C6C;
 				getGirlfriend().color = 0x8E6C6C;

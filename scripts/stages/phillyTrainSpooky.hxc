@@ -40,7 +40,7 @@ class PhillyTrainSpookyStage extends Stage {
 		bottomSmokeAdd.setPosition(0, 1007);
 		bottomSmokeAdd.scrollFactor.set(1.2, 1);
 		bottomSmokeAdd.zIndex = 410;
-		if (save.data.spookyShaders != false)
+		if (SpookyMixOptions.spookyShaders)
 			bottomSmokeAdd.blend = 0;
 		bottomSmokeAdd.velocity.x = 200;
 
@@ -67,7 +67,7 @@ class PhillyTrainSpookyStage extends Stage {
 		trainSound = new FlxSound().loadEmbedded(Paths.sound('carPass1', "week4"));
 		FlxG.sound.list.add(trainSound);
 
-		if (save.data.spookyShaders != false)
+		if (SpookyMixOptions.spookyShaders)
 			getNamedProp("topGradient").blend = 0;
 		else
 			getNamedProp("topGradient").visible = false;
@@ -90,7 +90,7 @@ class PhillyTrainSpookyStage extends Stage {
 	function onUpdate(event:UpdateScriptEvent):Void {
 		super.onUpdate(event);
 
-		if (save.data.spookyShaders != false) {} else {
+		if (SpookyMixOptions.spookyShaders) {} else {
 			if (getBoyfriend() != null) {
 				getBoyfriend().color = 0xA6B3BC;
 				getGirlfriend().color = 0xA6B3BC;
@@ -118,7 +118,7 @@ class PhillyTrainSpookyStage extends Stage {
 	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
 		// Apply the shader automatically to each character as it gets added.
 		super.addCharacter(character, charType);
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			trace('Applied stage shader to ' + character.characterName);
 
 			var rim = new DropShadowShader();
@@ -157,7 +157,7 @@ class PhillyTrainSpookyStage extends Stage {
 
 	override function onGameOver(event:ScriptEvent):Void {
 		super.onGameOver(event);
-		if (save.data.spookyShaders != false)
+		if (SpookyMixOptions.spookyShaders)
 			getBoyfriend().shader = null;
 		else
 			getBoyfriend().color = 0xFFFFFF;
@@ -173,7 +173,7 @@ class PhillyTrainSpookyStage extends Stage {
 
 	override function onSongRetry(event:ScriptEvent):Void {
 		super.onSongRetry(event);
-		if (save.data.spookyShaders != false) {} else {
+		if (SpookyMixOptions.spookyShaders) {} else {
 			getBoyfriend().color = 0xA6B3BC;
 		}
 

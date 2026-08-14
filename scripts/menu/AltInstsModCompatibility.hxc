@@ -3,87 +3,99 @@ import funkin.play.song.Song;
 import funkin.data.song.SongRegistry;
 import funkin.modding.module.Module;
 import funkin.save.Save;
-import haxe.Json;
+import funkin.data.freeplay.player.PlayerRegistry;
 
 using StringTools;
 
-class AltInstsModCompatibility extends Module {
-	// Cross-mod Alternate Instrumental Compatibility System by Denoohay for Spooky Mix
-	// Allows compatible modded alt instrumentals to be available for any modded character
-	// Requires Save.instance.charactersSeen code from "SpookyCharSelectScreen.hxc" to work fully
-	
-	public function new() {
-		super('AltInstsModCompatibility', 1, {
-			state: FreeplayState
-		});
-	}
+class AltInstsModCompatibility extends Module
+{
+  // Cross-mod Alternate Instrumental Compatibility System by Denoohay for Spooky Mix
+  // Allows compatible modded alt instrumentals to be available for any modded character
+  // Requires Save.instance.charactersSeen code from "SpookyCharSelectScreen.hxc" to work fully
+  public function new()
+  {
+    super('AltInstsModCompatibility', 1, {
+      state: FreeplayState
+    });
+  }
 
-	var addedInsts:Bool = false;
+  var addedInsts:Bool = false;
 
-	override function onUpdate(event:UpdateScriptEvent) {
-		super.onUpdate(event);
+  override function onUpdate(event:UpdateScriptEvent)
+  {
+    super.onUpdate(event);
 
-		if (FlxG.state.subState.instSelectMenu == null) {
-			addedInsts = false;
-			return;
-		}
+    if (FlxG.state.subState.instSelectMenu == null)
+    {
+      addedInsts = false;
+      return;
+    }
 
-		if (addedInsts || FlxG.state.subState.curSelected == 0) return;
+    // Fixes a bug with QT Rewired
+    if (FlxG.state.subState.instSelectMenu.members[3].text != 'INSTRUMENTAL')
+    {
+      addedInsts = false;
+      return;
+    }
 
-		var targetSongId:String = FlxG.state.subState.currentCapsule?.freeplayData?.data?.id;
-		var targetSong:Song = SongRegistry.instance.fetchEntry(targetSongId);
+    if (addedInsts || FlxG.state.subState.curSelected == 0) return;
 
-		var targetDifficulty:Null<SongDifficulty>;
+    var targetSongId:String = FlxG.state.subState.currentCapsule?.freeplayData?.data?.id;
+    var targetSong:Song = SongRegistry.instance.fetchEntry(targetSongId);
 
-		targetDifficulty = targetSong.getDifficulty(FlxG.state.currentDifficulty, FlxG.state.subState.currentVariation);
+    var targetDifficulty:Null<SongDifficulty>;
 
-		var unfilteredList = targetDifficulty?.characters?.altInstrumentals ?? [];
+    targetDifficulty = targetSong.getDifficulty(FlxG.state.currentDifficulty, FlxG.state.subState.currentVariation);
 
-		// Adds modded instrumentals to the unfiltered list
-		for (character in Save.instance.charactersSeen.value) {
-			var currentInstList:Array<String> = null;
-			var addingInstList:Array<String> = null;
-	
-			currentInstList = targetSong.listAltInstrumentalIds(FlxG.state.subState.currentDifficulty, 
-				targetDifficulty?.variation ?? Constants.DEFAULT_VARIATION) ?? null;
+    var unfilteredList = targetDifficulty?.characters?.altInstrumentals ?? [];
 
-			addingInstList = targetSong.listAltInstrumentalIds(FlxG.state.subState.currentDifficulty, 
-				character) ?? null;
+    // Adds modded instrumentals to the unfiltered list
+    for (character in PlayerRegistry.instance.listEntryIds().concat(Save.instance.charactersSeen.value))
+    {
+      var currentInstList:Array<String> = null;
+      var addingInstList:Array<String> = null;
 
-			// Adds instrumentals to mod mixes
-			if (addingInstList != null && currentInstList != null) {
-				if (addingInstList.contains("") && currentInstList.contains("")) {
-					for (j in 0...addingInstList.length) unfilteredList.push(addingInstList[j]);
-					unfilteredList.push(character);
-				}
-			}
-		}
+      currentInstList = targetSong.listAltInstrumentalIds(FlxG.state.subState.currentDifficulty,
+        targetDifficulty?.variation ?? Constants.DEFAULT_VARIATION) ?? null;
 
-		var filteredList = [];
+      addingInstList = targetSong.listAltInstrumentalIds(FlxG.state.subState.currentDifficulty, character) ?? null;
 
-		// Adds the current variation in as the first item on the list
-		if (FlxG.state.subState.currentVariation == Constants.DEFAULT_VARIATION)
-			filteredList.push("");
-		else
-			filteredList.push(FlxG.state.subState.currentVariation);
+      // Adds instrumentals to mod mixes
+      if (addingInstList != null && currentInstList != null)
+      {
+        if (addingInstList.contains("") && currentInstList.contains(""))
+        {
+          for (j in 0...addingInstList.length) unfilteredList.push(addingInstList[j]);
+          unfilteredList.push(character);
+        }
+      }
+    }
 
-		// Filters out duplicate items on the list
-		for (i in 0...unfilteredList.length) {
-			if (!filteredList.contains(unfilteredList[i])) filteredList.push(unfilteredList[i]);
-		}
+    var filteredList = [];
 
-		// Removes all alt insts if you haven't beaten the song
-		var baseInstrumentalId:String = targetSong.getBaseInstrumentalId(FlxG.state.subState.currentDifficulty, 
-			targetDifficulty?.variation ?? Constants.DEFAULT_VARIATION) ?? '';
+    // Adds the current variation in as the first item on the list
+    if (FlxG.state.subState.currentVariation == Constants.DEFAULT_VARIATION) filteredList.push("");
+    else
+      filteredList.push(FlxG.state.subState.currentVariation);
 
-		var variation = (FlxG.state.subState.currentVariation == Constants.DEFAULT_VARIATION) ? '' : FlxG.state.subState.currentVariation;
-		if (!Save.instance.hasBeatenSong(targetSongId, null, variation)) {
-			filteredList = [];
-			filteredList.push(baseInstrumentalId);
-		}
+    // Filters out duplicate items on the list
+    for (i in 0...unfilteredList.length)
+    {
+      if (!filteredList.contains(unfilteredList[i])) filteredList.push(unfilteredList[i]);
+    }
 
-		FlxG.state.subState.instSelectMenu.instrumentalIds = filteredList; // Sets the actual alt inst list to the new filtered one
+    // Removes all alt insts if you haven't beaten the song
+    var baseInstrumentalId:String = targetSong.getBaseInstrumentalId(FlxG.state.subState.currentDifficulty,
+      targetDifficulty?.variation ?? Constants.DEFAULT_VARIATION) ?? '';
 
-		addedInsts = true;
-	}
+    var variation = (FlxG.state.subState.currentVariation == Constants.DEFAULT_VARIATION) ? '' : FlxG.state.subState.currentVariation;
+    // if (!Save.instance.hasBeatenSong(targetSongId, null, variation)) {
+    // filteredList = [];
+    // filteredList.push(baseInstrumentalId);
+    // } turning this part off cuz it can break stuff and isnt TECHNICALLY needed
+
+    FlxG.state.subState.instSelectMenu.instrumentalIds = filteredList; // Sets the actual alt inst list to the new filtered one
+
+    addedInsts = true;
+  }
 }

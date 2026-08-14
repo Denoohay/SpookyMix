@@ -9,83 +9,80 @@ import funkin.ui.freeplay.FreeplayState;
 // A main module that handles adding every option instead of having them all in separate scripts
 class SpookyPreferences extends Module
 {
-	var save:FlxSave;
+  function new()
+  {
+    super("SpookyPreferences");
+  }
 
-    function new(){
-        super("SpookyPreferences");
+  function onStateChangeEnd(callback)
+  {
+    super.onStateChangeEnd(callback);
 
-		save = new FlxSave();
-		save.bind("SpookyMixOptions", "FunkinCrew");
-		save.data.SpookyMixMenu ??= 'Always On';
-		save.data.spookyShaders ??= true;
-		if (save.data.defaultStartupCharacter != null) {
-			if (save.data.defaultStartupCharacter != 'remember' && PlayerRegistry.instance.fetchEntry(save.data.defaultStartupCharacter) == null) {
-				// Character doesn't exist, reset time
-				save.data.defaultStartupCharacter = save.data.rememberedStartupCharacter = 'bf';
-				save.data.saveStartupCharacterName = 'Boyfriend';		
-			}
-		}
-		save.data.defaultStartupCharacter ??= 'bf';
-		save.data.rememberedStartupCharacter ??= 'bf';
-		save.data.saveStartupCharacterName ??= 'Boyfriend';
-		save.flush();
+    if (!(callback.targetState is OptionsState)) return;
+    var preferencePage:PreferencesMenu = callback.targetState.optionsCodex.addPage('spooky', new PreferencesMenu());
+    preferencePage.onExit.add(function()
+    {
+      FlxG.state.optionsCodex.switchPage('options');
+    });
+
+    preferencePage.preferenceDesc = [];
+    preferencePage.items.clear();
+    preferencePage.preferenceItems.clear();
+    var optionspage = callback.targetState.optionsCodex.pages.get('options');
+    var exit = optionspage.items.getItem("LAG ADJUSTMENT") ?? null;
+    var option = optionspage.createItem("Spooky Mix Options", function() FlxG.state.optionsCodex.switchPage('spooky'));
+    if (exit != null)
+    {
+      optionspage.items.members.remove(option);
+      optionspage.items.members.insert(optionspage.items.members.indexOf(exit), option);
     }
-		
-	function onStateChangeEnd(callback) {
-		super.onStateChangeEnd(callback);
+    for (i in 0...optionspage.items.members.length)
+    {
+      var item = optionspage.items.members[i];
+      item.y = 100 + i * 100;
+    }
 
+    var prefs = callback.targetState.optionsCodex.pages.get("spooky");
+    if (prefs != null)
+    {
+      prefs.createPrefItemEnum('Spooky Menu', "Switch between using Spooky Mix's or FNF's menu themes.", [
+        'Always On' => 'Always On',
+        'Off' => 'Off',
+        'Spooky Kids Selected' => 'Spooky Kids Selected'
+      ], function(value:String, oValue:String):Void
+      {
+        SpookyMixOptions.spookyMixMenu = value;
+      }, SpookyMixOptions.spookyMixMenu);
+      prefs.createPrefItemCheckbox('Spooky Shaders', "If disabled, Spooky Mix stages will not use shaders or blend modes.(warning, unchecking makes the mod look like doo doo)",
+        function(value:Bool):Void
+        {
+          SpookyMixOptions.spookyShaders = value;
+        }, SpookyMixOptions.spookyShaders);
+      prefs.createPrefItemEnum('Default Player', "Choose the Playable Character that will be selected by default when first opening Freeplay.",
+        makeOptionsList(), function(key:String, value:String):Void
+      {
+        SpookyMixOptions.defaultStartupCharacter = value;
+      }, getDefaultPlayerKey());
+      prefs.itemDesc.text = prefs.preferenceDesc[prefs.items.selectedIndex];
+    }
+  }
 
-		if (!(callback.targetState is OptionsState))
-			return;
-		var preferencePage:PreferencesMenu = callback.targetState.optionsCodex.addPage('spooky', new PreferencesMenu());
-		preferencePage.onExit.add(function() {
-			FlxG.state.optionsCodex.switchPage('options');
-		});
+  function makeOptionsList()
+  {
+    var playableCharacters:Map<String, String> = ["Remember Previous" => null];
 
-		preferencePage.preferenceDesc = [];
-		preferencePage.items.clear();	
-		preferencePage.preferenceItems.clear();
-		var optionspage = callback.targetState.optionsCodex.pages.get('options');
-		var exit = optionspage.items.getItem("LAG ADJUSTMENT") ?? null;
-		var option = optionspage.createItem("Spooky Mix Options", function() FlxG.state.optionsCodex.switchPage('spooky'));
-		if (exit != null) {
-			optionspage.items.members.remove(option);
-			optionspage.items.members.insert(optionspage.items.members.indexOf(exit), option);
-		}
-		for (i in 0...optionspage.items.members.length){
-			var item = optionspage.items.members[i];
-			item.y = 100 + i * 100;
-		}
+    for (character in PlayerRegistry.instance.listEntryIds())
+    {
+      playableCharacters.set(PlayerRegistry.instance.fetchEntry(character).getName(), character);
+    }
 
-		var prefs = callback.targetState.optionsCodex.pages.get("spooky");
-		if (prefs != null) {
-			prefs.createPrefItemEnum('Spooky Menu', "Switch between using Spooky Mix's or FNF's menu themes.",
-			['Always On' => 'Always On', 'Off' => 'Off', 'Spooky Kids Selected' => 'Spooky Kids Selected'], function(value:String, oValue:String):Void {
-				save.data.SpookyMixMenu = value;
-				save.flush();
-			}, save.data.SpookyMixMenu);
-			prefs.createPrefItemCheckbox('Spooky Shaders', "If disabled, Spooky Mix stages will not use shaders or blend modes.(warning, unchecking makes the mod look like doo doo)",
-			function(value:Bool):Void {
-				save.data.spookyShaders = value;
-				save.flush();
-			}, save.data.spookyShaders);
-			prefs.createPrefItemEnum('Default Player', "Choose the Playable Character that will be selected by default when first opening Freeplay.",
-			makeOptionsList(), function(value:String, oValue:String):Void {
-				save.data.defaultStartupCharacter = oValue;
-				save.data.saveStartupCharacterName = value;
-				save.flush();
-				// FreeplayState.rememberedCharacterId = oValue; // <- Un-comment if you want the cur character to switch when changing option
-			}, save.data.saveStartupCharacterName);
-		}
-	}
+    return playableCharacters;
+  }
 
-	function makeOptionsList() {
-		var playableCharacters = ["Remember Previous" => "remember"];
+  function getDefaultPlayerKey():String
+  {
+    if (SpookyMixOptions.defaultStartupCharacter == null) return "Remember Previous";
 
-		for (character in PlayerRegistry.instance.listEntryIds()) {
-			playableCharacters.set(PlayerRegistry.instance.fetchEntry(character).getName(), character);
-		}
-
-		return playableCharacters;
-	}
+    return PlayerRegistry.instance.fetchEntry(SpookyMixOptions.defaultStartupCharacter)?.getName();
+  }
 }

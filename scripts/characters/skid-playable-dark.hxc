@@ -106,7 +106,7 @@ class SkidPlayableDarkCharacter extends MultiSparrowCharacter {
 	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
 		colorShaderNormal = new AdjustColorShader();
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			colorShaderNormal.brightness = -93;
 			colorShaderNormal.contrast = 55;
 			colorShaderNormal.saturation = -46;

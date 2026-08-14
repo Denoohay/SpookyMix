@@ -19,7 +19,7 @@ class MallEvilSpookyStage extends Stage {
 		colorShaderBf = new AdjustColorShader();
 		colorShaderDad = new AdjustColorShader();
 
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			colorShaderBf.brightness = -48;
 			colorShaderBf.contrast = 28;
 			colorShaderBf.saturation = -18;
@@ -42,7 +42,7 @@ class MallEvilSpookyStage extends Stage {
 	function onUpdate(event:UpdateScriptEvent):Void {
 		super.onUpdate(event);
 
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			if (getBoyfriend() != null && getBoyfriend().shader == null) {
 				getBoyfriend().shader = colorShaderBf;
 				getDad().shader = colorShaderDad;
@@ -58,7 +58,7 @@ class MallEvilSpookyStage extends Stage {
 	override function onGameOver(event:ScriptEvent):Void {
 		super.onGameOver(event);
 
-		if (save.data.spookyShaders != false)
+		if (SpookyMixOptions.spookyShaders)
 			getBoyfriend().shader = null;
 		else
 			getBoyfriend().color = 0xFFFFFF;
@@ -67,7 +67,7 @@ class MallEvilSpookyStage extends Stage {
 	override function onSongRetry(event:ScriptEvent):Void {
 		super.onSongRetry(event);
 
-		if (save.data.spookyShaders != false)
+		if (SpookyMixOptions.spookyShaders)
 			getBoyfriend().shader = colorShaderBf;
 		else
 			getBoyfriend().color = 0xFFA8B3;

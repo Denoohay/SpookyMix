@@ -287,7 +287,7 @@ class OogasHouse extends Stage {
 		getNamedProp('leftBlack').color = 0xFF000000;
 		getNamedProp('rightBlack').color = 0xFF000000;
 
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			getNamedProp('bottomBlue').color = 0xFF485D6D;
 			getNamedProp('leftBlue').color = 0xFF485D6D;
 			getNamedProp('rightBlue').color = 0xFF485D6D;

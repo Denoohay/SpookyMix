@@ -1,44 +1,57 @@
 import funkin.ui.mainmenu.MainMenuState;
 import funkin.modding.module.Module;
+import funkin.modding.PolymodHandler;
+import thx.semver.Version;
 import funkin.util.ReflectUtil;
 import funkin.PlayerSettings;
 import flixel.util.FlxTimer;
 import funkin.Preferences;
-import funkin.ui.mainmenu.MainMenuState;
 import funkin.util.WindowUtil;
 
-class SpookyMainMenu extends Module {
-	public function new() {
-		super('SpookyMainMenu', 1, {
-			state: MainMenuState
-		});
+class SpookyMainMenu extends Module
+{
+  public function new()
+  {
+    super('SpookyMainMenu', 2, {
+      state: SpookyMainMenu
+    });
+  }
+
+  override public function onStateChangeEnd(event:StateChangeScriptEvent)
+  {
+    super.onStateChangeEnd(event);
+    if (!Std.isOfType(event.targetState, MainMenuState)) return;
+
+    var originalText:String = FlxG.state.rightWatermarkText.text;
+
+    var metadata:ModMetadata = PolymodHandler.modFileSystem.getMetadataById("SpookyMix");
+    var version:String = Version.toString(metadata.modVersion);
+
+    FlxG.state.rightWatermarkText.text = "SPOOKY MIX v" + version;
+
+    if (originalText.length > 0) FlxG.state.rightWatermarkText.text += '\n${originalText}';
+    FlxG.state.rightWatermarkText.y = FlxG.height - FlxG.state.rightWatermarkText.height;
+  }
+  /**
+   * Replay the cutscene after leaving the song.
+  var openingLink:Bool = false;
+
+  override function onUpdate(event:UpdateScriptEvent) 
+  {
+	super.onUpdate(event);
+
+	if (ReflectUtil.getClassNameOf(FlxG.state) == "funkin.ui.mainmenu.MainMenuState") {
+	if (PlayerSettings.player1.controls.ACCEPT && FlxG.state.menuItems.selectedIndex == 2) {
+		openingLink = true;
+		WindowUtil.openURL("https://creatorink.com/collections/pelo");
+		new FlxTimer().start(2, _ -> openingLink = false);
 	}
-
-		var openingLink:Bool = false;
-
-	override function onUpdate(event:UpdateScriptEvent) {
-		super.onUpdate(event);
-		if (ReflectUtil.getClassNameOf(FlxG.state) == "funkin.ui.mainmenu.MainMenuState") {
-			FlxG.mouse.visible = false;
-
-			FlxG.state.rightWatermarkText.text = "SPOOKY MIX v2.0.10";
-		}
-
-				if (PlayerSettings.player1.controls.ACCEPT && FlxG.state.menuItems.selectedIndex == 2) {
-					openingLink = true;
-
-					WindowUtil.openURL("https://creatorink.com/collections/pelo");
-
-					new FlxTimer().start(2, _ -> {
-						openingLink = false;
-					});
-				}
-
-				if (openingLink == true) {
-					FlxG.autoPause = false;
-				} else {
-					FlxG.autoPause = Preferences.autoPause;
-				}
-			
+	if (openingLink == true) {
+		FlxG.autoPause = false;
+	} else {
+		FlxG.autoPause = Preferences.autoPause;
 	}
+  }
+  }
+     */
 }

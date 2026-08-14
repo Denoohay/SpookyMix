@@ -19,7 +19,8 @@
     "noteStyle": "funkin",
     "ratings": { "easy": 6, "normal": 8, "hard": 10 },
     "album": "spookymix2",
-    "stickerPack": null
+    "stickerPack": null,
+    "discordRPCImage": "https://raw.githubusercontent.com/FNF-Gooey-Mix/GooeyMixDiscordIcons/refs/heads/main/assets/icons/darnell-blazin-spooky.png"
   },
   "previewStart": 0,
   "previewEnd": 15000,

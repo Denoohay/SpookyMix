@@ -19,7 +19,8 @@
     "noteStyle": "funkin",
     "ratings": { "easy": 4, "normal": 6, "hard": 7 },
     "album": "spookymix1",
-    "stickerPack": null
+    "stickerPack": null,
+    "discordRPCImage": "https://raw.githubusercontent.com/FNF-Gooey-Mix/GooeyMixDiscordIcons/refs/heads/main/assets/icons/tankman-spooky.png"
   },
   "previewStart": 0,
   "previewEnd": 15000,

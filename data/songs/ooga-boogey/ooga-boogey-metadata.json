@@ -19,7 +19,8 @@
     "noteStyle": "funkin",
     "ratings": { "easy": 4, "normal": 6, "hard": 7 },
     "album": "fool",
-    "stickerPack": "bonus-oogabooga"
+    "stickerPack": "bonus-oogabooga",
+    "discordRPCImage": "https://raw.githubusercontent.com/FNF-Gooey-Mix/GooeyMixDiscordIcons/refs/heads/main/assets/icons/ooga-booga.png"
   },
   "previewStart": 0,
   "previewEnd": 15000,

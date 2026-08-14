@@ -18,7 +18,7 @@ class SkidsAtticEvilStage extends Stage {
 		colorShaderBf = new AdjustColorShader();
 		colorShaderDad = new AdjustColorShader();
 
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			colorShaderBf.brightness = -39;
 			colorShaderBf.contrast = -1;
 			colorShaderBf.saturation = -2;
@@ -36,7 +36,7 @@ class SkidsAtticEvilStage extends Stage {
 	function onUpdate(event:UpdateScriptEvent):Void {
 		super.onUpdate(event);
 
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			if (getBoyfriend() != null && getBoyfriend().shader == null) {
 				getBoyfriend().shader = colorShaderBf;
 				getDad().shader = colorShaderDad;
@@ -52,7 +52,7 @@ class SkidsAtticEvilStage extends Stage {
 	override function onGameOver(event:ScriptEvent):Void {
 		super.onGameOver(event);
 
-		if (save.data.spookyShaders != false)
+		if (SpookyMixOptions.spookyShaders)
 			getBoyfriend().shader = null;
 		else
 			getBoyfriend().color = 0xFFFFFF;
@@ -61,7 +61,7 @@ class SkidsAtticEvilStage extends Stage {
 	override function onSongRetry(event:ScriptEvent):Void {
 		super.onSongRetry(event);
 
-		if (save.data.spookyShaders != false)
+		if (SpookyMixOptions.spookyShaders)
 			getBoyfriend().shader = colorShaderBf;
 		else
 			getBoyfriend().color = 0xFFA8B3;

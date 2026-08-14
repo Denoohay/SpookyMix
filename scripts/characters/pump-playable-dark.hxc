@@ -106,7 +106,7 @@ class PumpPlayableDarkCharacter extends MultiSparrowCharacter {
 	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
 		colorShaderNormal = new AdjustColorShader();
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			colorShaderNormal.brightness = -45;
 			colorShaderNormal.contrast = 47;
 			colorShaderNormal.saturation = -43;

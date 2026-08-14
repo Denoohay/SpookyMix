@@ -1,0 +1,99 @@
+import funkin.modding.ModStore;
+import flixel.util.FlxSave;
+import Array;
+
+class SpookyMixOptions
+{
+  public static var spookyMixMenu(get, set):String;
+  public static var morphoMode(get, set):String;
+  public static var spookyShaders(get, set):Bool;
+  public static var floraVisualizer(get, set):Bool;
+  public static var nightcoreMode(get, set):Bool;
+  public static var defaultStartupCharacter(get, set):String;
+  public static var rememberedStartupCharacter(get, set):String;
+
+  static function set_spookyMixMenu(value:String):String
+  {
+    save.data.SpookyMixMenu = value;
+    flush();
+    return save.data.SpookyMixMenu;
+  }
+
+  static function get_spookyMixMenu():String
+  {
+    return save.data.SpookyMixMenu;
+  }
+
+  static function set_spookyShaders(value:Bool):Bool
+  {
+    save.data.spookyShaders = value;
+    flush();
+    return save.data.spookyShaders;
+  }
+
+  static function get_spookyShaders():Bool
+  {
+    return save.data.spookyShaders;
+  }
+
+  static function set_defaultStartupCharacter(value:String):String
+  {
+    save.data.defaultStartupCharacter = value;
+    flush();
+    return save.data.defaultStartupCharacter;
+  }
+
+  static function get_defaultStartupCharacter():String
+  {
+    return save.data.defaultStartupCharacter;
+  }
+
+  static function set_rememberedStartupCharacter(value:String):String
+  {
+    save.data.rememberedStartupCharacter = value;
+    flush();
+    return save.data.rememberedStartupCharacter;
+  }
+
+  static function get_rememberedStartupCharacter():String
+  {
+    return save.data.rememberedStartupCharacter;
+  }
+
+  public static var save(get, never):FlxSave;
+
+  static function get_save():FlxSave
+  {
+    var save:FlxSave = ModStore.get('SpookyMixOptions');
+
+    if (save == null)
+    {
+      save = new FlxSave();
+      save.bind("SpookyMixOptions", "FunkinCrew");
+      save.mergeData(getDefaultSave(), false);
+      ModStore.register('SpookyMixOptions', save);
+    }
+
+    return save;
+  }
+
+  public static function flush():Void
+  {
+    save.flush();
+    trace('[SPOOKY] Updated "SpookyMixOptions.sol" on local disk.');
+  }
+
+  static function getDefaultSave():Dynamic
+  {
+    return {
+      SpookyMixMenu: 'Always On',
+      morphoMode: 'Off',
+      spookyShaders: true,
+      floraVisualizer: true,
+      nightcoreMode: false,
+
+      defaultStartupCharacter: null,
+      rememberedStartupCharacter: 'bf'
+    };
+  }
+}

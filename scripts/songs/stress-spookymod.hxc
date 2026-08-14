@@ -3,8 +3,6 @@ import funkin.save.Save;
 import funkin.play.PlayState;
 import funkin.play.PlayStatePlaylist;
 import funkin.modding.base.ScriptedFlxSpriteGroup;
-import Date;
-import flixel.FlxG;
 
 class stressSpookymodMixSong extends Song {
 	function new() {
@@ -27,19 +25,6 @@ class stressSpookymodMixSong extends Song {
 		}
 		if (PlayState.instance.currentInstrumental == "spookymod" || PlayState.instance.currentInstrumental == "truespookymod") {
 			PlayState.instance.currentInstrumental = "truespookymod";
-		}
-	}
-
-	function onCreate(event:ScriptEvent):Void {
-		super.onCreate(event);
-		if (!FlxG.onMobile) {
-			PlayState.instance.discordRPCAlbum = "https://raw.githubusercontent.com/LeGooeyy/GooeyMixDiscordIcons/refs/heads/main/assets/album-covers/"
-				+ PlayState.instance.currentChart.album
-				+ ".png?raw=true";
-			PlayState.instance.discordRPCIcon = "https://raw.githubusercontent.com/LeGooeyy/GooeyMixDiscordIcons/refs/heads/main/assets/icons/"
-				+ PlayState.instance.currentChart.characters.opponent
-				+ ".png?raw=true?t="
-				+ Date.now().getTime();
 		}
 	}
 

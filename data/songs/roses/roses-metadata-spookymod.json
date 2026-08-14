@@ -13,7 +13,7 @@
     "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "spooky-pixel-purple","girlfriend": "moloch-pixel-purple","opponent": "senpai-angry-spooky-purple",
-      "instrumental": "spookymod","playerVocals": ["spooky"],"opponentVocals": ["senpai"], "altInstrumentals": ["pico", ""]
+      "instrumental": "truespookymod","playerVocals": ["spooky"],"opponentVocals": ["senpai"], "altInstrumentals": ["pico", ""]
     },
     "stage": "schoolSpooky",
     "noteStyle": "pixel",

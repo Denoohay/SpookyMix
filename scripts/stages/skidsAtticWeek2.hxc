@@ -39,7 +39,7 @@ class SkidsAtticWeekTwoStage extends Stage {
 	override function buildStage() {
 		super.buildStage();
 
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			colorShaderBG = new AdjustColorShader();
 
 			colorShaderBG.brightness = 10;
@@ -53,7 +53,7 @@ class SkidsAtticWeekTwoStage extends Stage {
 		getNamedProp('bgDarkGlow').alpha = 1;
 		getNamedProp('bgDark').shader = colorShaderBG;
 
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			getNamedProp('bgLightGlow').blend = 0;
 			getNamedProp('bgDarkGlow').blend = 0;
 		}
@@ -62,7 +62,7 @@ class SkidsAtticWeekTwoStage extends Stage {
 	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
 		// Apply the shader automatically to each character as it gets added.
 		super.addCharacter(character, charType);
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			trace('Applied stage shader to ' + character.characterName);
 
 			var rim = new DropShadowShader();
@@ -160,7 +160,7 @@ class SkidsAtticWeekTwoStage extends Stage {
 			getGirlfriend().alpha = 0;
 
 			// i'm so sorry for this. the lightning flash wasn't working with the drop shadow shader so i had to make the rim light smoothly fade in after they already faded back to their dark sprites and this was the only way i could think to do it
-			if (save.data.spookyShaders != false) {
+			if (SpookyMixOptions.spookyShaders) {
 				new FlxTimer().start(1.5, function(_) {
 					if (isDead == false) {
 						storeBfShader.color = 0xFF000000;
@@ -291,7 +291,7 @@ class SkidsAtticWeekTwoStage extends Stage {
 	function onSongRetry(event:ScriptEvent) {
 		super.onSongRetry(event);
 
-		if (save.data.spookyShaders != false) {
+		if (SpookyMixOptions.spookyShaders) {
 			storeBfShader.color = 0xFF00443D;
 			getBoyfriend().shader = storeBfShader;
 

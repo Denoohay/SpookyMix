@@ -1,26 +1,11 @@
 import funkin.save.Save;
 import funkin.play.song.Song;
 import funkin.play.PlayState;
-import Date;
 import funkin.ui.freeplay.FreeplayState;
-import flixel.FlxG;
 
 class OogaBoogeySong extends Song {
 	public function new() {
 		super('ooga-boogey');
-	}
-
-	function onCreate(event:ScriptEvent):Void {
-		super.onCreate(event);
-		if (!FlxG.onMobile) {
-			PlayState.instance.discordRPCAlbum = "https://raw.githubusercontent.com/LeGooeyy/GooeyMixDiscordIcons/refs/heads/main/assets/album-covers/"
-				+ PlayState.instance.currentChart.album
-				+ ".png?raw=true";
-			PlayState.instance.discordRPCIcon = "https://raw.githubusercontent.com/LeGooeyy/GooeyMixDiscordIcons/refs/heads/main/assets/icons/"
-				+ PlayState.instance.currentChart.characters.opponent
-				+ ".png?raw=true?t="
-				+ Date.now().getTime();
-		}
 	}
 
 	public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String> {
@@ -31,5 +16,4 @@ class OogaBoogeySong extends Song {
         return super.listDifficulties(variationId, variationIds);
         // Hide all difficulties if the player has not beaten the week.    
     }
-
 }

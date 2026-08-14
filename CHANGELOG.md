@@ -3,6 +3,26 @@ All notable changes will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.0.11] - 2026-8-13
+
+### Changed
+- Changed the Discord RPC system to the new base game system
+- Re-exported every chart file to have the new formatting
+- Changed Philly Nice (Spooky Mix) to use the Legacy Vocals system
+- Updated "SillyRetto" to "SakiProd" in credits
+- _polymod_icon.png now has a colored background
+
+### Fixed
+- Fixed script errors relating to DefaultCharacterOption.hxc when playing on FNF v0.8.6
+- Fixes to the Alt Instrumental cross-mod compatibility system
+- Fixed the pause music not playing during the Week 6 Spooky Mix songs
+- Fixed the watermark text to not override other mods watermarks
+- Fixed stacked notes in DadBattle (Spooky Mix)
+- Fixed an error with the rim light shader on Thorns (Spooky Mix)
+- The correct background color now shows during Thorns (Spooky Mix)'s cutscene if an easter egg is activated
+
+
+
 ## [2.0.10] - 2026-4-10
 
 ### Changed
@@ -15,6 +35,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - _polymod_meta.json is no longer missing on mobile
 - Fixed error messages popping up on mobile when first opening the game
 - Freeplay icon for Spookeez (Spooky Mix) is no longer missing on mobile
+
+
 
 ## [2.0.9] - 2026-4-10
 
@@ -49,6 +71,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Removed a ton of unused menu code
 
 
+
 ## [2.0.8] - 2026-1-30
 
 ### Added
@@ -64,6 +87,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Fixed the Weekend 1 week title not displaying properly in freeplay
 - Fixed Week 6 (Pico Mix) stage not loading properly
+
+
 
 ## [2.0.7] - 2026-1-14
 
@@ -89,6 +114,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 #### NOTE: Atlas sprites currently use applyStageMatrix to correct their offsets. Be aware that this is known to break at times. This is temporary and we will be manually correcting the offsets in a future patch.
 
+
+
 ## [2.0.6] - 2025-10-21
 
 ### Changed
@@ -99,6 +126,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Temporarily removed the transition from the Results Screen to Monster's songs since it was causing script errors and other issues
 
+
+
 ## [2.0.5] - 2025-09-18
 
 ### Fixed
@@ -106,6 +135,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Selecting "Random" in Freeplay no longer causes an error to pop up on FNF v0.7.5
 - Week 6 (Spooky Mix) dialogue is now correctly positioned on FNF v0.7.5
 - Changing the default player in Options before opening Freeplay will now once again update the menu music to match with the background
+
+
 
 ## [2.0.4] - 2025-09-14
 
@@ -151,6 +182,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Removed even more unused imports for optimization
 - Removed some duplicate Freeplay pixel icons
 
+
+
 ## [2.0.3] - 2025-08-02
 
 ### Added
@@ -193,6 +226,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Removed extra controls in the credits menu since the menu was reworked in FNF v0.7 and the extra controls won't work anymore
 - Removed a bunch of unused imports for optimization
+
+
 
 ## [2.0.2] - 2025-05-30
 
